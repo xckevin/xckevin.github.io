@@ -1,0 +1,25 @@
+# Permalinks
+#
+# Use of `relative_permalinks` ensures post links from the index work properly.
+permalink:           pretty
+relative_permalinks: true
+
+# Setup
+title:               Kevin Liu
+tagline:             'Stay hungry, stay foolish'
+description:         'Mobile Developer <p> 专注移动开发，擅长Android，略懂iOS、H5、JavaWeb等技术. <p> 目前base在中国·杭州'
+url:                 http://www.github.com/xckevin
+baseurl:             ''
+paginate:            8
+
+gems: [jekyll-paginate]
+relative_permalinks: false
+
+# About/contact
+author:
+  name:              Kevin Liu
+  url:               
+  email:             xckevin927@gmail.com
+
+# Custom vars
+version:             1.0.0

@@ -4,10 +4,10 @@ tagline: Stay hungry, stay foolish
 email: xckevin927@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   Mobile Developer <p> 专注移动开发，擅长Android，略懂iOS、H5、JavaWeb等技术. <p> 目前base在中国·杭州
-baseurl: "/" # the subpath of your site, e.g. /blog/
+baseurl: "/blog/" # the subpath of your site, e.g. /blog/
 url: "http://xckevin.github.io"   # the base hostname & protocol for your site
 logourl: /assets/images/logo.png # Site logo
-author: "Tom Warlker"
+author: "Kevin Liu"
 author_thumbnail: "/assets/images/avatar.jpg" # Author avatar
 # Theme customization - please change from the defaults!
 theme:

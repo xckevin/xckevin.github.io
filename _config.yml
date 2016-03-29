@@ -1,29 +1,61 @@
+# Site settings
+title: Kevin Liu
+tagline: Stay hungry, stay foolish
+email: xckevin927@gmail.com
+description: > # this means to ignore newlines until "baseurl:"
+  Mobile Developer <p> 专注移动开发，擅长Android，略懂iOS、H5、JavaWeb等技术. <p> 目前base在中国·杭州
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://xckevin.github.io/"   # the base hostname & protocol for your site
+logourl: /assets/images/logo.png # Site logo
+author: "Tom Warlker"
+author_thumbnail: "/assets/images/avatar.jpg" # Author avatar
+# Theme customization - please change from the defaults!
+theme:
+  # Color for sidebar bar, links, etc
+  highlight_color: "#90A959" #205081" # "#272935"
+  # Social media links, leave blank to ignore
+  social: 
+    github: xckevin
+    #twitter: gayanvirajith
+    #facebook: gayanvirajith
+    gplus: +xckevin927
+    # dribble: gayanvirajith
+    # pinterest: gayanvirajith
+
+  # Enable share buttons on post footer
+  show_share_buttons: true
+
+  # Show author picure, name and social links on post footer
+  show_author_info: false
+
+  # Disqus comments manager - shortname
+  # disqus_shortname: gaya-webcreate
+
+  # Google Analytics/Webmaster key, leave blank to ignore
+  google_analytics_key: 
+  google_webmaster_key: 
+
+# Build settings
+markdown: kramdown
+
 # Permalinks
-#
-# Use of `relative_permalinks` ensures post links from the index work properly.
-permalink:           pretty
-relative_permalinks: true
+permalink:        pretty
 
-# Setup
-title:               Kevin Liu
-tagline:             'Stay hungry, stay foolish'
-description:         'Mobile Developer <p> 专注移动开发，擅长Android，略懂iOS、H5、JavaWeb等技术. <p> 目前base在中国·杭州'
-url:                 http://www.github.com/xckevin
-baseurl:             'http://xckevin.github.io/'
-paginate:            8
-
+# Pagination config
 gems: [jekyll-paginate]
-relative_permalinks: false
+paginate: 8
 
-# About/contact
-author:
-  name:              Kevin Liu
-  url:               
-  email:             xckevin927@gmail.com
+# Files/Folders to be excluded from generated _site folder
+exclude: 
+  - CNAME
+  - Gemfile
+  - Rakefile
+  - README.md
+  - .gitignore
+  - .sass-cache
+  - Gemfile.lock
 
-# Custom vars
-version:             1.0.0
-
-redcarpet:
-  extensions: [fenced_code_blocks]
-  render_options:
+# Sass conversion configs
+sass:
+  sass_dir: assets/css/_sass
+  style: :compressed

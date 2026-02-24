@@ -19,8 +19,8 @@ export function slugify(input?: string): string {
         return slug
             .split('')
             .map((c) =>
-                /[a-z0-9-]/.test(c)
-                    ? c
+                /[a-z0-9-]/i.test(c)
+                    ? c.toLowerCase()
                     : Array.from(c)
                           .map((ch) => 'u' + ch.charCodeAt(0).toString(16))
                           .join('')

@@ -15,20 +15,21 @@ export function slugify(input?: string): string {
     // 检查是否包含非 ASCII 字符（如中文）
     const hasNonAscii = /[^\x00-\x7F]/.test(slug);
     if (hasNonAscii) {
+        // 先统一转小写，确保 "Hello" 与 "hello" 产生相同 slug（正确重复检测）
+        slug = slug.toLowerCase();
         // 中文等非 ASCII：将每个字符转为 U+code 格式，保证唯一且 URL 安全
         return slug
             .split('')
             .map((c) =>
-                /[a-z0-9-]/i.test(c)
-                    ? c.toLowerCase()
+                /[a-z0-9-]/.test(c)
+                    ? c
                     : Array.from(c)
                           .map((ch) => 'u' + ch.charCodeAt(0).toString(16))
                           .join('')
             )
             .join('-')
             .replace(/-+/g, '-')
-            .replace(/^-|-$/g, '')
-            .toLowerCase();
+            .replace(/^-|-$/g, '');
     }
 
     // 纯 ASCII：原有逻辑

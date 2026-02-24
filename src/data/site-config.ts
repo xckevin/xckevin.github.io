@@ -3,14 +3,14 @@ import hero from '../assets/images/hero.jpg';
 import type { SiteConfig } from '../types';
 
 const siteConfig: SiteConfig = {
-    website: 'https://example.com',
+    website: 'https://xckevin.github.io',
     avatar: {
         src: avatar,
-        alt: 'Ethan Donovan'
+        alt: 'Kai'
     },
-    title: 'Dante',
-    subtitle: 'Minimal Astro.js theme',
-    description: 'Astro.js and Tailwind CSS theme for blog and portfolio by justgoodui.com',
+    title: 'Kai - Cool Developer',
+    subtitle: '这是我的个人博客，记录我的学习和生活点滴。',
+    description: '这是我的个人博客，记录我的学习和生活点滴。欢迎来到我的博客！在这里，我将分享我的学习经验、技术见解以及生活中的点滴。无论你是对编程感兴趣，还是想了解我的个人经历，都欢迎你加入我的博客社区！',
     image: {
         src: '/dante-preview.jpg',
         alt: 'Dante - Astro.js and Tailwind CSS theme'

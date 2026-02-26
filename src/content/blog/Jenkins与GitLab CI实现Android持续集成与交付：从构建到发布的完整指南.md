@@ -9,7 +9,7 @@ tags:
   - DevOps
 seo:
   title: Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南
-  description: 在当今快速迭代的移动应用开发环境中，持续集成（Continuous Integration，CI）和持续交付（Continuous Delivery，CD）已成为现代软件开发流程中不可或缺的一部分。对于 Android 开发团队而言，建立一套高效、可靠的自动化构建、测试和发布系统，能够显著提高开发效率、减少人为错误并加速产品交付周期。
+  description: 使用 Jenkins 和 GitLab CI 构建 Android CI/CD 管道，自动化构建、测试和发布，提高效率并减少错误。
 ---
 # Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南
 

@@ -4,7 +4,9 @@ import siteConfig from '../data/site-config.ts';
 import { sortItemsByDateDesc } from '../utils/data-utils.ts';
 
 export async function GET(context) {
-    const posts = (await getCollection('blog')).sort(sortItemsByDateDesc);
+    const posts = (await getCollection('blog'))
+        .filter(({ data }) => data.displayInBlog)
+        .sort(sortItemsByDateDesc);
     return rss({
         title: siteConfig.title,
         description: siteConfig.description,

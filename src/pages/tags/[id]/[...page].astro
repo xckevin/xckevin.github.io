@@ -9,7 +9,9 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getAllTags, getPostsByTag, sortItemsByDateDesc } from '../../../utils/data-utils';
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
-    const posts = (await getCollection('blog')).sort(sortItemsByDateDesc);
+    const posts = (await getCollection('blog'))
+        .filter(({ data }) => data.displayInBlog)
+        .sort(sortItemsByDateDesc);
     const tags = getAllTags(posts);
 
     return tags.flatMap((tag) => {
@@ -26,7 +28,7 @@ type Props = { page: Page<CollectionEntry<'blog'>> };
 const { page } = Astro.props;
 const blog = page.data;
 const params = Astro.params;
-const allPosts = await getCollection('blog');
+const allPosts = (await getCollection('blog')).filter(({ data }) => data.displayInBlog);
 const allTags = getAllTags(allPosts);
 const currentTag = allTags.find((tag) => {
     return tag.id === params.id;

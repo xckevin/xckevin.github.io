@@ -11,15 +11,19 @@ import { slugify } from '../../utils/common-utils';
 
 export async function getStaticPaths() {
     const posts = (await getCollection('blog')).sort(sortItemsByDateDesc);
-    const postCount = posts.length;
-    return posts.map((post, index) => ({
-        params: { id: post.id },
-        props: {
-            post,
-            prevPost: index + 1 !== postCount ? posts[index + 1] : null,
-            nextPost: index !== 0 ? posts[index - 1] : null
-        }
-    }));
+    const displayPosts = posts.filter(({ data }) => data.displayInBlog);
+    return posts.map((post) => {
+        const displayIndex = displayPosts.findIndex((p) => p.id === post.id);
+        const inDisplay = displayIndex !== -1;
+        return {
+            params: { id: post.id },
+            props: {
+                post,
+                prevPost: inDisplay && displayIndex + 1 < displayPosts.length ? displayPosts[displayIndex + 1] : null,
+                nextPost: inDisplay && displayIndex > 0 ? displayPosts[displayIndex - 1] : null
+            }
+        };
+    });
 }
 
 type Props = { post: CollectionEntry<'blog'>; prevPost: CollectionEntry<'blog'>; nextPost: CollectionEntry<'blog'> };

@@ -61,6 +61,76 @@ html.dark {
     --border-color-main: var(--border-main);
 }
 
+/* Table of Contents */
+.toc-sidebar {
+    position: fixed;
+    top: 6rem;
+    left: calc(50vw - 38.5rem);
+    width: 13rem;
+    max-height: calc(100vh - 8rem);
+    overflow-y: auto;
+    display: none;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-main) transparent;
+}
+
+@media (min-width: 1280px) {
+    .toc-sidebar {
+        display: block;
+    }
+}
+
+.toc-title {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.75rem;
+    opacity: 0.4;
+}
+
+.toc-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-left: 1px solid color-mix(in srgb, var(--border-main) 20%, transparent);
+}
+
+.toc-list li {
+    margin: 0;
+    padding: 0;
+}
+
+.toc-link {
+    display: block;
+    padding: 0.25rem 0 0.25rem 0.875rem;
+    font-size: 0.8125rem;
+    line-height: 1.5;
+    color: var(--text-main);
+    opacity: 0.35;
+    text-decoration: none;
+    transition: opacity 0.2s ease, border-color 0.2s ease;
+    border-left: 2px solid transparent;
+    margin-left: -1px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.toc-link:hover {
+    opacity: 0.75;
+}
+
+.toc-link-active {
+    opacity: 1;
+    border-left-color: var(--text-main);
+}
+
+.toc-link-sub {
+    padding-left: 1.5rem;
+    font-size: 0.75rem;
+}
+
 @layer utilities {
     .prose {
         --tw-prose-body: var(--text-color-main);

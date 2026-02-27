@@ -1,0 +1,92 @@
+---
+export interface Props {
+    headings: Array<{ depth: number; slug: string; text: string }>;
+}
+
+const { headings } = Astro.props;
+const tocHeadings = headings.filter((h) => h.depth >= 2 && h.depth <= 3);
+---
+
+{
+    tocHeadings.length > 0 && (
+        <nav class="toc-sidebar" id="toc-nav" aria-label="Table of contents">
+            <div class="toc-title">目录</div>
+            <ul class="toc-list">
+                {tocHeadings.map((h) => (
+                    <li>
+                        <a
+                            href={`#${h.slug}`}
+                            class={`toc-link ${h.depth === 3 ? 'toc-link-sub' : ''}`}
+                            data-slug={h.slug}
+                        >
+                            {h.text}
+                        </a>
+                    </li>
+                ))}
+            </ul>
+        </nav>
+    )
+}
+
+<script>
+    document.addEventListener('astro:page-load', () => {
+        const tocNav = document.getElementById('toc-nav');
+        if (!tocNav) return;
+
+        const tocLinks = tocNav.querySelectorAll<HTMLAnchorElement>('.toc-link');
+        if (tocLinks.length === 0) return;
+
+        const headingElements: HTMLElement[] = [];
+        tocLinks.forEach((link) => {
+            const slug = link.dataset.slug;
+            if (slug) {
+                const el = document.getElementById(slug);
+                if (el) headingElements.push(el);
+            }
+        });
+
+        if (headingElements.length === 0) return;
+
+        function getActiveSlug(): string {
+            const scrollY = window.scrollY;
+            for (let i = headingElements.length - 1; i >= 0; i--) {
+                if (headingElements[i].offsetTop <= scrollY + 100) {
+                    return headingElements[i].id;
+                }
+            }
+            return headingElements[0]?.id ?? '';
+        }
+
+        function updateActiveLink(slug: string) {
+            tocLinks.forEach((link) => {
+                link.classList.toggle('toc-link-active', link.dataset.slug === slug);
+            });
+        }
+
+        let ticking = false;
+        function onScroll() {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    updateActiveLink(getActiveSlug());
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        updateActiveLink(getActiveSlug());
+
+        tocLinks.forEach((link) => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const slug = link.dataset.slug;
+                if (slug) {
+                    const target = document.getElementById(slug);
+                    target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    history.replaceState(null, '', `#${slug}`);
+                }
+            });
+        });
+    });
+</script>

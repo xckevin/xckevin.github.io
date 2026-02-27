@@ -13,6 +13,15 @@ const { showHeader = true, ...head } = Astro.props;
 <!doctype html>
 <html lang="en" class="wrap-break-words antialiased">
     <head>
+        <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BV54W83MFY"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BV54W83MFY');
+</script>
         <BaseHead {...head} />
         <script>
             if (localStorage.theme === 'dark') {

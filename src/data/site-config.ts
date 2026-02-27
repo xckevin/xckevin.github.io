@@ -33,7 +33,7 @@ const siteConfig: SiteConfig = {
     ],
     hero: {
         title: '欢迎来到我的个人主页',
-        text: '欢迎！这里将展示我的学习与生活点滴。你可以在 `src/data/site-config.ts` 中修改此内容。',
+        text: '欢迎！这里将展示我的学习与生活点滴，欢迎一起交流学习。',
         image: {
             src: hero,
             alt: 'Hero 图片'

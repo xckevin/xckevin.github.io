@@ -23,7 +23,7 @@ const blog = defineCollection({
             excerpt: z.string().optional(),
             publishDate: z.coerce.date(),
             updatedDate: z.coerce.date().optional(),
-            isFeatured: z.boolean().default(false),
+            isFeatured: z.boolean().default(true),
             displayInBlog: z.boolean().default(true),
             tags: z.array(z.string()).default([]),
             series: z

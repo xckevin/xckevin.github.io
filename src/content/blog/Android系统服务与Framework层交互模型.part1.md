@@ -1,7 +1,7 @@
 ---
 title: "Android 系统服务与 Framework 层交互模型（1）：引言：驱动 Android 世界的引擎"
 excerpt: "「Android 系统服务与 Framework 层交互模型」系列第 1/3 篇：引言：驱动 Android 世界的引擎"
-publishDate: 2025-02-24
+publishDate: 2024-05-27
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Android 系统服务与 Framework 层交互模型（1）：引言：驱动 Android 世界的引擎"
   description: "「Android 系统服务与 Framework 层交互模型」系列第 1/3 篇：引言：驱动 Android 世界的引擎"
 ---
-# Android 系统服务与 Framework 层交互模型（1）：引言：驱动 Android 世界的引擎
-
 > 本文是「Android 系统服务与 Framework 层交互模型」系列的第 1 篇，共 3 篇。
 
 ## 引言：驱动 Android 世界的引擎

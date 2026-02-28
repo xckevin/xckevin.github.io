@@ -1,7 +1,7 @@
 ---
 title: 深入解析 Android 17 的无锁 MessageQueue
 excerpt: Android 17 引入了全新的无锁 MessageQueue 实现 DeliQueue，通过 Treiber 栈和最小堆的混合数据结构，彻底消除了困扰 Android 二十年的锁竞争问题，显著减少了 UI 卡顿。
-publishDate: 2026-02-27
+publishDate: 2024-09-10
 tags:
   - Android
   - 性能优化
@@ -12,9 +12,6 @@ seo:
   title: 深入解析 Android 17 的无锁 MessageQueue
   description: Android 17 用无锁 DeliQueue 替代传统 MessageQueue，通过 Treiber 栈与最小堆混合架构消除锁竞争，减少 4% 掉帧率，提升 9.1% 冷启动速度。
 ---
-
-# 深入解析 Android 17 的无锁 MessageQueue
-
 > **总结**：Android 的 MessageQueue 十多年来一直使用单一监视器锁保护状态，导致后台线程与 UI 线程之间频繁发生锁竞争和优先级反转，成为 UI 卡顿的重要根源。Android 17 引入了名为 DeliQueue 的全新无锁数据结构，结合 Treiber 栈实现 O(1) 无锁入队，配合最小堆实现高效出队，从根本上解决了这一系统级性能问题。本文深入剖析了 DeliQueue 的架构设计、原子操作原语、墓碑删除机制、无分支优化等核心技术，并展示了如何使用 Perfetto 分析锁竞争。对于关注 Android 系统底层性能优化的开发者而言，这篇文章极具参考价值。
 
 *作者：Shai Barack（Android 平台性能负责人）和 Charles Munger（首席软件工程师）*

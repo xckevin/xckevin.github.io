@@ -1,7 +1,7 @@
 ---
 title: "Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南（4）：代码质量检查"
 excerpt: "「Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南」系列第 4/8 篇：代码质量检查"
-publishDate: 2025-02-24
+publishDate: 2025-09-06
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南（4）：代码质量检查"
   description: "「Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南」系列第 4/8 篇：代码质量检查"
 ---
-# Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南（4）：代码质量检查
-
 > 本文是「Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南」系列的第 4 篇，共 8 篇。在上一篇中，我们探讨了「自动化测试集成」的相关内容。
 
 ## 第五章：代码质量检查

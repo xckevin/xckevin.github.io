@@ -1,7 +1,7 @@
 ---
 title: 深入解析 Android 隐藏 API：从 _hide 到 Greylist 和 Blacklist
 excerpt: "Android 作为一套复杂的开源操作系统，为开发者提供了丰富的功能接口。然而，出于维护系统稳定性、安全性和向后兼容性的考虑，Android 官方将部分接口进行了隐藏处理。这些隐藏 API（通过 @hide 标注）虽在源码中存在，却被排除在官方 SDK 的公共接口之外。开发者虽可通过技术手段调用它们，但可能引发兼容性问题，甚至触发系统的访问限制。"
-publishDate: 2025-02-24
+publishDate: 2024-06-18
 tags:
   - Android
   - 隐藏API
@@ -11,8 +11,6 @@ seo:
   title: 深入解析 Android 隐藏 API：从 _hide 到 Greylist 和 Blacklist
   description: 深入解析 Android 隐藏 API：从 _hide 到 Greylist 和 Blacklist：解读 Android 隐藏 API 的分类、风险与兼容性策略，助力安全与迁移决策。
 ---
-# 深入解析 Android 隐藏 API：从 _hide 到 Greylist 和 Blacklist
-
 Android 作为一套复杂的开源操作系统，为开发者提供了丰富的功能接口。然而，出于维护系统稳定性、安全性和向后兼容性的考虑，Android 官方将部分接口进行了隐藏处理。这些隐藏 API（通过 `@hide` 标注）虽在源码中存在，却被排除在官方 SDK 的公共接口之外。开发者虽可通过技术手段调用它们，但可能引发兼容性问题，甚至触发系统的访问限制。
 
 本文将详细解析隐藏 API 的定义、分类及访问限制，从源码角度揭示其生成、检测与调用方式，并探讨 `greylist` 与 `blacklist` 策略，以及开发者在面对隐藏 API 时的应对思路。

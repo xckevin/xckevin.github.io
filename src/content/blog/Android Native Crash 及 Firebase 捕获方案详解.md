@@ -1,7 +1,7 @@
 ---
 title: Android Native Crash 及 Firebase 捕获方案详解
 excerpt: 在 Android 开发中，应用崩溃可分为 Java 层崩溃（RuntimeException） 和 Native 层崩溃（NDK 相关，如 SIGSEGV）。Java 崩溃通常能被 Firebase Crashlytics 轻松捕获，但 Native 崩溃默认不会被 Firebase 记录，需要额外配置。
-publishDate: 2025-02-24
+publishDate: 2025-02-03
 tags:
   - Android
   - NDK
@@ -11,8 +11,6 @@ seo:
   title: Android Native Crash 及 Firebase 捕获方案详解
   description: 在 Android 开发中，应用崩溃可分为 Java 层崩溃（RuntimeException） 和 Native 层崩溃（NDK 相关，如 SIGSEGV）。Java 崩溃通常能被 Firebase Crashlytics 轻松捕获，但 Native 崩溃默认不会被 Firebase 记录，需要额外配置。
 ---
-# Android Native Crash 及 Firebase 捕获方案详解
-
 ![](../../assets/android-native-crash-及-firebase-捕获方案详解-1.png)
 
 在 Android 开发中，应用崩溃可分为 **Java 层崩溃（RuntimeException）** 和 **Native 层崩溃（NDK 相关，如 SIGSEGV）**。Java 崩溃通常能被 Firebase Crashlytics 轻松捕获，但 **Native 崩溃默认不会被 Firebase 记录**，需要额外配置。

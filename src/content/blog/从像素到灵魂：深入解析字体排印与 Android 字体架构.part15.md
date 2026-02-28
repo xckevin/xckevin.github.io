@@ -1,7 +1,7 @@
 ---
 title: "从像素到灵魂：深入解析字体排印与 Android 字体架构（15）：包容性设计：无障碍 (Accessibility) 与字体"
 excerpt: "「从像素到灵魂：深入解析字体排印与 Android 字体架构」系列第 15/15 篇：包容性设计：无障碍 (Accessibility) 与字体"
-publishDate: 2025-02-24
+publishDate: 2026-01-12
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "从像素到灵魂：深入解析字体排印与 Android 字体架构（15）：包容性设计：无障碍 (Accessibility) 与字体"
   description: "「从像素到灵魂：深入解析字体排印与 Android 字体架构」系列第 15/15 篇：包容性设计：无障碍 (Accessibility) 与字体"
 ---
-# 从像素到灵魂：深入解析字体排印与 Android 字体架构（15）：包容性设计：无障碍 (Accessibility) 与字体
-
 > 本文是「从像素到灵魂：深入解析字体排印与 Android 字体架构」系列的第 15 篇，共 15 篇。在上一篇中，我们探讨了「现代 UI 的字体之道：Jetpack Compose 中的实践」的相关内容。
 
 ## 第四章：包容性设计：无障碍 (Accessibility) 与字体

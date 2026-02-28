@@ -1,7 +1,7 @@
 ---
 title: "深入浅出 Android TextView：揭秘文本测量与布局的艺术（3）：精雕细琢：换行、断字与对齐"
 excerpt: "「深入浅出 Android TextView：揭秘文本测量与布局的艺术」系列第 3/4 篇：精雕细琢：换行、断字与对齐"
-publishDate: 2025-02-24
+publishDate: 2025-05-18
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "深入浅出 Android TextView：揭秘文本测量与布局的艺术（3）：精雕细琢：换行、断字与对齐"
   description: "「深入浅出 Android TextView：揭秘文本测量与布局的艺术」系列第 3/4 篇：精雕细琢：换行、断字与对齐"
 ---
-# 深入浅出 Android TextView：揭秘文本测量与布局的艺术（3）：精雕细琢：换行、断字与对齐
-
 > 本文是「深入浅出 Android TextView：揭秘文本测量与布局的艺术」系列的第 3 篇，共 4 篇。在上一篇中，我们探讨了「三大 Layout 实现详解」的相关内容。
 
 ## 5. 精雕细琢：换行、断字与对齐

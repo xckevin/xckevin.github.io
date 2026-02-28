@@ -1,7 +1,7 @@
 ---
 title: "Android动画深度解析：从原理到实践（8）：E. MotionLayout"
 excerpt: "「Android动画深度解析：从原理到实践」系列第 8/9 篇：E. MotionLayout"
-publishDate: 2025-02-24
+publishDate: 2024-03-20
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Android动画深度解析：从原理到实践（8）：E. MotionLayout"
   description: "「Android动画深度解析：从原理到实践」系列第 8/9 篇：E. MotionLayout"
 ---
-# Android动画深度解析：从原理到实践（8）：E. MotionLayout
-
 > 本文是「Android动画深度解析：从原理到实践」系列的第 8 篇，共 9 篇。在上一篇中，我们探讨了「D. Physics-Based Animation（基于物理的动画）」的相关内容。
 
 ### E. MotionLayout

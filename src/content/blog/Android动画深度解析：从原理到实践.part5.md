@@ -1,7 +1,7 @@
 ---
 title: "Android动画深度解析：从原理到实践（5）：A. View Animation（补间动画 - Tween Animation）、B. Property Animation（属性动画）"
 excerpt: "「Android动画深度解析：从原理到实践」系列第 5/9 篇：A. View Animation（补间动画 - Tween Animation）、B. Property Animation（属性动画）"
-publishDate: 2025-02-24
+publishDate: 2024-03-20
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Android动画深度解析：从原理到实践（5）：A. View Animation（补间动画 - Tween Animation）、B. Property Animation（属性动画）"
   description: "「Android动画深度解析：从原理到实践」系列第 5/9 篇：A. View Animation（补间动画 - Tween Animation）、B. Property Animation（属性动画）"
 ---
-# Android动画深度解析：从原理到实践（5）：A. View Animation（补间动画 - Tween Animation）、B. Property Animation（属性动画）
-
 > 本文是「Android动画深度解析：从原理到实践」系列的第 5 篇，共 9 篇。在上一篇中，我们探讨了「核心组件解析（Core Component Analysis）」的相关内容。
 
 ## 第三部分：主流动画类型深度剖析与选型

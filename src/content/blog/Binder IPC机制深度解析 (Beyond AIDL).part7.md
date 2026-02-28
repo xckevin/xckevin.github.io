@@ -1,7 +1,7 @@
 ---
 title: "Binder IPC 机制深度解析（Beyond AIDL）（7）：疑难问题排查：庖丁解牛 Binder"
 excerpt: "「Binder IPC 机制深度解析（Beyond AIDL）」系列第 7/7 篇：疑难问题排查：庖丁解牛 Binder"
-publishDate: 2025-02-24
+publishDate: 2024-04-21
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Binder IPC 机制深度解析（Beyond AIDL）（7）：疑难问题排查：庖丁解牛 Binder"
   description: "「Binder IPC 机制深度解析（Beyond AIDL）」系列第 7/7 篇：疑难问题排查：庖丁解牛 Binder"
 ---
-# Binder IPC 机制深度解析（Beyond AIDL）（7）：疑难问题排查：庖丁解牛 Binder
-
 > 本文是「Binder IPC 机制深度解析（Beyond AIDL）」系列的第 7 篇，共 7 篇。在上一篇中，我们探讨了「死亡通知（DeathRecipient）：远端死亡的哨兵」的相关内容。
 
 ## 九、疑难问题排查：庖丁解牛 Binder

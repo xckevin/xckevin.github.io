@@ -1,7 +1,7 @@
 ---
 title: "Android应用安全加固与攻防（1）：引言：开放生态下的安全博弈"
 excerpt: "「Android应用安全加固与攻防」系列第 1/3 篇：引言：开放生态下的安全博弈"
-publishDate: 2025-02-24
+publishDate: 2024-12-13
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Android应用安全加固与攻防（1）：引言：开放生态下的安全博弈"
   description: "「Android应用安全加固与攻防」系列第 1/3 篇：引言：开放生态下的安全博弈"
 ---
-# Android应用安全加固与攻防（1）：引言：开放生态下的安全博弈
-
 > 本文是「Android应用安全加固与攻防」系列的第 1 篇，共 3 篇。
 
 ## 引言：开放生态下的安全博弈

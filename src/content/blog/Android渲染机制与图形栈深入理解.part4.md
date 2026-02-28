@@ -1,7 +1,7 @@
 ---
 title: "Android 渲染机制与图形栈深入理解（4）：特殊视图辨析：SurfaceView vs TextureView vs SurfaceControlViewHost"
 excerpt: "「Android 渲染机制与图形栈深入理解」系列第 4/4 篇：特殊视图辨析：SurfaceView vs TextureView vs SurfaceControlViewHost"
-publishDate: 2025-02-24
+publishDate: 2025-06-19
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Android 渲染机制与图形栈深入理解（4）：特殊视图辨析：SurfaceView vs TextureView vs SurfaceControlViewHost"
   description: "「Android 渲染机制与图形栈深入理解」系列第 4/4 篇：特殊视图辨析：SurfaceView vs TextureView vs SurfaceControlViewHost"
 ---
-# Android 渲染机制与图形栈深入理解（4）：特殊视图辨析：SurfaceView vs TextureView vs SurfaceControlViewHost
-
 > 本文是「Android 渲染机制与图形栈深入理解」系列的第 4 篇，共 4 篇。在上一篇中，我们探讨了「从 GPU 到屏幕：缓冲区、合成与 SurfaceFlinger」的相关内容。
 
 ## 六、特殊视图辨析：SurfaceView vs TextureView vs SurfaceControlViewHost

@@ -1,7 +1,7 @@
 ---
 title: "Binder IPC 机制深度解析（Beyond AIDL）（3）：内存模型与数据传输：一次拷贝的奥秘"
 excerpt: "「Binder IPC 机制深度解析（Beyond AIDL）」系列第 3/7 篇：内存模型与数据传输：一次拷贝的奥秘"
-publishDate: 2025-02-24
+publishDate: 2024-04-21
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Binder IPC 机制深度解析（Beyond AIDL）（3）：内存模型与数据传输：一次拷贝的奥秘"
   description: "「Binder IPC 机制深度解析（Beyond AIDL）」系列第 3/7 篇：内存模型与数据传输：一次拷贝的奥秘"
 ---
-# Binder IPC 机制深度解析（Beyond AIDL）（3）：内存模型与数据传输：一次拷贝的奥秘
-
 > 本文是「Binder IPC 机制深度解析（Beyond AIDL）」系列的第 3 篇，共 7 篇。在上一篇中，我们探讨了「深入 Binder 驱动：内核中的魔法师」的相关内容。
 
 ## 三、内存模型与数据传输：一次拷贝的奥秘

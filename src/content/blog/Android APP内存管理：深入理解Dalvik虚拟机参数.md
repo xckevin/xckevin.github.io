@@ -1,7 +1,7 @@
 ---
 title: Android APP 内存管理：深入理解 Dalvik 虚拟机参数
 excerpt: 在 Android 应用开发中，内存管理是不可忽视的重要环节。合理的内存管理能够提升应用性能，有效避免内存溢出（OOM）等问题。本文将深入探讨 Android 应用的最大可用内存，以及如何通过调整 Dalvik 虚拟机参数来优化内存使用。
-publishDate: 2025-02-24
+publishDate: 2025-12-08
 tags:
   - Android
   - 内存管理
@@ -11,8 +11,6 @@ seo:
   title: Android APP 内存管理：深入理解 Dalvik 虚拟机参数
   description: ART 虚拟机与内存管理高级策略：深入解析 ART 与内存管理、GC 优化技巧，帮助开发者降低 OOM、减少 GC 暂停并改善 UI 流畅度。
 ---
-# Android APP 内存管理：深入理解 Dalvik 虚拟机参数
-
 在 Android 应用开发中，内存管理是不可忽视的重要环节。合理的内存管理能够提升应用性能，有效避免内存溢出（OOM）等问题。本文将深入探讨 Android 应用的最大可用内存，以及如何通过调整 Dalvik 虚拟机参数来优化内存使用。
 
 ## 设备整体内存概览

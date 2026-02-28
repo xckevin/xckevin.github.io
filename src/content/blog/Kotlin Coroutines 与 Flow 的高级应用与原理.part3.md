@@ -1,7 +1,7 @@
 ---
 title: "Kotlin Coroutines 与 Flow 的高级应用与原理（3）：调度器（Dispatchers）：协程在何处运行"
 excerpt: "「Kotlin Coroutines 与 Flow 的高级应用与原理」系列第 3/5 篇：调度器（Dispatchers）：协程在何处运行"
-publishDate: 2025-02-24
+publishDate: 2025-03-30
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Kotlin Coroutines 与 Flow 的高级应用与原理（3）：调度器（Dispatchers）：协程在何处运行"
   description: "「Kotlin Coroutines 与 Flow 的高级应用与原理」系列第 3/5 篇：调度器（Dispatchers）：协程在何处运行"
 ---
-# Kotlin Coroutines 与 Flow 的高级应用与原理（3）：调度器（Dispatchers）：协程在何处运行
-
 > 本文是「Kotlin Coroutines 与 Flow 的高级应用与原理」系列的第 3 篇，共 5 篇。在上一篇中，我们探讨了「结构化并发：告别协程泄漏与混乱」的相关内容。
 
 ## 三、调度器（Dispatchers）：协程在何处运行

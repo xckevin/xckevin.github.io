@@ -1,7 +1,7 @@
 ---
 title: 深入浅出 Android TextView：揭秘文本测量与布局的艺术
 excerpt: 在 Android 应用开发中，TextView 是最基础也是最常用的控件之一。我们每天都在用它来显示各种文本信息，从简单的按钮标签到复杂的富文本段落。但你是否曾好奇：TextView 是如何在有限的空间内，将一串字符精确地转换成屏幕上可见的、排列整齐的文字？这背后涉及一套复杂而精密的测量（Measure）与布局（Layout）机制。
-publishDate: 2025-02-24
+publishDate: 2025-05-18
 tags:
   - Android
   - TextView
@@ -11,8 +11,6 @@ seo:
   title: 深入浅出 Android TextView：揭秘文本测量与布局的艺术
   description: 深入浅出 Android TextView：揭秘文本测量与布局的艺术：全面解析 TextView 的测量与排版细节，提供实用的性能与排版优化技巧。
 ---
-# 深入浅出 Android TextView：揭秘文本测量与布局的艺术
-
 在 Android 应用开发中，TextView 是最基础也是最常用的控件之一。我们每天都在用它来显示各种文本信息，从简单的按钮标签到复杂的富文本段落。但你是否曾好奇：TextView 是如何在有限的空间内，将一串字符精确地转换成屏幕上可见的、排列整齐的文字？这背后涉及一套复杂而精密的测量（Measure）与布局（Layout）机制。
 
 本文将带你深入 TextView 的内部世界，系统性地探讨其文本测量和布局的工作原理、关键的 Layout 类（BoringLayout、StaticLayout、DynamicLayout）及其适用场景、字体和排版属性的影响、RTL 和 Emoji 等特殊情况的处理、换行策略，以及 Font Metrics 等底层概念。希望能帮助你更深刻地理解 TextView，并在实际开发中游刃有余地处理各种文本显示问题。

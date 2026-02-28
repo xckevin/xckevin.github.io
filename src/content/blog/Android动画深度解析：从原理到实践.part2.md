@@ -1,7 +1,7 @@
 ---
 title: "Android动画深度解析：从原理到实践（2）：核心动画概念（Core Animation Concepts）"
 excerpt: "「Android动画深度解析：从原理到实践」系列第 2/9 篇：核心动画概念（Core Animation Concepts）"
-publishDate: 2025-02-24
+publishDate: 2024-03-20
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Android动画深度解析：从原理到实践（2）：核心动画概念（Core Animation Concepts）"
   description: "「Android动画深度解析：从原理到实践」系列第 2/9 篇：核心动画概念（Core Animation Concepts）"
 ---
-# Android动画深度解析：从原理到实践（2）：核心动画概念（Core Animation Concepts）
-
 > 本文是「Android动画深度解析：从原理到实践」系列的第 2 篇，共 9 篇。在上一篇中，我们探讨了「动画，不仅仅是点缀」的相关内容。
 
 ### 2. 核心动画概念（Core Animation Concepts）

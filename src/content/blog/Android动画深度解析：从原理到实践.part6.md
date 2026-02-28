@@ -1,7 +1,7 @@
 ---
 title: "Android动画深度解析：从原理到实践（6）：C. Drawable Animation"
 excerpt: "「Android动画深度解析：从原理到实践」系列第 6/9 篇：C. Drawable Animation"
-publishDate: 2025-02-24
+publishDate: 2024-03-20
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Android动画深度解析：从原理到实践（6）：C. Drawable Animation"
   description: "「Android动画深度解析：从原理到实践」系列第 6/9 篇：C. Drawable Animation"
 ---
-# Android动画深度解析：从原理到实践（6）：C. Drawable Animation
-
 > 本文是「Android动画深度解析：从原理到实践」系列的第 6 篇，共 9 篇。在上一篇中，我们探讨了「A. View Animation（补间动画 - Tween Animation）」的相关内容。
 
 ### C. Drawable Animation

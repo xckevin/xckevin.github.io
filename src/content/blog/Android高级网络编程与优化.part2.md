@@ -1,7 +1,7 @@
 ---
 title: "Android 高级网络编程与优化（2）：OkHttp 深度解析：网络请求的瑞士军刀"
 excerpt: "「Android 高级网络编程与优化」系列第 2/3 篇：OkHttp 深度解析：网络请求的瑞士军刀"
-publishDate: 2025-02-24
+publishDate: 2025-03-17
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Android 高级网络编程与优化（2）：OkHttp 深度解析：网络请求的瑞士军刀"
   description: "「Android 高级网络编程与优化」系列第 2/3 篇：OkHttp 深度解析：网络请求的瑞士军刀"
 ---
-# Android 高级网络编程与优化（2）：OkHttp 深度解析：网络请求的瑞士军刀
-
 > 本文是「Android 高级网络编程与优化」系列的第 2 篇，共 3 篇。在上一篇中，我们探讨了「引言：应用的生命线——网络通信」的相关内容。
 
 ## 二、OkHttp 深度解析：网络请求的瑞士军刀

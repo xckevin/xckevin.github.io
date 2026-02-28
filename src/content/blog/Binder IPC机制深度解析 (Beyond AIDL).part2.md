@@ -1,7 +1,7 @@
 ---
 title: "Binder IPC 机制深度解析（Beyond AIDL）（2）：深入 Binder 驱动：内核中的魔法师"
 excerpt: "「Binder IPC 机制深度解析（Beyond AIDL）」系列第 2/7 篇：深入 Binder 驱动：内核中的魔法师"
-publishDate: 2025-02-24
+publishDate: 2024-04-21
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Binder IPC 机制深度解析（Beyond AIDL）（2）：深入 Binder 驱动：内核中的魔法师"
   description: "「Binder IPC 机制深度解析（Beyond AIDL）」系列第 2/7 篇：深入 Binder 驱动：内核中的魔法师"
 ---
-# Binder IPC 机制深度解析（Beyond AIDL）（2）：深入 Binder 驱动：内核中的魔法师
-
 > 本文是「Binder IPC 机制深度解析（Beyond AIDL）」系列的第 2 篇，共 7 篇。在上一篇中，我们探讨了「引言：Android 世界的神经网络」的相关内容。
 
 ## 二、深入 Binder 驱动：内核中的魔法师

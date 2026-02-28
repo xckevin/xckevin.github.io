@@ -1,7 +1,7 @@
 ---
 title: Binder IPC 机制深度解析（Beyond AIDL）
 excerpt: "在 Android 这个以多进程为基础构建的操作系统中，进程间通信（Inter-Process Communication，IPC）是不可或缺的粘合剂。从应用程序与系统服务（如 ActivityManagerService、WindowManagerService）的交互，到应用内部不同进程（例如主进程与推送服务进程）的协作，再到硬件抽象层（HAL）与系统框架的沟通，都离不开高效、稳定、安全..."
-publishDate: 2025-02-24
+publishDate: 2024-04-21
 tags:
   - Android
   - Binder
@@ -11,8 +11,6 @@ seo:
   title: Binder IPC 机制深度解析（Beyond AIDL）
   description: Binder IPC 机制深度解析（Beyond AIDL）：全面剖析 Android Binder IPC 原理、线程模型与调试技巧，超越 AIDL 层面。
 ---
-# Binder IPC 机制深度解析（Beyond AIDL）
-
 ## 引言：Android 世界的神经网络
 
 在 Android 这个以多进程为基础构建的操作系统中，进程间通信（Inter-Process Communication，IPC）是不可或缺的粘合剂。从应用程序与系统服务（如 ActivityManagerService、WindowManagerService）的交互，到应用内部不同进程（例如主进程与推送服务进程）的协作，再到硬件抽象层（HAL）与系统框架的沟通，都离不开高效、稳定、安全的 IPC 机制。

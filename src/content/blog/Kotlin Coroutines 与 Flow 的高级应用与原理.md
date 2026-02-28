@@ -1,7 +1,7 @@
 ---
 title: Kotlin Coroutines 与 Flow 的高级应用与原理
 excerpt: 在 Android 开发中，异步编程是不可避免的。我们需要在不阻塞主线程（UI 线程）的情况下执行网络请求、数据库操作、复杂计算等耗时任务。传统的并发模型，如直接使用 Thread、AsyncTask 或基于回调（Callback）的设计，往往会导致代码结构复杂、难以维护（回调地狱 Callback Hell）、资源管理困难（内存泄漏、线程泄漏），以及复杂的取消和异常处理逻辑。
-publishDate: 2025-02-24
+publishDate: 2025-03-30
 tags:
   - Android
   - Kotlin
@@ -11,8 +11,6 @@ seo:
   title: Kotlin Coroutines 与 Flow 的高级应用与原理
   description: Kotlin Coroutines 与 Flow 的高级应用与原理：深入讲解协程与 Flow 的高级用法、调度与取消/异常处理的最佳实践。
 ---
-# Kotlin Coroutines 与 Flow 的高级应用与原理
-
 ## 引言：告别回调地狱，拥抱结构化并发
 
 在 Android 开发中，异步编程是不可避免的。我们需要在不阻塞主线程（UI 线程）的情况下执行网络请求、数据库操作、复杂计算等耗时任务。传统的并发模型，如直接使用 Thread、AsyncTask 或基于回调（Callback）的设计，往往会导致代码结构复杂、难以维护（回调地狱 Callback Hell）、资源管理困难（内存泄漏、线程泄漏），以及复杂的取消和异常处理逻辑。

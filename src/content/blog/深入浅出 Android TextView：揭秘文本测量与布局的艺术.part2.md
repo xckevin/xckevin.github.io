@@ -1,7 +1,7 @@
 ---
 title: "深入浅出 Android TextView：揭秘文本测量与布局的艺术（2）：三大 Layout 实现详解"
 excerpt: "「深入浅出 Android TextView：揭秘文本测量与布局的艺术」系列第 2/4 篇：三大 Layout 实现详解"
-publishDate: 2025-02-24
+publishDate: 2025-05-18
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "深入浅出 Android TextView：揭秘文本测量与布局的艺术（2）：三大 Layout 实现详解"
   description: "「深入浅出 Android TextView：揭秘文本测量与布局的艺术」系列第 2/4 篇：三大 Layout 实现详解"
 ---
-# 深入浅出 Android TextView：揭秘文本测量与布局的艺术（2）：三大 Layout 实现详解
-
 > 本文是「深入浅出 Android TextView：揭秘文本测量与布局的艺术」系列的第 2 篇，共 4 篇。在上一篇中，我们探讨了「开篇：文字的旅程 —— 从字符到像素」的相关内容。
 
 ## 4. 三大 Layout 实现详解

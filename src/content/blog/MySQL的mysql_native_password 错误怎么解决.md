@@ -1,7 +1,7 @@
 ---
 title: MySQL 的 mysql_native_password 错误怎么解决
 excerpt: 最近开发一个 Node 项目，需要使用数据库，自然地选择了 MySQL 和 mysql.js npm 包，于是在本机安装了 MySQL 的最新版本。结果项目启动时出现错误：
-publishDate: 2025-02-24
+publishDate: 2025-08-25
 tags:
   - MySQL
   - 数据库
@@ -10,8 +10,6 @@ seo:
   title: MySQL 的 mysql_native_password 错误怎么解决
   description: 最近开发一个 Node 项目，需要使用数据库，自然地选择了 MySQL 和 mysql.js npm 包，于是在本机安装了 MySQL 的最新版本。结果项目启动时出现错误：
 ---
-# MySQL 的 mysql_native_password 错误怎么解决
-
 ## 背景
 
 最近开发一个 Node 项目，需要使用数据库，自然地选择了 MySQL 和 `mysql.js` npm 包，于是在本机安装了 MySQL 的最新版本。结果项目启动时出现错误：

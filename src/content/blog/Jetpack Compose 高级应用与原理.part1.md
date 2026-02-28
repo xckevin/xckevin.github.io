@@ -1,7 +1,7 @@
 ---
 title: "Jetpack Compose 高级应用与原理（1）：引言：声明式 UI 的范式革命"
 excerpt: "「Jetpack Compose 高级应用与原理」系列第 1/3 篇：引言：声明式 UI 的范式革命"
-publishDate: 2025-02-24
+publishDate: 2024-11-18
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Jetpack Compose 高级应用与原理（1）：引言：声明式 UI 的范式革命"
   description: "「Jetpack Compose 高级应用与原理」系列第 1/3 篇：引言：声明式 UI 的范式革命"
 ---
-# Jetpack Compose 高级应用与原理（1）：引言：声明式 UI 的范式革命
-
 > 本文是「Jetpack Compose 高级应用与原理」系列的第 1 篇，共 3 篇。
 
 ## 引言：声明式 UI 的范式革命

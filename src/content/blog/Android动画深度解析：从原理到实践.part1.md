@@ -1,7 +1,7 @@
 ---
 title: "Android动画深度解析：从原理到实践（1）：动画，不仅仅是点缀"
 excerpt: "「Android动画深度解析：从原理到实践」系列第 1/9 篇：动画，不仅仅是点缀"
-publishDate: 2025-02-24
+publishDate: 2024-03-20
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Android动画深度解析：从原理到实践（1）：动画，不仅仅是点缀"
   description: "「Android动画深度解析：从原理到实践」系列第 1/9 篇：动画，不仅仅是点缀"
 ---
-# Android动画深度解析：从原理到实践（1）：动画，不仅仅是点缀
-
 > 本文是「Android动画深度解析：从原理到实践」系列的第 1 篇，共 9 篇。
 
 ## 动画，不仅仅是点缀

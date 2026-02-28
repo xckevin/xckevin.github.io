@@ -1,7 +1,7 @@
 ---
 title: "Android 渲染机制与图形栈深入理解（2）：View 树遍历：performTraversals() 的三大乐章"
 excerpt: "「Android 渲染机制与图形栈深入理解」系列第 2/4 篇：View 树遍历：performTraversals() 的三大乐章"
-publishDate: 2025-02-24
+publishDate: 2025-06-19
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Android 渲染机制与图形栈深入理解（2）：View 树遍历：performTraversals() 的三大乐章"
   description: "「Android 渲染机制与图形栈深入理解」系列第 2/4 篇：View 树遍历：performTraversals() 的三大乐章"
 ---
-# Android 渲染机制与图形栈深入理解（2）：View 树遍历：performTraversals() 的三大乐章
-
 > 本文是「Android 渲染机制与图形栈深入理解」系列的第 2 篇，共 4 篇。在上一篇中，我们探讨了「引言：打造流畅体验的基石」的相关内容。
 
 ## 三、View 树遍历：performTraversals() 的三大乐章

@@ -1,7 +1,7 @@
 ---
 title: Jetpack Compose 高级应用与原理
 excerpt: Jetpack Compose 代表了 Android UI 开发的未来方向，它引入了一种与传统命令式 View 系统截然不同的声明式（Declarative）编程范式。开发者不再需要手动查找并操作 UI 控件（如 findViewById、textView.setText），而是通过编写 Composable 函数来描述 UI 在特定状态下的外观，Compose 框架则负责在状态变化时高效...
-publishDate: 2025-02-24
+publishDate: 2025-03-27
 tags:
   - Android
   - Jetpack Compose
@@ -11,8 +11,6 @@ seo:
   title: Jetpack Compose 高级应用与原理
   description: Jetpack Compose 高级应用与原理：掌握 Jetpack Compose 声明式 UI、布局与状态管理的高级模式与实战技巧。
 ---
-# Jetpack Compose 高级应用与原理
-
 ## 引言：声明式 UI 的范式革命
 
 Jetpack Compose 代表了 Android UI 开发的未来方向，它引入了一种与传统命令式 View 系统截然不同的**声明式（Declarative）**编程范式。开发者不再需要手动查找并操作 UI 控件（如 `findViewById`、`textView.setText`），而是通过编写 **Composable 函数**来描述 UI 在特定状态下的外观，Compose 框架则负责在状态变化时高效地更新界面。

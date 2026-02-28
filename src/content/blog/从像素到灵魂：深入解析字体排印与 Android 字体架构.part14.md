@@ -1,7 +1,7 @@
 ---
 title: "从像素到灵魂：深入解析字体排印与 Android 字体架构（14）：现代 UI 的字体之道：Jetpack Compose 中的实践"
 excerpt: "「从像素到灵魂：深入解析字体排印与 Android 字体架构」系列第 14/15 篇：现代 UI 的字体之道：Jetpack Compose 中的实践"
-publishDate: 2025-02-24
+publishDate: 2026-01-12
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "从像素到灵魂：深入解析字体排印与 Android 字体架构（14）：现代 UI 的字体之道：Jetpack Compose 中的实践"
   description: "「从像素到灵魂：深入解析字体排印与 Android 字体架构」系列第 14/15 篇：现代 UI 的字体之道：Jetpack Compose 中的实践"
 ---
-# 从像素到灵魂：深入解析字体排印与 Android 字体架构（14）：现代 UI 的字体之道：Jetpack Compose 中的实践
-
 > 本文是「从像素到灵魂：深入解析字体排印与 Android 字体架构」系列的第 14 篇，共 15 篇。在上一篇中，我们探讨了「千挑万选：为你的 App 选择合适的字体」的相关内容。
 
 ## 第三章：现代 UI 的字体之道：Jetpack Compose 中的实践

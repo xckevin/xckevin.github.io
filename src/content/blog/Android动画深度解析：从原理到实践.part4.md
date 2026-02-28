@@ -1,7 +1,7 @@
 ---
 title: "Android动画深度解析：从原理到实践（4）：核心组件解析（Core Component Analysis）"
 excerpt: "「Android动画深度解析：从原理到实践」系列第 4/9 篇：核心组件解析（Core Component Analysis）"
-publishDate: 2025-02-24
+publishDate: 2024-03-20
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Android动画深度解析：从原理到实践（4）：核心组件解析（Core Component Analysis）"
   description: "「Android动画深度解析：从原理到实践」系列第 4/9 篇：核心组件解析（Core Component Analysis）"
 ---
-# Android动画深度解析：从原理到实践（4）：核心组件解析（Core Component Analysis）
-
 > 本文是「Android动画深度解析：从原理到实践」系列的第 4 篇，共 9 篇。在上一篇中，我们探讨了「系统架构概览（System Architecture Overview）」的相关内容。
 
 ### 2. 核心组件解析（Core Component Analysis）

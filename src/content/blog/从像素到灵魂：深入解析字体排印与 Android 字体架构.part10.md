@@ -1,7 +1,7 @@
 ---
 title: "从像素到灵魂：深入解析字体排印与 Android 字体架构（10）：千变万化，始于一文：可变字体 (Variable Fonts)"
 excerpt: "「从像素到灵魂：深入解析字体排印与 Android 字体架构」系列第 10/15 篇：千变万化，始于一文：可变字体 (Variable Fonts)"
-publishDate: 2025-02-24
+publishDate: 2026-01-12
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "从像素到灵魂：深入解析字体排印与 Android 字体架构（10）：千变万化，始于一文：可变字体 (Variable Fonts)"
   description: "「从像素到灵魂：深入解析字体排印与 Android 字体架构」系列第 10/15 篇：千变万化，始于一文：可变字体 (Variable Fonts)"
 ---
-# 从像素到灵魂：深入解析字体排印与 Android 字体架构（10）：千变万化，始于一文：可变字体 (Variable Fonts)
-
 > 本文是「从像素到灵魂：深入解析字体排印与 Android 字体架构」系列的第 10 篇，共 15 篇。在上一篇中，我们探讨了「分总结与展望」的相关内容。
 
 ## 第二章：千变万化，始于一文：可变字体 (Variable Fonts)

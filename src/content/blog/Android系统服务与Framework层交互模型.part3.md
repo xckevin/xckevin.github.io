@@ -1,7 +1,7 @@
 ---
 title: "Android 系统服务与 Framework 层交互模型（3）：Framework 与 Service 的桥梁：getSystemService 全链路解析"
 excerpt: "「Android 系统服务与 Framework 层交互模型」系列第 3/3 篇：Framework 与 Service 的桥梁：getSystemService 全链路解析"
-publishDate: 2025-02-24
+publishDate: 2024-05-27
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Android 系统服务与 Framework 层交互模型（3）：Framework 与 Service 的桥梁：getSystemService 全链路解析"
   description: "「Android 系统服务与 Framework 层交互模型」系列第 3/3 篇：Framework 与 Service 的桥梁：getSystemService 全链路解析"
 ---
-# Android 系统服务与 Framework 层交互模型（3）：Framework 与 Service 的桥梁：getSystemService 全链路解析
-
 > 本文是「Android 系统服务与 Framework 层交互模型」系列的第 3 篇，共 3 篇。在上一篇中，我们探讨了「服务注册：让世界发现我——ServiceManager」的相关内容。
 
 ## 四、Framework 与 Service 的桥梁：getSystemService 全链路解析

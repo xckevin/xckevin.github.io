@@ -1,7 +1,7 @@
 ---
 title: "Android 进程与线程模型深度剖析（3）：高级同步与线程安全"
 excerpt: "「Android 进程与线程模型深度剖析」系列第 3/3 篇：高级同步与线程安全"
-publishDate: 2025-02-24
+publishDate: 2025-07-04
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Android 进程与线程模型深度剖析（3）：高级同步与线程安全"
   description: "「Android 进程与线程模型深度剖析」系列第 3/3 篇：高级同步与线程安全"
 ---
-# Android 进程与线程模型深度剖析（3）：高级同步与线程安全
-
 > 本文是「Android 进程与线程模型深度剖析」系列的第 3 篇，共 3 篇。在上一篇中，我们探讨了「Android 主线程（UI 线程）：心脏与瓶颈」的相关内容。
 
 ## 七、高级同步与线程安全

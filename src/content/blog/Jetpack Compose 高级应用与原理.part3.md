@@ -1,7 +1,7 @@
 ---
 title: "Jetpack Compose 高级应用与原理（3）：Compose 布局模型：声明式的测量与放置"
 excerpt: "「Jetpack Compose 高级应用与原理」系列第 3/3 篇：Compose 布局模型：声明式的测量与放置"
-publishDate: 2025-02-24
+publishDate: 2025-01-27
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Jetpack Compose 高级应用与原理（3）：Compose 布局模型：声明式的测量与放置"
   description: "「Jetpack Compose 高级应用与原理」系列第 3/3 篇：Compose 布局模型：声明式的测量与放置"
 ---
-# Jetpack Compose 高级应用与原理（3）：Compose 布局模型：声明式的测量与放置
-
 > 本文是「Jetpack Compose 高级应用与原理」系列的第 3 篇，共 3 篇。在上一篇中，我们探讨了「高级状态管理：超越 remember { mutableStateOf(...) }」的相关内容。
 
 ## 五、Compose 布局模型：声明式的测量与放置

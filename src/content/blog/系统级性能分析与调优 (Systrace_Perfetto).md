@@ -1,7 +1,7 @@
 ---
 title: 系统级性能分析与调优 (Systrace/Perfetto)
 excerpt: 当 Android 应用出现性能问题时——例如 UI 卡顿（Jank）、启动缓慢、功耗过高或整体响应迟钝——仅依赖应用级性能分析工具（如 Android Studio 的 CPU 或 Memory Profiler）往往难以定位根因。这些工具虽能帮助发现应用内部的代码瓶颈或内存泄漏，但许多复杂的性能问题源于应用与 Android 系统服务、Linux 内核、硬件之间的交互，或是多进程、多线程...
-publishDate: 2025-02-24
+publishDate: 2025-07-02
 tags:
   - Android
   - 性能优化
@@ -11,8 +11,6 @@ seo:
   title: 系统级性能分析与调优 (Systrace/Perfetto)
   description: 系统级性能分析与调优 (Systrace_Perfetto)：使用 Systrace/Perfetto 做系统级性能分析，定位卡顿、启动慢与功耗问题。
 ---
-# 系统级性能分析与调优 (Systrace/Perfetto)
-
 ## 引言：超越应用边界，洞察系统全局
 
 当 Android 应用出现性能问题时——例如 UI 卡顿（Jank）、启动缓慢、功耗过高或整体响应迟钝——仅依赖应用级性能分析工具（如 Android Studio 的 CPU 或 Memory Profiler）往往难以定位根因。这些工具虽能帮助发现应用内部的代码瓶颈或内存泄漏，但许多复杂的性能问题源于应用与 Android 系统服务、Linux 内核、硬件之间的交互，或是多进程、多线程间的资源争抢。要诊断这类问题，我们需要能够**跨越应用边界、提供系统全局视角**的工具。

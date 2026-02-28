@@ -1,7 +1,7 @@
 ---
 title: "深入浅出 Android TextView：揭秘文本测量与布局的艺术（4）：复杂场景处理"
 excerpt: "「深入浅出 Android TextView：揭秘文本测量与布局的艺术」系列第 4/4 篇：复杂场景处理"
-publishDate: 2025-02-24
+publishDate: 2025-05-18
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "深入浅出 Android TextView：揭秘文本测量与布局的艺术（4）：复杂场景处理"
   description: "「深入浅出 Android TextView：揭秘文本测量与布局的艺术」系列第 4/4 篇：复杂场景处理"
 ---
-# 深入浅出 Android TextView：揭秘文本测量与布局的艺术（4）：复杂场景处理
-
 > 本文是「深入浅出 Android TextView：揭秘文本测量与布局的艺术」系列的第 4 篇，共 4 篇。在上一篇中，我们探讨了「精雕细琢：换行、断字与对齐」的相关内容。
 
 ## 7. 复杂场景处理

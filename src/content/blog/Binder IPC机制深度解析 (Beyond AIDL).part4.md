@@ -1,7 +1,7 @@
 ---
 title: "Binder IPC 机制深度解析（Beyond AIDL）（4）：线程模型：并发、同步与 ANR 之源"
 excerpt: "「Binder IPC 机制深度解析（Beyond AIDL）」系列第 4/7 篇：线程模型：并发、同步与 ANR 之源"
-publishDate: 2025-02-24
+publishDate: 2024-04-21
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Binder IPC 机制深度解析（Beyond AIDL）（4）：线程模型：并发、同步与 ANR 之源"
   description: "「Binder IPC 机制深度解析（Beyond AIDL）」系列第 4/7 篇：线程模型：并发、同步与 ANR 之源"
 ---
-# Binder IPC 机制深度解析（Beyond AIDL）（4）：线程模型：并发、同步与 ANR 之源
-
 > 本文是「Binder IPC 机制深度解析（Beyond AIDL）」系列的第 4 篇，共 7 篇。在上一篇中，我们探讨了「内存模型与数据传输：一次拷贝的奥秘」的相关内容。
 
 ## 四、线程模型：并发、同步与 ANR 之源

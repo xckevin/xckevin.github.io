@@ -1,7 +1,7 @@
 ---
 title: "Android 冷启动优化：Baseline 优化方案（3）：测试结果"
 excerpt: "「Android 冷启动优化：Baseline 优化方案」系列第 3/3 篇：测试结果"
-publishDate: 2025-02-24
+publishDate: 2025-11-18
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Android 冷启动优化：Baseline 优化方案（3）：测试结果"
   description: "「Android 冷启动优化：Baseline 优化方案」系列第 3/3 篇：测试结果"
 ---
-# Android 冷启动优化：Baseline 优化方案（3）：测试结果
-
 > 本文是「Android 冷启动优化：Baseline 优化方案」系列的第 3 篇，共 3 篇。在上一篇中，我们探讨了「生成基准文件」的相关内容。
 
 ## 测试结果

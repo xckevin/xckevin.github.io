@@ -1,7 +1,7 @@
 ---
 title: "Android 进程与线程模型深度剖析（1）：引言：并发执行的基石与挑战"
 excerpt: "「Android 进程与线程模型深度剖析」系列第 1/3 篇：引言：并发执行的基石与挑战"
-publishDate: 2025-02-24
+publishDate: 2025-07-04
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Android 进程与线程模型深度剖析（1）：引言：并发执行的基石与挑战"
   description: "「Android 进程与线程模型深度剖析」系列第 1/3 篇：引言：并发执行的基石与挑战"
 ---
-# Android 进程与线程模型深度剖析（1）：引言：并发执行的基石与挑战
-
 > 本文是「Android 进程与线程模型深度剖析」系列的第 1 篇，共 3 篇。
 
 ## 引言：并发执行的基石与挑战

@@ -1,7 +1,7 @@
 ---
 title: Android 模块化滚动容器架构：从多 ViewType 到 Section 化页面引擎
 excerpt: 电商类 App 的首页、购物车等复杂页面往往由多个业务模块拼接而成，传统的单 Adapter 多 ViewType 方案在模块增长后逐渐暴露出耦合严重、分页混乱、难以复用等问题。本文提出一套 Section 化的页面容器架构，结合 ConcatAdapter 和模块懒加载策略，实现真正的模块级解耦与可插拔。
-publishDate: 2026-02-27
+publishDate: 2025-03-22
 tags:
   - Android
   - 架构设计
@@ -11,9 +11,6 @@ seo:
   title: Android 模块化滚动容器架构：从多 ViewType 到 Section 化页面引擎
   description: 基于 ConcatAdapter 和 Section 抽象构建模块化页面引擎，解决 Android 复杂页面的嵌套滚动、分页控制和模块复用问题
 ---
-
-# Android 模块化滚动容器架构：从多 ViewType 到 Section 化页面引擎
-
 ## 问题的起点
 
 电商 App 中，首页、购物车、心愿单这类页面有一个共同特征：它们由多个业务模块纵向拼接而成。运营板块、横向商品推荐、猜你喜欢、动态化容器——每个模块有自己的数据源、分页逻辑和加载状态。

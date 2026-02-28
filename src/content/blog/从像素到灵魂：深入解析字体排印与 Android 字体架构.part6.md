@@ -1,7 +1,7 @@
 ---
 title: "从像素到灵魂：深入解析字体排印与 Android 字体架构（6）：Android 的原生字体生态：Roboto、Noto 与字体回退"
 excerpt: "「从像素到灵魂：深入解析字体排印与 Android 字体架构」系列第 6/15 篇：Android 的原生字体生态：Roboto、Noto 与字体回退"
-publishDate: 2025-02-24
+publishDate: 2026-01-12
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "从像素到灵魂：深入解析字体排印与 Android 字体架构（6）：Android 的原生字体生态：Roboto、Noto 与字体回退"
   description: "「从像素到灵魂：深入解析字体排印与 Android 字体架构」系列第 6/15 篇：Android 的原生字体生态：Roboto、Noto 与字体回退"
 ---
-# 从像素到灵魂：深入解析字体排印与 Android 字体架构（6）：Android 的原生字体生态：Roboto、Noto 与字体回退
-
 > 本文是「从像素到灵魂：深入解析字体排印与 Android 字体架构」系列的第 6 篇，共 15 篇。在上一篇中，我们探讨了「无规矩不成方圆——字体授权与合规」的相关内容。
 
 ## 第一章：Android 的原生字体生态：Roboto、Noto 与字体回退

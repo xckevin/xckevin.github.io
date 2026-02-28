@@ -1,7 +1,7 @@
 ---
 title: "Binder IPC 机制深度解析（Beyond AIDL）（6）：死亡通知（DeathRecipient）：远端死亡的哨兵"
 excerpt: "「Binder IPC 机制深度解析（Beyond AIDL）」系列第 6/7 篇：死亡通知（DeathRecipient）：远端死亡的哨兵"
-publishDate: 2025-02-24
+publishDate: 2024-04-21
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Binder IPC 机制深度解析（Beyond AIDL）（6）：死亡通知（DeathRecipient）：远端死亡的哨兵"
   description: "「Binder IPC 机制深度解析（Beyond AIDL）」系列第 6/7 篇：死亡通知（DeathRecipient）：远端死亡的哨兵"
 ---
-# Binder IPC 机制深度解析（Beyond AIDL）（6）：死亡通知（DeathRecipient）：远端死亡的哨兵
-
 > 本文是「Binder IPC 机制深度解析（Beyond AIDL）」系列的第 6 篇，共 7 篇。在上一篇中，我们探讨了「基本 AIDL 实现示例」的相关内容。
 
 ## 六、死亡通知（DeathRecipient）：远端死亡的哨兵

@@ -1,7 +1,7 @@
 ---
 title: "ART 虚拟机与内存管理高级策略（4）：Native 内存探秘：冰山下的部分"
 excerpt: "「ART 虚拟机与内存管理高级策略」系列第 4/4 篇：Native 内存探秘：冰山下的部分"
-publishDate: 2025-02-24
+publishDate: 2024-05-05
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "ART 虚拟机与内存管理高级策略（4）：Native 内存探秘：冰山下的部分"
   description: "「ART 虚拟机与内存管理高级策略」系列第 4/4 篇：Native 内存探秘：冰山下的部分"
 ---
-# ART 虚拟机与内存管理高级策略（4）：Native 内存探秘：冰山下的部分
-
 > 本文是「ART 虚拟机与内存管理高级策略」系列的第 4 篇，共 4 篇。在上一篇中，我们探讨了「高级内存问题诊断」的相关内容。
 
 ## 五、Native 内存探秘：冰山下的部分

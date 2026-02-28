@@ -1,7 +1,7 @@
 ---
 title: "Kotlin Coroutines 与 Flow 的高级应用与原理（2）：结构化并发：告别协程泄漏与混乱"
 excerpt: "「Kotlin Coroutines 与 Flow 的高级应用与原理」系列第 2/5 篇：结构化并发：告别协程泄漏与混乱"
-publishDate: 2025-02-24
+publishDate: 2025-03-30
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Kotlin Coroutines 与 Flow 的高级应用与原理（2）：结构化并发：告别协程泄漏与混乱"
   description: "「Kotlin Coroutines 与 Flow 的高级应用与原理」系列第 2/5 篇：结构化并发：告别协程泄漏与混乱"
 ---
-# Kotlin Coroutines 与 Flow 的高级应用与原理（2）：结构化并发：告别协程泄漏与混乱
-
 > 本文是「Kotlin Coroutines 与 Flow 的高级应用与原理」系列的第 2 篇，共 5 篇。在上一篇中，我们探讨了「引言：告别回调地狱，拥抱结构化并发」的相关内容。
 
 ## 二、结构化并发：告别协程泄漏与混乱

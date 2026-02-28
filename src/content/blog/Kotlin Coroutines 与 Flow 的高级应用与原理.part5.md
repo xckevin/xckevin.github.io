@@ -1,7 +1,7 @@
 ---
 title: "Kotlin Coroutines 与 Flow 的高级应用与原理（5）：取消机制：优雅地停止"
 excerpt: "「Kotlin Coroutines 与 Flow 的高级应用与原理」系列第 5/5 篇：取消机制：优雅地停止"
-publishDate: 2025-02-24
+publishDate: 2025-03-30
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Kotlin Coroutines 与 Flow 的高级应用与原理（5）：取消机制：优雅地停止"
   description: "「Kotlin Coroutines 与 Flow 的高级应用与原理」系列第 5/5 篇：取消机制：优雅地停止"
 ---
-# Kotlin Coroutines 与 Flow 的高级应用与原理（5）：取消机制：优雅地停止
-
 > 本文是「Kotlin Coroutines 与 Flow 的高级应用与原理」系列的第 5 篇，共 5 篇。在上一篇中，我们探讨了「StateFlow & SharedFlow：热流状态与事件总线」的相关内容。
 
 ## 八、取消机制：优雅地停止

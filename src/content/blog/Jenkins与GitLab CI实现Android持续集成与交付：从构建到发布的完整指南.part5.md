@@ -1,7 +1,7 @@
 ---
 title: "Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南（5）：自动化发布与部署"
 excerpt: "「Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南」系列第 5/8 篇：自动化发布与部署"
-publishDate: 2025-02-24
+publishDate: 2025-09-06
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南（5）：自动化发布与部署"
   description: "「Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南」系列第 5/8 篇：自动化发布与部署"
 ---
-# Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南（5）：自动化发布与部署
-
 > 本文是「Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南」系列的第 5 篇，共 8 篇。在上一篇中，我们探讨了「代码质量检查」的相关内容。
 
 ## 第六章：自动化发布与部署

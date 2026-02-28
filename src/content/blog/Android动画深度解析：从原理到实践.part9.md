@@ -1,7 +1,7 @@
 ---
 title: "Android动画深度解析：从原理到实践（9）：分：如何选型"
 excerpt: "「Android动画深度解析：从原理到实践」系列第 9/9 篇：分：如何选型"
-publishDate: 2025-02-24
+publishDate: 2024-03-20
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Android动画深度解析：从原理到实践（9）：分：如何选型"
   description: "「Android动画深度解析：从原理到实践」系列第 9/9 篇：分：如何选型"
 ---
-# Android动画深度解析：从原理到实践（9）：分：如何选型
-
 > 本文是「Android动画深度解析：从原理到实践」系列的第 9 篇，共 9 篇。在上一篇中，我们探讨了「E. MotionLayout」的相关内容。
 
 ## 第四部分：如何选型

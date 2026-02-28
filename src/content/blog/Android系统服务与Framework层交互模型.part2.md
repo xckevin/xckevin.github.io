@@ -1,7 +1,7 @@
 ---
 title: "Android 系统服务与 Framework 层交互模型（2）：服务注册：让世界发现我——ServiceManager"
 excerpt: "「Android 系统服务与 Framework 层交互模型」系列第 2/3 篇：服务注册：让世界发现我——ServiceManager"
-publishDate: 2025-02-24
+publishDate: 2024-05-27
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Android 系统服务与 Framework 层交互模型（2）：服务注册：让世界发现我——ServiceManager"
   description: "「Android 系统服务与 Framework 层交互模型」系列第 2/3 篇：服务注册：让世界发现我——ServiceManager"
 ---
-# Android 系统服务与 Framework 层交互模型（2）：服务注册：让世界发现我——ServiceManager
-
 > 本文是「Android 系统服务与 Framework 层交互模型」系列的第 2 篇，共 3 篇。在上一篇中，我们探讨了「引言：驱动 Android 世界的引擎」的相关内容。
 
 ## 二、服务注册：让世界发现我——ServiceManager

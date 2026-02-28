@@ -1,7 +1,7 @@
 ---
 title: "ART 虚拟机与内存管理高级策略（2）：ART 垃圾回收（GC）深度剖析"
 excerpt: "「ART 虚拟机与内存管理高级策略」系列第 2/4 篇：ART 垃圾回收（GC）深度剖析"
-publishDate: 2025-02-24
+publishDate: 2024-05-05
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "ART 虚拟机与内存管理高级策略（2）：ART 垃圾回收（GC）深度剖析"
   description: "「ART 虚拟机与内存管理高级策略」系列第 2/4 篇：ART 垃圾回收（GC）深度剖析"
 ---
-# ART 虚拟机与内存管理高级策略（2）：ART 垃圾回收（GC）深度剖析
-
 > 本文是「ART 虚拟机与内存管理高级策略」系列的第 2 篇，共 4 篇。在上一篇中，我们探讨了「引言：性能与稳定的基石」的相关内容。
 
 ## 二、ART 垃圾回收（GC）深度剖析

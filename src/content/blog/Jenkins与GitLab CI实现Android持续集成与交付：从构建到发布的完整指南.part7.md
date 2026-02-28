@@ -1,7 +1,7 @@
 ---
 title: "Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南（7）：2.1 Jenkins多分支Pipeline"
 excerpt: "「Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南」系列第 7/8 篇：2.1 Jenkins多分支Pipeline"
-publishDate: 2025-02-24
+publishDate: 2025-09-06
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南（7）：2.1 Jenkins多分支Pipeline"
   description: "「Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南」系列第 7/8 篇：2.1 Jenkins多分支Pipeline"
 ---
-# Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南（7）：2.1 Jenkins多分支Pipeline
-
 > 本文是「Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南」系列的第 7 篇，共 8 篇。在上一篇中，我们探讨了「高级主题与最佳实践」的相关内容。
 
 #### 8.2.1 Jenkins多分支Pipeline

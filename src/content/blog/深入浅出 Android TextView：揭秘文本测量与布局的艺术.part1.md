@@ -1,7 +1,7 @@
 ---
 title: "深入浅出 Android TextView：揭秘文本测量与布局的艺术（1）：开篇：文字的旅程 —— 从字符到像素"
 excerpt: "「深入浅出 Android TextView：揭秘文本测量与布局的艺术」系列第 1/4 篇：开篇：文字的旅程 —— 从字符到像素"
-publishDate: 2025-02-24
+publishDate: 2024-05-18
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "深入浅出 Android TextView：揭秘文本测量与布局的艺术（1）：开篇：文字的旅程 —— 从字符到像素"
   description: "「深入浅出 Android TextView：揭秘文本测量与布局的艺术」系列第 1/4 篇：开篇：文字的旅程 —— 从字符到像素"
 ---
-# 深入浅出 Android TextView：揭秘文本测量与布局的艺术（1）：开篇：文字的旅程 —— 从字符到像素
-
 > 本文是「深入浅出 Android TextView：揭秘文本测量与布局的艺术」系列的第 1 篇，共 4 篇。
 
 在 Android 应用开发中，TextView 是最基础也是最常用的控件之一。我们每天都在用它来显示各种文本信息，从简单的按钮标签到复杂的富文本段落。但你是否曾好奇：TextView 是如何在有限的空间内，将一串字符精确地转换成屏幕上可见的、排列整齐的文字？这背后涉及一套复杂而精密的测量（Measure）与布局（Layout）机制。

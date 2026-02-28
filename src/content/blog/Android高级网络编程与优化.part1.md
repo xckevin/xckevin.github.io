@@ -1,7 +1,7 @@
 ---
 title: "Android 高级网络编程与优化（1）：引言：应用的生命线——网络通信"
 excerpt: "「Android 高级网络编程与优化」系列第 1/3 篇：引言：应用的生命线——网络通信"
-publishDate: 2025-02-24
+publishDate: 2025-03-17
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Android 高级网络编程与优化（1）：引言：应用的生命线——网络通信"
   description: "「Android 高级网络编程与优化」系列第 1/3 篇：引言：应用的生命线——网络通信"
 ---
-# Android 高级网络编程与优化（1）：引言：应用的生命线——网络通信
-
 > 本文是「Android 高级网络编程与优化」系列的第 1 篇，共 3 篇。
 
 ## 引言：应用的生命线——网络通信

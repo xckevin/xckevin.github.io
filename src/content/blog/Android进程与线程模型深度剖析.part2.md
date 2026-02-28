@@ -1,7 +1,7 @@
 ---
 title: "Android 进程与线程模型深度剖析（2）：Android 主线程（UI 线程）：心脏与瓶颈"
 excerpt: "「Android 进程与线程模型深度剖析」系列第 2/3 篇：Android 主线程（UI 线程）：心脏与瓶颈"
-publishDate: 2025-02-24
+publishDate: 2025-07-04
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Android 进程与线程模型深度剖析（2）：Android 主线程（UI 线程）：心脏与瓶颈"
   description: "「Android 进程与线程模型深度剖析」系列第 2/3 篇：Android 主线程（UI 线程）：心脏与瓶颈"
 ---
-# Android 进程与线程模型深度剖析（2）：Android 主线程（UI 线程）：心脏与瓶颈
-
 > 本文是「Android 进程与线程模型深度剖析」系列的第 2 篇，共 3 篇。在上一篇中，我们探讨了「引言：并发执行的基石与挑战」的相关内容。
 
 ## 三、Android 主线程（UI 线程）：心脏与瓶颈

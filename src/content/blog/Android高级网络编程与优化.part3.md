@@ -1,7 +1,7 @@
 ---
 title: "Android 高级网络编程与优化（3）：Retrofit 高级用法：优雅定义 API"
 excerpt: "「Android 高级网络编程与优化」系列第 3/3 篇：Retrofit 高级用法：优雅定义 API"
-publishDate: 2025-02-24
+publishDate: 2025-03-17
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Android 高级网络编程与优化（3）：Retrofit 高级用法：优雅定义 API"
   description: "「Android 高级网络编程与优化」系列第 3/3 篇：Retrofit 高级用法：优雅定义 API"
 ---
-# Android 高级网络编程与优化（3）：Retrofit 高级用法：优雅定义 API
-
 > 本文是「Android 高级网络编程与优化」系列的第 3 篇，共 3 篇。在上一篇中，我们探讨了「OkHttp 深度解析：网络请求的瑞士军刀」的相关内容。
 
 ## 三、Retrofit 高级用法：优雅定义 API

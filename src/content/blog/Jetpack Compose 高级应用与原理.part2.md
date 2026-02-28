@@ -1,7 +1,7 @@
 ---
 title: "Jetpack Compose 高级应用与原理（2）：高级状态管理：超越 remember { mutableStateOf(...) }"
 excerpt: "「Jetpack Compose 高级应用与原理」系列第 2/3 篇：高级状态管理：超越 remember { mutableStateOf(...) }"
-publishDate: 2025-02-24
+publishDate: 2025-07-24
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Jetpack Compose 高级应用与原理（2）：高级状态管理：超越 remember { mutableStateOf(...) }"
   description: "「Jetpack Compose 高级应用与原理」系列第 2/3 篇：高级状态管理：超越 remember { mutableStateOf(...) }"
 ---
-# Jetpack Compose 高级应用与原理（2）：高级状态管理：超越 remember { mutableStateOf(...) }
-
 > 本文是「Jetpack Compose 高级应用与原理」系列的第 2 篇，共 3 篇。在上一篇中，我们探讨了「引言：声明式 UI 的范式革命」的相关内容。
 
 ## 三、高级状态管理：超越 remember { mutableStateOf(...) }

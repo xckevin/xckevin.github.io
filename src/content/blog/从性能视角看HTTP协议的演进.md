@@ -1,7 +1,7 @@
 ---
 title: 从性能视角看HTTP协议的演进
 excerpt: "HTTP（HyperText Transfer Protocol，超文本传输协议）是一种基于请求-响应模型的应用层协议，用于在 Web 浏览器与 Web 服务器之间传输超文本（如 HTML）。作为互联网的基础协议之一，它定义了客户端与服务器之间的通信规则，使用户能够访问和浏览网页、图片、视频等各类网络资源。"
-publishDate: 2025-02-24
+publishDate: 2025-09-13
 tags:
   - 网络
   - HTTP
@@ -11,8 +11,6 @@ seo:
   title: 从性能视角看HTTP协议的演进
   description: "HTTP（HyperText Transfer Protocol，超文本传输协议）是一种基于请求-响应模型的应用层协议，用于在 Web 浏览器与 Web 服务器之间传输超文本（如 HTML）。作为互联网的基础协议之一，它定义了客户端与服务器之间的通信规则，使用户能够访问和浏览网页、图片、视频等各类网络资源。"
 ---
-# 从性能视角看HTTP协议的演进
-
 ## HTTP 是什么
 
 HTTP（HyperText Transfer Protocol，超文本传输协议）是一种基于**请求-响应**模型的应用层协议，用于在 Web 浏览器与 Web 服务器之间传输超文本（如 HTML）。作为互联网的基础协议之一，它定义了客户端与服务器之间的通信规则，使用户能够访问和浏览网页、图片、视频等各类网络资源。

@@ -1,7 +1,7 @@
 ---
 title: "Android动画深度解析：从原理到实践（7）：D. Physics-Based Animation（基于物理的动画）"
 excerpt: "「Android动画深度解析：从原理到实践」系列第 7/9 篇：D. Physics-Based Animation（基于物理的动画）"
-publishDate: 2025-02-24
+publishDate: 2024-03-20
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Android动画深度解析：从原理到实践（7）：D. Physics-Based Animation（基于物理的动画）"
   description: "「Android动画深度解析：从原理到实践」系列第 7/9 篇：D. Physics-Based Animation（基于物理的动画）"
 ---
-# Android动画深度解析：从原理到实践（7）：D. Physics-Based Animation（基于物理的动画）
-
 > 本文是「Android动画深度解析：从原理到实践」系列的第 7 篇，共 9 篇。在上一篇中，我们探讨了「C. Drawable Animation」的相关内容。
 
 ### D. Physics-Based Animation（基于物理的动画）

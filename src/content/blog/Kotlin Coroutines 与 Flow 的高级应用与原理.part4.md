@@ -1,7 +1,7 @@
 ---
 title: "Kotlin Coroutines 与 Flow 的高级应用与原理（4）：StateFlow & SharedFlow：热流状态与事件总线"
 excerpt: "「Kotlin Coroutines 与 Flow 的高级应用与原理」系列第 4/5 篇：StateFlow & SharedFlow：热流状态与事件总线"
-publishDate: 2025-02-24
+publishDate: 2025-03-30
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Kotlin Coroutines 与 Flow 的高级应用与原理（4）：StateFlow & SharedFlow：热流状态与事件总线"
   description: "「Kotlin Coroutines 与 Flow 的高级应用与原理」系列第 4/5 篇：StateFlow & SharedFlow：热流状态与事件总线"
 ---
-# Kotlin Coroutines 与 Flow 的高级应用与原理（4）：StateFlow & SharedFlow：热流状态与事件总线
-
 > 本文是「Kotlin Coroutines 与 Flow 的高级应用与原理」系列的第 4 篇，共 5 篇。在上一篇中，我们探讨了「调度器（Dispatchers）：协程在何处运行」的相关内容。
 
 ## 五、StateFlow & SharedFlow：热流状态与事件总线

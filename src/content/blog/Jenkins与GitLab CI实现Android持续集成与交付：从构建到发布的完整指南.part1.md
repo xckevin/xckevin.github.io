@@ -1,7 +1,7 @@
 ---
 title: "Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南（1）：前言"
 excerpt: "「Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南」系列第 1/8 篇：前言"
-publishDate: 2025-02-24
+publishDate: 2025-09-06
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南（1）：前言"
   description: "「Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南」系列第 1/8 篇：前言"
 ---
-# Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南（1）：前言
-
 > 本文是「Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南」系列的第 1 篇，共 8 篇。
 
 ![](../../assets/jenkins与gitlab-ci实现android持续集成与交付从构建到发布的完整指南-1.png)

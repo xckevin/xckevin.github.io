@@ -1,7 +1,7 @@
 ---
 title: "Android动画深度解析：从原理到实践（3）：系统架构概览（System Architecture Overview）"
 excerpt: "「Android动画深度解析：从原理到实践」系列第 3/9 篇：系统架构概览（System Architecture Overview）"
-publishDate: 2025-02-24
+publishDate: 2024-03-20
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Android动画深度解析：从原理到实践（3）：系统架构概览（System Architecture Overview）"
   description: "「Android动画深度解析：从原理到实践」系列第 3/9 篇：系统架构概览（System Architecture Overview）"
 ---
-# Android动画深度解析：从原理到实践（3）：系统架构概览（System Architecture Overview）
-
 > 本文是「Android动画深度解析：从原理到实践」系列的第 3 篇，共 9 篇。在上一篇中，我们探讨了「核心动画概念（Core Animation Concepts）」的相关内容。
 
 ### 1. 系统架构概览（System Architecture Overview）

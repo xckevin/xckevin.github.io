@@ -1,7 +1,7 @@
 ---
 title: "Binder IPC 机制深度解析（Beyond AIDL）（1）：引言：Android 世界的神经网络"
 excerpt: "「Binder IPC 机制深度解析（Beyond AIDL）」系列第 1/7 篇：引言：Android 世界的神经网络"
-publishDate: 2025-02-24
+publishDate: 2024-04-21
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Binder IPC 机制深度解析（Beyond AIDL）（1）：引言：Android 世界的神经网络"
   description: "「Binder IPC 机制深度解析（Beyond AIDL）」系列第 1/7 篇：引言：Android 世界的神经网络"
 ---
-# Binder IPC 机制深度解析（Beyond AIDL）（1）：引言：Android 世界的神经网络
-
 > 本文是「Binder IPC 机制深度解析（Beyond AIDL）」系列的第 1 篇，共 7 篇。
 
 ## 引言：Android 世界的神经网络

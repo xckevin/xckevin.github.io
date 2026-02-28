@@ -1,7 +1,7 @@
 ---
 title: "Android 渲染机制与图形栈深入理解（3）：从 GPU 到屏幕：缓冲区、合成与 SurfaceFlinger"
 excerpt: "「Android 渲染机制与图形栈深入理解」系列第 3/4 篇：从 GPU 到屏幕：缓冲区、合成与 SurfaceFlinger"
-publishDate: 2025-02-24
+publishDate: 2025-06-19
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Android 渲染机制与图形栈深入理解（3）：从 GPU 到屏幕：缓冲区、合成与 SurfaceFlinger"
   description: "「Android 渲染机制与图形栈深入理解」系列第 3/4 篇：从 GPU 到屏幕：缓冲区、合成与 SurfaceFlinger"
 ---
-# Android 渲染机制与图形栈深入理解（3）：从 GPU 到屏幕：缓冲区、合成与 SurfaceFlinger
-
 > 本文是「Android 渲染机制与图形栈深入理解」系列的第 3 篇，共 4 篇。在上一篇中，我们探讨了「View 树遍历：performTraversals() 的三大乐章」的相关内容。
 
 ## 五、从 GPU 到屏幕：缓冲区、合成与 SurfaceFlinger

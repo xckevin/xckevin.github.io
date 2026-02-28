@@ -1,7 +1,7 @@
 ---
 title: Android 系统服务与 Framework 层交互模型
 excerpt: 如果说 Binder 是 Android 系统的神经网络，那么运行在 SystemServer 进程中的系统服务（System Services）则是驱动整个 Android 世界运转的核心引擎。从管理应用程序的生命周期（ActivityManagerService）、绘制用户界面窗口（WindowManagerService）、解析和管理应用程序包（PackageManagerServic...
-publishDate: 2025-02-24
+publishDate: 2024-05-27
 tags:
   - Android
   - Framework
@@ -11,8 +11,6 @@ seo:
   title: Android 系统服务与 Framework 层交互模型
   description: Android系统服务与Framework层交互模型：剖析 SystemServer、ServiceManager 与 Framework 调用链，理解系统服务的交互全貌。
 ---
-# Android 系统服务与 Framework 层交互模型
-
 ## 引言：驱动 Android 世界的引擎
 
 如果说 Binder 是 Android 系统的神经网络，那么运行在 SystemServer 进程中的**系统服务（System Services）**则是驱动整个 Android 世界运转的核心引擎。从管理应用程序的生命周期（ActivityManagerService）、绘制用户界面窗口（WindowManagerService）、解析和管理应用程序包（PackageManagerService），到控制设备电源（PowerManagerService）、处理网络连接（ConnectivityService）等，几乎所有的核心操作系统功能都是通过这些系统服务来实现的。

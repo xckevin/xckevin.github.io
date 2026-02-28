@@ -1,7 +1,7 @@
 ---
 title: "Binder IPC 机制深度解析（Beyond AIDL）（5）：基本 AIDL 实现示例"
 excerpt: "「Binder IPC 机制深度解析（Beyond AIDL）」系列第 5/7 篇：基本 AIDL 实现示例"
-publishDate: 2025-02-24
+publishDate: 2024-04-21
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Binder IPC 机制深度解析（Beyond AIDL）（5）：基本 AIDL 实现示例"
   description: "「Binder IPC 机制深度解析（Beyond AIDL）」系列第 5/7 篇：基本 AIDL 实现示例"
 ---
-# Binder IPC 机制深度解析（Beyond AIDL）（5）：基本 AIDL 实现示例
-
 > 本文是「Binder IPC 机制深度解析（Beyond AIDL）」系列的第 5 篇，共 7 篇。在上一篇中，我们探讨了「线程模型：并发、同步与 ANR 之源」的相关内容。
 
 ## 五、核心对象模型：IBinder、BpBinder、BBinder

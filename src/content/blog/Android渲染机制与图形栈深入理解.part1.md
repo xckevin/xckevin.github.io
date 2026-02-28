@@ -1,7 +1,7 @@
 ---
 title: "Android 渲染机制与图形栈深入理解（1）：引言：打造流畅体验的基石"
 excerpt: "「Android 渲染机制与图形栈深入理解」系列第 1/4 篇：引言：打造流畅体验的基石"
-publishDate: 2025-02-24
+publishDate: 2025-06-19
 displayInBlog: false
 tags:
   - Android
@@ -16,8 +16,6 @@ seo:
   title: "Android 渲染机制与图形栈深入理解（1）：引言：打造流畅体验的基石"
   description: "「Android 渲染机制与图形栈深入理解」系列第 1/4 篇：引言：打造流畅体验的基石"
 ---
-# Android 渲染机制与图形栈深入理解（1）：引言：打造流畅体验的基石
-
 > 本文是「Android 渲染机制与图形栈深入理解」系列的第 1 篇，共 4 篇。
 
 ## 引言：打造流畅体验的基石

@@ -1,7 +1,7 @@
 ---
 title: WebView 渲染进程崩溃问题全解析
 excerpt: 在移动端应用开发中，WebView 已成为嵌入网页内容的重要组件。特别是在 Android 平台上，WebView 通常基于 Chromium 内核实现，其稳定性和安全性直接影响应用整体的用户体验。然而，在实际开发过程中，我们可能会遇到 WebView 渲染进程意外退出或崩溃的情况，错误日志可能类似于以下内容：
-publishDate: 2025-02-24
+publishDate: 2025-10-17
 tags:
   - Android
   - WebView
@@ -11,8 +11,6 @@ seo:
   title: WebView 渲染进程崩溃问题全解析
   description: 在移动端应用开发中，WebView 已成为嵌入网页内容的重要组件。特别是在 Android 平台上，WebView 通常基于 Chromium 内核实现，其稳定性和安全性直接影响应用整体的用户体验。然而，在实际开发过程中，我们可能会遇到 WebView 渲染进程意外退出或崩溃的情况，错误日志可能类似于以下内容：
 ---
-# WebView 渲染进程崩溃问题全解析
-
 在移动端应用开发中，WebView 已成为嵌入网页内容的重要组件。特别是在 Android 平台上，WebView 通常基于 Chromium 内核实现，其稳定性和安全性直接影响应用整体的用户体验。然而，在实际开发过程中，我们可能会遇到 WebView 渲染进程意外退出或崩溃的情况，错误日志可能类似于以下内容：
 
 ```plain

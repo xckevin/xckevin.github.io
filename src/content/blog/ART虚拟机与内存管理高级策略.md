@@ -1,6 +1,6 @@
 ---
 title: ART 虚拟机与内存管理高级策略
-excerpt: "在 Android 应用开发中，内存管理是决定应用性能和稳定性的基石。臭名昭著的内存溢出（Out-of-Memory, OOM）错误是导致应用崩溃的常见元凶，而频繁的内存抖动（Memory Churn）则会引发垃圾回收（Garbage Collection, GC）暂停，进而导致 UI 卡顿（Jank），严重影响用户体验。"
+excerpt: "Android开发中，内存管理决定性能与稳定性。OOM易致崩溃，频繁内存抖动触发GC暂停，引发UI卡顿，影响体验。我们看看如何避免和优化"
 publishDate: 2025-02-24
 tags:
   - Android
@@ -9,7 +9,7 @@ tags:
   - 虚拟机
 seo:
   title: ART 虚拟机与内存管理高级策略
-  description: "在 Android 应用开发中，内存管理是决定应用性能和稳定性的基石。臭名昭著的内存溢出（Out-of-Memory, OOM）错误是导致应用崩溃的常见元凶，而频繁的内存抖动（Memory Churn）则会引发垃圾回收（Garbage Collection, GC）暂停，进而导致 UI 卡顿（Jank），严重影响用户体验。"
+  description: "Android开发中，内存管理决定性能与稳定性。OOM易致崩溃，频繁内存抖动触发GC暂停，引发UI卡顿，影响体验。我们看看如何避免和优化"
 ---
 # ART 虚拟机与内存管理高级策略
 

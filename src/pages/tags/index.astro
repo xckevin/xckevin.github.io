@@ -21,25 +21,27 @@ const tags = getAllTags(posts).sort((tagA, tagB) => {
     showHeader={false}
 >
     <h1 class="mb-12 font-serif text-2xl italic sm:mb-16 sm:text-4xl">All Tags</h1>
-    {
-        tags.map((tag) => {
-            const postCount = getPostsByTag(posts, tag.id).length;
-            return (
-                <a class="group mb-10 flex items-start justify-between gap-8 sm:mb-12" href={`/tags/${tag.id}`}>
-                    <div class="grow">
-                        <h2 class="font-serif text-xl leading-tight font-medium group-hover:underline group-hover:decoration-dashed group-hover:decoration-1 group-hover:underline-offset-4 sm:text-2xl">
+    <div class="flex flex-wrap gap-3 mb-16 sm:mb-20">
+        {
+            tags.map((tag) => {
+                const postCount = getPostsByTag(posts, tag.id).length;
+                
+                return (
+                    <a 
+                        class="inline-flex items-center gap-2 px-4 py-2 font-serif text-main border border-main rounded-full transition-colors hover:bg-muted"
+                        href={`/tags/${tag.id}`}
+                        title={`View ${postCount} ${postCount === 1 ? 'post' : 'posts'} tagged with "${tag.name}"`}
+                    >
+                        <span class="font-medium">
                             {tag.name}
-                        </h2>
-                        <div class="mt-1 text-sm leading-normal">
-                            {postCount} {postCount === 1 ? 'post' : 'posts'}
-                        </div>
-                    </div>
-                    <div class="hidden font-serif italic opacity-0 transition group-hover:opacity-100 sm:inline-flex sm:shrink-0 sm:items-center sm:gap-1">
-                        View Tag Archive <ArrowRight class="h-4 w-4 fill-current" />
-                    </div>
-                </a>
-            );
-        })
-    }
+                        </span>
+                        <span class="inline-flex items-center justify-center min-w-5 h-5 rounded-full text-xs font-bold bg-muted">
+                            {postCount}
+                        </span>
+                    </a>
+                );
+            })
+        }
+    </div>
     <Subscribe class="my-16 sm:my-24" />
 </BaseLayout>

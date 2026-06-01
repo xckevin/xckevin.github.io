@@ -9,8 +9,8 @@ tags:
   - 缓存机制
   - 列表优化
 seo:
-  title: "深入 Android RecyclerView 缓存机制：从四级缓存到 Prefetch 的性能设计"
-  description: "详解 RecyclerView Recycler 四级缓存（Scrap、Cache、ViewCacheExtension、RecycledViewPool）的工作原理与命中成本，以及 GapWorker Prefetch 预取策略，帮助你精准调优列表滑动性能。"
+  title: "RecyclerView 缓存机制详解：四级缓存、复用与 Prefetch"
+  description: "深入解析 RecyclerView 四级缓存、ViewHolder 复用、RecycledViewPool、GapWorker 预取与列表性能优化实践。"
 ---
 
 做列表滑动流畅度优化时，我遇到过一个反直觉的现象：同样的 ViewHolder 数量，把 `RecycledViewPool` 的缓存上限从 5 调到 20，帧率反而下降了。排查后发现，根本原因是我对缓存层级的理解不够精确——不同层级的缓存命中，成本差异很大。
@@ -140,3 +140,14 @@ void prefetch(long deadlineNs) {
 - **通过 `setHasStableIds(true)` 启用 id 匹配**，数据顺序变化但内容不变时，能提高 Cache 和 Scrap 的命中率。
 
 RecyclerView 的缓存设计本质上是分层的时间-空间权衡：离屏幕越近的缓存越快但越贵，离屏幕越远的缓存越省内存但恢复成本越高。理解每一层的边界条件，才能做出有效的调优决策，而不是一味调大缓存数量。
+
+<!-- seo-internal-links -->
+
+## 延伸阅读
+
+- [返回对应专题：Android 性能优化](/android-performance/)
+- [Android 启动优化：从 Zygote fork 到首帧上屏的 Perfetto 实战](/blog/2026-04-19-Android_%E5%86%B7%E5%90%AF%E5%8A%A8%E5%85%A8%E9%93%BE%E8%B7%AF%E4%BC%98%E5%8C%96%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5_%E4%BB%8E_Zygote_fork_%E5%88%B0%E9%A6%96%E5%B8%A7%E4%B8%8A%E5%B1%8F%E7%9A%84_Systrace/)
+- [Android App 启动优化专项：指标、链路、工具与治理方案](/blog/App%E5%90%AF%E5%8A%A8%E4%BC%98%E5%8C%96%E4%B8%93%E9%A1%B9/)
+- [Android Bitmap 内存模型：Java 堆、Native 堆与 Hardware Bitmap](/blog/2026-04-14-%E6%B7%B1%E5%85%A5_Android_Bitmap_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B_%E4%BB%8E_Java_%E5%A0%86%E5%88%86%E9%85%8D%E5%88%B0_Hardware_Bitmap/)
+- [Android RenderThread 与 HWUI：渲染管线、DisplayList 与掉帧分析](/blog/2026-04-20-Android_RenderThread_%E4%B8%8E_HWUI_%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90_%E4%BB%8E_DisplayList/)
+<!-- /seo-internal-links -->

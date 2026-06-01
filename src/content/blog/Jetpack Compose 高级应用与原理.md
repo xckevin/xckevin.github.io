@@ -8,8 +8,8 @@ tags:
   - UI
   - 声明式
 seo:
-  title: Jetpack Compose 高级应用与原理
-  description: Jetpack Compose 高级应用与原理：掌握 Jetpack Compose 声明式 UI、布局与状态管理的高级模式与实战技巧。
+  title: "Jetpack Compose 原理与高级应用：状态、布局、重组与性能实践"
+  description: "系统整理 Jetpack Compose 的状态管理、布局机制、重组原理、性能调优与工程化实践，适合进阶 Android 开发者。"
 ---
 ## 引言：声明式 UI 的范式革命
 
@@ -396,3 +396,14 @@ Jetpack Compose 不仅是 Android UI 开发的范式转变，更是一个设计�
 然而，要真正发挥 Compose 的威力，不能止步于表面。必须深入理解其**运行时核心**（Composition、Recomposition、Stability、Skipping）、**状态管理哲学**（Snapshot 系统、状态提升、衍生状态）、**副作用的安全处理机制**、**声明式布局模型**以及**独特的性能优化点**。
 
 虽然 Compose 致力于简化 UI 开发，但在构建复杂、高性能应用时，对其内部原理的深刻理解和对最佳实践的严格遵循仍然是不可或缺的。掌握 Compose 的高级应用与原理，意味着能够自信地构建下一代 Android 界面，高效地解决性能瓶颈，并推动团队拥抱声明式 UI 开发的未来。
+
+<!-- seo-internal-links -->
+
+## 延伸阅读
+
+- [返回对应专题：Jetpack Compose](/jetpack-compose/)
+- [Jetpack Compose 重组性能优化：Stability、derivedStateOf 与跳过重组](/blog/2026-05-07-Jetpack_Compose_%E9%87%8D%E7%BB%84%E6%80%A7%E8%83%BD%E5%85%A8%E9%93%BE%E8%B7%AF%E8%B0%83%E4%BC%98_%E4%BB%8E_Stability_%E6%8E%A8%E6%96%AD%E5%88%B0_derivedS/)
+- [Jetpack Compose Modifier 原理：链式节点、布局绘制与事件处理](/blog/2026-05-15-Jetpack_Compose_Modifier_%E9%93%BE%E5%BC%8F%E6%9C%BA%E5%88%B6%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90_%E4%BB%8E_Modifier_Node_/)
+- [Jetpack Compose 手势系统：PointerInput 事件管道与嵌套滚动](/blog/2026-05-16-Jetpack_Compose_%E6%89%8B%E5%8A%BF%E7%B3%BB%E7%BB%9F%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90_%E4%BB%8E_PointerInput_%E4%BA%8B%E4%BB%B6%E7%AE%A1%E9%81%93%E5%88%B0_Modi/)
+- [Jetpack Compose 动画系统：AnimationSpec、弹簧模型与 Transition](/blog/2026-05-09-Jetpack_Compose_%E5%8A%A8%E7%94%BB%E7%B3%BB%E7%BB%9F%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90_%E4%BB%8E_AnimationSpec_%E7%89%A9%E7%90%86%E5%BC%B9%E7%B0%A7%E6%A8%A1%E5%9E%8B%E5%88%B0_T/)
+<!-- /seo-internal-links -->

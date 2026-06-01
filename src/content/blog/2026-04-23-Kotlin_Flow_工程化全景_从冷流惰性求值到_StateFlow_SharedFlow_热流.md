@@ -9,8 +9,8 @@ tags:
 - 架构设计
 - 性能优化
 seo:
-  title: Kotlin Flow 工程化全景：冷热流模型、Channel 本质与 Android 架构层选型
-  description: 深入解析 Kotlin Flow 冷热流模型、Channel 并发原语、SharedFlow 粘性事件陷阱与 StateFlow 状态管理，提供 MVVM 架构层 Flow 选型的工程化决策指南。
+  title: "Kotlin Flow 原理与工程实践：冷流、StateFlow、SharedFlow 对比"
+  description: "系统讲解 Kotlin Flow 的冷流模型、背压、异常处理、StateFlow、SharedFlow 与 Android 工程化使用策略。"
 ---
 
 在一次线上 bug 排查中，我发现某个页面的 UI 状态在配置变更后会短暂闪烁——原因是 `SharedFlow` 的 `replay = 0` 导致新订阅者错过了最后一次状态更新。这个问题让我重新审视了 Flow 的冷热模型，以及三种热流在架构层的选型逻辑。
@@ -168,3 +168,13 @@ lifecycleScope.launch {
 **关于 Repository 层的边界**：不要在 Repository 层用 `MutableStateFlow` 作为数据源。数据库和网络请求的生命周期由 ViewModel 的 `viewModelScope` 管理，Repository 只负责提供数据描述，不持有状态。这个边界一旦模糊，状态管理就会变成一团乱麻——这是我在多个项目里反复看到的问题。
 
 冷热流的本质差异、Channel 的点对点语义、`replay` 的粘性语义——把这三个概念理解清楚，大多数 Flow 相关的工程决策都会自然收敛到合理的答案。
+
+<!-- seo-internal-links -->
+
+## 延伸阅读
+
+- [返回对应专题：Kotlin 与协程](/kotlin-coroutines/)
+- [Kotlin suspend 原理：CPS 变换、Continuation 与状态机字节码](/blog/2026-04-23-Kotlin_suspend_%E7%9A%84%E7%BC%96%E8%AF%91%E5%99%A8%E9%BB%91%E7%9B%92_%E4%BB%8E_CPS_%E5%8F%98%E6%8D%A2%E5%88%B0%E7%8A%B6%E6%80%81%E6%9C%BA%E5%AD%97%E8%8A%82%E7%A0%81%E7%9A%84%E5%AE%8C%E6%95%B4%E6%8E%A8%E6%BC%94/)
+- [Kotlin Coroutines 与 Flow：协程调度、结构化并发和响应式数据流](/blog/Kotlin%20Coroutines%20%E4%B8%8E%20Flow%20%E7%9A%84%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8%E4%B8%8E%E5%8E%9F%E7%90%86/)
+- [Kotlin K2 编译器解析：统一前端、类型推断与 Android 构建影响](/blog/2026-04-23-Kotlin_K2_%E7%BC%96%E8%AF%91%E5%99%A8%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90_%E4%BB%8E%E7%BB%9F%E4%B8%80%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%9E%84%E5%88%B0%E6%99%BA%E8%83%BD%E7%B1%BB%E5%9E%8B%E6%8E%A8%E6%96%AD%E9%87%8D%E5%86%99%E7%9A%84%E7%BC%96%E8%AF%91%E9%9D%A9%E6%96%B0%E4%B8%8E_Android_%E5%B7%A5/)
+<!-- /seo-internal-links -->

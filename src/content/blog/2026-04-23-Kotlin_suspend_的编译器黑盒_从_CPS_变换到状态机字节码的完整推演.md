@@ -9,8 +9,8 @@ tags:
 - JVM
 - 性能优化
 seo:
-  title: Kotlin suspend 的编译器黑盒：从 CPS 变换到状态机字节码的完整推演
-  description: 深入解析 Kotlin suspend 函数的编译原理，从 CPS 变换到状态机字节码，涵盖局部变量活跃性分析、异常处理机制与协程性能优化实践。
+  title: "Kotlin suspend 原理：CPS 变换、Continuation 与状态机字节码"
+  description: "从编译器角度拆解 Kotlin suspend 函数，覆盖 CPS 变换、Continuation、状态机字节码和协程恢复链路。"
 ---
 
 用了两年协程，有天我突然想搞清楚一件事：一个 `suspend fun fetchUser()` 在 JVM 上究竟长什么样？IDE 里看起来就是普通函数，但它能挂起、能恢复，还能在不同线程间跳来跳去——编译器到底做了什么？
@@ -206,3 +206,13 @@ javap -c -p ExampleKt\$loadProfile\$1.class
 **`inline suspend fun` 会展开状态机，而不是嵌套。** 标准库里的 `withContext`、`coroutineScope` 是 `suspend` 函数，框架层对它们有特殊处理。理解这一点，在分析字节码时才不会被嵌套的状态机搞晕。
 
 我更倾向于把协程理解为"编译器帮你写的回调 + 调度器"，而不是"轻量级线程"。"轻量级线程"这个比喻在解释挂起/恢复行为时是准确的，但会让你忽视状态机分配的成本。前者的视角更贴近 JVM 上实际发生的事情，在做性能分析时更有用。
+
+<!-- seo-internal-links -->
+
+## 延伸阅读
+
+- [返回对应专题：Kotlin 与协程](/kotlin-coroutines/)
+- [Kotlin Flow 原理与工程实践：冷流、StateFlow、SharedFlow 对比](/blog/2026-04-23-Kotlin_Flow_%E5%B7%A5%E7%A8%8B%E5%8C%96%E5%85%A8%E6%99%AF_%E4%BB%8E%E5%86%B7%E6%B5%81%E6%83%B0%E6%80%A7%E6%B1%82%E5%80%BC%E5%88%B0_StateFlow_SharedFlow_%E7%83%AD%E6%B5%81/)
+- [Kotlin Coroutines 与 Flow：协程调度、结构化并发和响应式数据流](/blog/Kotlin%20Coroutines%20%E4%B8%8E%20Flow%20%E7%9A%84%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8%E4%B8%8E%E5%8E%9F%E7%90%86/)
+- [Kotlin K2 编译器解析：统一前端、类型推断与 Android 构建影响](/blog/2026-04-23-Kotlin_K2_%E7%BC%96%E8%AF%91%E5%99%A8%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90_%E4%BB%8E%E7%BB%9F%E4%B8%80%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%9E%84%E5%88%B0%E6%99%BA%E8%83%BD%E7%B1%BB%E5%9E%8B%E6%8E%A8%E6%96%AD%E9%87%8D%E5%86%99%E7%9A%84%E7%BC%96%E8%AF%91%E9%9D%A9%E6%96%B0%E4%B8%8E_Android_%E5%B7%A5/)
+<!-- /seo-internal-links -->

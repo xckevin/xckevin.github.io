@@ -15,10 +15,57 @@ const featuredPosts = posts.filter(({ data }) => data.isFeatured).slice(0, 10);
 
 const projects = (await getCollection('projects')).sort(sortItemsByDateDesc);
 const featuredProjects = projects.filter(({ data }) => data.isFeatured);
+const topics = [
+    {
+        title: 'Android Framework',
+        href: '/android-framework',
+        description: 'Binder、系统服务、进程线程、权限、ContentProvider 与 Framework 交互链路。'
+    },
+    {
+        title: 'Android 性能优化',
+        href: '/android-performance',
+        description: '冷启动、渲染、内存、Bitmap、Perfetto、Macrobenchmark 与稳定性治理。'
+    },
+    {
+        title: 'Jetpack Compose',
+        href: '/jetpack-compose',
+        description: '重组、Stability、Modifier、手势、动画、Glance 与 View 互操作。'
+    },
+    {
+        title: 'Kotlin 与协程',
+        href: '/kotlin-coroutines',
+        description: 'Coroutine、Flow、StateFlow、SharedFlow、K2 编译器与跨平台工程。'
+    },
+    {
+        title: '移动端工程化',
+        href: '/android-engineering',
+        description: 'CI/CD、测试、Gradle 构建、模块化、架构演进与团队协作。'
+    },
+    {
+        title: 'AI 开发工具',
+        href: '/ai-dev-tools',
+        description: 'Codex、提示词工程、Ollama、OpenClaw 与 AI Agent 工程实践。'
+    }
+];
 ---
 
 <BaseLayout description={siteConfig.description}>
     <Hero {...siteConfig.hero} />
+    <section class="mb-16 sm:mb-24" aria-labelledby="topic-index-title">
+        <h2 id="topic-index-title" class="mb-8 font-serif text-xl italic sm:text-2xl">专题索引</h2>
+        <div class="divide-main divide-y border-y border-dashed">
+            {
+                topics.map((topic) => (
+                    <a class="group block py-5" href={topic.href}>
+                        <h3 class="font-serif text-xl leading-tight font-medium group-hover:underline group-hover:decoration-dashed group-hover:decoration-1 group-hover:underline-offset-4">
+                            {topic.title}
+                        </h3>
+                        <p class="mt-2 text-sm leading-relaxed">{topic.description}</p>
+                    </a>
+                ))
+            }
+        </div>
+    </section>
     {
         featuredProjects?.length > 0 && (
             <div class="mb-16 sm:mb-24">

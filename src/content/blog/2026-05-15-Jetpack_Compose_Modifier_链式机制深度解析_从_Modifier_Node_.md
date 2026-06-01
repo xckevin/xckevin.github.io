@@ -9,8 +9,8 @@ tags:
 - Modifier.Node
 - 性能优化
 seo:
-  title: Jetpack Compose Modifier 链式机制深度解析：从 Modifier.Node 到组合修饰符的声明式管道
-  description: 深度解析 Jetpack Compose Modifier 链的包装器模式与顺序敏感性，对比 composed 与 Modifier.Node 架构的性能差异，涵盖节点树构建、生命周期管理及实战迁移策略。
+  title: "Jetpack Compose Modifier 原理：链式节点、布局绘制与事件处理"
+  description: "解析 Compose Modifier 的链式机制、Modifier.Node、布局测量、绘制、指针输入与性能优化要点。"
 ---
 
 上周排查一个 Compose 布局 bug，`clickable` 死活不响应。排查半天发现是 Modifier 顺序写错了——`padding` 写在 `clickable` 前面，点击区域被 padding 挤到了预期之外。
@@ -252,3 +252,14 @@ fun ThemedBox() {
 ---
 
 Modifier 是 Compose 里最容易被"以为懂了"的 topic。链式调用的语法太自然，让人忽略每一层 `.` 背后都是一次真实的包装。理解这条链的构建和执行机制，才能在 Modifier 顺序出 bug 时第一时间定位，也能在设计自定义 Modifier 时少走弯路。Node 架构把控制权交还给框架——开发者声明"要什么"，复用、失效、调度这些脏活交给 Compose 处理，比手写可靠。
+
+<!-- seo-internal-links -->
+
+## 延伸阅读
+
+- [返回对应专题：Jetpack Compose](/jetpack-compose/)
+- [Jetpack Compose 重组性能优化：Stability、derivedStateOf 与跳过重组](/blog/2026-05-07-Jetpack_Compose_%E9%87%8D%E7%BB%84%E6%80%A7%E8%83%BD%E5%85%A8%E9%93%BE%E8%B7%AF%E8%B0%83%E4%BC%98_%E4%BB%8E_Stability_%E6%8E%A8%E6%96%AD%E5%88%B0_derivedS/)
+- [Jetpack Compose 原理与高级应用：状态、布局、重组与性能实践](/blog/Jetpack%20Compose%20%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8%E4%B8%8E%E5%8E%9F%E7%90%86/)
+- [Jetpack Compose 手势系统：PointerInput 事件管道与嵌套滚动](/blog/2026-05-16-Jetpack_Compose_%E6%89%8B%E5%8A%BF%E7%B3%BB%E7%BB%9F%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90_%E4%BB%8E_PointerInput_%E4%BA%8B%E4%BB%B6%E7%AE%A1%E9%81%93%E5%88%B0_Modi/)
+- [Jetpack Compose 动画系统：AnimationSpec、弹簧模型与 Transition](/blog/2026-05-09-Jetpack_Compose_%E5%8A%A8%E7%94%BB%E7%B3%BB%E7%BB%9F%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90_%E4%BB%8E_AnimationSpec_%E7%89%A9%E7%90%86%E5%BC%B9%E7%B0%A7%E6%A8%A1%E5%9E%8B%E5%88%B0_T/)
+<!-- /seo-internal-links -->

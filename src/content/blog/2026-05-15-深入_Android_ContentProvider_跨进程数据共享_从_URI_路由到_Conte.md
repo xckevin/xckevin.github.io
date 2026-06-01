@@ -9,8 +9,8 @@ tags:
 - 架构设计
 - 性能优化
 seo:
-  title: 深入 Android ContentProvider 跨进程数据共享：从 URI 路由到 ContentObserver 变更通知的全链路架构解析
-  description: 深入解析 Android ContentProvider 跨进程数据共享的完整链路：UriMatcher URI 路由匹配、CursorToBulkCursorAdaptor 跨进程透明代理、CursorWindow 批量数据传输，以及 ContentObserver 变更通知机制与实战避坑经验。
+  title: "Android ContentProvider 原理：URI 路由、跨进程访问与权限控制"
+  description: "解析 ContentProvider 的 URI 匹配、跨进程数据访问、权限校验、启动链路与性能风险，帮助设计稳定的数据共享接口。"
 ---
 
 做系统相册 App 时，我需要在多个进程间同步图片索引数据。最先想到的是共享数据库文件，但多进程写 SQLite 的锁冲突让人头大——WAL 模式也救不了。后来切换到 ContentProvider，一次调通后回头来看，这套机制的设计比直觉中要精细。
@@ -121,3 +121,14 @@ Observer 注册进程内如果自己调了 `notifyChange`，`onChange(boolean se
 **变更通知不要滥用**。Android 的 `notifyChange` 最终调 `ActivityManagerService`（高版本为 `ContentService`）做广播通知，高频变更（如实时定位）走 ContentObserver 不适合。这种场景用 Broadcast 或 Messenger 更合理，让 ContentProvider 回归"结构化数据共享"的定位。
 
 ContentProvider 是四大组件里最"安静"的一个——没有界面，不启动 Activity，但它是跨进程数据共享最标准的路径。理解 URI 路由、Cursor 代理和 Observer 通知三条链路，日常开发中碰到的 ContentProvider 问题基本都能定位。
+
+<!-- seo-internal-links -->
+
+## 延伸阅读
+
+- [返回对应专题：Android Framework](/android-framework/)
+- [Android Binder 原理：从驱动通信到 AIDL 调用链路](/blog/Binder%20IPC%E6%9C%BA%E5%88%B6%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90%20(Beyond%20AIDL)/)
+- [Android Framework 系统服务：AMS、WMS 与应用进程交互模型](/blog/Android%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1%E4%B8%8EFramework%E5%B1%82%E4%BA%A4%E4%BA%92%E6%A8%A1%E5%9E%8B/)
+- [Android 进程与线程模型：Zygote、主线程、Binder 线程池解析](/blog/Android%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90/)
+- [Android 权限系统原理：运行时权限、拦截链路与安全边界](/blog/2026-05-17-Android_%E6%9D%83%E9%99%90%E7%B3%BB%E7%BB%9F%E6%BC%94%E8%BF%9B%E5%85%A8%E9%93%BE%E8%B7%AF_%E4%BB%8E_ActivityThread_%E6%9D%83%E9%99%90%E6%8B%A6%E6%88%AA%E5%88%B0_Android_1/)
+<!-- /seo-internal-links -->

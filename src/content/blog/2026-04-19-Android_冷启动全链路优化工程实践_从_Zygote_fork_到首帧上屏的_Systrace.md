@@ -9,8 +9,8 @@ tags:
 - Perfetto
 - Systrace
 seo:
-  title: Android 冷启动全链路优化工程实践：从 Zygote fork 到首帧上屏的 Systrace 驱动性能调优方法论
-  description: 基于 Perfetto trace 信号，深度解析 Android 冷启动四阶段优化：Zygote fork、bindApplication 分层初始化、布局 inflate、Binder 调用到首帧合成的完整工程实践。
+  title: "Android 启动优化：从 Zygote fork 到首帧上屏的 Perfetto 实战"
+  description: "基于 Perfetto 和 Systrace 拆解 Android 冷启动全链路，覆盖 bindApplication、Activity 创建、主线程阻塞与首帧优化方法。"
 ---
 
 项目里有一个「看起来很快」的应用，线下体验流畅，但线上 P90 冷启动耗时死死卡在 3.2 秒。埋点数据显示问题在 `Application.onCreate` 之后，但看代码怎么都找不到瓶颈。后来用 Perfetto 抓了一条完整 trace，才发现真正的大头藏在 Binder 调用栈里——一个看似无关的第三方 SDK 在主线程做了一次同步 IPC。
@@ -179,3 +179,14 @@ inflate 的时间随 View 树深度线性增长。在 trace 里，`LayoutInflate
 单纯看「冷启动总时长」会掩盖阶段性退化——某次发版可能 Application 变快了但 Activity 变慢了，总时长看不出来。分段指标能直接定位是哪个负责人引入的。
 
 工具链上，Perfetto 的命令行 `traceconv` 可以把 trace 转成 JSON，再写脚本解析 slice 树，这套自动化比人肉看 UI 效率高得多。还在用 Android Studio 自带 Profiler 的同学，建议换到 Perfetto UI，信息密度差距很大。
+
+<!-- seo-internal-links -->
+
+## 延伸阅读
+
+- [返回对应专题：Android 性能优化](/android-performance/)
+- [Android App 启动优化专项：指标、链路、工具与治理方案](/blog/App%E5%90%AF%E5%8A%A8%E4%BC%98%E5%8C%96%E4%B8%93%E9%A1%B9/)
+- [RecyclerView 缓存机制详解：四级缓存、复用与 Prefetch](/blog/2026-04-14-%E6%B7%B1%E5%85%A5_Android_RecyclerView_%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6_%E4%BB%8E%E5%9B%9B%E7%BA%A7%E7%BC%93%E5%AD%98%E5%88%B0_Prefetch_%E7%9A%84%E6%80%A7%E8%83%BD%E8%AE%BE%E8%AE%A1/)
+- [Android Bitmap 内存模型：Java 堆、Native 堆与 Hardware Bitmap](/blog/2026-04-14-%E6%B7%B1%E5%85%A5_Android_Bitmap_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B_%E4%BB%8E_Java_%E5%A0%86%E5%88%86%E9%85%8D%E5%88%B0_Hardware_Bitmap/)
+- [Android RenderThread 与 HWUI：渲染管线、DisplayList 与掉帧分析](/blog/2026-04-20-Android_RenderThread_%E4%B8%8E_HWUI_%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90_%E4%BB%8E_DisplayList/)
+<!-- /seo-internal-links -->

@@ -9,8 +9,8 @@ tags:
   - 性能优化
   - GPU
 seo:
-  title: "深入 Android Bitmap 内存模型：从 Java 堆分配到 Hardware Bitmap 的演进与优化"
-  description: "详解 Android Bitmap 内存分配策略的三次演进：Native 堆、Java 堆、NativeAllocationRegistry 与 Hardware Bitmap，帮助理解 OOM 根因并掌握图片内存优化实践。"
+  title: "Android Bitmap 内存模型：Java 堆、Native 堆与 Hardware Bitmap"
+  description: "解析 Android Bitmap 在不同系统版本中的内存分配模型，覆盖 Java 堆、Native 堆、硬件位图、OOM 风险与优化策略。"
 ---
 
 做过 Android 性能优化的人多少都碰到过这种情况：Java 堆内存明明没到上限，应用却因为 Bitmap OOM 崩了；又或者在 MAT 里翻半天，Bitmap 对象只占几十字节，真正的像素数据不知道躲哪去了。问题出在 Android 的 Bitmap 内存分配策略上——过去十几年里它经历了三次大的变迁，搞清楚这条演进线，很多诡异的内存问题就能对上号了。
@@ -132,3 +132,14 @@ class SimpleBitmapPool {
 Hardware Bitmap 的使用策略也不复杂：图片展示场景（ImageView、列表头像）优先开启，需要像素操作的场景（截图合成、滤镜处理）回退到 Software Bitmap。不要无脑全局开启也不要全局关闭——Glide 中通过 `disallowHardwareConfig()` 可以按请求粒度控制。
 
 最后一个容易忽略的点：`Bitmap.Config.RGB_565` 相比 `ARGB_8888` 内存减半（2 bytes vs 4 bytes per pixel），代价是丢失 Alpha 通道和色彩精度。对于不需要透明度的照片展示（比如相册、壁纸），RGB_565 投入产出比很高。但在带圆角、阴影的 UI 元素上使用会出现明显的色带（banding）。踩过这个坑之后，我的做法是只对确定不需要 Alpha 的全屏照片启用 565，其余一律 ARGB_8888。
+
+<!-- seo-internal-links -->
+
+## 延伸阅读
+
+- [返回对应专题：Android 性能优化](/android-performance/)
+- [Android 启动优化：从 Zygote fork 到首帧上屏的 Perfetto 实战](/blog/2026-04-19-Android_%E5%86%B7%E5%90%AF%E5%8A%A8%E5%85%A8%E9%93%BE%E8%B7%AF%E4%BC%98%E5%8C%96%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5_%E4%BB%8E_Zygote_fork_%E5%88%B0%E9%A6%96%E5%B8%A7%E4%B8%8A%E5%B1%8F%E7%9A%84_Systrace/)
+- [Android App 启动优化专项：指标、链路、工具与治理方案](/blog/App%E5%90%AF%E5%8A%A8%E4%BC%98%E5%8C%96%E4%B8%93%E9%A1%B9/)
+- [RecyclerView 缓存机制详解：四级缓存、复用与 Prefetch](/blog/2026-04-14-%E6%B7%B1%E5%85%A5_Android_RecyclerView_%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6_%E4%BB%8E%E5%9B%9B%E7%BA%A7%E7%BC%93%E5%AD%98%E5%88%B0_Prefetch_%E7%9A%84%E6%80%A7%E8%83%BD%E8%AE%BE%E8%AE%A1/)
+- [Android RenderThread 与 HWUI：渲染管线、DisplayList 与掉帧分析](/blog/2026-04-20-Android_RenderThread_%E4%B8%8E_HWUI_%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90_%E4%BB%8E_DisplayList/)
+<!-- /seo-internal-links -->

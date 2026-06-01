@@ -8,16 +8,18 @@ const siteConfig: SiteConfig = {
         src: avatar,
         alt: '头像'
     },
-    title: 'Kai - 个人主页',
-    subtitle: '这是我的个人主页，欢迎来访。',
-    description: '个人主页，记录学习与生活。',
+    title: 'Kai | Android Framework、性能优化与工程化深度解析',
+    subtitle: 'Android Framework、性能优化、Jetpack Compose、Kotlin 与移动端工程化深度笔记。',
+    description: '系统整理 Android Framework、Jetpack Compose、性能优化、Kotlin、CI/CD 与移动端工程化实践。',
     image: {
-        src: '/favicon.svg',
-        alt: '个人主页'
+        src: hero,
+        alt: 'Android Framework、性能优化与工程化知识库封面'
     },
     headerNavLinks: [
         { text: 'Home', href: '/' },
-        { text: 'Projects', href: '/projects' },
+        { text: 'Topics', href: '/topics' },
+        { text: 'Android', href: '/android-framework' },
+        { text: 'Performance', href: '/android-performance' },
         { text: 'Blog', href: '/blog' },
         { text: 'Tags', href: '/tags' }
     ],
@@ -32,14 +34,15 @@ const siteConfig: SiteConfig = {
         // { text: 'Twitter', href: 'https://twitter.com/xxx' }
     ],
     hero: {
-        title: '欢迎来到我的个人主页',
-        text: '欢迎！这里将展示我的学习与生活点滴，欢迎一起交流学习。',
+        title: 'Android 深度技术笔记与工程化实践',
+        text: '聚焦 Android Framework、性能优化、Jetpack Compose、Kotlin 协程、CI/CD 与移动端架构治理，把源码链路、工程经验和排障方法整理成可检索的知识库。',
         image: {
             src: hero,
-            alt: 'Hero 图片'
+            alt: 'Android 技术知识库封面'
         },
         actions: [
-            { text: '联系我', href: '/contact' }
+            { text: '专题索引', href: '/topics' },
+            { text: '最新文章', href: '/blog' }
         ]
     },
     subscribe: {

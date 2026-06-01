@@ -9,8 +9,8 @@ tags:
 - Android 14
 - 架构解析
 seo:
-  title: Android 权限系统演进全链路：从 ActivityThread 权限拦截到 Android 14 精细化管控的架构解析
-  description: Android 权限检查不止 checkSelfPermission。本文从三层拦截机制（PMS、ActivityThread、AppOps）出发，梳理 Android 10 到 14 的权限演进，详解 PermissionChecker 的正确用法与工程适配实践。
+  title: "Android 权限系统原理：运行时权限、拦截链路与安全边界"
+  description: "梳理 Android 权限系统从 Framework 拦截到运行时授权的完整链路，覆盖权限校验、兼容策略与安全工程实践。"
 ---
 
 一个项目里踩过的坑：`ContextCompat.checkSelfPermission()` 返回 `GRANTED`，相机调用仍然崩，日志里躺着 `SecurityException`。同一台设备上另一个 App 却一切正常。
@@ -114,3 +114,14 @@ adb shell appops set com.example CAMERA deny
 ```
 
 权限系统从 6.0 的一刀切到 14 的精细化管控，趋势是让用户掌握更细粒度的控制权。适配的核心不是追着新 API 改代码，而是理解三层检查的判断逻辑——别被 PMS 层的 `GRANTED` 骗了，AppOps 才是真正说了算的那个。
+
+<!-- seo-internal-links -->
+
+## 延伸阅读
+
+- [返回对应专题：Android Framework](/android-framework/)
+- [Android Binder 原理：从驱动通信到 AIDL 调用链路](/blog/Binder%20IPC%E6%9C%BA%E5%88%B6%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90%20(Beyond%20AIDL)/)
+- [Android Framework 系统服务：AMS、WMS 与应用进程交互模型](/blog/Android%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1%E4%B8%8EFramework%E5%B1%82%E4%BA%A4%E4%BA%92%E6%A8%A1%E5%9E%8B/)
+- [Android 进程与线程模型：Zygote、主线程、Binder 线程池解析](/blog/Android%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90/)
+- [Android ContentProvider 原理：URI 路由、跨进程访问与权限控制](/blog/2026-05-15-%E6%B7%B1%E5%85%A5_Android_ContentProvider_%E8%B7%A8%E8%BF%9B%E7%A8%8B%E6%95%B0%E6%8D%AE%E5%85%B1%E4%BA%AB_%E4%BB%8E_URI_%E8%B7%AF%E7%94%B1%E5%88%B0_Conte/)
+<!-- /seo-internal-links -->

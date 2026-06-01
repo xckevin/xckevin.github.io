@@ -9,8 +9,8 @@ tags:
 - JUnit
 - CI/CD
 seo:
-  title: 深入 Android 测试全链路工程实践：从 JUnit 单元测试到 Compose Semantics UI 测试的生产级质量保障体系
-  description: 本文系统梳理 Android 测试全链路体系，涵盖 JUnit 单元测试、MockWebServer 集成测试、Compose Semantics UI 测试及 CI 质量门禁策略，分享 flaky test 治理与覆盖率管理的实战经验。
+  title: "Android 测试工程实践：JUnit、集成测试、Compose 语义与 CI"
+  description: "覆盖 Android 测试全链路，从 JUnit 单元测试、Repository 集成测试到 Compose 语义测试和 CI 自动化质量门禁。"
 ---
 
 上周五晚上 11 点，CI 流水线在第 4 次重试后终于变绿。罪魁祸首是一个 `MutableStateFlow` 的时序问题——单元测试全过，但一跑 Compose UI 测试就随机挂。那次之后，我把团队的测试体系重新梳理了一遍，核心思路就一条：**不同层级的测试解决不同的问题，但必须能在 CI 上一致地跑出结果**。
@@ -192,3 +192,12 @@ Compose 测试在 CI 上偶尔会因为动画时序问题 flaky，直接 block m
 这套体系跑了大半年，最直观的收益不是 bug 少了——而是代码评审时少了很多"这样改会不会出问题"的担忧。测试本身就是可执行的行为文档，写得好的测试用例比注释更能说明一段代码的真实意图。
 
 把测试当文档写，比把测试当质量检查工具写，团队接受度高得多。
+
+<!-- seo-internal-links -->
+
+## 延伸阅读
+
+- [返回对应专题：移动端工程化](/android-engineering/)
+- [Android Gradle 构建提速：Configuration Cache、KSP 与任务治理](/blog/2026-05-06-Android_Gradle_%E6%9E%84%E5%BB%BA%E6%8F%90%E9%80%9F%E5%85%A8%E9%93%BE%E8%B7%AF_%E4%BB%8E_Configuration_Cache_%E5%88%B0_KSP/)
+- [Android CI/CD 实践：Jenkins、GitLab CI、构建发布与质量门禁](/blog/Jenkins%E4%B8%8EGitLab%20CI%E5%AE%9E%E7%8E%B0Android%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E4%B8%8E%E4%BA%A4%E4%BB%98%EF%BC%9A%E4%BB%8E%E6%9E%84%E5%BB%BA%E5%88%B0%E5%8F%91%E5%B8%83%E7%9A%84%E5%AE%8C%E6%95%B4%E6%8C%87%E5%8D%97/)
+<!-- /seo-internal-links -->

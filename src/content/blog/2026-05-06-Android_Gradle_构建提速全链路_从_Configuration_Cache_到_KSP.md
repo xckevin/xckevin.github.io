@@ -9,8 +9,8 @@ tags:
 - KSP
 - 构建优化
 seo:
-  title: Android Gradle 构建提速全链路：从 Configuration Cache 到 KSP 替换 KAPT 的工程化实践
-  description: 深入解析 Android Gradle 构建三大瓶颈，涵盖 Configuration Cache 启用与兼容性修复、KAPT 迁移 KSP 实战步骤、增量编译陷阱排查及并行构建调优，助力团队显著缩短构建耗时。
+  title: "Android Gradle 构建提速：Configuration Cache、KSP 与任务治理"
+  description: "系统整理 Android Gradle 构建提速方法，覆盖 Configuration Cache、KSP、任务配置、缓存命中和大型项目构建治理。"
 ---
 
 一个中型项目，30 个模块，clean build 跑 4 分钟，增量构建也要 1 分 20 秒。这类数字在稍具规模的团队里并不少见，但多数人的应对方式是"加机器内存"或者"升级 Gradle 版本祈祷变快"。
@@ -192,3 +192,12 @@ Build Cache 在 CI 环境收益最大：同一份代码、不同分支切换时�
 Configuration Cache 的收益依赖项目规模，模块越多、配置越复杂，效果越显著。少于 10 个模块的小项目可以先观望；大项目建议把 CC 兼容性修复单独排一个迭代，不要混在功能开发里做——排查问题时上下文混乱会让工作量翻倍。
 
 还在用 AGP 7.x 的项目，可以把升级 AGP 8.x 一并规划进来。CC 稳定支持、`buildFeatures` 精细控制（关掉不用的 `buildConfig`、`aidl`、`renderScript`）、R 文件生成优化，这些在 AGP 8 里都有实质性改善。升级本身有迁移成本，但收益是系统性的，值得做。
+
+<!-- seo-internal-links -->
+
+## 延伸阅读
+
+- [返回对应专题：移动端工程化](/android-engineering/)
+- [Android 测试工程实践：JUnit、集成测试、Compose 语义与 CI](/blog/2026-05-10-%E6%B7%B1%E5%85%A5_Android_%E6%B5%8B%E8%AF%95%E5%85%A8%E9%93%BE%E8%B7%AF%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5_%E4%BB%8E_JUnit_%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E5%88%B0_Compose_Semanti/)
+- [Android CI/CD 实践：Jenkins、GitLab CI、构建发布与质量门禁](/blog/Jenkins%E4%B8%8EGitLab%20CI%E5%AE%9E%E7%8E%B0Android%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90%E4%B8%8E%E4%BA%A4%E4%BB%98%EF%BC%9A%E4%BB%8E%E6%9E%84%E5%BB%BA%E5%88%B0%E5%8F%91%E5%B8%83%E7%9A%84%E5%AE%8C%E6%95%B4%E6%8C%87%E5%8D%97/)
+<!-- /seo-internal-links -->

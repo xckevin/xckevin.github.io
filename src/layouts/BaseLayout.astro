@@ -13,14 +13,16 @@ const canonicalHostname = new URL(siteConfig.website).hostname;
 ---
 
 <!doctype html>
-<html lang="en" class="wrap-break-words antialiased">
+<html lang="zh-CN" class="wrap-break-words antialiased">
     <head>
         {
             import.meta.env.PROD && (
                 <script is:inline define:vars={{ canonicalHostname }}>
                     {`
                         const currentURL = new URL(window.location.href);
-                        if (currentURL.hostname !== canonicalHostname || currentURL.protocol !== 'https:') {
+                        const localHostnames = ['localhost', '127.0.0.1', '::1'];
+                        const isLocalPreview = localHostnames.includes(currentURL.hostname);
+                        if (!isLocalPreview && (currentURL.hostname !== canonicalHostname || currentURL.protocol !== 'https:')) {
                             currentURL.protocol = 'https:';
                             currentURL.hostname = canonicalHostname;
                             currentURL.port = '';

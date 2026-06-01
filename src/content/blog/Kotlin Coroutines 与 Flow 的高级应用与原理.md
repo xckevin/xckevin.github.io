@@ -8,8 +8,8 @@ tags:
   - 协程
   - Flow
 seo:
-  title: Kotlin Coroutines 与 Flow 的高级应用与原理
-  description: Kotlin Coroutines 与 Flow 的高级应用与原理：深入讲解协程与 Flow 的高级用法、调度与取消/异常处理的最佳实践。
+  title: "Kotlin Coroutines 与 Flow：协程调度、结构化并发和响应式数据流"
+  description: "深入整理 Kotlin 协程与 Flow 的高级应用，覆盖调度器、结构化并发、取消传播、异常处理和 Android 架构实践。"
 ---
 ## 引言：告别回调地狱，拥抱结构化并发
 
@@ -494,3 +494,13 @@ Kotlin Coroutines 与 Flow 为 Android 开发者提供了强大、现代且优�
 精通协程与 Flow 意味着不仅能熟练运用 API，更能深刻理解其**挂起与恢复的本质、状态机转换、结构化并发的生命周期与异常传播机制、不同调度器的适用场景与性能影响、Flow 冷热流模型与背压策略、StateFlow/SharedFlow 的精妙配置与应用场景，以及协程取消与异常处理的各种细节**。
 
 掌握这些高级原理与实践，才能在面对日益复杂的业务逻辑和用户体验要求时，自信地构建出高性能、高并发、高稳定性的 Android 应用，将异步编程的复杂性化繁为简。这是现代 Android 高级工程师必备的核心技能。
+
+<!-- seo-internal-links -->
+
+## 延伸阅读
+
+- [返回对应专题：Kotlin 与协程](/kotlin-coroutines/)
+- [Kotlin suspend 原理：CPS 变换、Continuation 与状态机字节码](/blog/2026-04-23-Kotlin_suspend_%E7%9A%84%E7%BC%96%E8%AF%91%E5%99%A8%E9%BB%91%E7%9B%92_%E4%BB%8E_CPS_%E5%8F%98%E6%8D%A2%E5%88%B0%E7%8A%B6%E6%80%81%E6%9C%BA%E5%AD%97%E8%8A%82%E7%A0%81%E7%9A%84%E5%AE%8C%E6%95%B4%E6%8E%A8%E6%BC%94/)
+- [Kotlin Flow 原理与工程实践：冷流、StateFlow、SharedFlow 对比](/blog/2026-04-23-Kotlin_Flow_%E5%B7%A5%E7%A8%8B%E5%8C%96%E5%85%A8%E6%99%AF_%E4%BB%8E%E5%86%B7%E6%B5%81%E6%83%B0%E6%80%A7%E6%B1%82%E5%80%BC%E5%88%B0_StateFlow_SharedFlow_%E7%83%AD%E6%B5%81/)
+- [Kotlin K2 编译器解析：统一前端、类型推断与 Android 构建影响](/blog/2026-04-23-Kotlin_K2_%E7%BC%96%E8%AF%91%E5%99%A8%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90_%E4%BB%8E%E7%BB%9F%E4%B8%80%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%9E%84%E5%88%B0%E6%99%BA%E8%83%BD%E7%B1%BB%E5%9E%8B%E6%8E%A8%E6%96%AD%E9%87%8D%E5%86%99%E7%9A%84%E7%BC%96%E8%AF%91%E9%9D%A9%E6%96%B0%E4%B8%8E_Android_%E5%B7%A5/)
+<!-- /seo-internal-links -->

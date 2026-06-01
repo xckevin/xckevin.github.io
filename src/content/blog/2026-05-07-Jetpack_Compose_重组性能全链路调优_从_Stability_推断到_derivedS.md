@@ -9,8 +9,8 @@ tags:
 - Kotlin
 - 架构设计
 seo:
-  title: Jetpack Compose 重组性能全链路调优：Stability 推断与 derivedStateOf 实践
-  description: 深入讲解 Jetpack Compose 重组性能优化：编译器 Stability 推断、Stability Report 工具、derivedStateOf 原理与使用、状态下沉及 Macrobenchmark 验证闭环的完整工程化方案。
+  title: "Jetpack Compose 重组性能优化：Stability、derivedStateOf 与跳过重组"
+  description: "深入讲解 Compose 重组性能优化，覆盖 Stability 推断、编译器报告、derivedStateOf、状态读取下沉和性能验证闭环。"
 ---
 
 做 Compose 性能排查时，我遇到过一类让人头疼的问题：明明没有任何"重量级"操作，列表滑动就是卡，Profiler 里重组次数蹭蹭往上涨，却一时找不到根因。翻遍文档后才意识到，问题不在某一个 Composable，而在于整个重组链路上存在多个隐性触发点——工具链用法不对，排查就只能靠猜。
@@ -254,3 +254,14 @@ fun feedScrollBenchmark() = benchmarkRule.measureRepeated(
 实践下来，Compose 重组性能问题 80% 集中在三个地方：不稳定的 List 参数、状态读取位置太靠上、高频状态没有用 `derivedStateOf` 隔离。Stability Report 把第一类问题完全透明化了，剩下两类靠 Layout Inspector 的 Recomposition Count 基本能定位。
 
 工具链到位之后，优化这件事就从"靠经验猜"变成了"按数据改"，节省的时间远超配置成本。
+
+<!-- seo-internal-links -->
+
+## 延伸阅读
+
+- [返回对应专题：Jetpack Compose](/jetpack-compose/)
+- [Jetpack Compose 原理与高级应用：状态、布局、重组与性能实践](/blog/Jetpack%20Compose%20%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8%E4%B8%8E%E5%8E%9F%E7%90%86/)
+- [Jetpack Compose Modifier 原理：链式节点、布局绘制与事件处理](/blog/2026-05-15-Jetpack_Compose_Modifier_%E9%93%BE%E5%BC%8F%E6%9C%BA%E5%88%B6%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90_%E4%BB%8E_Modifier_Node_/)
+- [Jetpack Compose 手势系统：PointerInput 事件管道与嵌套滚动](/blog/2026-05-16-Jetpack_Compose_%E6%89%8B%E5%8A%BF%E7%B3%BB%E7%BB%9F%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90_%E4%BB%8E_PointerInput_%E4%BA%8B%E4%BB%B6%E7%AE%A1%E9%81%93%E5%88%B0_Modi/)
+- [Jetpack Compose 动画系统：AnimationSpec、弹簧模型与 Transition](/blog/2026-05-09-Jetpack_Compose_%E5%8A%A8%E7%94%BB%E7%B3%BB%E7%BB%9F%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90_%E4%BB%8E_AnimationSpec_%E7%89%A9%E7%90%86%E5%BC%B9%E7%B0%A7%E6%A8%A1%E5%9E%8B%E5%88%B0_T/)
+<!-- /seo-internal-links -->

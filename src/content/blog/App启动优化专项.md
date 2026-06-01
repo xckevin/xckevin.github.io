@@ -7,8 +7,8 @@ tags:
   - 性能优化
   - 启动优化
 seo:
-  title: App 启动优化专项
-  description: 应用启动速度是用户对应用的第一印象，也是决定用户留存与否的关键因素之一。一个启动缓慢、长时间白屏或黑屏的应用，极易导致用户失去耐心而选择卸载。在竞争激烈的移动市场中，能够提供「秒开」体验的应用无疑拥有巨大优势。因此，应用启动优化是 Android 性能优化工作中投入产出比最高、最值得投入精力的专项之一。
+  title: "Android App 启动优化专项：指标、链路、工具与治理方案"
+  description: "从启动指标、主线程任务、初始化编排、异步化、Baseline Profile 到线上监控，系统整理 Android 启动优化专项方法。"
 ---
 ## 引言：第一印象定乾坤——启动速度
 
@@ -270,3 +270,14 @@ seo:
 - **数据驱动：** 依靠 Macrobenchmark 和 RUM 建立可靠的度量与监控体系。
 
 优化启动速度，本质上是在有限的时间窗口内，以最高效的方式完成最必要的工作。这要求我们对代码的执行时机、线程模型、资源加载、系统交互都有深刻的理解和精心的设计。通过持续的度量、分析和优化，才能不断逼近「秒开」的目标，为用户打造最佳的第一印象。
+
+<!-- seo-internal-links -->
+
+## 延伸阅读
+
+- [返回对应专题：Android 性能优化](/android-performance/)
+- [Android 启动优化：从 Zygote fork 到首帧上屏的 Perfetto 实战](/blog/2026-04-19-Android_%E5%86%B7%E5%90%AF%E5%8A%A8%E5%85%A8%E9%93%BE%E8%B7%AF%E4%BC%98%E5%8C%96%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5_%E4%BB%8E_Zygote_fork_%E5%88%B0%E9%A6%96%E5%B8%A7%E4%B8%8A%E5%B1%8F%E7%9A%84_Systrace/)
+- [RecyclerView 缓存机制详解：四级缓存、复用与 Prefetch](/blog/2026-04-14-%E6%B7%B1%E5%85%A5_Android_RecyclerView_%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6_%E4%BB%8E%E5%9B%9B%E7%BA%A7%E7%BC%93%E5%AD%98%E5%88%B0_Prefetch_%E7%9A%84%E6%80%A7%E8%83%BD%E8%AE%BE%E8%AE%A1/)
+- [Android Bitmap 内存模型：Java 堆、Native 堆与 Hardware Bitmap](/blog/2026-04-14-%E6%B7%B1%E5%85%A5_Android_Bitmap_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B_%E4%BB%8E_Java_%E5%A0%86%E5%88%86%E9%85%8D%E5%88%B0_Hardware_Bitmap/)
+- [Android RenderThread 与 HWUI：渲染管线、DisplayList 与掉帧分析](/blog/2026-04-20-Android_RenderThread_%E4%B8%8E_HWUI_%E6%B8%B2%E6%9F%93%E7%AE%A1%E7%BA%BF%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90_%E4%BB%8E_DisplayList/)
+<!-- /seo-internal-links -->

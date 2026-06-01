@@ -8,8 +8,8 @@ tags:
   - 图形栈
   - 性能优化
 seo:
-  title: Android 渲染机制与图形栈深入理解
-  description: 在移动应用中，用户体验的流畅度至关重要，而这在很大程度上取决于 UI 渲染的性能。无论是丝滑的列表滚动、平顺的过渡动画，还是即时的触摸反馈，背后都依赖于 Android 系统复杂而精密的渲染机制。达到并维持 60fps、90fps 甚至 120fps 的渲染帧率，是现代应用追求的目标。
+  title: "Android 渲染机制与图形栈：View、HWUI、SurfaceFlinger 全链路"
+  description: "从 View 绘制、硬件加速、RenderThread 到 SurfaceFlinger 合成，完整梳理 Android 图形渲染链路与性能关注点。"
 ---
 ## 引言：打造流畅体验的基石
 
@@ -427,3 +427,14 @@ Jank（卡顿）是渲染性能问题的直观表现，意味着应用未能按�
 Android 的渲染机制是一个涉及应用层、Framework 层、系统服务（WMS、SurfaceFlinger）、图形库（Skia、HWUI）、硬件（CPU、GPU、Display Controller）以及精密同步机制（Choreographer、VSYNC、BufferQueue）的复杂系统。从 `invalidate()` 的调用到最终像素点亮屏幕，每一步都可能成为性能瓶颈。
 
 对于 Android 开发者而言，不仅要熟知如何构建 UI，更要能够透视整个图形栈的运作流程，理解硬件加速的原理与局限，掌握 SurfaceView 与 TextureView 的本质区别，并能熟练运用 Systrace/Perfetto 等工具精准定位渲染问题。只有具备了这种深度和广度，才能真正驾驭像素，打造出极致流畅、响应迅速的用户体验，解决那些困扰普通开发者的顽固性能问题。这正是衡量一位 Android 渲染领域专家能力的关键标尺。
+
+<!-- seo-internal-links -->
+
+## 延伸阅读
+
+- [返回对应专题：Android 性能优化](/android-performance/)
+- [Android 启动优化：从 Zygote fork 到首帧上屏的 Perfetto 实战](/blog/2026-04-19-Android_%E5%86%B7%E5%90%AF%E5%8A%A8%E5%85%A8%E9%93%BE%E8%B7%AF%E4%BC%98%E5%8C%96%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5_%E4%BB%8E_Zygote_fork_%E5%88%B0%E9%A6%96%E5%B8%A7%E4%B8%8A%E5%B1%8F%E7%9A%84_Systrace/)
+- [Android App 启动优化专项：指标、链路、工具与治理方案](/blog/App%E5%90%AF%E5%8A%A8%E4%BC%98%E5%8C%96%E4%B8%93%E9%A1%B9/)
+- [RecyclerView 缓存机制详解：四级缓存、复用与 Prefetch](/blog/2026-04-14-%E6%B7%B1%E5%85%A5_Android_RecyclerView_%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6_%E4%BB%8E%E5%9B%9B%E7%BA%A7%E7%BC%93%E5%AD%98%E5%88%B0_Prefetch_%E7%9A%84%E6%80%A7%E8%83%BD%E8%AE%BE%E8%AE%A1/)
+- [Android Bitmap 内存模型：Java 堆、Native 堆与 Hardware Bitmap](/blog/2026-04-14-%E6%B7%B1%E5%85%A5_Android_Bitmap_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B_%E4%BB%8E_Java_%E5%A0%86%E5%88%86%E9%85%8D%E5%88%B0_Hardware_Bitmap/)
+<!-- /seo-internal-links -->

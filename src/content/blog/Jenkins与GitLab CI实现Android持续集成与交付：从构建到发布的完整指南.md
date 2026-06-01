@@ -8,8 +8,8 @@ tags:
   - Jenkins
   - DevOps
 seo:
-  title: Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南
-  description: Jenkins与GitLab CI实现Android持续集成与交付：用 Jenkins 与 GitLab CI 构建 Android CI/CD 管道，实现自动化构建、测试与一键发布，提升交付效率。
+  title: "Android CI/CD 实践：Jenkins、GitLab CI、构建发布与质量门禁"
+  description: "整理 Android 持续集成与交付完整流程，覆盖 Jenkins、GitLab CI、自动构建、测试、签名、发布与质量门禁。"
 ---
 ![](../../assets/jenkins与gitlab-ci实现android持续集成与交付从构建到发布的完整指南-1.png)
 
@@ -2068,3 +2068,11 @@ android {
 
 无论选择 Jenkins 还是 GitLab CI，关键在于建立一套可靠、可重复的自动化流程，让团队能够专注于开发高质量的应用，而不是手动构建和部署的繁琐工作。
 
+<!-- seo-internal-links -->
+
+## 延伸阅读
+
+- [返回对应专题：移动端工程化](/android-engineering/)
+- [Android Gradle 构建提速：Configuration Cache、KSP 与任务治理](/blog/2026-05-06-Android_Gradle_%E6%9E%84%E5%BB%BA%E6%8F%90%E9%80%9F%E5%85%A8%E9%93%BE%E8%B7%AF_%E4%BB%8E_Configuration_Cache_%E5%88%B0_KSP/)
+- [Android 测试工程实践：JUnit、集成测试、Compose 语义与 CI](/blog/2026-05-10-%E6%B7%B1%E5%85%A5_Android_%E6%B5%8B%E8%AF%95%E5%85%A8%E9%93%BE%E8%B7%AF%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5_%E4%BB%8E_JUnit_%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E5%88%B0_Compose_Semanti/)
+<!-- /seo-internal-links -->

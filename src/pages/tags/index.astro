@@ -16,11 +16,11 @@ const tags = getAllTags(posts).sort((tagA, tagB) => {
 ---
 
 <BaseLayout
-    title="Tags"
-    description="Explore tag directory for easy navigation and discovery. Find a wide range of topics, articles, and insights organized by tags, making it effortless to locate the content that interests you most."
+    title="技术标签"
+    description="按 Android Framework、性能优化、Jetpack Compose、Kotlin、工程化等标签浏览技术文章。"
     showHeader={false}
 >
-    <h1 class="mb-12 font-serif text-2xl italic sm:mb-16 sm:text-4xl">All Tags</h1>
+    <h1 class="mb-12 font-serif text-2xl italic sm:mb-16 sm:text-4xl">技术标签</h1>
     <div class="flex flex-wrap gap-3 mb-16 sm:mb-20">
         {
             tags.map((tag) => {
@@ -30,7 +30,7 @@ const tags = getAllTags(posts).sort((tagA, tagB) => {
                     <a 
                         class="inline-flex items-center gap-2 px-4 py-2 font-serif text-main border border-main rounded-full transition-colors hover:bg-muted"
                         href={`/tags/${tag.id}`}
-                        title={`View ${postCount} ${postCount === 1 ? 'post' : 'posts'} tagged with "${tag.name}"`}
+                        title={`查看 ${postCount} 篇 ${tag.name} 相关文章`}
                     >
                         <span class="font-medium">
                             {tag.name}

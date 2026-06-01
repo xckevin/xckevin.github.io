@@ -8,8 +8,8 @@ tags:
 - 动画
 - Kotlin
 seo:
-  title: Jetpack Compose 动画系统深度解析：从 AnimationSpec 物理弹簧模型到 Transition 多属性状态机的声明式帧驱动全链路
-  description: Jetpack Compose 动画系统本质是一个物理引擎，通过阻尼谐振子模型驱动帧更新，Transition 实现多属性同步动画。深入 AnimationSpec、Choreographer 帧回调链路与 Snapshot 状态管理的声明式动画设计。
+  title: "Jetpack Compose 动画系统：AnimationSpec、弹簧模型与 Transition"
+  description: "讲解 Compose 动画系统的 AnimationSpec、Spring、Transition、状态驱动动画和性能优化策略。"
 ---
 
 第一次用 `animateDpAsState`，三行代码就让按钮有了弹性缩放。后来尝试在同一个组件里同时驱动位置、透明度和颜色，动画却变得卡顿且不同步。翻源码才搞清楚——Compose 的动画系统不是属性插值器，它本质是一个物理引擎。
@@ -109,3 +109,14 @@ while (animations.any { !it.isFinished }) {
 - `Animatable` 是底层 API，需要手动管理协程生命周期。只有动画中途需要根据外部事件改变目标值时，直接操作 `Animatable` 才有意义——绝大多数场景用不上
 
 Compose 的动画系统用起来顺手，是因为物理引擎、帧同步、状态管理三层封装都做对了。理解这套机制的价值很具体：知道 `spring(dampingRatio = 0.3f)` 会产生多次震荡，就不需要反复调参试错了。
+
+<!-- seo-internal-links -->
+
+## 延伸阅读
+
+- [返回对应专题：Jetpack Compose](/jetpack-compose/)
+- [Jetpack Compose 重组性能优化：Stability、derivedStateOf 与跳过重组](/blog/2026-05-07-Jetpack_Compose_%E9%87%8D%E7%BB%84%E6%80%A7%E8%83%BD%E5%85%A8%E9%93%BE%E8%B7%AF%E8%B0%83%E4%BC%98_%E4%BB%8E_Stability_%E6%8E%A8%E6%96%AD%E5%88%B0_derivedS/)
+- [Jetpack Compose 原理与高级应用：状态、布局、重组与性能实践](/blog/Jetpack%20Compose%20%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8%E4%B8%8E%E5%8E%9F%E7%90%86/)
+- [Jetpack Compose Modifier 原理：链式节点、布局绘制与事件处理](/blog/2026-05-15-Jetpack_Compose_Modifier_%E9%93%BE%E5%BC%8F%E6%9C%BA%E5%88%B6%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90_%E4%BB%8E_Modifier_Node_/)
+- [Jetpack Compose 手势系统：PointerInput 事件管道与嵌套滚动](/blog/2026-05-16-Jetpack_Compose_%E6%89%8B%E5%8A%BF%E7%B3%BB%E7%BB%9F%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90_%E4%BB%8E_PointerInput_%E4%BA%8B%E4%BB%B6%E7%AE%A1%E9%81%93%E5%88%B0_Modi/)
+<!-- /seo-internal-links -->

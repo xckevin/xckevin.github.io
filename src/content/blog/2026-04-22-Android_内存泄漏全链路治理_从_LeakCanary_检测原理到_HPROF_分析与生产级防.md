@@ -9,8 +9,8 @@ tags:
 - LeakCanary
 - 工程化
 seo:
-  title: Android 内存泄漏全链路治理：从 LeakCanary 检测原理到 HPROF 分析与生产级防劣化体系
-  description: 深入解析 LeakCanary 弱引用哨兵机制与 HPROF 泄漏路径分析，介绍线上三层防劣化方案：轻量指标采集、线上弱引用哨兵与条件触发 HPROF，构建可持续的内存泄漏治理闭环。
+  title: "Android 内存泄漏治理：LeakCanary、HPROF 与线上监控实践"
+  description: "系统讲解 Android 内存泄漏治理方法，覆盖 LeakCanary 检测原理、HPROF 分析、引用链定位、线上监控与生产级防劣化机制。"
 ---
 
 内存泄漏是性能优化中最难定位的问题之一。它不会立刻崩溃，而是像慢性病一样侵蚀堆空间，直到用户滑了几十分钟 Feed 后 OOM，你拿到的 crash 堆栈却指向一个毫无关系的地方。
@@ -210,3 +210,13 @@ fun testActivityNotLeaked() {
 **Native 内存泄漏另起炉灶**。LeakCanary 只管 Java 堆，如果 native heap 持续增长，要用 `malloc_debug` 或 Perfetto 的 heap profiler 单独分析。两套工具混用很容易混淆问题根因，搞清楚是 Java 堆还是 native 堆的问题，是定位方向的前提。
 
 三层防线里，线上弱引用哨兵是性价比最高的投入——代码量不到 100 行，却能在版本上线后第一时间感知到新引入的泄漏问题，值得在每个有性能要求的 App 里标配。
+
+<!-- seo-internal-links -->
+
+## 延伸阅读
+
+- [返回对应专题：Android 性能优化](/android-performance/)
+- [Android Bitmap 内存模型：Java 堆、Native 堆与 Hardware Bitmap](/blog/2026-04-14-%E6%B7%B1%E5%85%A5_Android_Bitmap_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B_%E4%BB%8E_Java_%E5%A0%86%E5%88%86%E9%85%8D%E5%88%B0_Hardware_Bitmap/)
+- [Android Perfetto 与 Systrace：系统级性能分析和调优方法](/blog/%E7%B3%BB%E7%BB%9F%E7%BA%A7%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90%E4%B8%8E%E8%B0%83%E4%BC%98%20(Systrace_Perfetto)/)
+- [Android App 启动优化专项：指标、链路、工具与治理方案](/blog/App%E5%90%AF%E5%8A%A8%E4%BC%98%E5%8C%96%E4%B8%93%E9%A1%B9/)
+<!-- /seo-internal-links -->

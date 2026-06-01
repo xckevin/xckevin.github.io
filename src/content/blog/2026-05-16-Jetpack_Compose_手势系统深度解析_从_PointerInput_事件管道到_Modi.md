@@ -9,8 +9,8 @@ tags:
 - PointerInput
 - 事件分发
 seo:
-  title: Compose 手势系统：PointerInput 事件管道与嵌套滚动冲突解决
-  description: 深入解析Compose手势系统中PointerInput事件管道的三阶段模型（Initial/Main/Final），提供嵌套滚动冲突的方向锁定方案与实战经验。
+  title: "Jetpack Compose 手势系统：PointerInput 事件管道与嵌套滚动"
+  description: "深入分析 Compose PointerInput、手势识别、事件分发、Modifier 处理链和复杂交互中的性能与冲突处理。"
 ---
 
 把一个旧项目从 View 体系迁移到 Compose 时，第一个让我头疼的 Bug 是列表嵌套横向滑动条目——手指稍微倾斜，纵向列表和横向子项就开始粘连抖动。View 体系里 `requestDisallowInterceptTouchEvent` 一行搞定的事，到了 Compose 直接不认了。
@@ -218,3 +218,14 @@ onGesture = { centroid, pan, zoom, rotation ->
 - **事件消费时机要精确**。不消费→嵌套冲突；过早消费→父组件无法协同。在 `onDragStart` 回调中消费比 `awaitFirstDown` 阶段稳妥得多，因为此时方向已经确定。
 - **惯性动画用 `velocity` 参数，别自己算**。`detectDragGestures` 结束时的 `onDragEnd` 回调自带速度估算，配合 Compose 的 `animateDecay`，效果远好于手写的衰减曲线。我在一个图片浏览组件上把手动衰减换成 `animateDecay` 后，滑动跟手性提升明显。
 - **复杂手势优先组合而非叠加**。不要在一个 `pointerInput` 块里塞多个 `detectXxx`。用 `Modifier.pointerInput` 链式挂载多个独立的手势检测器，职责分离后调试和复用都轻松很多。修改某个手势行为时不会误伤其他逻辑，这是模块化原则在 Compose 手势层的直接应用。
+
+<!-- seo-internal-links -->
+
+## 延伸阅读
+
+- [返回对应专题：Jetpack Compose](/jetpack-compose/)
+- [Jetpack Compose 重组性能优化：Stability、derivedStateOf 与跳过重组](/blog/2026-05-07-Jetpack_Compose_%E9%87%8D%E7%BB%84%E6%80%A7%E8%83%BD%E5%85%A8%E9%93%BE%E8%B7%AF%E8%B0%83%E4%BC%98_%E4%BB%8E_Stability_%E6%8E%A8%E6%96%AD%E5%88%B0_derivedS/)
+- [Jetpack Compose 原理与高级应用：状态、布局、重组与性能实践](/blog/Jetpack%20Compose%20%E9%AB%98%E7%BA%A7%E5%BA%94%E7%94%A8%E4%B8%8E%E5%8E%9F%E7%90%86/)
+- [Jetpack Compose Modifier 原理：链式节点、布局绘制与事件处理](/blog/2026-05-15-Jetpack_Compose_Modifier_%E9%93%BE%E5%BC%8F%E6%9C%BA%E5%88%B6%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90_%E4%BB%8E_Modifier_Node_/)
+- [Jetpack Compose 动画系统：AnimationSpec、弹簧模型与 Transition](/blog/2026-05-09-Jetpack_Compose_%E5%8A%A8%E7%94%BB%E7%B3%BB%E7%BB%9F%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90_%E4%BB%8E_AnimationSpec_%E7%89%A9%E7%90%86%E5%BC%B9%E7%B0%A7%E6%A8%A1%E5%9E%8B%E5%88%B0_T/)
+<!-- /seo-internal-links -->

@@ -20,6 +20,10 @@ const blog = defineCollection({
     schema: ({ image }) =>
         z.object({
             title: z.string(),
+            slug: z
+                .string()
+                .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/)
+                .optional(),
             excerpt: z.string().optional(),
             publishDate: z.coerce.date(),
             updatedDate: z.coerce.date().optional(),

@@ -16,13 +16,12 @@ export type Props = {
 
 const { description = '', pageType = 'website' } = Astro.props;
 const title = [Astro.props.title, siteConfig.title].filter(Boolean).join(' | ');
-const canonicalHost = new URL(siteConfig.website).host;
 const image = Astro.props.image ?? siteConfig.image;
 let resolvedImage: { src: string; alt?: string } | undefined;
 if (image?.src) {
     if (typeof image.src === 'string') {
         resolvedImage = {
-            src: new URL(image.src, Astro.site).toString(),
+            src: new URL(image.src, siteConfig.website).toString(),
             alt: image.alt
         };
     } else {
@@ -34,12 +33,13 @@ if (image?.src) {
             fit: 'cover'
         });
         resolvedImage = {
-            src: new URL(optimizedImage.src, Astro.site).toString(),
+            src: new URL(optimizedImage.src, siteConfig.website).toString(),
             alt: image.alt
         };
     }
 }
-const canonicalURL = new URL(Astro.request.url, Astro.site);
+const requestURL = new URL(Astro.request.url);
+const canonicalURL = new URL(`${requestURL.pathname}${requestURL.search}`, siteConfig.website);
 
 /**
  * Enforce some standard canonical URL formatting across the site.
@@ -61,20 +61,6 @@ function formatCanonicalURL(url: string | URL) {
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>{title}</title>
 <meta name="generator" content={Astro.generator} />
-
-{
-    import.meta.env.PROD && (
-        <script is:inline define:vars={{ canonicalHost }}>
-            {`
-                if (window.location.host !== canonicalHost || window.location.protocol !== 'https:') {
-                    window.location.replace(
-                        'https://' + canonicalHost + window.location.pathname + window.location.search + window.location.hash
-                    );
-                }
-            `}
-        </script>
-    )
-}
 
 <!-- Fonts -->
 <link rel="preload" as="font" type="font/woff2" href={interWoff2} crossorigin="anonymous" />

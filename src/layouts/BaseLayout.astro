@@ -4,15 +4,32 @@ import BaseHead, { type Props as HeadProps } from '../components/BaseHead.astro'
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import Nav from '../components/Nav.astro';
+import siteConfig from '../data/site-config';
 
 export type Props = HeadProps & { showHeader?: boolean };
 
 const { showHeader = true, ...head } = Astro.props;
+const canonicalHostname = new URL(siteConfig.website).hostname;
 ---
 
 <!doctype html>
 <html lang="en" class="wrap-break-words antialiased">
     <head>
+        {
+            import.meta.env.PROD && (
+                <script is:inline define:vars={{ canonicalHostname }}>
+                    {`
+                        const currentURL = new URL(window.location.href);
+                        if (currentURL.hostname !== canonicalHostname || currentURL.protocol !== 'https:') {
+                            currentURL.protocol = 'https:';
+                            currentURL.hostname = canonicalHostname;
+                            currentURL.port = '';
+                            window.location.replace(currentURL.toString());
+                        }
+                    `}
+                </script>
+            )
+        }
         <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-BV54W83MFY"></script>
 <script>

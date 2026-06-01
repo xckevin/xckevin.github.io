@@ -7,6 +7,7 @@ import PostPreview from '../../components/PostPreview.astro';
 import Subscribe from '../../components/Subscribe.astro';
 import Giscus from '../../components/Giscus.astro';
 import TableOfContents from '../../components/TableOfContents.astro';
+import siteConfig from '../../data/site-config';
 import { sortItemsByDateDesc } from '../../utils/data-utils';
 import { slugify } from '../../utils/common-utils';
 
@@ -29,7 +30,7 @@ export async function getStaticPaths() {
 
 type Props = { post: CollectionEntry<'blog'>; prevPost: CollectionEntry<'blog'>; nextPost: CollectionEntry<'blog'> };
 
-const { href } = Astro.url;
+const href = new URL(`${Astro.url.pathname}${Astro.url.search}`, siteConfig.website).toString();
 const { post, prevPost, nextPost } = Astro.props;
 const { title, publishDate, updatedDate, excerpt, tags = [], seo } = post.data;
 const { Content, headings } = await render(post);

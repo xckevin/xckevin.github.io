@@ -1,9 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 128 128">
-    <path d="M50.4 78.5a75.1 75.1 0 0 0-28.5 6.9l24.2-65.7c.7-2 1.9-3.2 3.4-3.2h29c1.5 0 2.7 1.2 3.4 3.2l24.2 65.7s-11.6-7-28.5-7L67 45.5c-.4-1.7-1.6-2.8-2.9-2.8-1.3 0-2.5 1.1-2.9 2.7L50.4 78.5Zm-1.1 28.2Zm-4.2-20.2c-2 6.6-.6 15.8 4.2 20.2a17.5 17.5 0 0 1 .2-.7 5.5 5.5 0 0 1 5.7-4.5c2.8.1 4.3 1.5 4.7 4.7.2 1.1.2 2.3.2 3.5v.4c0 2.7.7 5.2 2.2 7.4a13 13 0 0 0 5.7 4.9v-.3l-.2-.3c-1.8-5.6-.5-9.5 4.4-12.8l1.5-1a73 73 0 0 0 3.2-2.2 16 16 0 0 0 6.8-11.4c.3-2 .1-4-.6-6l-.8.6-1.6 1a37 37 0 0 1-22.4 2.7c-5-.7-9.7-2-13.2-6.2Z" />
-    <style>
-        path { fill: #000; }
-        @media (prefers-color-scheme: dark) {
-            path { fill: #FFF; }
-        }
-    </style>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="xckevin engineering favicon">
+    <defs>
+        <linearGradient id="bg" x1="18" y1="14" x2="110" y2="116" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#0f1720" />
+            <stop offset="0.56" stop-color="#102420" />
+            <stop offset="1" stop-color="#171423" />
+        </linearGradient>
+    </defs>
+    <rect width="128" height="128" rx="28" fill="url(#bg)" />
+    <path d="M25 30h12M25 50h12M25 78h12M25 98h12M91 30h12M91 50h12M91 78h12M91 98h12" stroke="#42515a" stroke-width="6" stroke-linecap="round" />
+    <path d="M30 25v12M50 25v12M78 25v12M98 25v12M30 91v12M50 91v12M78 91v12M98 91v12" stroke="#42515a" stroke-width="6" stroke-linecap="round" />
+    <rect x="29" y="29" width="70" height="70" rx="18" fill="#111821" stroke="#2b3a40" stroke-width="4" />
+    <path d="M50 42 56 49 42 64 56 79 50 86 30 64Z" fill="#3ddc84" />
+    <path d="M78 42 72 49 86 64 72 79 78 86 98 64Z" fill="#7f52ff" />
+    <path d="M69 40h10L59 88H49Z" fill="#e7f6ef" />
+    <circle cx="45" cy="34" r="4" fill="#3ddc84" />
+    <circle cx="83" cy="94" r="4" fill="#7f52ff" />
 </svg>

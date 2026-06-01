@@ -50,6 +50,7 @@ const canonicalHostname = new URL(siteConfig.website).hostname;
         <script is:inline src="/theme-toggle.js"></script>
     </head>
     <body class="bg-main text-main">
+        {import.meta.env.PROD && <script is:inline src="/canonical-redirect.js" />}
         <div class="flex min-h-screen flex-col px-4 md:px-8">
             <Nav />
             {showHeader && <Header />}

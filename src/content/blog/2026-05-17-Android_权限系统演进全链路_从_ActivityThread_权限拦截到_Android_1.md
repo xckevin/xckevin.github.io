@@ -120,8 +120,8 @@ adb shell appops set com.example CAMERA deny
 ## 延伸阅读
 
 - [返回对应专题：Android Framework](/android-framework/)
-- [Android Binder 原理：从驱动通信到 AIDL 调用链路](/blog/Binder%20IPC%E6%9C%BA%E5%88%B6%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90%20(Beyond%20AIDL)/)
-- [Android Framework 系统服务：AMS、WMS 与应用进程交互模型](/blog/Android%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1%E4%B8%8EFramework%E5%B1%82%E4%BA%A4%E4%BA%92%E6%A8%A1%E5%9E%8B/)
-- [Android 进程与线程模型：Zygote、主线程、Binder 线程池解析](/blog/Android%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90/)
-- [Android ContentProvider 原理：URI 路由、跨进程访问与权限控制](/blog/2026-05-15-%E6%B7%B1%E5%85%A5_Android_ContentProvider_%E8%B7%A8%E8%BF%9B%E7%A8%8B%E6%95%B0%E6%8D%AE%E5%85%B1%E4%BA%AB_%E4%BB%8E_URI_%E8%B7%AF%E7%94%B1%E5%88%B0_Conte/)
+- [Android Binder 原理：从驱动通信到 AIDL 调用链路](/blog/binder-ipc机制深度解析-beyond-aidl/)/)
+- [Android Framework 系统服务：AMS、WMS 与应用进程交互模型](/blog/android系统服务与framework层交互模型/)
+- [Android 进程与线程模型：Zygote、主线程、Binder 线程池解析](/blog/android进程与线程模型深度剖析/)
+- [Android ContentProvider 原理：URI 路由、跨进程访问与权限控制](/blog/2026-05-15-深入_android_contentprovider_跨进程数据共享_从_uri_路由到_conte/)
 <!-- /seo-internal-links -->

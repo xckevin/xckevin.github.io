@@ -20,4 +20,4 @@ RemoteViews 是系统小组件的底层协议，携带一组跨进程 View 操�
 ## 深入阅读
 
 - [返回专题页](/jetpack-compose/)
-- [Android Glance AppWidget 原理：RemoteViews、更新机制与 Compose 小组件](/blog/2026-05-28-%E6%B7%B1%E5%85%A5_Android_Glance_AppWidget_%E5%85%A8%E9%93%BE%E8%B7%AF_%E4%BB%8E_RemoteViews_%E6%B8%B2%E6%9F%93%E6%A1%A5%E6%8E%A5/)
+- [Android Glance AppWidget 原理：RemoteViews、更新机制与 Compose 小组件](/blog/2026-05-28-深入_android_glance_appwidget_全链路_从_remoteviews_渲染桥接/)

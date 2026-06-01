@@ -2073,6 +2073,6 @@ android {
 ## 延伸阅读
 
 - [返回对应专题：移动端工程化](/android-engineering/)
-- [Android Gradle 构建提速：Configuration Cache、KSP 与任务治理](/blog/2026-05-06-Android_Gradle_%E6%9E%84%E5%BB%BA%E6%8F%90%E9%80%9F%E5%85%A8%E9%93%BE%E8%B7%AF_%E4%BB%8E_Configuration_Cache_%E5%88%B0_KSP/)
-- [Android 测试工程实践：JUnit、集成测试、Compose 语义与 CI](/blog/2026-05-10-%E6%B7%B1%E5%85%A5_Android_%E6%B5%8B%E8%AF%95%E5%85%A8%E9%93%BE%E8%B7%AF%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5_%E4%BB%8E_JUnit_%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95%E5%88%B0_Compose_Semanti/)
+- [Android Gradle 构建提速：Configuration Cache、KSP 与任务治理](/blog/2026-05-06-android_gradle_构建提速全链路_从_configuration_cache_到_ksp/)
+- [Android 测试工程实践：JUnit、集成测试、Compose 语义与 CI](/blog/2026-05-10-深入_android_测试全链路工程实践_从_junit_单元测试到_compose_semanti/)
 <!-- /seo-internal-links -->

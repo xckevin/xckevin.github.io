@@ -318,8 +318,8 @@ Android 系统服务与 Framework 层之间通过 Binder 建立的交互模型�
 ## 延伸阅读
 
 - [返回对应专题：Android Framework](/android-framework/)
-- [Android Binder 原理：从驱动通信到 AIDL 调用链路](/blog/Binder%20IPC%E6%9C%BA%E5%88%B6%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90%20(Beyond%20AIDL)/)
-- [Android 进程与线程模型：Zygote、主线程、Binder 线程池解析](/blog/Android%E8%BF%9B%E7%A8%8B%E4%B8%8E%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B%E6%B7%B1%E5%BA%A6%E5%89%96%E6%9E%90/)
-- [Android ContentProvider 原理：URI 路由、跨进程访问与权限控制](/blog/2026-05-15-%E6%B7%B1%E5%85%A5_Android_ContentProvider_%E8%B7%A8%E8%BF%9B%E7%A8%8B%E6%95%B0%E6%8D%AE%E5%85%B1%E4%BA%AB_%E4%BB%8E_URI_%E8%B7%AF%E7%94%B1%E5%88%B0_Conte/)
-- [Android 权限系统原理：运行时权限、拦截链路与安全边界](/blog/2026-05-17-Android_%E6%9D%83%E9%99%90%E7%B3%BB%E7%BB%9F%E6%BC%94%E8%BF%9B%E5%85%A8%E9%93%BE%E8%B7%AF_%E4%BB%8E_ActivityThread_%E6%9D%83%E9%99%90%E6%8B%A6%E6%88%AA%E5%88%B0_Android_1/)
+- [Android Binder 原理：从驱动通信到 AIDL 调用链路](/blog/binder-ipc机制深度解析-beyond-aidl/)/)
+- [Android 进程与线程模型：Zygote、主线程、Binder 线程池解析](/blog/android进程与线程模型深度剖析/)
+- [Android ContentProvider 原理：URI 路由、跨进程访问与权限控制](/blog/2026-05-15-深入_android_contentprovider_跨进程数据共享_从_uri_路由到_conte/)
+- [Android 权限系统原理：运行时权限、拦截链路与安全边界](/blog/2026-05-17-android_权限系统演进全链路_从_activitythread_权限拦截到_android_1/)
 <!-- /seo-internal-links -->

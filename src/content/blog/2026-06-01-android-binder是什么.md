@@ -30,5 +30,5 @@ Socket 可以跨进程，但 Binder 更适合 Android 系统服务场景：它�
 ## 深入阅读
 
 - [返回专题页](/android-framework/)
-- [Android Binder 原理：从驱动通信到 AIDL 调用链路](/blog/Binder%20IPC%E6%9C%BA%E5%88%B6%E6%B7%B1%E5%BA%A6%E8%A7%A3%E6%9E%90%20(Beyond%20AIDL)/)
-- [Android Framework 系统服务：AMS、WMS 与应用进程交互模型](/blog/Android%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1%E4%B8%8EFramework%E5%B1%82%E4%BA%A4%E4%BA%92%E6%A8%A1%E5%9E%8B/)
+- [Android Binder 原理：从驱动通信到 AIDL 调用链路](/blog/binder-ipc机制深度解析-beyond-aidl/)/)
+- [Android Framework 系统服务：AMS、WMS 与应用进程交互模型](/blog/android系统服务与framework层交互模型/)

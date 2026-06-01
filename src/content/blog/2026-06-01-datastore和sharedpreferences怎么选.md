@@ -19,4 +19,4 @@ seo:
 ## 深入阅读
 
 - [返回专题页](/kotlin-coroutines/)
-- [2026-04-23-Android_SharedPreferences_到_DataStore_深度演进_从同步_ANR](/blog/2026-04-23-Android_SharedPreferences_%E5%88%B0_DataStore_%E6%B7%B1%E5%BA%A6%E6%BC%94%E8%BF%9B_%E4%BB%8E%E5%90%8C%E6%AD%A5_ANR/)
+- [2026-04-23-Android_SharedPreferences_到_DataStore_深度演进_从同步_ANR](/blog/2026-04-23-android_sharedpreferences_到_datastore_深度演进_从同步_anr/)

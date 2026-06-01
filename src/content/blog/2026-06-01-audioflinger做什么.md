@@ -19,4 +19,4 @@ AudioFlinger 是 Android 音频系统里的核心服务之一，主要负责接�
 ## 深入阅读
 
 - [返回专题页](/android-performance/)
-- [Android 音频系统原理：AudioFlinger、混音策略与 AAudio 低延迟](/blog/2026-05-12-%E6%B7%B1%E5%85%A5_Android_%E9%9F%B3%E9%A2%91%E7%B3%BB%E7%BB%9F%E5%85%A8%E9%93%BE%E8%B7%AF_%E4%BB%8E_AudioFlinger_%E6%B7%B7%E9%9F%B3%E7%AD%96%E7%95%A5%E5%88%B0_AAudio_%E4%BD%8E%E5%BB%B6%E8%BF%9F/)
+- [Android 音频系统原理：AudioFlinger、混音策略与 AAudio 低延迟](/blog/2026-05-12-深入_android_音频系统全链路_从_audioflinger_混音策略到_aaudio_低延迟/)

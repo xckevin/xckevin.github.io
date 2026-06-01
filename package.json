@@ -2,6 +2,7 @@
     "name": "dante-astro-theme",
     "type": "module",
     "version": "1.0.0",
+    "packageManager": "pnpm@9.12.1",
     "scripts": {
         "dev": "astro dev",
         "start": "astro dev",

@@ -16,6 +16,7 @@ export type Props = {
 
 const { description = '', pageType = 'website' } = Astro.props;
 const title = [Astro.props.title, siteConfig.title].filter(Boolean).join(' | ');
+const canonicalHost = new URL(siteConfig.website).host;
 const image = Astro.props.image ?? siteConfig.image;
 let resolvedImage: { src: string; alt?: string } | undefined;
 if (image?.src) {
@@ -60,6 +61,20 @@ function formatCanonicalURL(url: string | URL) {
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>{title}</title>
 <meta name="generator" content={Astro.generator} />
+
+{
+    import.meta.env.PROD && (
+        <script is:inline define:vars={{ canonicalHost }}>
+            {`
+                if (window.location.host !== canonicalHost || window.location.protocol !== 'https:') {
+                    window.location.replace(
+                        'https://' + canonicalHost + window.location.pathname + window.location.search + window.location.hash
+                    );
+                }
+            `}
+        </script>
+    )
+}
 
 <!-- Fonts -->
 <link rel="preload" as="font" type="font/woff2" href={interWoff2} crossorigin="anonymous" />

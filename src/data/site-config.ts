@@ -3,7 +3,7 @@ import hero from '../assets/images/hero.jpg';
 import type { SiteConfig } from '../types';
 
 const siteConfig: SiteConfig = {
-    website: 'https://xckevin.github.io',
+    website: 'https://xckevin.com',
     avatar: {
         src: avatar,
         alt: '头像'

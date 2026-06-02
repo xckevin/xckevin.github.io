@@ -5,7 +5,7 @@ seo:
   description: '整理 Android Gemini Nano、AICore、ML Kit GenAI APIs、端侧 LLM、RAG、多模态推理、性能评测、功耗热管理和模型安全文章。'
 ---
 
-Android AI 的搜索需求正在从“什么是 Gemini Nano”转向“怎样在 App 里落地端侧生成式 AI”。这个页面承接 Gemini Nano、AICore、ML Kit GenAI APIs、Android on-device AI、端侧 LLM 和多模态推理相关问题。
+Android AI 的搜索需求正在从“什么是 Gemini Nano”转向“怎样在 App 里落地端侧生成式 AI”。这个页面围绕 Gemini Nano、AICore、ML Kit GenAI APIs、Android on-device AI、端侧 LLM 和多模态推理相关问题整理阅读路径。
 
 ## 先判断是否适合端侧 AI
 
@@ -17,7 +17,7 @@ Android AI 的搜索需求正在从“什么是 Gemini Nano”转向“怎样在
 2. Gemini Nano：面向端侧任务的 Gemini 模型族，适合低延迟和隐私优先的体验。
 3. ML Kit GenAI APIs：更高层的能力入口，屏蔽部分模型版本差异。
 4. AI Edge / LiteRT / MediaPipe LLM：适合更自定义的端侧模型推理链路。
-5. Compose UI：承接流式输出、多轮对话、多模态输入和状态反馈。
+5. Compose UI：处理流式输出、多轮对话、多模态输入和状态反馈。
 
 ## 核心阅读
 

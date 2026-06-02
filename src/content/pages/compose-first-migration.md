@@ -2,7 +2,7 @@
 title: 'Jetpack Compose 迁移与性能优化'
 seo:
   title: 'Jetpack Compose 迁移与性能优化：Compose First、重组、LazyColumn 与 View 互操作'
-  description: '面向 Android 团队的 Jetpack Compose 承接页，整理 Compose First、XML 到 Compose 迁移、重组性能、LazyColumn、Modifier、测试和 View 互操作。'
+  description: '面向 Android 团队的 Jetpack Compose 专题页，整理 Compose First、XML 到 Compose 迁移、重组性能、LazyColumn、Modifier、测试和 View 互操作。'
 ---
 
 Jetpack Compose 已经从“新 UI 框架”变成 Android 新功能开发的默认路径。这个页面面向搜索“Jetpack Compose 怎么迁移”“Compose 为什么卡顿”“Compose First 意味着什么”的读者，把本站相关深度文章整理成一条工程化路线。
@@ -17,7 +17,7 @@ Jetpack Compose 已经从“新 UI 框架”变成 Android 新功能开发的默
 ## 迁移路线
 
 1. 先从低风险页面开始迁移，不要直接重写核心交易链路。
-2. 用 View/Compose 互操作承接存量页面，把生命周期、状态提升和事件边界先定清楚。
+2. 用 View/Compose 互操作连接存量页面，把生命周期、状态提升和事件边界先定清楚。
 3. 对高频列表和复杂状态页做重组追踪，重点检查 Stability、derivedStateOf 和状态读取位置。
 4. 补齐 Compose UI 测试、截图测试和 CI 回归，避免迁移后靠手工验收。
 5. 对 AppWidget、Wear OS、大屏和折叠屏等场景单独做适配策略。

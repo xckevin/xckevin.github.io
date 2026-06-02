@@ -5,7 +5,7 @@ seo:
   description: '整理 Android 16 适配重点，覆盖强制 Edge-to-Edge、Predictive Back、16 KB 内存页、App Functions、权限、窗口和端侧 AI 入口。'
 ---
 
-Android 16 适配不是把 targetSdkVersion 改上去就结束。对成熟 App 来说，真正的风险在窗口 Insets、返回手势、Native 库页大小、跨应用智能操作、权限和兼容性验证。这个页面承接 Android 16、targetSdk 适配和行为变更相关搜索。
+Android 16 适配不是把 targetSdkVersion 改上去就结束。对成熟 App 来说，真正的风险在窗口 Insets、返回手势、Native 库页大小、跨应用智能操作、权限和兼容性验证。这个页面围绕 Android 16、targetSdk 适配和行为变更整理关键检查项。
 
 ## 优先级最高的适配项
 

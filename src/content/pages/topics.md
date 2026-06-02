@@ -19,10 +19,10 @@ seo:
 
 ## 热门技术入口
 
-- [Jetpack Compose 迁移与性能优化](/compose-first-migration/)：承接 Compose First、XML 迁移、重组性能、LazyColumn 和 View 互操作。
-- [Android Gemini Nano 与端侧 AI](/android-gemini-nano-ai/)：承接 Gemini Nano、AICore、ML Kit GenAI、端侧 LLM 和多模态推理。
-- [Android Gradle 与 AGP 9 迁移](/android-gradle-agp-9/)：承接 Android Gradle、AGP 9、Built-in Kotlin、KSP、构建提速和 CI 门禁。
-- [Android 16 适配与行为变更](/android-16-adaptation/)：承接 Android 16、Edge-to-Edge、Predictive Back、16 KB Page Size 和 App Functions。
+- [Jetpack Compose 迁移与性能优化](/compose-first-migration/)：聚焦 Compose First、XML 迁移、重组性能、LazyColumn 和 View 互操作。
+- [Android Gemini Nano 与端侧 AI](/android-gemini-nano-ai/)：整理 Gemini Nano、AICore、ML Kit GenAI、端侧 LLM 和多模态推理。
+- [Android Gradle 与 AGP 9 迁移](/android-gradle-agp-9/)：覆盖 Android Gradle、AGP 9、Built-in Kotlin、KSP、构建提速和 CI 门禁。
+- [Android 16 适配与行为变更](/android-16-adaptation/)：梳理 Android 16、Edge-to-Edge、Predictive Back、16 KB Page Size 和 App Functions。
 
 ## 推荐阅读方式
 

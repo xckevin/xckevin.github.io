@@ -22,7 +22,7 @@ seo:
 - [Android ContentProvider 原理：URI 路由、跨进程访问与权限控制](/blog/2026-05-15-深入_android_contentprovider_跨进程数据共享_从_uri_路由到_conte/)
 - [Android 权限系统原理：运行时权限、拦截链路与安全边界](/blog/2026-05-17-android_权限系统演进全链路_从_activitythread_权限拦截到_android_1/)
 
-## 新增系统链路
+## 系统启动、进程与服务链路
 
 - [深入 AOSP 源码阅读方法论：从系统服务调用链到 Native 层实现的源码追踪与调试全链路](/blog/2026-02-16-深入_aosp_源码阅读方法论_从系统服务调用链到_native_层实现的源码追踪与调试全链路/)
 - [深入 Android init 进程与系统启动全链路：从 BootLoader 到 Home Screen 的启动流程架构解析](/blog/2026-03-24-深入_android_init_进程与系统启动全链路_从_bootloader_到_home_scr/)

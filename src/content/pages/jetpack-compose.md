@@ -24,7 +24,7 @@ seo:
 - [Android Glance AppWidget 原理：RemoteViews、更新机制与 Compose 小组件](/blog/2026-05-28-深入_android_glance_appwidget_全链路_从_remoteviews_渲染桥接/)
 - [Jetpack Compose 与 View 互操作：AndroidView、生命周期与迁移策略](/blog/2026-05-19-jetpack_compose_与_view_互操作性深度解析_从_androidview_嵌入到_/)
 
-## 新增 Compose 专项
+## 布局、绘制与状态作用域
 
 - [深入 Jetpack Compose Phases 三阶段模型：从 Composition 到 Drawing 的声明式像素生产全链路](/blog/2026-01-15-深入_jetpack_compose_phases_三阶段模型_从_composition_到_dr/)
 - [深入 Jetpack Compose CompositionLocal 全链路：从隐式数据传递到组合作用域的内部机制与工程实践](/blog/2026-05-14-深入_jetpack_compose_compositionlocal_全链路_从隐式数据传递到组合/)

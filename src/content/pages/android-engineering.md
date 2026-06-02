@@ -20,7 +20,7 @@ seo:
 - [Android 测试工程实践：JUnit、集成测试、Compose 语义与 CI](/blog/2026-05-10-深入_android_测试全链路工程实践_从_junit_单元测试到_compose_semanti/)
 - [Android CI/CD 实践：Jenkins、GitLab CI、构建发布与质量门禁](/blog/jenkins与gitlab-ci实现android持续集成与交付从构建到发布的完整指南/)
 
-## 新增工程治理
+## 构建、质量门禁与发布治理
 
 - [深入 Android Gradle Version Catalog 与 Convention Plugins 全链路：从 buildSrc 单体到声明式依赖治理的模块化构建架构演进](/blog/2026-03-10-深入_android_gradle_version_catalog_与_convention_plu/)
 - [深入 Android 自定义 Lint 规则全链路：从 UAST 语法树到 Detector 检测器的编译期代码规范自动化实战](/blog/2025-12-26-深入_android_自定义_lint_规则全链路_从_uast_语法树到_detector_检测器/)

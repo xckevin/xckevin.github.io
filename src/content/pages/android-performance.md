@@ -28,7 +28,7 @@ seo:
 - [Android 音频系统原理：AudioFlinger、混音策略与 AAudio 低延迟](/blog/2026-05-12-深入_android_音频系统全链路_从_audioflinger_混音策略到_aaudio_低延迟/)
 - [Android Macrobenchmark 实战：启动、滚动与性能回归测试](/blog/2026-05-26-深入_android_macrobenchmark_性能基准测试全链路_从_benchmarkrul/)
 
-## 新增性能专项
+## 运行时、内存与图形性能
 
 - [深入 Android ART 垃圾回收机制全链路](/blog/2025-05-26-深入_android_art_垃圾回收机制全链路_从_dalvik_mark-sweep_到_con/)
 - [深入 Android ART dex2oat 编译管线：从 DEX 字节码到 OAT 机器码的 AOT/JIT 混合编译](/blog/2026-02-20-深入_android_art_dex2oat_编译管线全链路_从_dex_字节码到_oat_机器码的/)

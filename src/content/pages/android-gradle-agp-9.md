@@ -2,10 +2,10 @@
 title: 'Android Gradle 与 AGP 9 迁移'
 seo:
   title: 'Android Gradle 与 AGP 9 迁移：构建提速、Built-in Kotlin、KSP 与 CI 门禁'
-  description: '面向 Android Gradle、AGP 9 和构建提速搜索需求，整理 Built-in Kotlin、KSP、Configuration Cache、Version Catalog、CI/CD 与质量门禁。'
+  description: '面向 Android Gradle、AGP 9 和构建提速问题，整理 Built-in Kotlin、KSP、Configuration Cache、Version Catalog、CI/CD 与质量门禁。'
 ---
 
-Android Gradle 的搜索需求通常不是“看一篇概念介绍”，而是要解决构建慢、升级 AGP 失败、KSP/Kotlin 版本冲突、CI 不稳定和模块依赖混乱。这个页面把本站工程化内容按 AGP 9 迁移和构建治理重新组织。
+Android Gradle 的常见问题通常不是“看一篇概念介绍”，而是要解决构建慢、升级 AGP 失败、KSP/Kotlin 版本冲突、CI 不稳定和模块依赖混乱。这个页面把本站工程化内容按 AGP 9 迁移和构建治理重新组织。
 
 ## 迁移前先做清单
 

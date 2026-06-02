@@ -5,11 +5,11 @@ seo:
   description: '整理 Android Gemini Nano、AICore、ML Kit GenAI APIs、端侧 LLM、RAG、多模态推理、性能评测、功耗热管理和模型安全文章。'
 ---
 
-Android AI 的搜索需求正在从“什么是 Gemini Nano”转向“怎样在 App 里落地端侧生成式 AI”。这个页面围绕 Gemini Nano、AICore、ML Kit GenAI APIs、Android on-device AI、端侧 LLM 和多模态推理相关问题整理阅读路径。
+Android AI 的工程关注点正在从“什么是 Gemini Nano”转向“怎样在 App 里落地端侧生成式 AI”。这个页面围绕 Gemini Nano、AICore、ML Kit GenAI APIs、Android on-device AI、端侧 LLM 和多模态推理相关问题整理阅读路径。
 
 ## 先判断是否适合端侧 AI
 
-端侧 AI 适合低延迟、弱网/离线、隐私敏感、推理成本可控的场景，例如摘要、改写、图片描述、语音识别、智能输入、端侧搜索和小型 RAG。它不适合把所有云端大模型能力硬搬到手机上，尤其是长上下文、复杂推理和大规模知识检索。
+端侧 AI 适合低延迟、弱网/离线、隐私敏感、推理成本可控的场景，例如摘要、改写、图片描述、语音识别、智能输入、本地内容检索和小型 RAG。它不适合把所有云端大模型能力硬搬到手机上，尤其是长上下文、复杂推理和大规模知识检索。
 
 ## 技术入口
 

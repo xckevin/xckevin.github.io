@@ -5,7 +5,7 @@ seo:
   description: '面向 Android 团队的 Jetpack Compose 专题页，整理 Compose First、XML 到 Compose 迁移、重组性能、LazyColumn、Modifier、测试和 View 互操作。'
 ---
 
-Jetpack Compose 已经从“新 UI 框架”变成 Android 新功能开发的默认路径。这个页面面向搜索“Jetpack Compose 怎么迁移”“Compose 为什么卡顿”“Compose First 意味着什么”的读者，把本站相关深度文章整理成一条工程化路线。
+Jetpack Compose 已经从“新 UI 框架”变成 Android 新功能开发的默认路径。这个页面面向正在处理“Jetpack Compose 怎么迁移”“Compose 为什么卡顿”“Compose First 意味着什么”的读者，把本站相关深度文章整理成一条工程化路线。
 
 ## 适合谁读
 

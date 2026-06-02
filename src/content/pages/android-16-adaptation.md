@@ -30,7 +30,7 @@ Android 16 适配不是把 targetSdkVersion 改上去就结束。对成熟 App �
 - 屏幕形态：直板机、折叠屏、大屏、横屏、分屏和自由窗口。
 - 输入法与手势：IME 弹出、手势导航、三键导航、返回预测动画。
 - Native 依赖：本地 so、第三方音视频 SDK、加固/热修复 SDK。
-- AI 入口：App Functions、Shortcuts、端侧 AI、搜索索引和隐私边界。
+- AI 入口：App Functions、Shortcuts、端侧 AI、语义索引和隐私边界。
 
 ## 相关专题
 

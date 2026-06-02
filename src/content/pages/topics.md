@@ -17,7 +17,7 @@ seo:
 - [移动端工程化](/android-engineering/)：Gradle、CI/CD、测试、模块化和架构治理。
 - [AI 开发工具](/ai-dev-tools/)：Codex、提示词工程、Ollama、OpenClaw 与 Agent 工程。
 
-## 搜索承接页
+## 热门技术入口
 
 - [Jetpack Compose 迁移与性能优化](/compose-first-migration/)：承接 Compose First、XML 迁移、重组性能、LazyColumn 和 View 互操作。
 - [Android Gemini Nano 与端侧 AI](/android-gemini-nano-ai/)：承接 Gemini Nano、AICore、ML Kit GenAI、端侧 LLM 和多模态推理。

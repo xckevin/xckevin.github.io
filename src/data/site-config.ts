@@ -9,8 +9,8 @@ const siteConfig: SiteConfig = {
         alt: '头像'
     },
     title: 'Kai | Android Framework、性能优化与工程化深度解析',
-    subtitle: 'Android Framework、性能优化、Jetpack Compose、Kotlin 与移动端工程化深度笔记。',
-    description: '系统整理 Android Framework、Jetpack Compose、性能优化、Kotlin、CI/CD 与移动端工程化实践。',
+    subtitle: 'Android Framework、性能优化、Jetpack Compose、Kotlin、端侧 AI 与移动端工程化深度笔记。',
+    description: '系统整理 Android Framework、Jetpack Compose、性能优化、Kotlin、端侧 AI、CI/CD 与移动端工程化实践。',
     image: {
         src: hero,
         alt: 'Android Framework、性能优化与工程化知识库封面'
@@ -20,6 +20,7 @@ const siteConfig: SiteConfig = {
         { text: 'Topics', href: '/topics' },
         { text: 'Android', href: '/android-framework' },
         { text: 'Performance', href: '/android-performance' },
+        { text: 'AI', href: '/android-on-device-ai' },
         { text: 'Blog', href: '/blog' },
         { text: 'Tags', href: '/tags' }
     ],
@@ -35,7 +36,7 @@ const siteConfig: SiteConfig = {
     ],
     hero: {
         title: 'Android 深度技术笔记与工程化实践',
-        text: '聚焦 Android Framework、性能优化、Jetpack Compose、Kotlin 协程、CI/CD 与移动端架构治理，把源码链路、工程经验和排障方法整理成可检索的知识库。',
+        text: '聚焦 Android Framework、性能优化、Jetpack Compose、Kotlin 协程、端侧 AI、CI/CD 与移动端架构治理，把源码链路、工程经验和排障方法整理成可检索的知识库。',
         image: {
             src: hero,
             alt: 'Android 技术知识库封面'

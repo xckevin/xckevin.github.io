@@ -12,6 +12,7 @@ seo:
 - [OpenAI 如何使用 Codex](/blog/openai-如何使用-codex/)
 - [提示词工程：从核心原则到前沿实践](/blog/提示词工程从核心原则到前沿实践/)
 - [Ollama 在 Apple Silicon 上全面转向 MLX 驱动](/blog/ollama-在-apple-silicon-上全面转向-mlx-驱动预览版/)
+- [深入 Android Studio Gemini 代码助手：从上下文感知补全到多文件重构的 AI 辅助开发全链路](/blog/2026-03-12-深入_android_studio_gemini_代码助手_从上下文感知补全到多文件重构的_ai_辅/)
 - [OpenClaw 架构拆解：Node、Tool、Skill 如何把 AI 变成可执行系统](/blog/openclaw-架构拆解nodetoolskill-如何把-ai-变成可执行系统/)
 - [OpenClaw Agent 体系深度解析：运行时、通信与多 Agent 工程实践](/blog/openclaw-agent-体系深度解析运行时通信与多-agent-工程实践/)
 - [OpenClaw Memory 设计解析：从文件化记忆到可扩展检索架构](/blog/openclaw-memory-设计解析从文件化记忆到可扩展检索架构/)
@@ -25,4 +26,4 @@ seo:
 
 ## 下一步
 
-AI 工具要产生稳定收益，最终仍要落到 CI、测试、评审和知识库维护，建议结合 [移动端工程化](/android-engineering/) 一起推进。
+AI 工具要产生稳定收益，最终仍要落到 CI、测试、评审和知识库维护，建议结合 [移动端工程化](/android-engineering/) 一起推进。如果关注 Android 产品内的 AI 推理能力，继续阅读 [Android 端侧 AI](/android-on-device-ai/)。

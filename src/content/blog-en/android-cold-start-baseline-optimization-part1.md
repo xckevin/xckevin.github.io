@@ -1,0 +1,160 @@
+---
+title: "Android Cold Start Optimization with Baseline Profiles, Part 1: Background"
+lang: en
+translationKey: android-cold-start-baseline-optimization-part1
+slug: android-cold-start-baseline-optimization-part1
+excerpt: "Part 1 of a three-part Android cold start optimization series, covering AOT, JIT, ART, JVM, oat files, and how Baseline Profiles improve first launch."
+publishDate: '2025-11-18'
+displayInBlog: false
+tags:
+- "Android"
+- "Performance Optimization"
+- "Startup Optimization"
+- "Baseline Profile"
+series:
+  name: "Android Cold Start Optimization with Baseline Profiles"
+  part: 1
+  total: 3
+seo:
+  title: "Android Cold Start Optimization with Baseline Profiles, Part 1"
+  description: "Understand Android cold start basics, ART compilation modes, oat files, and why Baseline Profiles improve first-launch performance."
+  pageType: article
+---
+> This is part 1 of the three-part series "Android Cold Start Optimization with Baseline Profiles."
+
+## Background
+
+First-launch time is critical to Android app retention. At Google I/O 2022, Google recommended Baseline Profiles as a startup optimization approach. It is highly general and can be adopted by almost any Android app.
+
+For that reason, our app can also try integrating this approach to further improve startup speed.
+
+## Principles
+
+### Core concepts
+
+#### AOT
+
+**AOT, or Ahead-of-Time compilation**, is a compilation technique that converts source code or intermediate code, such as bytecode, into machine code before the program runs. Unlike traditional JIT, or Just-in-Time compilation, AOT finishes compilation before execution and produces native machine code that can run directly on the target platform.
+
+The main advantage of AOT is better runtime performance and lower startup time. Because the code has already been compiled into machine code, the runtime no longer needs to interpret or compile it during execution, reducing execution cost. This matters especially for applications that need fast startup and responsiveness, such as mobile apps and embedded systems.
+
+Another advantage is that AOT can perform more optimization because the compiler can analyze and optimize the whole program at compile time. This kind of static optimization can improve execution efficiency and apply target-platform-specific optimizations for even better performance.
+
+AOT also has limitations. Because code is fixed at compile time, it cannot be dynamically optimized based on runtime context. Some dynamic features, such as reflection or dynamic code generation, may not be fully optimized. AOT also requires extra compilation time and storage.
+
+#### JIT
+
+**JIT, or Just-in-Time compilation**, is a compilation technique that dynamically converts source code or intermediate code, such as bytecode, into machine code while the program is running. Unlike AOT, JIT compiles during execution and compiles code fragments into machine code as needed.
+
+#### ART
+
+**ART, or Android Runtime**, is the runtime environment in Android. It was introduced in Android 5.0, Lollipop, replacing the earlier Dalvik VM. ART aims to provide higher performance, lower memory usage, and better app responsiveness.
+
+Unlike Dalvik, ART uses AOT compilation. When an app is installed, ART converts the app's bytecode into native machine code and stores it on the device so it can be executed directly at runtime. This ahead-of-time compilation removes the JIT overhead used by Dalvik and improves app startup time and execution performance.
+
+ART also introduced several optimizations, such as more efficient garbage collection, method inlining, loop optimization, and escape analysis. Another important feature is multi-architecture support: ART can generate native machine code for the device architecture, such as ARM, x86, or MIPS.
+
+#### Baseline Profile
+
+A Baseline Profile is a list of classes and methods in an APK that [Android Runtime, ART](https://source.android.google.cn/devices/tech/dalvik?hl=zh-cn), uses to precompile critical paths into machine code during app installation. It is a form of profile-guided optimization, or PGO, that helps apps improve startup, reduce jank, and improve performance, which improves user experience.
+
+#### JVM
+
+The JVM hides operating-system-specific details, allowing Java programs to generate bytecode that runs on the Java Virtual Machine and therefore run across multiple platforms without modification. When the JVM executes bytecode, it eventually interprets the bytecode into machine instructions for the current platform. This happens in user space.
+
+![](../../assets/android-%E5%86%B7%E5%90%AF%E5%8A%A8%E4%BC%98%E5%8C%96--baseline-%E4%BC%98%E5%8C%96-1.png)
+
+- Java source file -> compiler -> bytecode file
+- Bytecode file -> JVM -> machine code
+
+#### .oat files
+
+An **.oat file** is an Android file format that contains precompiled machine code for an app or library. It improves startup speed and execution efficiency.
+
+.oat files are generated by ART when an app is installed or first run. ART optimizes and compiles the app bytecode, then generates the corresponding .oat file. On later runs, ART can load and execute machine code from the .oat file directly, without parsing and compiling the bytecode again.
+
+.oat files are usually associated with APK files. When an app is installed or first run, ART generates the corresponding .oat file from bytecode in the APK and stores it in a system directory on the device. The .oat file format and storage location can differ across devices and Android versions. ART manages .oat files automatically, so developers do not need to operate on them directly.
+
+### App build and runtime flow
+
+![](../../assets/android-%E5%86%B7%E5%90%AF%E5%8A%A8%E4%BC%98%E5%8C%96--baseline-%E4%BC%98%E5%8C%96-2.png)
+
+Build flow
+
+![](../../assets/android-%E5%86%B7%E5%90%AF%E5%8A%A8%E4%BC%98%E5%8C%96--baseline-%E4%BC%98%E5%8C%96-3.png)
+
+Runtime flow
+
+1. **Write Java or Kotlin code**: Use Java or Kotlin to implement app logic and features.
+2. **Compile and build**: Use Android Studio or another IDE to compile the code into bytecode and generate an APK containing resources and bytecode.
+3. **Install the app**: Install the APK on an Android device. The installation process extracts the APK and copies files to the device filesystem.
+4. **Android Runtime, ART**: The app runs inside ART, which loads and executes bytecode.
+5. **Class loading and verification**: ART loads and verifies classes before running them, ensuring that the bytecode complies with JVM rules and Android system requirements.
+6. **Bytecode interpretation and compilation**: ART uses an interpreter to convert bytecode into machine code for execution. During runtime, ART also uses JIT to compile hot code into native machine code for better execution efficiency.
+
+### Behavior across Android versions
+
+Different Android versions use different app compilation approaches, each with its own performance tradeoffs. Baseline Profiles provide a profile suitable for all installs and improve on earlier compilation methods.
+
+| Android version | Compilation method | Optimization method |
+| :--- | :--- | :--- |
+| Android 5, API 21, to Android 6, API 23 | Full AOT | The entire app is optimized during installation. This increases user wait time, RAM and disk usage, and code loading time from disk, which can increase cold start time. |
+| Android 7, API 24, to Android 8.1, API 27 | Partial AOT with Baseline Profiles | Baseline Profiles are installed by `androidx.profileinstaller` on first app run. ART can add more profile rules during app usage and compile those rules while the device is idle, improving disk usage and reducing loading time. |
+| Android 9, API 28, and later | Partial AOT with Baseline Profiles plus cloud profiles | During app installation, Play uses Baseline Profiles and cloud profiles, when available, to optimize the APK. After install, ART profiles are uploaded to Play, aggregated, and provided as cloud profiles for later installs or updates by other users. |
+
+On Android 5.0 and 6.0, code is fully AOT-compiled during installation. AOT improves performance, but it increases install time and disk usage.
+
+On Android 7.0 and later, Android supports a hybrid compilation mode where JIT and AOT coexist. ART records hot code at runtime and stores it under `/data/misc/profiles/cur/0/packageName/primary.prof`, then performs AOT compilation for that hot code. This is more flexible than full AOT compilation.
+
+### How Baseline Profiles work
+
+#### Hybrid compilation
+
+Android needs to collect hot code during execution, generate a .prof file, and then run AOT compilation based on that .prof file when the system is idle. This balances install speed and runtime speed. For device manufacturers, it also affects first boot and post-OTA boot speed; users who used Android 5.x or 6.x may remember the slow "optimizing apps" process after OTA updates.
+
+But **hybrid compilation has one obvious downside: the app's first run must rely on JIT compilation, so startup is relatively slow.**
+
+**Google's Baseline Profiles idea is simple: let developers collect hot code during development, so AOT compilation can happen before users ever open the app.**
+
+#### How Baseline Profiles operate
+
+Profile rules are compiled into binary form in `assets/dexopt/baseline.prof` inside the APK.
+
+During app installation, ART ahead-of-time compiles the methods in the profile to improve their execution speed. If the profile includes methods used during startup or frame rendering, users get faster startup and less jank.
+
+When developing an app or library, define a Baseline Profile that covers hot paths where rendering time or latency matters in critical user journeys, such as startup, transitions, or scrolling. The Baseline Profile is then shipped directly to users with the APK.
+
+**Summary**: Google's approach is to **let developers collect hot-code rules ahead of time, package those rules with the app, and place them under `/data/misc/profiles/cur/0/`**. The overall process has two steps: collect hot-code rules, then store those rules in the expected directory.
+
+![](../../assets/android-%E5%86%B7%E5%90%AF%E5%8A%A8%E4%BC%98%E5%8C%96--baseline-%E4%BC%98%E5%8C%96-4.png)
+
+With Google Play
+
+![](../../assets/android-%E5%86%B7%E5%90%AF%E5%8A%A8%E4%BC%98%E5%8C%96--baseline-%E4%BC%98%E5%8C%96-5.png)
+
+Without Google Play
+
+After the project builds an APK, a `dexopt` folder appears under `assets`. It contains `baseline.prof` and `baseline.profm`, as shown below:
+
+![](../../assets/android-%E5%86%B7%E5%90%AF%E5%8A%A8%E4%BC%98%E5%8C%96--baseline-%E4%BC%98%E5%8C%96-6.png)
+
+![](../../assets/android-%E5%86%B7%E5%90%AF%E5%8A%A8%E4%BC%98%E5%8C%96--baseline-%E4%BC%98%E5%8C%96-7.png)
+
+#### Precompilation timing
+
+![](../../assets/android-%E5%86%B7%E5%90%AF%E5%8A%A8%E4%BC%98%E5%8C%96--baseline-%E4%BC%98%E5%8C%96-8.png)
+
+- **ab-ota**: Short for Android Bootloader Over-The-Air. It refers to updating an Android device bootloader through a wireless update, usually an OTA update.
+- **bg-dexopt**: The Android background process that performs DEX optimization.
+- **Install app**: During installation.
+- **first-use**: During first use.
+
+---
+
+> In the next article, we will cover generating the Baseline Profile.
+
+**Series: Android Cold Start Optimization with Baseline Profiles**
+
+1. **Background** (this article)
+2. Generating the Baseline Profile
+3. Test results

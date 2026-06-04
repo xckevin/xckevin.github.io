@@ -31,7 +31,7 @@ The goal is not a rewrite for its own sake. The goal is a controlled path toward
 ## Core Reading
 
 - [Jetpack Compose engineering notes](/en/jetpack-compose/)
-- [Why does Compose recompose so often? Stability and state-read scope](/blog/2026-06-01-compose为什么频繁重组/)
+- [Why does Compose recompose so often? Stability and state-read scope](/blog/compose-recomposition/)
 - [Jetpack Compose recomposition performance: stability, `derivedStateOf`, and skip behavior](/blog/2026-05-07-jetpack_compose_重组性能全链路调优_从_stability_推断到_deriveds/)
 - [Compose `LazyColumn` scroll performance: from recomposition tracing to frame-rate stability](/blog/2026-02-26-深入_android_compose_lazycolumn_滑动性能调优全链路_从重组追踪到帧率稳定/)
 - [Compose and View interoperability: `AndroidView`, `ComposeView`, and two-way communication](/blog/2026-05-19-jetpack_compose_与_view_互操作性深度解析_从_androidview_嵌入到_/)

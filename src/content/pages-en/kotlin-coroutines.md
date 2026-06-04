@@ -20,21 +20,21 @@ For Android teams, Kotlin is not just syntax. Coroutines, Flow, compiler behavio
 
 ## Core Articles
 
-- [Kotlin `suspend` internals: from compiler state machines to coroutine scheduling](/blog/2026-04-23-kotlin_suspend_协程状态机全链路_从编译器转换到_continuation_调度/)
-- [Kotlin Flow internals: cold streams, operators, backpressure, and collection](/blog/2026-04-23-kotlin_flow_响应式流全链路_从冷流构建到背压与取消传播/)
+- [Kotlin `suspend` internals: from CPS transformation to continuation state-machine bytecode](/blog/2026-04-23-kotlin_suspend_的编译器黑盒_从_cps_变换到状态机字节码的完整推演/)
+- [Kotlin Flow engineering: cold streams, StateFlow, and SharedFlow](/blog/2026-04-23-kotlin_flow_工程化全景_从冷流惰性求值到_stateflow_sharedflow_热流/)
 - [Advanced Kotlin Coroutines and Flow usage](/blog/kotlin-coroutines-与-flow-的高级应用与原理/)
-- [Kotlin K2 compiler migration: frontend changes and Android build impact](/blog/2026-04-23-kotlin_k2_编译器全链路_从_fir_前端到_android_构建性能优化/)
+- [Kotlin K2 compiler: unified frontend, type inference, and Android build impact](/blog/2026-04-23-kotlin_k2_编译器深度解析_从统一前端架构到智能类型推断重写的编译革新与_android_工/)
 
 ## Type System, Testing, and Code Generation
 
 - [Testing Kotlin coroutines: from `TestDispatcher` to virtual-time control](/blog/2026-05-15-深入_kotlin_coroutines_测试全链路_从_testdispatcher_调度控制到_/)
 - [Kotlin context receivers: expressing implicit dependencies safely](/blog/2026-01-16-深入_kotlin_context_receivers_上下文接收器_从_multiple_rece/)
-- [Kotlin contracts: from compiler reasoning to safer APIs](/blog/2026-01-20-深入_kotlin_contracts_契约编程全链路_从编译器智能推断到_api_设计/)
-- [Kotlin sealed classes and interfaces: exhaustive state modeling](/blog/2026-01-21-深入_kotlin_sealed_class_interface_密封类型体系_从穷尽性检查到领域建模/)
-- [Kotlin Symbol Processing: from symbol scanning to generated code](/blog/2026-01-22-深入_kotlin_symbol_processing__ksp__全链路_从符号处理到代码生成/)
-- [Kotlin value classes: zero-cost domain types and Android constraints](/blog/2026-01-23-深入_kotlin_inline_class_value_class_内联值类_从_jvm_字节码到_android_性能优化/)
-- [Kotlin inline functions: bytecode, non-local returns, and performance tradeoffs](/blog/2026-01-26-深入_kotlin_内联函数全链路解析_从字节码展开到高阶函数性能优化/)
-- [Type-safe Kotlin builders and DSL design](/blog/2026-05-27-深入_kotlin_类型安全构建器与_dsl_全链路_从_receiver_作用域到编译器推断/)
+- [Kotlin contracts: SmartCast, `callsInPlace`, and compiler cooperation](/blog/2026-01-20-深入_kotlin_contracts_契约编程_从_smartcast_类型推断到_callsin/)
+- [Kotlin sealed classes and interfaces: exhaustive state modeling for Compose UI](/blog/2026-01-21-深入_kotlin_sealed_class_interface_密封类层次_从编译期穷举检查到_c/)
+- [Kotlin Symbol Processing: from annotation scanning to generated code](/blog/2026-01-22-深入_kotlin_symbol_processing__ksp__全链路解析_从_symbolpr/)
+- [Kotlin inline class and value class: zero-cost type-safe abstractions](/blog/2026-01-23-深入_kotlin_inline_class_value_class_全链路_从编译期装箱消除到类型/)
+- [Kotlin inline functions: bytecode inlining, reified generics, and compiler optimization](/blog/2026-01-26-深入_kotlin_内联函数全链路解析_从_inline_字节码内联到_reified_泛型特化的编/)
+- [Type-safe Kotlin builders and DSL design](/blog/2026-05-27-深入_kotlin_类型安全构建器与_dsl_设计全链路_从__dslmarker_隐式作用域到_c/)
 
 ## Engineering Judgment
 

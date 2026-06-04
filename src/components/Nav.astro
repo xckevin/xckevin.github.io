@@ -1,9 +1,15 @@
 ---
 import NavLink from './NavLink.astro';
 import ThemeToggle from './ThemeToggle.astro';
-import siteConfig from '../data/site-config';
+import { getSiteConfig } from '../data/site-config';
+import type { Locale } from '../types';
 
-const navLinks = siteConfig.headerNavLinks ?? [];
+type Props = { locale?: Locale; languageSwitchHref?: string; languageSwitchLabel?: string };
+
+const { locale = 'zh', languageSwitchHref = locale === 'zh' ? '/en/' : '/', languageSwitchLabel = locale === 'zh' ? 'English' : '中文' } = Astro.props;
+const site = getSiteConfig(locale);
+const navLinks = site.headerNavLinks ?? [];
+const menuLabels = locale === 'zh' ? { open: 'Open Menu', close: 'Close Menu' } : { open: 'Open Menu', close: 'Close Menu' };
 ---
 
 <nav class="relative min-h-10 pt-4 pb-12 sm:min-h-14 sm:pb-24 md:pt-8" aria-label="Primary navigation">
@@ -12,9 +18,11 @@ const navLinks = siteConfig.headerNavLinks ?? [];
             <div class="relative mx-auto w-full max-w-3xl">
                 <button
                     class="menu-toggle relative z-30 -ml-1 flex h-8 w-8 cursor-pointer items-center justify-center md:hidden"
-                    aria-label="Open Menu"
+                    aria-label={menuLabels.open}
                     aria-expanded="false"
                     aria-controls="menu-items"
+                    data-open-label={menuLabels.open}
+                    data-close-label={menuLabels.close}
                 >
                     <span class="menu-toggle-icon relative h-px w-6 bg-current" />
                 </button>
@@ -36,7 +44,8 @@ const navLinks = siteConfig.headerNavLinks ?? [];
             </div>
         )
     }
-    <div class="absolute top-4 right-0 z-10 md:top-8">
+    <div class="absolute top-4 right-0 z-10 flex items-center gap-3 md:top-8">
+        <a class="font-serif text-sm hover:underline hover:underline-offset-2" href={languageSwitchHref}>{languageSwitchLabel}</a>
         <ThemeToggle />
     </div>
 </nav>
@@ -96,9 +105,11 @@ const navLinks = siteConfig.headerNavLinks ?? [];
         const menuToggleBtn = document.querySelector('.menu-toggle');
         menuToggleBtn?.addEventListener('click', () => {
             const isMenuExpanded = menuToggleBtn.getAttribute('aria-expanded') === 'true';
+            const openLabel = menuToggleBtn.getAttribute('data-open-label') || 'Open Menu';
+            const closeLabel = menuToggleBtn.getAttribute('data-close-label') || 'Close Menu';
             menuToggleBtn.classList.toggle('is-active');
             menuToggleBtn.setAttribute('aria-expanded', isMenuExpanded ? 'false' : 'true');
-            menuToggleBtn.setAttribute('aria-label', isMenuExpanded ? 'Open Menu' : 'Close Menu');
+            menuToggleBtn.setAttribute('aria-label', isMenuExpanded ? openLabel : closeLabel);
             menu?.classList.toggle('is-visible');
         });
     }

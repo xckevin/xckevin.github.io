@@ -4,10 +4,12 @@ import Button from '../components/Button.astro';
 import Hero from '../components/Hero.astro';
 import PostPreview from '../components/PostPreview.astro';
 import ProjectPreview from '../components/ProjectPreview.astro';
-import siteConfig from '../data/site-config';
+import { getSiteConfig } from '../data/site-config';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { sortItemsByDateDesc } from '../utils/data-utils';
 
+const locale = 'zh';
+const localeSiteConfig = getSiteConfig(locale);
 const posts = (await getCollection('blog'))
     .filter(({ data }) => data.displayInBlog)
     .sort(sortItemsByDateDesc);
@@ -15,47 +17,11 @@ const featuredPosts = posts.filter(({ data }) => data.isFeatured).slice(0, 10);
 
 const projects = (await getCollection('projects')).sort(sortItemsByDateDesc);
 const featuredProjects = projects.filter(({ data }) => data.isFeatured);
-const topics = [
-    {
-        title: 'Android Framework',
-        href: '/android-framework',
-        description: 'Binder、系统服务、进程线程、权限、ContentProvider 与 Framework 交互链路。'
-    },
-    {
-        title: 'Android 性能优化',
-        href: '/android-performance',
-        description: '冷启动、渲染、内存、Bitmap、Perfetto、Macrobenchmark 与稳定性治理。'
-    },
-    {
-        title: 'Jetpack Compose',
-        href: '/jetpack-compose',
-        description: '重组、Stability、Modifier、手势、动画、Glance 与 View 互操作。'
-    },
-    {
-        title: 'Kotlin 与协程',
-        href: '/kotlin-coroutines',
-        description: 'Coroutine、Flow、StateFlow、SharedFlow、K2 编译器与跨平台工程。'
-    },
-    {
-        title: 'Android 端侧 AI',
-        href: '/android-on-device-ai',
-        description: 'Gemini Nano、AICore、NNAPI、端侧 LLM、RAG、多模态推理与模型治理。'
-    },
-    {
-        title: '移动端工程化',
-        href: '/android-engineering',
-        description: 'CI/CD、测试、Gradle 构建、模块化、架构演进与团队协作。'
-    },
-    {
-        title: 'AI 开发工具',
-        href: '/ai-dev-tools',
-        description: 'Codex、提示词工程、Ollama、OpenClaw 与 AI Agent 工程实践。'
-    }
-];
+const topics = localeSiteConfig.topics ?? [];
 ---
 
-<BaseLayout description={siteConfig.description}>
-    <Hero {...siteConfig.hero} />
+<BaseLayout description={localeSiteConfig.description} locale={locale} languageSwitchHref="/en/" alternatePathnames={{ zh: '/', en: '/en/', 'x-default': '/' }}>
+    <Hero {...localeSiteConfig.hero} />
     <section class="mb-16 sm:mb-24" aria-labelledby="topic-index-title">
         <h2 id="topic-index-title" class="mb-8 font-serif text-xl italic sm:text-2xl">专题索引</h2>
         <div class="divide-main divide-y border-y border-dashed">
@@ -89,7 +55,7 @@ const topics = [
             <div class="mb-16 sm:mb-24">
                 <h2 class="mb-12 font-serif text-xl italic sm:mb-16 sm:text-2xl">Writing</h2>
                 {featuredPosts.map((post) => (
-                    <PostPreview post={post} class="mb-10 sm:mb-12" headingLevel="h3" />
+                    <PostPreview post={post} class="mb-10 sm:mb-12" headingLevel="h3" locale={locale} />
                 ))}
                 <div class="mt-12 sm:mt-16">
                     <Button href="/blog">View All Posts</Button>

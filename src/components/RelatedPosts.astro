@@ -1,15 +1,18 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import type { Locale } from '../types';
 import { getPostHref } from '../utils/common-utils';
 import { sortItemsByDateDesc } from '../utils/data-utils';
 
 type Props = {
-    post: CollectionEntry<'blog'>;
-    posts: CollectionEntry<'blog'>[];
+    post: CollectionEntry<'blog' | 'blogEn'>;
+    posts: CollectionEntry<'blog' | 'blogEn'>[];
     limit?: number;
+    locale?: Locale;
 };
 
-const { post, posts, limit = 4 } = Astro.props;
+const { post, posts, limit = 4, locale = 'zh' } = Astro.props;
+const labels = locale === 'zh' ? { title: '相关文章' } : { title: 'Related Posts' };
 const currentTags = new Set(post.data.tags ?? []);
 const relatedPosts = posts
     .filter((candidate) => candidate.id !== post.id && candidate.data.displayInBlog)
@@ -28,10 +31,10 @@ const relatedPosts = posts
 {
     relatedPosts.length > 0 && (
         <section class="my-16 sm:my-24" aria-labelledby="related-posts-title">
-            <h2 id="related-posts-title" class="mb-8 font-serif text-xl italic sm:mb-10 sm:text-2xl">相关文章</h2>
+            <h2 id="related-posts-title" class="mb-8 font-serif text-xl italic sm:mb-10 sm:text-2xl">{labels.title}</h2>
             <div class="divide-main divide-y border-y border-dashed">
                 {relatedPosts.map(({ post: relatedPost }) => (
-                    <a class="group block py-5" href={getPostHref(relatedPost)}>
+                    <a class="group block py-5" href={getPostHref(relatedPost, locale)}>
                         <h3 class="font-serif text-xl leading-tight font-medium group-hover:underline group-hover:decoration-dashed group-hover:decoration-1 group-hover:underline-offset-4">
                             {relatedPost.data.title}
                         </h3>

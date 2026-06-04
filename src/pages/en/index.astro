@@ -1,0 +1,49 @@
+---
+import { getCollection } from 'astro:content';
+import Button from '../../components/Button.astro';
+import Hero from '../../components/Hero.astro';
+import PostPreview from '../../components/PostPreview.astro';
+import { getSiteConfig } from '../../data/site-config';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { sortItemsByDateDesc } from '../../utils/data-utils';
+
+const locale = 'en';
+const localeSiteConfig = getSiteConfig(locale);
+const posts = (await getCollection('blogEn'))
+    .filter(({ data }) => data.displayInBlog)
+    .sort(sortItemsByDateDesc);
+const featuredPosts = posts.filter(({ data }) => data.isFeatured).slice(0, 10);
+const topics = localeSiteConfig.topics ?? [];
+---
+
+<BaseLayout description={localeSiteConfig.description} locale={locale} languageSwitchHref="/" alternatePathnames={{ zh: '/', en: '/en/', 'x-default': '/' }}>
+    <Hero {...localeSiteConfig.hero} />
+    <section class="mb-16 sm:mb-24" aria-labelledby="topic-index-title">
+        <h2 id="topic-index-title" class="mb-8 font-serif text-xl italic sm:text-2xl">Topic Index</h2>
+        <div class="divide-main divide-y border-y border-dashed">
+            {
+                topics.map((topic) => (
+                    <a class="group block py-5" href={topic.href}>
+                        <h3 class="font-serif text-xl leading-tight font-medium group-hover:underline group-hover:decoration-dashed group-hover:decoration-1 group-hover:underline-offset-4">
+                            {topic.title}
+                        </h3>
+                        <p class="mt-2 text-sm leading-relaxed">{topic.description}</p>
+                    </a>
+                ))
+            }
+        </div>
+    </section>
+    {
+        featuredPosts.length > 0 && (
+            <div class="mb-16 sm:mb-24">
+                <h2 class="mb-12 font-serif text-xl italic sm:mb-16 sm:text-2xl">Writing</h2>
+                {featuredPosts.map((post) => (
+                    <PostPreview post={post} class="mb-10 sm:mb-12" headingLevel="h3" locale={locale} />
+                ))}
+                <div class="mt-12 sm:mt-16">
+                    <Button href="/en/blog">View All Posts</Button>
+                </div>
+            </div>
+        )
+    }
+</BaseLayout>

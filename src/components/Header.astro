@@ -1,17 +1,24 @@
 ---
-import siteConfig from '../data/site-config';
+import siteConfig, { getSiteConfig } from '../data/site-config';
+import type { Locale } from '../types';
 import CustomImage from './CustomImage.astro';
 
+type Props = { locale?: Locale };
+
+const { locale = 'zh' } = Astro.props;
+const site = getSiteConfig(locale);
 const titleClass = 'text-theme-foreground font-serif text-2xl leading-tight font-medium sm:text-3xl';
+const homeHref = locale === 'zh' ? '/' : '/en/';
+const avatar = siteConfig.avatar ? { ...siteConfig.avatar, alt: locale === 'zh' ? siteConfig.avatar.alt : 'Avatar' } : undefined;
 ---
 
 <header class="mx-auto mb-12 flex w-full max-w-3xl items-center gap-4 sm:mb-16">
     {
-        siteConfig.avatar?.src && (
-            <a href="/">
+        avatar?.src && (
+            <a href={homeHref}>
                 <CustomImage
                     class="aspect-square w-16 rounded-full object-cover sm:w-20"
-                    {...siteConfig.avatar}
+                    {...avatar}
                     loading="eager"
                     fetchpriority="high"
                     width={80}
@@ -24,14 +31,14 @@ const titleClass = 'text-theme-foreground font-serif text-2xl leading-tight font
     }
     <div class="grow">
         {
-            siteConfig.avatar?.src ? (
-                <p class={titleClass}>{siteConfig.title}</p>
+            avatar?.src ? (
+                <p class={titleClass}>{site.title}</p>
             ) : (
-                <a class={titleClass} href="/">
-                    {siteConfig.title}
+                <a class={titleClass} href={homeHref}>
+                    {site.title}
                 </a>
             )
         }
-        {siteConfig.subtitle && <p class="text-sm leading-tight">{siteConfig.subtitle}</p>}
+        {site.subtitle && <p class="text-sm leading-tight">{site.subtitle}</p>}
     </div>
 </header>

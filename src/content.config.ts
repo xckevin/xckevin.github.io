@@ -20,6 +20,36 @@ const blog = defineCollection({
     schema: ({ image }) =>
         z.object({
             title: z.string(),
+            lang: z.enum(['zh', 'en']).default('zh'),
+            translationKey: z.string().optional(),
+            slug: z
+                .string()
+                .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/)
+                .optional(),
+            excerpt: z.string().optional(),
+            publishDate: z.coerce.date(),
+            updatedDate: z.coerce.date().optional(),
+            isFeatured: z.boolean().default(true),
+            displayInBlog: z.boolean().default(true),
+            tags: z.array(z.string()).default([]),
+            series: z
+                .object({
+                    name: z.string(),
+                    part: z.number(),
+                    total: z.number()
+                })
+                .optional(),
+            seo: seoSchema(image).optional()
+        })
+});
+
+const blogEn = defineCollection({
+    loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/blog-en' }),
+    schema: ({ image }) =>
+        z.object({
+            title: z.string(),
+            lang: z.enum(['en']).default('en'),
+            translationKey: z.string().optional(),
             slug: z
                 .string()
                 .regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/)
@@ -46,6 +76,19 @@ const pages = defineCollection({
     schema: ({ image }) =>
         z.object({
             title: z.string(),
+            lang: z.enum(['zh', 'en']).default('zh'),
+            translationKey: z.string().optional(),
+            seo: seoSchema(image).optional()
+        })
+});
+
+const pagesEn = defineCollection({
+    loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/pages-en' }),
+    schema: ({ image }) =>
+        z.object({
+            title: z.string(),
+            lang: z.enum(['en']).default('en'),
+            translationKey: z.string().optional(),
             seo: seoSchema(image).optional()
         })
 });
@@ -62,4 +105,4 @@ const projects = defineCollection({
         })
 });
 
-export const collections = { blog, pages, projects };
+export const collections = { blog, blogEn, pages, pagesEn, projects };

@@ -1,17 +1,19 @@
 ---
 import { type CollectionEntry } from 'astro:content';
 import ArrowRight from '../assets/icons/arrow-right.svg';
+import type { Locale } from '../types';
 import { getPostHref } from '../utils/common-utils';
 import FormattedDate from './FormattedDate.astro';
 
-type Props = { post: CollectionEntry<'blog'>; class?: string; headingLevel?: 'h2' | 'h3' };
+type Props = { post: CollectionEntry<'blog' | 'blogEn'>; class?: string; headingLevel?: 'h2' | 'h3'; locale?: Locale };
 
-const { post, class: className, headingLevel = 'h2' } = Astro.props;
+const { post, class: className, headingLevel = 'h2', locale = 'zh' } = Astro.props;
 const { title, publishDate, updatedDate, excerpt } = post.data;
 const TitleTag = headingLevel;
+const labels = locale === 'zh' ? { updated: 'Updated on', read: 'Read Post' } : { updated: 'Updated on', read: 'Read Post' };
 ---
 
-<a class:list={['group flex items-start justify-between gap-8', className]} href={getPostHref(post)}>
+<a class:list={['group flex items-start justify-between gap-8', className]} href={getPostHref(post, locale)}>
     <div class="grow">
         <TitleTag
             class="font-serif text-xl leading-tight font-medium group-hover:underline group-hover:decoration-dashed group-hover:decoration-1 group-hover:underline-offset-4 sm:text-2xl"
@@ -25,7 +27,7 @@ const TitleTag = headingLevel;
                     <>
                         {' '}
                         <span>
-                            (Updated on <FormattedDate date={updatedDate} />)
+                            ({labels.updated} <FormattedDate date={updatedDate} />)
                         </span>
                     </>
                 )
@@ -34,6 +36,6 @@ const TitleTag = headingLevel;
         {excerpt && <div class="mt-3 text-sm leading-normal">{excerpt}</div>}
     </div>
     <div class="hidden font-serif italic opacity-0 transition group-hover:opacity-100 sm:inline-flex sm:shrink-0 sm:items-center sm:gap-1">
-        Read Post <ArrowRight class="h-4 w-4 fill-current" />
+        {labels.read} <ArrowRight class="h-4 w-4 fill-current" />
     </div>
 </a>

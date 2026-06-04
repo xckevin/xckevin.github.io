@@ -13,12 +13,16 @@ const tags = getAllTags(posts).sort((tagA, tagB) => {
     const postCountTagB = getPostsByTag(posts, tagB.id).length;
     return postCountTagB - postCountTagA;
 });
+const locale = 'zh';
 ---
 
 <BaseLayout
     title="技术标签"
     description="按 Android Framework、性能优化、Jetpack Compose、Kotlin、工程化等标签浏览技术文章。"
     showHeader={false}
+    locale={locale}
+    languageSwitchHref="/en/tags/"
+    alternatePathnames={{ zh: '/tags/', en: '/en/tags/', 'x-default': '/tags/' }}
 >
     <h1 class="mb-12 font-serif text-2xl italic sm:mb-16 sm:text-4xl">技术标签</h1>
     <div class="flex flex-wrap gap-3 mb-16 sm:mb-20">
@@ -43,5 +47,5 @@ const tags = getAllTags(posts).sort((tagA, tagB) => {
             })
         }
     </div>
-    <Subscribe class="my-16 sm:my-24" />
+    <Subscribe class="my-16 sm:my-24" locale={locale} />
 </BaseLayout>

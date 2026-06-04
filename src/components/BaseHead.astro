@@ -2,8 +2,9 @@
 import interWoff2 from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
 import newsreaderWoff2 from '@fontsource-variable/newsreader/files/newsreader-latin-wght-normal.woff2?url';
 import { getImage } from 'astro:assets';
-import siteConfig from '../data/site-config';
-import type { ImageInput } from '../types';
+import siteConfig, { getSiteConfig } from '../data/site-config';
+import type { ImageInput, Locale } from '../types';
+import { getAbsoluteUrl, localeConfigs } from '../utils/i18n';
 
 import '../styles/global.css';
 
@@ -12,11 +13,15 @@ export type Props = {
     description?: string;
     image?: ImageInput | undefined;
     pageType?: 'website' | 'article';
+    locale?: Locale;
+    alternatePathnames?: Partial<Record<Locale | 'x-default', string>>;
 };
 
-const { description = '', pageType = 'website' } = Astro.props;
-const title = [Astro.props.title, siteConfig.title].filter(Boolean).join(' | ');
-const image = Astro.props.image ?? siteConfig.image;
+const { description = '', pageType = 'website', locale = 'zh', alternatePathnames } = Astro.props;
+const localeSiteConfig = getSiteConfig(locale);
+const title = [Astro.props.title, localeSiteConfig.title].filter(Boolean).join(' | ');
+const image = Astro.props.image ?? localeSiteConfig.image;
+const rssHref = locale === 'zh' ? '/rss.xml' : '/en/rss.xml';
 let resolvedImage: { src: string; alt?: string } | undefined;
 if (image?.src) {
     if (typeof image.src === 'string') {
@@ -40,6 +45,14 @@ if (image?.src) {
 }
 const requestURL = new URL(Astro.request.url);
 const canonicalURL = new URL(`${requestURL.pathname}${requestURL.search}`, siteConfig.website);
+const alternates = alternatePathnames
+    ? Object.entries(alternatePathnames)
+          .filter((entry): entry is [Locale | 'x-default', string] => Boolean(entry[1]))
+          .map(([alternateLocale, pathname]) => ({
+              hreflang: alternateLocale === 'x-default' ? 'x-default' : localeConfigs[alternateLocale].code,
+              href: formatCanonicalURL(getAbsoluteUrl(pathname))
+          }))
+    : [];
 
 /**
  * Enforce some standard canonical URL formatting across the site.
@@ -61,6 +74,7 @@ function formatCanonicalURL(url: string | URL) {
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>{title}</title>
 <meta name="generator" content={Astro.generator} />
+<meta property="og:locale" content={locale === 'zh' ? 'zh_CN' : 'en_US'} />
 
 <!-- Fonts -->
 <link rel="preload" as="font" type="font/woff2" href={interWoff2} crossorigin="anonymous" />
@@ -72,10 +86,11 @@ function formatCanonicalURL(url: string | URL) {
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 <meta name="theme-color" content="#101418" />
 <link rel="sitemap" href="/sitemap-index.xml" />
-<link rel="alternate" type="application/rss+xml" href="/rss.xml" title="RSS" />
+<link rel="alternate" type="application/rss+xml" href={rssHref} title="RSS" />
 
 <!-- Page Metadata -->
 <link rel="canonical" href={formatCanonicalURL(canonicalURL)} />
+{alternates.map((alternate) => <link rel="alternate" hreflang={alternate.hreflang} href={alternate.href} />)}
 {description && <meta name="description" content={description} />}
 
 <!-- Open Graph / Facebook -->

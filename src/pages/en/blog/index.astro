@@ -1,0 +1,33 @@
+---
+import { getCollection } from 'astro:content';
+import PostPreview from '../../../components/PostPreview.astro';
+import Subscribe from '../../../components/Subscribe.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { sortItemsByDateDesc } from '../../../utils/data-utils';
+
+const locale = 'en';
+const posts = (await getCollection('blogEn'))
+    .filter(({ data }) => data.displayInBlog)
+    .sort(sortItemsByDateDesc);
+---
+
+<BaseLayout
+    title="Android Engineering Articles"
+    description="English articles on Android Framework, performance optimization, Jetpack Compose, Kotlin coroutines, CI/CD, and mobile engineering."
+    showHeader={false}
+    locale={locale}
+    languageSwitchHref="/blog/"
+    alternatePathnames={{ zh: '/blog/', en: '/en/blog/', 'x-default': '/blog/' }}
+>
+    <h1 class="mb-12 font-serif text-2xl leading-tight italic sm:mb-16 sm:text-4xl">Android Engineering Articles</h1>
+    {
+        posts.length > 0 ? (
+            posts.map((post) => <PostPreview post={post} class="mb-10 sm:mb-12" locale={locale} />)
+        ) : (
+            <div class="border-main mb-16 border-y border-dashed py-8 text-sm leading-relaxed">
+                English articles are being prepared. Start with the topic index, or switch to the Chinese archive for the full content library.
+            </div>
+        )
+    }
+    <Subscribe class="my-16 sm:my-24" locale={locale} />
+</BaseLayout>

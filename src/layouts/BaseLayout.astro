@@ -5,15 +5,21 @@ import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import Nav from '../components/Nav.astro';
 import siteConfig from '../data/site-config';
+import type { Locale } from '../types';
+import { getAlternateLocale, getLocaleFromPathname, getLocaleHome, localeConfigs } from '../utils/i18n';
 
-export type Props = HeadProps & { showHeader?: boolean };
+export type Props = HeadProps & { showHeader?: boolean; locale?: Locale; languageSwitchHref?: string };
 
-const { showHeader = true, ...head } = Astro.props;
+const detectedLocale = getLocaleFromPathname(Astro.url.pathname);
+const { showHeader = true, locale = detectedLocale, languageSwitchHref, ...head } = Astro.props;
 const canonicalHostname = new URL(siteConfig.website).hostname;
+const alternateLocale = getAlternateLocale(locale);
+const switchHref = languageSwitchHref ?? getLocaleHome(alternateLocale);
+const switchLabel = localeConfigs[alternateLocale].label;
 ---
 
 <!doctype html>
-<html lang="zh-CN" class="wrap-break-words antialiased">
+<html lang={localeConfigs[locale].code} class="wrap-break-words antialiased">
     <head>
         {
             import.meta.env.PROD && (
@@ -43,7 +49,7 @@ const canonicalHostname = new URL(siteConfig.website).hostname;
             gtag('config', 'G-VFX5Y8E9RR');
         </script>
         <link rel="sitemap" href="/sitemap-index.xml" />
-        <BaseHead {...head} />
+        <BaseHead {...head} locale={locale} />
         <script>
             if (localStorage.theme === 'dark') {
                 document.documentElement.classList.add('dark');
@@ -55,12 +61,12 @@ const canonicalHostname = new URL(siteConfig.website).hostname;
     <body class="bg-main text-main">
         {import.meta.env.PROD && <script is:inline src="/canonical-redirect.js" />}
         <div class="flex min-h-screen flex-col px-4 md:px-8">
-            <Nav />
-            {showHeader && <Header />}
+            <Nav locale={locale} languageSwitchHref={switchHref} languageSwitchLabel={switchLabel} />
+            {showHeader && <Header locale={locale} />}
             <main class="mx-auto w-full max-w-3xl grow">
                 <slot />
             </main>
-            <Footer />
+            <Footer locale={locale} />
         </div>
     </body>
 </html>

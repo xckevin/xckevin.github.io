@@ -1,20 +1,22 @@
 ---
 import { type CollectionEntry, getCollection, render } from 'astro:content';
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import Button from '../../components/Button.astro';
-import FormattedDate from '../../components/FormattedDate.astro';
-import PostPreview from '../../components/PostPreview.astro';
-import Subscribe from '../../components/Subscribe.astro';
-import Giscus from '../../components/Giscus.astro';
-import RelatedPosts from '../../components/RelatedPosts.astro';
-import TableOfContents from '../../components/TableOfContents.astro';
-import siteConfig from '../../data/site-config';
-import { sortItemsByDateDesc } from '../../utils/data-utils';
-import { getPostHref, slugify } from '../../utils/common-utils';
+import Button from '../../../components/Button.astro';
+import FormattedDate from '../../../components/FormattedDate.astro';
+import Giscus from '../../../components/Giscus.astro';
+import PostPreview from '../../../components/PostPreview.astro';
+import RelatedPosts from '../../../components/RelatedPosts.astro';
+import Subscribe from '../../../components/Subscribe.astro';
+import TableOfContents from '../../../components/TableOfContents.astro';
+import siteConfig from '../../../data/site-config';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getPostHref, slugify } from '../../../utils/common-utils';
+import { sortItemsByDateDesc } from '../../../utils/data-utils';
 
 export async function getStaticPaths() {
-    const posts = (await getCollection('blog')).sort(sortItemsByDateDesc);
-    const displayPosts = posts.filter(({ data }) => data.displayInBlog);
+    const posts = (await getCollection('blogEn'))
+        .filter(({ data }) => data.displayInBlog)
+        .sort(sortItemsByDateDesc);
+    const displayPosts = posts;
     return posts.map((post) => {
         const displayIndex = displayPosts.findIndex((p) => p.id === post.id);
         const inDisplay = displayIndex !== -1;
@@ -29,21 +31,21 @@ export async function getStaticPaths() {
     });
 }
 
-type Props = { post: CollectionEntry<'blog'>; prevPost: CollectionEntry<'blog'>; nextPost: CollectionEntry<'blog'> };
+type Props = { post: CollectionEntry<'blogEn'>; prevPost: CollectionEntry<'blogEn'> | null; nextPost: CollectionEntry<'blogEn'> | null };
 
+const locale = 'en';
 const href = new URL(`${Astro.url.pathname}${Astro.url.search}`, siteConfig.website).toString();
 const canonicalHref = new URL(Astro.url.pathname, siteConfig.website).toString();
 const { post, prevPost, nextPost } = Astro.props;
 const { title, publishDate, updatedDate, excerpt, tags = [], seo } = post.data;
 const { Content, headings } = await render(post);
-const allPosts = await getCollection('blog');
-const allEnglishPosts = await getCollection('blogEn');
-const englishPost = allEnglishPosts.find((candidate) => {
+const allPosts = await getCollection('blogEn');
+const allChinesePosts = await getCollection('blog');
+const chinesePost = allChinesePosts.find((candidate) => {
     return Boolean(post.data.translationKey && candidate.data.translationKey === post.data.translationKey);
 });
-const locale = 'zh';
-const languageSwitchHref = englishPost ? getPostHref(englishPost, 'en') : '/en/';
-const alternatePathnames = englishPost ? { zh: getPostHref(post, 'zh'), en: getPostHref(englishPost, 'en'), 'x-default': getPostHref(post, 'zh') } : undefined;
+const languageSwitchHref = chinesePost ? getPostHref(chinesePost, 'zh') : '/blog/';
+const alternatePathnames = chinesePost ? { zh: getPostHref(chinesePost, 'zh'), en: getPostHref(post, 'en'), 'x-default': getPostHref(chinesePost, 'zh') } : undefined;
 const description = seo?.description ?? excerpt;
 const structuredData = [
     {
@@ -68,7 +70,7 @@ const structuredData = [
             url: siteConfig.website
         },
         keywords: tags.join(', '),
-        inLanguage: 'zh-CN'
+        inLanguage: 'en'
     },
     {
         '@context': 'https://schema.org',
@@ -77,14 +79,14 @@ const structuredData = [
             {
                 '@type': 'ListItem',
                 position: 1,
-                name: '首页',
-                item: siteConfig.website
+                name: 'Home',
+                item: new URL('/en/', siteConfig.website).toString()
             },
             {
                 '@type': 'ListItem',
                 position: 2,
-                name: '技术文章',
-                item: new URL('/blog/', siteConfig.website).toString()
+                name: 'Articles',
+                item: new URL('/en/blog/', siteConfig.website).toString()
             },
             {
                 '@type': 'ListItem',
@@ -134,7 +136,7 @@ const structuredData = [
                 tags.length > 0 && (
                     <div class="flex flex-wrap gap-x-5 gap-y-1 text-sm">
                         {tags.map((tag) => (
-                            <a class="text-main hover:underline" href={`/tags/${slugify(tag)}`}>
+                            <a class="text-main hover:underline" href={`/en/tags/${slugify(tag)}`}>
                                 #{tag}
                             </a>
                         ))}

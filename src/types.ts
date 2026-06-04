@@ -9,6 +9,15 @@ export type Link = {
     href: string;
 };
 
+export type Locale = 'zh' | 'en';
+
+export type LocaleConfig = {
+    locale: Locale;
+    code: string;
+    label: string;
+    pathPrefix: string;
+};
+
 export type Hero = {
     title?: string;
     text?: string;
@@ -30,9 +39,11 @@ export type Subscribe = {
     form?: SubscribeForm;
 };
 
-export type SiteConfig = {
-    website: string;
-    avatar?: ImageInput;
+export type TopicLink = Link & {
+    description: string;
+};
+
+export type SiteLocaleConfig = {
     title: string;
     subtitle?: string;
     description: string;
@@ -42,6 +53,13 @@ export type SiteConfig = {
     socialLinks?: Link[];
     hero?: Hero;
     subscribe?: Subscribe;
+    topics?: TopicLink[];
+};
+
+export type SiteConfig = SiteLocaleConfig & {
+    website: string;
+    avatar?: ImageInput;
     postsPerPage?: number;
     projectsPerPage?: number;
+    locales: Record<Locale, SiteLocaleConfig>;
 };

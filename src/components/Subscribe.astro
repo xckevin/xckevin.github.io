@@ -1,14 +1,17 @@
 ---
-import siteConfig from '../data/site-config';
+import { getSiteConfig } from '../data/site-config';
+import type { Locale } from '../types';
 import Button from './Button.astro';
 
-type Props = { class?: string };
+type Props = { class?: string; locale?: Locale };
 
-const { class: className } = Astro.props;
-const subscribe = siteConfig.subscribe;
+const { class: className, locale = 'zh' } = Astro.props;
+const site = getSiteConfig(locale);
+const subscribe = site.subscribe;
 if (!subscribe?.enabled || !subscribe?.form?.action) {
     return;
 }
+const buttonLabel = locale === 'zh' ? 'Subscribe' : 'Subscribe';
 ---
 
 <section class:list={['border-main flex flex-col items-center gap-2 border border-dashed px-8 py-12 text-center sm:px-12 sm:py-16', className]}>
@@ -39,6 +42,6 @@ if (!subscribe?.enabled || !subscribe?.form?.action) {
                 </div>
             )
         }
-        <Button type="submit" class="h-9 w-full sm:w-auto">Subscribe</Button>
+        <Button type="submit" class="h-9 w-full sm:w-auto">{buttonLabel}</Button>
     </form>
 </section>

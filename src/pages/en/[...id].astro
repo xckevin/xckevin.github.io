@@ -1,9 +1,9 @@
 ---
 import { type CollectionEntry, getCollection, render } from 'astro:content';
-import BaseLayout from '../layouts/BaseLayout.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 
 export async function getStaticPaths() {
-    const pages = await getCollection('pages');
+    const pages = await getCollection('pagesEn');
     return pages.map((page) => {
         return {
             params: { id: page.id },
@@ -12,14 +12,14 @@ export async function getStaticPaths() {
     });
 }
 
-type Props = { page: CollectionEntry<'pages'> };
+type Props = { page: CollectionEntry<'pagesEn'> };
 
 const { page } = Astro.props;
 const { title, seo } = page.data;
 const { Content } = await render(page);
-const locale = 'zh';
-const pagePath = `/${page.id}`;
-const alternatePath = `/en/${page.id}`;
+const locale = 'en';
+const pagePath = `/en/${page.id}`;
+const alternatePath = `/${page.id}`;
 ---
 
 <BaseLayout
@@ -29,7 +29,7 @@ const alternatePath = `/en/${page.id}`;
     showHeader={false}
     locale={locale}
     languageSwitchHref={alternatePath}
-    alternatePathnames={{ zh: pagePath, en: alternatePath, 'x-default': pagePath }}
+    alternatePathnames={{ zh: alternatePath, en: pagePath, 'x-default': alternatePath }}
 >
     <article class="mb-16 sm:mb-24">
         <header class="mb-8">

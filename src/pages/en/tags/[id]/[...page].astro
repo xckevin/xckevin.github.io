@@ -1,15 +1,15 @@
 ---
 import type { GetStaticPathsOptions, Page } from 'astro';
 import { type CollectionEntry, getCollection } from 'astro:content';
-import Pagination from '../../../components/Pagination.astro';
-import PostPreview from '../../../components/PostPreview.astro';
-import Subscribe from '../../../components/Subscribe.astro';
-import siteConfig from '../../../data/site-config';
-import BaseLayout from '../../../layouts/BaseLayout.astro';
-import { getAllTags, getPostsByTag, sortItemsByDateDesc } from '../../../utils/data-utils';
+import Pagination from '../../../../components/Pagination.astro';
+import PostPreview from '../../../../components/PostPreview.astro';
+import Subscribe from '../../../../components/Subscribe.astro';
+import siteConfig from '../../../../data/site-config';
+import BaseLayout from '../../../../layouts/BaseLayout.astro';
+import { getAllTags, getPostsByTag, sortItemsByDateDesc } from '../../../../utils/data-utils';
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
-    const posts = (await getCollection('blog'))
+    const posts = (await getCollection('blogEn'))
         .filter(({ data }) => data.displayInBlog)
         .sort(sortItemsByDateDesc);
     const tags = getAllTags(posts);
@@ -23,27 +23,27 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
     });
 }
 
-type Props = { page: Page<CollectionEntry<'blog'>> };
+type Props = { page: Page<CollectionEntry<'blogEn'>> };
 
 const { page } = Astro.props;
 const blog = page.data;
 const params = Astro.params;
-const allPosts = (await getCollection('blog')).filter(({ data }) => data.displayInBlog);
+const allPosts = (await getCollection('blogEn')).filter(({ data }) => data.displayInBlog);
 const allTags = getAllTags(allPosts);
 const currentTag = allTags.find((tag) => {
     return tag.id === params.id;
 });
-const locale = 'zh';
+const locale = 'en';
 ---
 
 <BaseLayout
-    title={`${currentTag?.name} 相关文章`}
-    description={`浏览 ${currentTag?.name} 标签下的 Android 技术文章、源码解析、性能优化与工程实践。`}
+    title={`${currentTag?.name} Articles`}
+    description={`Browse English Android engineering articles tagged ${currentTag?.name}.`}
     showHeader={false}
     locale={locale}
-    languageSwitchHref="/en/tags/"
+    languageSwitchHref="/tags/"
 >
-    <h1 class="mb-12 font-serif text-2xl leading-tight italic sm:mb-16 sm:text-4xl">{currentTag?.name} 相关文章</h1>
+    <h1 class="mb-12 font-serif text-2xl leading-tight italic sm:mb-16 sm:text-4xl">{currentTag?.name} Articles</h1>
     {blog.map((post) => <PostPreview post={post} class="mb-10 sm:mb-12" locale={locale} />)}
     <Pagination page={page} class="my-16 sm:my-24" />
     <Subscribe class="my-16 sm:my-24" locale={locale} />

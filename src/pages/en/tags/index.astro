@@ -1,0 +1,52 @@
+---
+import { getCollection } from 'astro:content';
+import Subscribe from '../../../components/Subscribe.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getAllTags, getPostsByTag, sortItemsByDateDesc } from '../../../utils/data-utils';
+
+const locale = 'en';
+const posts = (await getCollection('blogEn'))
+    .filter(({ data }) => data.displayInBlog)
+    .sort(sortItemsByDateDesc);
+const tags = getAllTags(posts).sort((tagA, tagB) => {
+    const postCountTagA = getPostsByTag(posts, tagA.id).length;
+    const postCountTagB = getPostsByTag(posts, tagB.id).length;
+    return postCountTagB - postCountTagA;
+});
+---
+
+<BaseLayout
+    title="Technical Tags"
+    description="Browse English Android engineering articles by Framework, performance, Jetpack Compose, Kotlin, on-device AI, and mobile engineering tags."
+    showHeader={false}
+    locale={locale}
+    languageSwitchHref="/tags/"
+    alternatePathnames={{ zh: '/tags/', en: '/en/tags/', 'x-default': '/tags/' }}
+>
+    <h1 class="mb-12 font-serif text-2xl italic sm:mb-16 sm:text-4xl">Technical Tags</h1>
+    {
+        tags.length > 0 ? (
+            <div class="mb-16 flex flex-wrap gap-3 sm:mb-20">
+                {tags.map((tag) => {
+                    const postCount = getPostsByTag(posts, tag.id).length;
+
+                    return (
+                        <a
+                            class="text-main border-main inline-flex items-center gap-2 rounded-full border px-4 py-2 font-serif transition-colors hover:bg-muted"
+                            href={`/en/tags/${tag.id}`}
+                            title={`View ${postCount} articles tagged ${tag.name}`}
+                        >
+                            <span class="font-medium">{tag.name}</span>
+                            <span class="inline-flex h-5 min-w-5 items-center justify-center rounded-full bg-muted text-xs font-bold">{postCount}</span>
+                        </a>
+                    );
+                })}
+            </div>
+        ) : (
+            <div class="border-main mb-16 border-y border-dashed py-8 text-sm leading-relaxed">
+                English tags will appear after the first English articles are published.
+            </div>
+        )
+    }
+    <Subscribe class="my-16 sm:my-24" locale={locale} />
+</BaseLayout>

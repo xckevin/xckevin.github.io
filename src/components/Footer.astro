@@ -1,9 +1,15 @@
 ---
-import siteConfig from '../data/site-config';
+import { getSiteConfig } from '../data/site-config';
+import type { Locale } from '../types';
 
-const socialLinks = siteConfig.socialLinks ?? [];
-const navLinks = siteConfig.footerNavLinks ?? [];
+type Props = { locale?: Locale };
+
+const { locale = 'zh' } = Astro.props;
+const site = getSiteConfig(locale);
+const socialLinks = site.socialLinks ?? [];
+const navLinks = site.footerNavLinks ?? [];
 const currentYear = new Date().getFullYear();
+const homeHref = locale === 'zh' ? '/' : '/en/';
 ---
 
 <footer class="mx-auto w-full max-w-3xl pt-12 pb-10 sm:pt-24 sm:pb-14">
@@ -42,7 +48,7 @@ const currentYear = new Date().getFullYear();
         }
         <p class="text-sm">
             &copy; {currentYear}
-            <a class="hover:underline hover:underline-offset-2" href="/">{siteConfig.title}</a>. All rights reserved.
+            <a class="hover:underline hover:underline-offset-2" href={homeHref}>{site.title}</a>. All rights reserved.
         </p>
     </div>
 </footer>

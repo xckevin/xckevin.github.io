@@ -1,3 +1,6 @@
+import type { Locale } from '../types';
+import { getLocalizedPostPath } from './i18n';
+
 const readableSlugMap: Record<string, string> = {
     Android: 'android',
     'Jetpack Compose': 'jetpack-compose',
@@ -132,8 +135,8 @@ const readableSlugMap: Record<string, string> = {
     '虚拟机': 'virtual-machine'
 };
 
-export function getPostHref(post: { id: string; data: { slug?: string } }): string {
-    return `/blog/${post.data.slug ?? post.id}/`;
+export function getPostHref(post: { id: string; data: { slug?: string } }, locale: Locale = 'zh'): string {
+    return getLocalizedPostPath(post, locale);
 }
 
 /**

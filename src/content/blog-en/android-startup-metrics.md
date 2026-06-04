@@ -47,7 +47,7 @@ If the main thread is waiting, keep following the reason. Is a Binder transactio
 
 ## Four common startup bottlenecks
 
-The first is premature initialization. Analytics, push, IM, ads, A/B testing, and telemetry SDKs all like to live in `Application.onCreate()`. Eventually cold start turns into a meeting where everyone gets a turn to speak. The fix is not simply throwing everything onto a background thread. Split initialization by first-screen necessity: required for the first screen stays synchronous, needed immediately after the first screen moves after first frame, and uncertain work becomes lazy.
+The first is premature initialization. Analytics, push, IM, ads, A/B testing, and telemetry SDKs all like to live in `Application.onCreate()`. Eventually cold start turns into a meeting where everyone gets a turn to speak. The fix is not simply throwing everything onto a background thread. Split initialization by first-screen necessity: required for the first screen stays synchronous, needed immediately after the first frame is rendered, and uncertain work becomes lazy.
 
 The second is disk I/O. First SharedPreferences load, database open, large JSON reads, and local file scans can all trigger cold-page reads. You can inspect the `disk` track in Perfetto and use StrictMode in debug builds to expose these problems earlier. During startup, the rule is: read less, read sequentially, and read later.
 

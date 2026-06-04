@@ -196,7 +196,7 @@ This script walks outgoing call counts for all Binder nodes, sorts by call frequ
 
 dumpsys is not a silver bullet. It has clear boundaries.
 
-**Performance cost**: AMS dump holds the AMS Lock, a global lock. Frequent calls can block Activity launch flow. For production inspection scripts, add `--local` and keep the interval above five seconds.
+**Performance cost**: AMS dump holds the AMS Lock, a global lock. Frequent calls can block Activity launch flow. For production inspection scripts, add `--local` and keep the dumping interval above five seconds.
 
 **Version differences**: After Android 12, AMS dump output changed substantially. Some fields were removed or replaced. When writing cross-version diagnostic scripts, first use `dumpsys -l` to list available services, then adapt for the target Android version.
 

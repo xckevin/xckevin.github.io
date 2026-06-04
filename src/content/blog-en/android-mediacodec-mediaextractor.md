@@ -69,7 +69,7 @@ codec.setCallback(object : MediaCodec.Callback() {
 }, handler) // Pay attention to this Handler.
 ```
 
-The `Handler` parameter decides which thread runs the callbacks. My bug lived here: I passed `null`, so callbacks ran on Codec's internal thread. In the output-buffer callback, I did slow work, writing data to a file. That blocked later `onInputBufferAvailable` callbacks. Once Codec's internal queue filled up, callbacks stopped and the pipeline deadlocked.
+The `Handler` parameter decides which thread runs the callbacks. The bug was caused by passing `null`, so callbacks ran on Codec's internal thread. In the output-buffer callback, I did slow work, writing data to a file. That blocked later `onInputBufferAvailable` callbacks. Once Codec's internal queue filled up, callbacks stopped and the pipeline deadlocked.
 
 The fix is to pass an explicit background-thread Handler and keep callback work lightweight.
 

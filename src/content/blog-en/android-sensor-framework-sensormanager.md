@@ -123,4 +123,4 @@ A few lessons from production work:
 
 **Accuracy too low? Use a fused sensor.** Computing tilt angle from the accelerometer alone can have an error around +/-5 degrees. `TYPE_GRAVITY`, also a virtual sensor, can stay within about +/-1 degree after fusion. Unless you are locked into a custom fusion algorithm, the system-provided result is usually the easier and safer choice.
 
-**For power-sensitive flows, prefer hardware FIFO.** In the same step-counting pipeline, configuring `batch(100ms)` versus `batch(20ms)` can change phone power consumption by 2-3x. This parameter can be adjusted dynamically: increase latency while the user is still, and reduce it during motion to balance accuracy and battery life.
+**For power-sensitive flows, prefer hardware FIFO.** In the same step-counting pipeline, configuring `batch(100ms)` versus `batch(20ms)` can change phone power consumption by 2-3x. This parameter can be adjusted dynamically: increase latency when the user is still, and reduce it during motion to balance accuracy and battery life.

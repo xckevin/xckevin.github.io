@@ -149,6 +149,6 @@ If your team has fewer than 20 people, monthly active users are under one millio
 
 But if at least two of the following are true, the investment usually pays back within six months: a dedicated data team requires confidence analysis, emergency kill switches must take effect within five minutes, or more than five experiments run in parallel.
 
-Another easily underestimated issue is **flag governance**. After launch, the biggest problem is not technical. It is that nobody cleans up dead flags. We set two rules: every flag must have a TTL, defaulting to 30 days, and expiration automatically sends a cleanup reminder to the code repository; after a rollout has reached 100% and stayed fully enabled for more than 14 days, a PR to remove the flag is required.
+Another easily underestimated issue is **flag governance**. After launch, the biggest problem is not technical. It is that nobody cleans up dead flags. We set two rules. First, every flag must have a TTL, defaulting to 30 days, and expiration automatically sends a cleanup reminder to the code repository. Second, after a rollout has reached 100% and stayed fully enabled for more than 14 days, a PR to remove the flag is required.
 
 In the end, the hard part of a flag system is not "how to deliver a Boolean." It is "how to safely manage the lifecycle of hundreds or thousands of Booleans."

@@ -52,8 +52,8 @@ The home of Android system services is the **SystemServer** process. Understandi
   3. **Initialize SystemServiceManager:** create a `SystemServiceManager` instance, the core class that manages and starts individual system services later.
   4. **Start Bootstrap Services:** `SystemServiceManager` first starts a small group of the most fundamental services. Services started in this phase form the foundation for later service startup and system operation, for example:
      - ActivityManagerService (AMS): manages app processes and component lifecycles.
-     - PowerManagerService (PMS): manages device power state.
-     - PackageManagerService (PMS, partially initialized): handles package management, with part of its functionality started early.
+     - PowerManagerService: manages device power state.
+     - PackageManagerService (PMS, partially initialized): handles package management, with some functionality started early.
      - DisplayManagerService: manages display devices.
   5. **Start Core Services:** after bootstrap services are ready, start a set of foundational core services.
   6. **Start Other Services / Third Party Services:** finally start the remaining services, including vendor or customized services. `SystemServiceManager` manages startup order by dependency and boot phase.
@@ -204,7 +204,7 @@ Understanding the operating principles and internal mechanisms of several core s
 
 ### 4. Other key services, briefly
 
-- **PowerManagerService (PMS):** manages WakeLocks, Doze mode, screen brightness, and other power behaviors, with major impact on background work and power consumption.
+- **PowerManagerService:** manages WakeLocks, Doze mode, screen brightness, and other power behaviors, with major impact on background work and power consumption.
 - **SurfaceFlinger (SF):** a separate process that composites all window Surface content and renders it to the final display through Hardware Composer (HWC) or OpenGL. WMS is its main client.
 - **InputManagerService (IMS):** reads input-device events, performs initial processing, and dispatches them to WMS.
 - **ConnectivityService:** manages network connectivity, including Wi-Fi and mobile data.
@@ -316,7 +316,7 @@ A deep understanding of the interaction model between the Framework and system s
 
 The interaction model between Android system services and the Framework layer, built through Binder, is the foundation that allows the Android platform to run efficiently and in order. It is not a simple API call. It is a complex mechanism involving process management, IPC communication, service registration and discovery, lifecycle management, and permission control.
 
-For Android experts, moving beyond the surface use of `getSystemService` and deeply understanding SystemServer startup and runtime behavior, the internals of core services such as AMS/WMS/PMS, the role of SystemServiceRegistry and ServiceManager in service acquisition, and the impact of all of this on performance, stability, and security is a key line between senior engineer and expert. This deeper understanding lets you handle complex system behavior, diagnose difficult performance issues or ANRs, and design architectures that interact with lower layers of the system with much more confidence.
+For Android experts, deeply understanding SystemServer startup and runtime behavior, the internals of core services such as AMS/WMS/PMS, the role of SystemServiceRegistry and ServiceManager in service acquisition, and the impact of all of this on performance, stability, and security is what separates a senior engineer from an expert. This deeper understanding lets you handle complex system behavior, diagnose difficult performance issues or ANRs, and design architectures that interact with lower layers of the system with much more confidence.
 
 <!-- seo-internal-links -->
 

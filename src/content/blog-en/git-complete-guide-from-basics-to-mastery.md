@@ -14,7 +14,7 @@ seo:
 
 
 
-Git is the de facto standard version control system for modern software development. Whether you are an individual developer, a team engineer, or working in DevOps, your ability to understand commits and branches, then use rebase, cherry-pick, bisect, submodule, worktree, and hooks well, directly affects collaboration efficiency and delivery quality. This article follows the structure of a practical workflow, explains Git's core concepts and advanced usage, and uses hands-on examples and best practices to help you build a transferable mental model of Git.
+Git is the de facto standard version control system for modern software development. Whether you are an individual developer, a team engineer, or working in DevOps, mastering commits, branches, rebase, cherry-pick, bisect, submodule, worktree, and hooks directly affects collaboration efficiency and delivery quality. This article follows the structure of a practical workflow, explains Git's core concepts and advanced usage, and uses hands-on examples and best practices to help you build a transferable mental model of Git.
 
 ## 1. Basic Git Operations
 

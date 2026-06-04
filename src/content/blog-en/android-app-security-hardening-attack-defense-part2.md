@@ -138,7 +138,7 @@ When an abnormal environment is detected, such as root, emulator, debugging, hoo
 ### Considerations
 
 - **Balance:** security checks must be balanced against user experience and compatibility. Overly strict checks may hurt legitimate users in unusual environments, including developers and security researchers.
-- **Performance:** runtime detection has overhead, so control frequency and complexity.
+- **Performance:** control runtime detection frequency and complexity to manage overhead.
 - **Effectiveness:** RASP cannot provide absolute defense. Its goal is to raise the bar and block common low-cost attacks first.
 - **Layering:** combine multiple detection methods to increase bypass difficulty.
 - **Updates:** attack and defense techniques evolve, so detection logic must be updated continuously.

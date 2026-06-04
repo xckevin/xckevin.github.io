@@ -140,7 +140,7 @@ class App : Application() {
 
 ### 3. Standardize Font Sizes to Improve Cache Hit Rate
 
-The `sp` unit resolves to different pixel values on devices with different densities and user font-scale settings, which spreads Skia cache entries across sizes. For high-frequency text styles, `dp` can be used instead of `sp` only when you still respect the user's font scaling requirements.
+The `sp` unit resolves to different pixel values on devices with different densities and user font-scale settings, which spreads Skia cache entries across sizes. For high-frequency text styles, `dp` can be used instead of `sp` only when the text must not scale with the user's font-size setting and the accessibility tradeoff is acceptable.
 
 Try to limit the number of font sizes across the app. In one of my projects, 162 TextViews used 14 different font sizes. After consolidating them to 6 sizes, scrolling frame rate improved by about 8%.
 

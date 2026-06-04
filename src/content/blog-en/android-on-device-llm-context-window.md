@@ -17,7 +17,7 @@ seo:
   pageType: article
 ---
 
-When doing on-device inference, the first problem that hurts is often not model accuracy. It is the context window. Server-side GPT-4-class models can already reach 128K tokens, but LiteRT and MediaPipe models running on phones are doing well if they support 4K tokens. After a user chats for a few rounds, historical messages fill the window, and the model starts forgetting the earliest instructions. Eventually, even the system prompt you gave it is gone.
+When doing on-device inference, the first major limitation is often not model accuracy. It is the context window. Server-side GPT-4-class models can already reach 128K tokens, but LiteRT and MediaPipe models running on phones are doing well if they support 4K tokens. After a user chats for a few rounds, historical messages fill the window, and the model starts forgetting the earliest instructions. Eventually, even the system prompt you gave it is gone.
 
 Below are the problems I ran into while building long-conversation context management on Android, and the design that finally worked.
 

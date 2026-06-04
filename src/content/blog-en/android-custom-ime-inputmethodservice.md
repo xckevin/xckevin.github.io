@@ -76,7 +76,7 @@ class MyIME : InputMethodService() {
 
 The easiest place to make a mistake is the call order between `onStartInput` and `onCreateInputView`. The actual order is `onStartInput` -> `onCreateInputView` -> `onStartInputView`. If you touch a View in `onStartInput` before it has been created, you get a direct NPE.
 
-My voice input bug came from this exact area. The speech Activity did not set its Window type to `TYPE_INPUT_METHOD_DIALOG`. `WindowManagerService` treated it like a normal Activity, which broke the IME window layer and caused the keyboard to lose focus and disappear. The fix was one line:
+My voice input bug came from this exact area. The speech Activity did not set its Window type to `TYPE_INPUT_METHOD_DIALOG`. `WindowManagerService` treated it like a normal Activity, which broke the IME window layer, causing the keyboard to lose focus and disappear. The fix was one line:
 
 ```kotlin
 // In the voice Activity's onCreate

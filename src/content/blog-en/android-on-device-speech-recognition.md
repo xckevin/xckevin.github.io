@@ -17,7 +17,7 @@ seo:
   pageType: article
 ---
 
-Last year, while working on an in-car navigation project, product asked for a feature: users should still be able to search for addresses by voice inside a tunnel with no network. My first reaction was that Android speech recognition had always depended on cloud services.
+Last year, while working on an in-car navigation project, the product team asked for a feature: users should still be able to search for addresses by voice inside a tunnel with no network. My first reaction was that Android speech recognition had always depended on cloud services.
 
 After digging through the platform, I found that Android 16 officially built in an on-device ASR, or Automatic Speech Recognition, engine. Offline transcription is no longer only available through third-party SDKs. This article follows the complete path from `AudioRecord` capture to `RecognitionService` transcription, and summarizes the architecture and engineering decisions behind on-device speech recognition.
 

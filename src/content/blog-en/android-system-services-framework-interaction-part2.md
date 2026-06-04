@@ -105,7 +105,7 @@ Understanding the operating principles and internal mechanisms of several core s
 
 ### 4. Other key services, briefly
 
-- **PowerManagerService (PMS):** manages WakeLocks, Doze mode, screen brightness, and other power behaviors, with major impact on background work and power consumption.
+- **PowerManagerService:** manages WakeLocks, Doze mode, screen brightness, and other power behaviors, with major impact on background work and power consumption.
 - **SurfaceFlinger (SF):** a separate process that composites all window Surface content and renders it to the final display through Hardware Composer (HWC) or OpenGL. WMS is its main client.
 - **InputManagerService (IMS):** reads input-device events, performs initial processing, and dispatches them to WMS.
 - **ConnectivityService:** manages network connectivity, including Wi-Fi and mobile data.

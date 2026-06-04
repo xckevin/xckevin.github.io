@@ -200,4 +200,4 @@ Android WebView development is not exactly pleasant. Documentation is scattered,
 
 In day-to-day work, I usually do three things: wrap a unified Bridge layer so business code does not depend on low-level `addJavascriptInterface` and `evaluateJavascript` details; enforce domain validation and authentication at the Bridge entry point; and monitor `onRenderProcessGone` frequency, because that metric directly reflects production WebView quality.
 
-If you maintain a product that heavily depends on WebView, spending a day to refactor the Bridge into an async message-queue model usually pays for itself many times over.
+If you maintain a product that heavily depends on WebView, spending a day refactoring the Bridge into an async message-queue model usually pays for itself many times over.

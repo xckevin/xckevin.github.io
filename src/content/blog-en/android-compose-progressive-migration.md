@@ -235,4 +235,4 @@ Looking back at the whole process, three principles saved us from many detours.
 
 **Use data-driven fallback.** The rollout switch is not decorative. One base library upgrade caused Compose pages to drop frames on low-end devices. We rolled back to the View version within 30 minutes with no user impact. If we had done a direct rewrite, the entire failure would have landed on engineering.
 
-**Do not use Compose just for the sake of Compose.** `AndroidView` is not technical debt; it is engineering reality. Components such as `WebView`, `SurfaceView`, and CameraX Preview are still more stable through `AndroidView` than through native Compose support. Full Compose should not be the KPI. Lower maintenance cost should be.
+**Do not use Compose just for the sake of Compose.** `AndroidView` is not technical debt; it is engineering reality. Components such as `WebView`, `SurfaceView`, and CameraX Preview are still more stable through `AndroidView` than through native Compose support. Full Compose should not be the KPI. Lower maintenance cost should be the goal.

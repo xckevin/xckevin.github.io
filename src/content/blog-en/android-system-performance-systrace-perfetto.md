@@ -207,7 +207,7 @@ Questions to ask: which thread ran on which core? Was the CPU busy? Was there lo
 
 - **Locate long transactions**: long `binder_transaction` slices are common causes of ANRs and main-thread blocking.
 - **Break down time**: a long transaction may come from client-side data preparation, Binder driver transfer or scheduling, server-side `onTransact` execution, or Binder driver return. Combine this with CPU and state analysis on the server thread to determine which side is the bottleneck.
-- **Queueing and delay**: if the target service's Binder thread pool stays Runnable or Running for a long time, and new `binder_transaction` slices start only after visible delay following the target thread's Sleeping state, requests may be queueing or the thread pool may be exhausted.
+- **Queueing and delay**: If the target service's Binder thread pool stays Runnable or Running for a long time, and new `binder_transaction` slices start only after a visible delay following the target thread's Sleeping state, requests may be queueing or the thread pool may be exhausted.
 - **Connect thread state**: check whether the caller thread is Sleeping during the Binder call.
 
 ### Graphics Pipeline, the Core of Jank Analysis
@@ -269,7 +269,7 @@ Questions to ask: which thread ran on which core? Was the CPU busy? Was there lo
 3. Select the UI-thread `doFrame` slice for the problematic frame.
 4. Analyze the slice's **internal structure** and **thread state**:
    - **Internal time**: is measure/layout long, draw recording long, or sync long? Use atrace or CPU sampling to locate the specific slow View or method.
-   - **Thread state**: during the slice, was the UI thread Running for a long time, meaning the code itself was slow? Was it Runnable for a long time, meaning CPU preemption? Was it Sleeping for a long time, meaning it was waiting for a lock, Binder, or I/O?
+   - **Thread state**: during the slice, was the UI thread Running for a long time, meaning the code itself was slow? Was it Runnable for a long time, meaning the thread was ready to run but was preempted? Was it Sleeping for a long time, meaning it was waiting for a lock, Binder, or I/O?
 5. If the thread was Runnable, check which other thread or process occupied CPU time.
 6. If the thread was Sleeping, inspect the dependency it was waiting for, such as the lock owner, Binder peer, or I/O operation.
 7. Check whether RenderThread's `DrawFrame` also exceeded the frame budget and analyze why, such as GPU load or synchronization waiting.

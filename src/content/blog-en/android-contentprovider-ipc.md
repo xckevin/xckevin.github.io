@@ -99,7 +99,7 @@ getContentResolver().registerContentObserver(uri, true, new ContentObserver(hand
 
 The second parameter to `notifyChange` is a `ContentObserver`. Passing `null` notifies all subscribers for that URI. The notification itself is a Binder callback pushed from the Provider's process to all client processes that registered an Observer.
 
-In delayed-notification scenarios, `onChange` may run on the UI thread. Running a direct `requery` inside it can throw `NetworkOnMainThreadException` or block the main thread. Prefer passing a background `Handler` whenever possible:
+In delayed-notification scenarios, `onChange` may run on the UI thread. Running a direct `query` inside it can throw `NetworkOnMainThreadException` or block the main thread. Prefer passing a background `Handler` whenever possible:
 
 ```java
 new ContentObserver(new Handler(Looper.getMainLooper())) {

@@ -234,6 +234,6 @@ val tickLabels = remember(ticks) {
 
 A common anti-pattern is putting data mapping logic inside DrawScope. DrawScope should only perform pixel drawing. Data normalization and polar coordinate conversion should happen in the Composable function body, and DrawScope should receive already computed pixel coordinates.
 
-For real-time monitoring dashboards that update at 10 frames per second or more, serializing `Path` objects into `remember` is often the highest-value optimization. Copying a path is far cheaper than rebuilding 200 `lineTo` calls every frame.
+For real-time monitoring dashboards that update at 10 frames per second or more, caching `Path` objects with `remember` is often the highest-value optimization. Copying a path is far cheaper than rebuilding 200 `lineTo` calls every frame.
 
 Compose Canvas inherits the classic Skia drawing model, then wraps imperative drawing commands in functional DrawScope calls. Coordinate mapping, path composition, text layout, and layered architecture each have a clear boundary and responsibility. From there, the work is mostly assembling the right pieces for each chart type.

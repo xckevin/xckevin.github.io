@@ -59,8 +59,8 @@ The home of Android system services is the **SystemServer** process. Understandi
   3. **Initialize SystemServiceManager:** create a `SystemServiceManager` instance, the core class that manages and starts individual system services later.
   4. **Start Bootstrap Services:** `SystemServiceManager` first starts a small group of the most fundamental services. Services started in this phase form the foundation for later service startup and system operation, for example:
      - ActivityManagerService (AMS): manages app processes and component lifecycles.
-     - PowerManagerService (PMS): manages device power state.
-     - PackageManagerService (PMS, partially initialized): handles package management, with part of its functionality started early.
+     - PowerManagerService: manages device power state.
+     - PackageManagerService (PMS, partially initialized): handles package management, with some functionality started early.
      - DisplayManagerService: manages display devices.
   5. **Start Core Services:** after bootstrap services are ready, start a set of foundational core services.
   6. **Start Other Services / Third Party Services:** finally start the remaining services, including vendor or customized services. `SystemServiceManager` manages startup order by dependency and boot phase.

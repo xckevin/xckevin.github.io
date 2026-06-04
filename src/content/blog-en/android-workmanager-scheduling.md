@@ -213,7 +213,7 @@ In real projects, I have found that `dumpsys jobscheduler` shows constraint sati
 
 ---
 
-Back to the original issue: the root cause on that device batch was vendor-specific battery saving that compressed the Maintenance Window to an extremely short duration. With the network constraint present, the window ended before network access had fully recovered, so the task was skipped. The final fix was to switch the task to Expedited Work, which was the better strategy for that sync workload.
+Back to the original issue: the root cause on that device batch was vendor-specific battery saving, which compressed the Maintenance Window to an extremely short duration. With the network constraint present, the window ended before network access had fully recovered, so the task was skipped. The final fix was to switch the task to Expedited Work, which was the better strategy for that sync workload.
 
 A few practical rules you can apply directly:
 

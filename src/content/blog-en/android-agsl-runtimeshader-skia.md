@@ -134,7 +134,7 @@ fun BreathingGlow(modifier: Modifier = Modifier) {
 
 There are two key points. `remember` prevents the Shader from being recompiled during recomposition. `rememberInfiniteTransition` runs the looping animation without creating an extra coroutine.
 
-For performance, each pixel is computed in parallel on the GPU. In measurements on a Pixel 6, a single Shader used roughly 3-5% GPU. But after stacking more than five Shaders of similar complexity, GPU time rose from 8 ms to 18 ms, approaching the 60 fps frame budget. In production UI, I usually prefer merging a complex effect into one Shader instead of stacking multiple layers. Reducing the number of passes is often more effective than optimizing instructions inside a single pass.
+For performance, each pixel is computed in parallel on the GPU. In measurements on a Pixel 6, a single Shader resulted in roughly 3-5% GPU utilization. But after stacking more than five Shaders of similar complexity, GPU time rose from 8 ms to 18 ms, approaching the 60 fps frame budget. In production UI, I usually prefer merging a complex effect into one Shader instead of stacking multiple layers. Reducing the number of passes is often more effective than optimizing instructions inside a single pass.
 
 ## Boundaries and limitations
 

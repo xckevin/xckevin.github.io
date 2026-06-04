@@ -138,7 +138,7 @@ Understanding how `oom_adj` is calculated and what it affects is critical for th
 
 ### Multi-process apps
 
-**Scenario:** by using the `android:process` attribute in `AndroidManifest.xml`, different app components, including Activity, Service, Receiver, and Provider, can run in different processes.
+**Scenario:** using the `android:process` attribute in `AndroidManifest.xml` allows different app components, including Activity, Service, Receiver, and Provider, to run in different processes.
 
 **Advantages:** isolation, so a crash in one process does not affect others; possible bypassing of a single-process memory cap, although total memory use is usually higher; and security, such as moving sensitive operations into an isolated process.
 

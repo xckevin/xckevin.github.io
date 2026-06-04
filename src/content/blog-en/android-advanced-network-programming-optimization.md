@@ -374,7 +374,7 @@ Network performance must be optimized across multiple dimensions.
 
 ### 3. Weak and mobile network optimization
 
-- **Dynamic timeouts:** use ConnectivityManager network type or a network-quality estimator to adjust OkHttp connect/read/write timeouts. Extend timeouts on weak networks and shorten them on strong networks to fail fast.
+- **Dynamic timeouts:** use ConnectivityManager network type or a network-quality estimator to adjust OkHttp connect/read/write timeouts. Extend timeouts on weak networks to allow recovery, and shorten them on strong networks to fail fast.
 - **Request deduplication:** when users can trigger repeated actions quickly, such as tapping refresh, deduplicate identical or logically equivalent requests within a short time window.
 - **Smart retries**
   - **Classify errors:** retry only transient network jitter, timeouts, and temporary server errors such as 5xx. Client errors such as 4xx usually should not be retried.

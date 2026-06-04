@@ -22,7 +22,7 @@ When teams first deploy OpenClaw to a remote host, they often hit a problem that
 - Chat messages can reach the Agent.
 - But `node.*` or `system.*` calls fail or time out.
 
-The root cause is usually not the model. It is that the network path is not connected, or the way it was connected broke the security boundary. OpenClaw's execution chain depends on a stable `Gateway -> Node` session. Once the connection policy is misconfigured, the system degrades into something that can reply but cannot execute.
+The root cause is usually not the model. The network path is either disconnected, or the way it was connected broke the security boundary. OpenClaw's execution chain depends on a stable `Gateway -> Node` session. Once the connection policy is misconfigured, the system degrades into something that can reply but cannot execute.
 
 This article focuses on OpenClaw's remote connection and communication architecture, answering three core questions:
 

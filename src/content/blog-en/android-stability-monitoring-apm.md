@@ -162,4 +162,4 @@ For production monitoring, do not try to measure everything at once. I focus on 
 - **Upload success rate**: due to network conditions and timing, such as the app about to exit, first-attempt upload rarely reaches 100%. My baseline is at least one successful upload within 72 hours.
 - **Clustering convergence**: the share of total events covered by the top three exception fingerprints. The higher this value is, the more concentrated production issues are, and the better the fix ROI.
 
-Once these three metrics are working, the online stability monitoring system is genuinely in place. Everything else is continuous refinement alongside product changes. There is no silver bullet.
+Once these three metrics are working, the online stability monitoring system is genuinely in place. All other improvements require continuous refinement as the product evolves. There is no silver bullet.

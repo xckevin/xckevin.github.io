@@ -40,7 +40,7 @@ public Intent registerReceiver(BroadcastReceiver receiver, IntentFilter filter) 
 }
 ```
 
-`LoadedApk.ReceiverDispatcher` wraps an `InnerReceiver`, which implements `IIntentReceiver.Stub`. In essence, it is a Binder object. When AMS calls back through this Binder, `ReceiverDispatcher` uses the main-thread Handler to switch `onReceive()` back to the UI thread.
+`LoadedApk.ReceiverDispatcher` wraps an `InnerReceiver`, which implements `IIntentReceiver.Stub`. In essence, it is a Binder object. When AMS calls back through this Binder, `ReceiverDispatcher` uses the main-thread Handler to ensure `onReceive()` executes on the UI thread.
 
 On the AMS side, a `BroadcastFilter` object is inserted into `mReceiverResolver`, an `IntentResolver` structure that records the mapping between Receivers and Filters. When a broadcast arrives, AMS walks the matching filters to find its targets.
 

@@ -428,7 +428,7 @@ Coroutine code must **actively** check cancellation state and respond to it in o
 :::danger
 Be very careful:
 
-- **Do not catch too broadly:** if you write `catch (e: Exception)`, make sure to rethrow `CancellationException` with `throw e`; otherwise the coroutine will ignore the cancellation signal and keep running, wasting resources or causing leaks.
+- **Do not catch too broadly:** if you write `catch (e: Exception)`, make sure to rethrow `CancellationException`, for example with `throw e`; otherwise the coroutine will ignore the cancellation signal and keep running, wasting resources or causing leaks.
 - **Non-cancellable suspend functions:** if a coroutine is stuck inside a suspend function that does not check cancellation state, such as some IO operations, it may not respond to cancellation promptly.
 :::
 

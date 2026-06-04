@@ -131,7 +131,7 @@ After the migration, remove `kotlin("kapt")` from all modules. Mixing KAPT and K
 
 ### Not every library supports KSP
 
-Glide's KSP support has long been experimental. Some routing frameworks common in Chinese Android projects, such as older ARouter versions, still depend on KAPT, while their KSP versions are community-maintained and need stability evaluation. Before migration, check the official documentation and confirm support. Do not just "try and see whether it builds." Differences in generated code may not fail at compile time, and runtime failures are much harder to diagnose.
+Glide's KSP support has long been experimental. Some routing frameworks, such as older ARouter versions, still depend on KAPT, while their KSP versions are community-maintained and need stability evaluation. Before migration, check the official documentation and confirm support. Do not just "try and see whether it builds." Differences in generated code may not fail at compile time, and runtime failures are much harder to diagnose.
 
 ---
 

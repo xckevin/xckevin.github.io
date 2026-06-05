@@ -1,6 +1,8 @@
 @import '@fontsource-variable/inter' layer(base);
 @import '@fontsource-variable/newsreader' layer(base);
 @import '@fontsource-variable/newsreader/wght-italic.css' layer(base);
+@import '@fontsource-variable/noto-sans-sc' layer(base);
+@import '@fontsource-variable/noto-serif-sc' layer(base);
 
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
@@ -53,8 +55,8 @@ html.dark {
 */
 
 @theme inline {
-    --font-sans: 'Inter Variable', sans-serif;
-    --font-serif: 'Newsreader Variable', serif;
+    --font-sans: 'Inter Variable', 'Noto Sans SC Variable', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    --font-serif: 'Newsreader Variable', 'Noto Serif SC Variable', 'Songti SC', 'SimSun', serif;
     --text-color-main: var(--text-main);
     --background-color-main: var(--bg-main);
     --background-color-muted: var(--bg-muted);
@@ -109,7 +111,9 @@ html.dark {
     color: var(--text-main);
     opacity: 0.35;
     text-decoration: none;
-    transition: opacity 0.2s ease, border-color 0.2s ease;
+    transition:
+        opacity 0.2s ease,
+        border-color 0.2s ease;
     border-left: 2px solid transparent;
     margin-left: -1px;
     overflow: hidden;
@@ -151,7 +155,7 @@ html.dark {
     }
 
     .prose a {
-        @apply underline font-normal decoration-1 underline-offset-2 decoration-dashed hover:decoration-solid;
+        @apply font-normal underline decoration-dashed decoration-1 underline-offset-2 hover:decoration-solid;
     }
 
     .prose :where(h1, h2, h3, h4, h5, h6) {
@@ -163,6 +167,6 @@ html.dark {
     }
 
     .prose blockquote {
-        @apply font-serif font-normal italic border-none pl-0 text-[1.375em] leading-snug sm:text-[1.66667em];
+        @apply border-none pl-0 font-serif text-[1.375em] leading-snug font-normal italic sm:text-[1.66667em];
     }
 }

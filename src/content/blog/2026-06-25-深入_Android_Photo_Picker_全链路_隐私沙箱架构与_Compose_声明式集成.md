@@ -1,5 +1,7 @@
 ---
 title: 深入 Android Photo Picker 全链路：隐私沙箱架构与 Compose 声明式集成
+slug: android-photo-picker-privacy-compose
+translationKey: android-photo-picker-privacy-compose
 excerpt: 深入剖析 Android Photo Picker 的隐私沙箱架构设计，从跨进程 URI 权限机制到 Compose 声明式集成，涵盖单选/多选数据传输、持久化权限、ROM 兼容性处理等实战要点。
 publishDate: '2026-06-25'
 tags:

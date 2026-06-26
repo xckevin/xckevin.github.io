@@ -1,5 +1,7 @@
 ---
 title: 深入 Android RecyclerView 自定义 LayoutManager 全链路：从布局算法到动画协同的视口管理引擎
+slug: android-recyclerview-custom-layoutmanager
+translationKey: android-recyclerview-custom-layoutmanager
 excerpt: 从首项居中放大需求出发，深入解析 RecyclerView 自定义 LayoutManager 的 Fill 布局算法、三级缓存漏斗、滚动状态机与航位推算，以及动画协同机制，并给出调试三板斧与性能红线。
 publishDate: '2026-06-12'
 tags:

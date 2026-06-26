@@ -1,5 +1,7 @@
 ---
 title: Android Studio Profiler 深度实战：从 CPU Trace 到 Memory Allocation 的性能诊断工具链
+slug: android-studio-profiler-cpu-memory
+translationKey: android-studio-profiler-cpu-memory
 excerpt: 本文系统梳理了 Android Studio Profiler 全套性能诊断工具链，涵盖 CPU 采样与插桩、火焰图读法、内存分配追踪与堆快照对比，并结合 Systrace/Perfetto 的分层诊断思路，通过帧率掉帧实战案例演示如何串联多工具定位问题根因。
 publishDate: '2026-06-14'
 tags:

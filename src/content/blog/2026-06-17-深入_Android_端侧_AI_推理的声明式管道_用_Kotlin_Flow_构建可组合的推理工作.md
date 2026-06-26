@@ -1,5 +1,7 @@
 ---
 title: 深入 Android 端侧 AI 推理的声明式管道：用 Kotlin Flow 构建可组合的推理工作流
+slug: android-on-device-ai-kotlin-flow-pipeline
+translationKey: android-on-device-ai-kotlin-flow-pipeline
 excerpt: 本文介绍如何用 Kotlin Flow 将端侧 AI 推理抽象为可组合的声明式管道，通过 Preprocess/Inference/Postprocess 三层架构实现预处理、推理、后处理的解耦，并结合背压控制与分层测试策略构建健壮的推理工作流。
 publishDate: '2026-06-17'
 tags:

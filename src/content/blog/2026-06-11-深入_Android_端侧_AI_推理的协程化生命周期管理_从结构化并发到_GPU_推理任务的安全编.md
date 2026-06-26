@@ -1,5 +1,7 @@
 ---
 title: 深入 Android 端侧 AI 推理的协程化生命周期管理：从结构化并发到 GPU 推理任务的安全编排
+slug: android-on-device-ai-coroutine-lifecycle
+translationKey: android-on-device-ai-coroutine-lifecycle
 excerpt: 如何用 Kotlin 协程的结构化并发管理 Android 端侧 AI 推理生命周期，涵盖 GPU 资源释放顺序、Actor 模式串行化访问及取消异常传播，杜绝 native 内存泄漏。
 publishDate: '2026-06-11'
 tags:

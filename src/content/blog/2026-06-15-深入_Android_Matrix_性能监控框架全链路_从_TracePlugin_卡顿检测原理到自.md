@@ -1,5 +1,7 @@
 ---
 title: 深入 Android Matrix 性能监控框架全链路：从 TracePlugin 卡顿检测原理到自建 APM 体系
+slug: android-matrix-performance-monitoring
+translationKey: android-matrix-performance-monitoring
 excerpt: 深入拆解微信 Matrix 框架的核心设计原理，从 EvilMethodTracer 基于 Looper Printer 的卡顿堆栈采样机制，到 IOCanary 的 PLT Hook 三层 IO 检测，再到生产级 APM 体系的分级告警与聚合策略实践。
 publishDate: '2026-06-15'
 tags:

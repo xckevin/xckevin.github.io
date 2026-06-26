@@ -1,5 +1,7 @@
 ---
 title: 深入 Android SystemProperties 属性系统全链路：从 init 进程属性服务到跨进程通知的系统级配置架构
+slug: android-system-properties-init-architecture
+translationKey: android-system-properties-init-architecture
 excerpt: 深入剖析 Android 系统属性机制，从物理存储、init 属性服务、共享内存零拷贝读取、到 SELinux 权限卡控与跨进程通知，完整串起 SystemProperties 的全链路实现原理。
 publishDate: '2026-06-18'
 tags:

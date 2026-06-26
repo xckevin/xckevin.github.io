@@ -1,5 +1,7 @@
 ---
 title: 深入 Android Spannable 富文本系统全链路：从 Spanned 接口设计到自定义 Span 的 Canvas 渲染引擎
+slug: android-spannable-rich-text-rendering
+translationKey: android-spannable-rich-text-rendering
 excerpt: 深入剖析 Android Spannable 富文本从标记存储、Span 分层回调到 TextLine Canvas 渲染的完整链路，涵盖自定义 ReplacementSpan 与 ParagraphStyle 实战、异步测量陷阱及 Compose AnnotatedString 演进对比。
 publishDate: '2026-06-16'
 tags:

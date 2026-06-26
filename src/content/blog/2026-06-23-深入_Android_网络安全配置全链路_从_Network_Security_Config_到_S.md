@@ -1,5 +1,7 @@
 ---
 title: 深入 Android 网络安全配置全链路：从 Network Security Config 到 SSL Pinning 与证书透明度验证的端侧安全工程实践
+slug: android-network-security-config-ssl-pinning
+translationKey: android-network-security-config-ssl-pinning
 excerpt: 从 Network Security Config 证书信任管理到 SSL Pinning 固定与证书透明度验证，介绍 Android 端侧网络安全三层防御体系的工程实践与线上监控方案。
 publishDate: '2026-06-23'
 tags:

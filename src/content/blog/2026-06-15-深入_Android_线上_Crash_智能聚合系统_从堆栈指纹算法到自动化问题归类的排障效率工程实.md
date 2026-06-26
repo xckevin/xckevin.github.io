@@ -1,5 +1,7 @@
 ---
 title: 深入 Android 线上 Crash 智能聚合系统：从堆栈指纹算法到自动化问题归类
+slug: android-crash-aggregation-fingerprint
+translationKey: android-crash-aggregation-fingerprint
 excerpt: 本文深入剖析 Android 线上 Crash 堆栈指纹算法的三层设计：异常消息归一化、混淆感知帧处理、加权帧序列指纹，结合相似度聚类和自动化归类流水线，将日均 5 万条 Crash 聚合为百余独立问题，聚合准确率从 37% 提升至 91%。
 publishDate: '2026-06-15'
 tags:

@@ -1,5 +1,7 @@
 ---
 title: 深入 Android MMKV 高性能键值存储全链路：从 mmap 内存映射到 ProtoBuf 增量更新的微信级工程实践
+slug: android-mmkv-mmap-protobuf
+translationKey: android-mmkv-mmap-protobuf
 excerpt: 深入剖析 MMKV 如何通过 mmap 内存映射与 ProtoBuf 增量更新，解决 SharedPreferences 主线程阻塞与全量写入的 ANR 根源，并提供 SP/MMKV/DataStore 三方案选型指南。
 publishDate: '2026-06-16'
 tags:

@@ -1,5 +1,7 @@
 ---
 title: 深入 Android VpnService 全链路：从 TUN 虚拟网卡创建到数据包拦截与本地代理
+slug: android-vpnservice-tun-packet-interception
+translationKey: android-vpnservice-tun-packet-interception
 excerpt: 深入剖析 Android VpnService 实现本地 VPN 代理的全链路技术，涵盖 TUN 虚拟网卡创建、IP 包解析、TCP 状态机维护、SOCKS5 转发及 NAT 地址转换等核心环节。
 publishDate: '2026-06-14'
 tags:

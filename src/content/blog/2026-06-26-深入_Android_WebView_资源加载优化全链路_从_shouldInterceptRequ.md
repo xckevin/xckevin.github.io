@@ -1,5 +1,7 @@
 ---
 title: 深入 Android WebView 资源加载优化全链路：从 shouldInterceptRequest 资源拦截到离线包缓存策略的加载性能工程实践
+slug: android-webview-resource-interception-offline
+translationKey: android-webview-resource-interception-offline
 excerpt: 本文从实战出发，详解 WebView 通过 shouldInterceptRequest 拦截资源请求、配合离线包架构实现加载优化的完整方案，涵盖版本管理、网络降级兜底及同步 IO、并发限制等踩坑经验，最终将首屏白屏时间从 2.8s 降至 0.6s。
 publishDate: '2026-06-26'
 tags:

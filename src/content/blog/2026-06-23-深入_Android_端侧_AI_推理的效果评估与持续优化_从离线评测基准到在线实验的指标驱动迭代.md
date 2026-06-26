@@ -1,5 +1,7 @@
 ---
 title: 深入 Android 端侧 AI 推理的效果评估与持续优化：从离线评测基准到在线实验的指标驱动迭代
+slug: android-on-device-ai-evaluation-optimization
+translationKey: android-on-device-ai-evaluation-optimization
 excerpt: 从零搭建端侧 AI 模型评测体系：通过离线 Benchmark 做初筛、在线埋点监控置信度分布、A/B 实验驱动决策，三者形成闭环，将模型迭代周期从 3 周压缩至 1 周半。
 publishDate: '2026-06-23'
 tags:

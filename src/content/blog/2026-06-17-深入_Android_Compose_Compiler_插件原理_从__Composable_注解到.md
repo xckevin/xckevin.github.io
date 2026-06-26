@@ -1,5 +1,7 @@
 ---
 title: 深入 Android Compose Compiler 插件原理：从 @Composable 注解到 Composer 参数生成的编译器黑盒
+slug: android-compose-compiler-plugin-internals
+translationKey: android-compose-compiler-plugin-internals
 excerpt: 本文拆解 Compose Compiler Plugin 在编译期如何将 @Composable 函数转换为带合成参数的 IR 形态，包括 $changed 位掩码编码、重组跳过逻辑生成、状态读写标记与稳定性推断规则，帮助建立对 Compose 重组行为的直觉。
 publishDate: '2026-06-17'
 tags:

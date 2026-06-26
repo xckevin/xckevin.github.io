@@ -1,5 +1,7 @@
 ---
 title: 深入 Android 多渠道打包全链路：从 Gradle Flavor 构建到 Walle V2 签名注入的渠道管理工程实践
+slug: android-multi-channel-build-walle
+translationKey: android-multi-channel-build-walle
 excerpt: 本文深入剖析 Android 多渠道打包的两种方案：Gradle Flavor 传统构建与 Walle 基于 V2 签名块的渠道注入，详解 APK Signing Block 原理、生产环境踩坑经验及方案选型策略。
 publishDate: '2026-06-22'
 tags:

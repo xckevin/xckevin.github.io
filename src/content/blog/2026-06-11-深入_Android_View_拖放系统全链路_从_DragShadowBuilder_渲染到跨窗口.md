@@ -1,5 +1,7 @@
 ---
 title: 深入 Android View 拖放系统全链路：从 DragShadowBuilder 渲染到跨窗口 ClipData 传输
+slug: android-view-drag-drop-system
+translationKey: android-view-drag-drop-system
 excerpt: 深入分析 Android 拖放系统底层实现，从 startDragAndDrop 启动链路、DragEvent 分发路径、DragShadow 独立渲染层，到跨窗口 ClipData 的 Binder 传输机制，以及与 RecyclerView、Compose 的衔接实践。
 publishDate: '2026-06-11'
 tags:

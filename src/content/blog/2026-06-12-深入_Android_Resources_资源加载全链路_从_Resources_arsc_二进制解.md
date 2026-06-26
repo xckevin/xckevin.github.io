@@ -1,5 +1,7 @@
 ---
 title: 深入 Android Resources 资源加载全链路
+slug: android-resources-arsc-loading
+translationKey: android-resources-arsc-loading
 excerpt: 从 AAPT2 编译阶段 Resources.arsc 的二进制结构，到运行时 AssetManager2 的配置打分匹配与两层缓存策略，梳理 Android 资源系统的完整加载链路及常见陷阱。
 publishDate: '2026-06-12'
 tags:

@@ -1,5 +1,7 @@
 ---
 title: 深入 Jetpack Compose 列表动画引擎：从 animateItemPlacement 到 LazyColumn 声明式动画编排全链路
+slug: compose-lazycolumn-animate-item-placement
+translationKey: compose-lazycolumn-animate-item-placement
 excerpt: 深入剖析 Compose LazyColumn 的 animateItemPlacement 动画机制，从源码原理到 key 稳定性、重组优化等帧率优化实战，提供可落地的排查清单。
 publishDate: '2026-06-10'
 tags:

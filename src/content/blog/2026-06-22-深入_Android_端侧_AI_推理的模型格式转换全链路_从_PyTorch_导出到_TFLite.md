@@ -1,5 +1,7 @@
 ---
 title: 深入 Android 端侧 AI 推理的模型格式转换全链路：从 PyTorch 导出到 TFLite/MediaPipe 部署的格式桥梁工程实践
+slug: android-on-device-ai-model-format-conversion
+translationKey: android-on-device-ai-model-format-conversion
 excerpt: 记录 PyTorch 模型导出到 ONNX、转换至 TFLite 并接入 MediaPipe 的完整端侧部署链路，涵盖动态 shape 处理、算子兼容、INT8 量化及工程化实战经验。
 publishDate: '2026-06-22'
 tags:

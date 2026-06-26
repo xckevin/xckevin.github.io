@@ -1,5 +1,7 @@
 ---
 title: Android 桌面模式与自由窗口：从 Display 分治到多实例并行
+slug: android-desktop-mode-freeform-multitasking
+translationKey: android-desktop-mode-freeform-multitasking
 excerpt: 深入分析 Android 15 桌面模式与自由窗口的系统架构，涵盖 DisplayContent 分治、Task 窗口管理、多实例并行及输入事件派发机制，并总结实战中的适配要点。
 publishDate: '2026-06-25'
 tags:

@@ -1,5 +1,7 @@
 ---
 title: 深入 Android 线程池与并发编程全链路：从 ThreadPoolExecutor 调参到协程调度器底层映射的工程实践
+slug: android-threadpool-coroutine-concurrency
+translationKey: android-threadpool-coroutine-concurrency
 excerpt: 本文系统梳理了 Android 并发编程体系中线程池的核心参数调优、队列选型与拒绝策略，深入剖析了 Kotlin 协程调度器与底层线程池的映射关系，并给出了线程池监控、生命周期管理等工程实践方案。
 publishDate: '2026-06-18'
 tags:

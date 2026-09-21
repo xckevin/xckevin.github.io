@@ -1,7 +1,5 @@
 ---
 title: 深入 Android 悬浮窗全链路：从 SYSTEM_ALERT_WINDOW 权限模型演进到 WindowManager 叠加层渲染的工程实践
-slug: android-overlay-window-permissions
-translationKey: android-overlay-window-permissions
 excerpt: 本文梳理了 Android 6.0 至 14 悬浮窗权限模型的四次关键变化，深入分析 TYPE_APPLICATION_OVERLAY 窗口类型选择、触摸事件穿透与拦截机制，并给出跨版本兼容及 MIUI、ColorOS 等 ROM 适配的工程实践方案。
 publishDate: '2026-07-10'
 tags:
@@ -27,7 +25,7 @@ Android 悬浮窗权限的演化不是线性的，有几次断点式变更。
 
 **Android 8.0（API 26）**：引入 `TYPE_APPLICATION_OVERLAY`，替代旧的 `TYPE_PHONE`、`TYPE_SYSTEM_ALERT` 等窗口类型。旧类型被标记为 deprecated，但依然能用，只是行为上开始受限。
 
-**Android 10（API 29）**：Android 10 是最容易出问题的版本。`TYPE_APPLICATION_OVERLAY` 的窗口被禁止直接获取焦点，触摸事件处理逻辑也变了——如果你在悬浮窗里嵌了一个 `EditText`，用户点击后键盘不会弹出。Google 在限制悬浮窗劫持输入。
+**Android 10（API 29）**：Android 10 是最容易出问题的版本。默认情况下 `TYPE_APPLICATION_OVERLAY` 的行为受到更严格的输入限制——如果你在悬浮窗里嵌了一个 `EditText`，用户点击后键盘不会弹出。需要注意的是，能不能获取焦点并不是由 `TYPE_APPLICATION_OVERLAY` 这个类型本身强制决定的，而是取决于是否设置了 `FLAG_NOT_FOCUSABLE`——去掉这个 flag 的 `TYPE_APPLICATION_OVERLAY` 窗口依然可以获取键盘焦点。Google 在限制悬浮窗劫持输入，但这是通过 flag 设置去实现的，不是一个固定的“灵取”限制。
 
 **Android 12（API 31）**：`SYSTEM_ALERT_WINDOW` 在权限列表里不再默认展示，用户需要手动搜索。从通知栏启动的悬浮窗 Service 也受到新的前台服务启动限制。
 
@@ -84,8 +82,8 @@ fun requestOverlayPermission(activity: Activity, requestCode: Int) {
 
 | 类型 | 适用场景 | 限制 |
 |------|---------|------|
-| `TYPE_APPLICATION_OVERLAY` | 通用悬浮窗 | 不能获取焦点，Android 10+ 限制输入 |
-| `TYPE_ACCESSIBILITY_OVERLAY` | 无障碍服务 | 触摸事件不能穿透，但能获取焦点 |
+| `TYPE_APPLICATION_OVERLAY` | 通用悬浮窗 | 需要设置 `FLAG_NOT_FOCUSABLE` 才不获取焦点，Android 10+ 限制输入 |
+| `TYPE_ACCESSIBILITY_OVERLAY` | 无障碍服务 | 触摸事件需要显式配置才能不处与此同时能获取焦点 |
 | `TYPE_PHONE`（废弃） | 旧代码兼容 | 需要 `SYSTEM_ALERT_WINDOW`，高版本行为不稳定 |
 
 实际项目里，我选择了分层策略：主体用 `TYPE_APPLICATION_OVERLAY`，保证覆盖率；需要输入框或焦点交互时，在 `TYPE_APPLICATION_OVERLAY` 窗口内通过 `FLAG_NOT_TOUCH_MODAL` 和 `FLAG_WATCH_OUTSIDE_TOUCH` 组合实现局部焦点。
@@ -105,13 +103,13 @@ val params = WindowManager.LayoutParams().apply {
 }
 ```
 
-`FLAG_NOT_TOUCH_MODAL` 让窗口外的触摸事件能传递到下层窗口，`FLAG_WATCH_OUTSIDE_TOUCH` 则让你能监听到这些事件，实现"点击外部关闭"这类交互。
+`FLAG_NOT_TOUCH_MODAL` 让窗口之外（未被悬浮窗覆盖的区域）的触摸事件能传递到下层窗口，`FLAG_WATCH_OUTSIDE_TOUCH` 则让你能监听到这些发生在窗口外部的事件，实现“点击外部关闭”这类交互。
 
 ## 触摸事件穿透：双向控制
 
 悬浮窗的触摸事件有两个方向要控制：**穿透给下层** 和 **拦截住不穿透**。
 
-**穿透** 的核心是 `FLAG_NOT_TOUCH_MODAL` 和 `FLAG_NOT_TOUCHABLE`。两者区别：`FLAG_NOT_TOUCHABLE` 让窗口完全不接收触摸，事件直接透传；`FLAG_NOT_TOUCH_MODAL` 让窗口内未消费的事件透传。大多数场景用后者就够了。
+**穿透** 的核心是 `FLAG_NOT_TOUCH_MODAL` 和 `FLAG_NOT_TOUCHABLE`。两者区别：`FLAG_NOT_TOUCHABLE` 让窗口完全不接收触摸，事件全部直接透传；`FLAG_NOT_TOUCH_MODAL` 让窗口以外区域的事件传递给下层窗口，窗口自己覆盖的区域照常接收处理。大多数场景用后者就够了。
 
 **拦截** 的坑在于，即使设置了 `FLAG_NOT_TOUCHABLE`，某些 ROM 上窗口仍然会消费 DOWN 事件。解决方案是在 `onTouchEvent` 里返回 `false`，而不是依赖 flag：
 
@@ -125,7 +123,7 @@ override fun onTouchEvent(event: MotionEvent): Boolean {
 }
 ```
 
-区域穿透是另一个常见需求——悬浮窗的部分区域可点击，其余区域透传。实现方式是在 `dispatchTouchEvent` 中判断坐标：
+区域穿透是另一个常见需求——悬浮窗的部分区域可点击，其余区域透传。**需要注意的是，在 `dispatchTouchEvent` 里基于坐标判断后再动态设置 `FLAG_NOT_TOUCHABLE` 这个方案并不可靠**，因为触摸区域的判定通常需要在 `addView`/`updateViewLayout` 之前完成，在收到 DOWN 事件后再去 `updateViewLayout` 修改 flag 存在时机窗口——这次 DOWN 事件本身很可能已经被窗口消费掉了，下一次才能穿透，体验上会有一拍延迟或首次无法穿透。更可靠的方案是：预先将悬浮窗拆成多个小窗口，只在可点击区域上铺一个可触摸的子窗口，其余区域用另一个设了 `FLAG_NOT_TOUCHABLE` 的窗口覆盖；或者在 View 层级的 `dispatchTouchEvent`/`onTouchEvent` 里直接根据坐标决定是否 `return false`，不依赖对 WindowManager flag 的事后修改。
 
 ```kotlin
 override fun dispatchTouchEvent(event: MotionEvent): Boolean {

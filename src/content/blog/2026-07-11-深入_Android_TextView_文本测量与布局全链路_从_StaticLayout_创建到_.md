@@ -1,7 +1,5 @@
 ---
 title: 深入 Android TextView 文本测量与布局全链路：从 StaticLayout 创建到 LineBreaker 断行的文本排版引擎解析
-slug: android-textview-layout-linebreaker
-translationKey: android-textview-layout-linebreaker
 excerpt: 深入解析 Android 文本排版引擎核心机制，涵盖 StaticLayout 布局创建、FontMetrics 度量坐标系、LineBreaker 断行算法策略及自定义 View 文本渲染实践。
 publishDate: '2026-07-11'
 tags:
@@ -21,21 +19,25 @@ seo:
 
 ## 文本排版引擎：StaticLayout 与 DynamicLayout
 
-Android 的文本排版由 `android.text.Layout` 抽象类定义，两个核心子类是 `StaticLayout` 和 `DynamicLayout`。TextView 内部根据文本是否会变化，自动选择其中之一。
+Android 的文本排版由 `android.text.Layout` 抽象类定义，核心子类有 `StaticLayout`、`DynamicLayout`，以及专门优化单行无格式文本的 `BoringLayout`。TextView 内部根据文本类型和是否可编辑/可选中，自动选择其中之一。
 
 `StaticLayout` 的「Static」不是指文本内容不可变，而是**布局创建后不能修改**。文本变了就得重新 `new` 一个。它的优势在于快：创建时一次性完成所有测量和断行，后续 `getLineStart()`、`getLineEnd()`、`getLineBottom()` 都是 O(1) 查表。
 
+TextView 的选择逻辑（来自 AOSP `TextView#useDynamicLayout()`，简化描述）大致是：文本是 `Spannable`（且没有预计算文本 `PrecomputedText`）时，或者文本被设置为可选中（`setTextIsSelectable(true)`），才使用 `DynamicLayout`；否则走 `StaticLayout`（其中单行、无特殊字符的「boring」文本还会被 `BoringLayout.isBoring()` 命中，用更轻量的 `BoringLayout` 处理）：
+
 ```java
-// TextView 内部简化逻辑
+// TextView 内部简化逻辑（对应 makeSingleLayout）
 Layout layout;
-if (text instanceof Spannable) {
-    layout = new DynamicLayout(text, paint, width, alignment, spacingMult, spacingAdd, includepad);
+if (isTextSelectable() || (isSpannable && precomputedText == null)) {
+    layout = DynamicLayout.Builder.obtain(text, paint, width)....build();
+} else if (boring != null /* 单行、无需换行等 */) {
+    layout = new BoringLayout(text, paint, width, ...);
 } else {
-    layout = new StaticLayout(text, paint, width, alignment, spacingMult, spacingAdd, includepad);
+    layout = StaticLayout.Builder.obtain(text, 0, text.length(), paint, width)....build();
 }
 ```
 
-`DynamicLayout` 支持增量更新：当 `Spannable` 内容变化时，只重新计算受影响的区域，而不是整个布局。代价是文本必须是 `Spannable` 或 `Editable` 实例。
+注意这里判断的核心不是简单的 `text instanceof Spannable`，而是 TextView 内部维护的 `mSpannable` 状态（在 `setText()` 时根据 `BufferType` 和文本类型确定），并且需要没有关联 `PrecomputedText`。`DynamicLayout` 支持增量更新：当 `Spannable` 内容变化时，只重新计算受影响的区域，而不是整个布局，代价是文本必须是 `Spannable` 实例（可编辑的 `Editable` 也是 `Spannable` 的子接口）。
 
 `Layout` 内部维护了一个关键结构：**行表（line table）**。每行记录起始字符偏移、行宽、行高。创建时用 `LineBreaker` 计算断行位置，然后逐行测量宽度和高度，最终确定总高度。
 
@@ -113,18 +115,19 @@ if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
 }
 ```
 
-断行的核心逻辑在 `LineBreaker.computeLineBreaks()` 中：给定文本、宽度和 Paint，它返回一个 `int[]` 数组，每个元素表示一行的结束字符位置。算法大致流程：
+断行背后的公开 API 是 `android.graphics.text.LineBreaker`（API 29 引入，属于 `android.graphics.text` 包，不同于 `android.text.Layout` 中同名的 `BREAK_STRATEGY_*` 常量定义）。它的核心方法是 `computeLineBreaks(MeasuredText, LineBreaker.ParagraphConstraints, int)`，输入是预先测量好的 `MeasuredText` 和段落约束，返回一个 `LineBreaker.Result` 对象（包含每行的结束位置、宽度等信息），而不是简单的 `int[]`。`StaticLayout`/`DynamicLayout` 内部会创建 `LineBreaker` 实例并逐段落调用它来完成断行，但这属于内部实现细节，不属于应用开发者需要直接调用的公开接口。
 
-1. 从当前行起始位置开始，逐个字符推进
-2. 每次推进后测量已累积文本的宽度
-3. 宽度超过可用宽度时，回退到最近的**可断行点**（空格、CJK 字符边界、连字符位置等）
-4. 记录断行位置，开始下一行
+三种断行策略的实际差异（公开行为，不涉及内部实现）：
 
-**CJK（中日韩）文字的特殊性**在于：每个字符本身就是一个可断行点。所以中文排版很少出现单词被截断的情况。但英文没有空格时，`SIMPLE` 策略会直接截断单词。
+1. **`BREAK_STRATEGY_SIMPLE`**：只在必要时断行，不做额外优化，速度最快
+2. **`BREAK_STRATEGY_HIGH_QUALITY`**：自动连字，并对整个段落做断行优化，计算成本更高
+3. **`BREAK_STRATEGY_BALANCED`**：在高质量断行基础上，进一步均衡每行宽度
 
-`BREAK_STRATEGY_HIGH_QUALITY` 对英文排版提升明显：它会在单词边界断行，必要时使用连字符，效果接近专业排版软件。计算量确实更大，但对于几百行以内的文本，差异可以忽略。
+**CJK（中日韩）文字的特殊性**在于：每个字符本身就是一个可断行点。所以中文排版很少出现单词被截断的情况。但英文没有空格时，`SIMPLE` 策略可能会在单词中间断行。
 
-`BREAK_STRATEGY_BALANCED` 更进一步，让断行位置在整段文本中更均匀分布。比如一段 3 行英文，不会出现前两行很满、第三行只有两个单词的情况。这个策略在 `TextView` 中需要 API 31+ 才支持。
+`BREAK_STRATEGY_HIGH_QUALITY` 对英文排版提升明显：它会尽量在单词边界断行，开启连字（`setHyphenationFrequency`）时还会自动插入连字符，效果接近专业排版软件。计算量确实更大，但对于几百行以内的文本，差异可以忽略。
+
+`BREAK_STRATEGY_BALANCED` 更进一步，让断行位置在整段文本中更均匀分布。比如一段 3 行英文，不会出现前两行很满、第三行只有两个单词的情况。这三个断行常量都定义在 `Layout` 中，自 API 23（Android 6.0）起就可通过 `StaticLayout.Builder.setBreakStrategy()` 和 `TextView.setBreakStrategy()` 使用，并不需要 API 31。
 
 ## 行高计算：从 FontMetrics 到 Layout
 

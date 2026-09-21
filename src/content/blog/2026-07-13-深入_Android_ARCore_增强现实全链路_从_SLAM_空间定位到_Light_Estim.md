@@ -1,7 +1,5 @@
 ---
 title: 深入 Android ARCore 增强现实全链路：从 SLAM 空间定位到 Light Estimation 光照估计的虚实融合架构
-slug: android-arcore-slam-light-estimation
-translationKey: android-arcore-slam-light-estimation
 excerpt: 深入剖析 ARCore 运动追踪、环境理解与光照估计三条核心链路的技术原理，结合 Compose 集成与性能优化实践，构建稳定的虚实融合 AR 应用。
 publishDate: '2026-07-13'
 tags:
@@ -82,7 +80,7 @@ fun hitTestPlane(frame: Frame, tapX: Float, tapY: Float): Pose? {
 
 ### Depth API 的像素级遮挡
 
-Depth API 需要设备支持（通过 `isDepthModeSupported()` 检查），在 1.18 版本后提供了 `RawDepthImage` 和 `DepthImage` 两种输出。前者是 16-bit 毫米级深度值，后者是 8-bit 归一化深度（0-255 映射到 near-far 范围）。
+Depth API 需要设备支持（通过 `isDepthModeSupported()` 检查）。获取深度数据的公开 API 是 `Frame` 上的方法，而不是一个名为 `RawDepthImage`/`DepthImage` 的类：`acquireDepthImage16Bits()` 获取经过平滑处理的深度图，`acquireRawDepthImage16Bits()` 获取未经过滤波的原始深度图，二者都返回标准的 `android.media.Image`（16-bit，每个像素值以毫米为单位）。旧版 `acquireDepthImage()`/`acquireRawDepthImage()`（8-bit，已弃用）因深度范围受限（仅 8191mm）且需额外清除高 3 位，已不推荐使用。
 
 在 Fragment Shader 中做遮挡判断的典型写法：
 
@@ -109,27 +107,27 @@ for (int x = -1; x <= 1; x++) {
 
 ## 光照估计：从单值到方向光的演进
 
-ARCore 的光照估计经历了两个阶段。早期版本只提供一个 `pixelIntensity`（0-1 的单值），后来加入了 `Environmental HDR` 模式，能输出：
+ARCore 的光照估计经历了两个阶段。早期版本只提供一个 `pixelIntensity`（0-1 的单值，对应 `LightEstimate.getPixelIntensity()`），后来加入了 `Environmental HDR` 模式（`Config.LightEstimationMode.ENVIRONMENTAL_HDR`），能输出：
 
-- **主方向光颜色与方向**（Directional Light）
-- **环境光 SH 系数**（Spherical Harmonics，9 个 float）
-- **HDR 立方体贴图**（可选，用于镜面反射）
+- **主方向光方向与强度**：`getEnvironmentalHdrMainLightDirection()` 返回一个 `float[3]` 方向向量，`getEnvironmentalHdrMainLightIntensity()` 返回一个 `float[3]` RGB 强度
+- **环境光 SH 系数**（Spherical Harmonics，`getEnvironmentalHdrAmbientSphericalHarmonics()`，9 组按通道排列的系数，共 27 个 float）
+- **HDR 立方体贴图**（可选，`acquireEnvironmentalHdrCubeMap()`，用于镜面反射）
 
 单值强度模式适合 2D AR 滤镜类应用，只需要把虚拟物体的亮度乘以 `pixelIntensity` 即可。但做 3D 渲染时，单值完全不够——你无法知道光从哪个方向来，阴影方向就无从谈起。
 
-`Environmental HDR` 模式输出的 `DirectionalLight` 结构体包含了颜色、方向和强度，可以直接映射到 PBR 渲染管线：
+`Environmental HDR` 模式下，主方向光的方向和强度需要分别调用两个方法获取，并不存在一个打包好的 `environmentalHdrMainDirectionalLight` 属性或 `DirectionalLight` 结构体：
 
 ```kotlin
 fun configureLighting(frame: Frame, renderer: PbrRenderer) {
     val lightEstimate = frame.lightEstimate
-    // 主方向光
-    val dirLight = lightEstimate.environmentalHdrMainDirectionalLight
+    // 主方向光：方向和强度分别获取，都是 float[3]
+    val direction = lightEstimate.environmentalHdrMainLightDirection  // [x, y, z]
+    val intensity = lightEstimate.environmentalHdrMainLightIntensity  // [r, g, b]
     renderer.setDirectionalLight(
-        direction = dirLight.direction,  // 世界空间方向
-        color = floatArrayOf(dirLight.colorR, dirLight.colorG, dirLight.colorB),
-        intensity = lightEstimate.environmentalHdrAmbientSphericalHarmonics[0]
+        direction = direction,
+        color = intensity
     )
-    // SH 环境光（9 个系数用于低频环境光照）
+    // SH 环境光（9 组按通道排列的系数，共 27 个 float，用于低频环境光照）
     renderer.setAmbientSh(lightEstimate.environmentalHdrAmbientSphericalHarmonics)
 }
 ```

@@ -1,7 +1,5 @@
 ---
 title: 深入 Android 端侧 AI 推理的多模型编排与 Pipe 模式：从单一推理到复合任务工作流引擎的设计与实践
-slug: android-on-device-ai-multi-model-orchestration
-translationKey: android-on-device-ai-multi-model-orchestration
 excerpt: 从单模型推理的舒适区出发，探讨 Android 端侧 AI 任务中 Pipe 串联、路由表分支到动态图执行的多模型编排实践，涵盖模型管理、错误兜底与协程调度的工程取舍。
 publishDate: '2026-07-02'
 tags:

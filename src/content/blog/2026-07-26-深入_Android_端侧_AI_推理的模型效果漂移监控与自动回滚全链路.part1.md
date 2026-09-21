@@ -1,0 +1,121 @@
+---
+title: "深入 Android 端侧 AI 推理的模型效果漂移监控与自动回滚全链路（1）：端侧模型漂移：为什么比服务端更难搞"
+excerpt: "「深入 Android 端侧 AI 推理的模型效果漂移监控与自动回滚全链路」系列第 1/2 篇：端侧模型漂移：为什么比服务端更难搞"
+publishDate: 2026-07-26
+displayInBlog: false
+series:
+  name: "深入 Android 端侧 AI 推理的模型效果漂移监控与自动回滚全链路"
+  part: 1
+  total: 2
+seo:
+  title: "深入 Android 端侧 AI 推理的模型效果漂移监控与自动回滚全链路（1）：端侧模型漂移：为什么比服务端更难搞"
+  description: "「深入 Android 端侧 AI 推理的模型效果漂移监控与自动回滚全链路」系列第 1/2 篇：端侧模型漂移：为什么比服务端更难搞"
+---
+
+
+> 本文是「深入 Android 端侧 AI 推理的模型效果漂移监控与自动回滚全链路」系列的第 1 篇，共 2 篇。
+
+去年我们在一个 OCR 识别项目上栽了跟头：端侧模型在灰度发布后，识别准确率从 96% 掉到 82%，用户反馈铺天盖地，但团队花了两天才定位到是新版模型的问题。事后复盘，根因不是模型本身有 bug，而是新模型对低端机型的图像噪点分布极度敏感——训练集里缺少这类样本。这种问题就叫模型效果漂移（Model Drift）。
+
+端侧推理没有服务端那种集中的监控基础设施，一旦模型出问题，发现和止损的链路都很长。下面聊聊我落地的一套从数据分布检测到自动回滚的端侧质量保障体系。
+
+## 端侧模型漂移：为什么比服务端更难搞
+
+服务端推理的数据全部流经可控管道，采样、计算分布、触发告警一气呵成。端侧完全是另一回事。
+
+端侧推理发生在用户设备上，输入数据从不上传到服务端，你没法在中心节点对推理输入做实时统计分析。而且端侧环境碎片化严重——不同机型的摄像头模组、传感器精度、计算单元指令集都可能让同一个模型产生不同的输出分布。
+
+我把端侧漂移分为两类：
+
+**数据漂移（Data Drift）**：输入数据的分布发生了变化。比如用户在夜间场景使用频次突然增高，而训练集主要是白天样本。
+
+**概念漂移（Concept Drift）**：输入分布没变，但输入与输出的关系变了。比如 OCR 模型升级后，旧版能识别的手写体在新版上反而判错了。
+
+两类漂移的检测策略不同，但端侧都面临同一个约束：不能把用户数据传回服务端做分析。必须把检测逻辑下沉到端侧。
+
+## 检测层：在端侧做分布偏移判定
+
+### 统计量选择
+
+在设备端做分布检测，核心矛盾是算力的限制。KL 散度和 MMD（Maximum Mean Discrepancy）虽然准确，但计算开销对移动端不友好。
+
+我实际落地时选了两个轻量指标：
+
+**PSI（Population Stability Index）**，用于衡量模型输出分布的稳定性。公式简单：
+
+```
+PSI = Σ (actual_i - expected_i) × ln(actual_i / expected_i)
+```
+
+`expected_i` 是基线分布（模型发布时在验证集上统计的分箱概率，分箱边界也在这一步固定），`actual_i` 是当前设备上滑动窗口内的实际分布（复用同一套分箱边界）。PSI < 0.1 表示分布稳定，0.1-0.25 为轻微偏移，> 0.25 需要关注。
+
+**特征层简单统计量**：不传原始数据，只在端侧维护每个输入特征的滑动均值与标准差。上传时只报统计量，不带原始样本。敏感度够用，合规风险为零。
+
+需要补一块前提：输出分布的 PSI 漂移本质上只是一个间接信号，它说明“模型近期的输出分布与发布时不一样了”，但输出分布变化并不能直接等价于模型准确率下降或发生了概念漂移——比如用户人群本身发生了季节性变化，输出分布也会变，但模型本身并无问题。PSI 适合当作一个便于在端侧便携的异常报警信号，真正确定是否是模型性能下降，还需要结合业务指标（如用户主动反馈、重试率）或抽样人工复核来确认。
+
+### 端侧检测的工程实现
+
+```kotlin
+class DriftDetector(
+    private val baselineDistribution: FloatArray, // 基线分箱概率
+    private val baselineMin: Float,               // 基线阶段固定的分箱下界
+    private val baselineMax: Float,               // 基线阶段固定的分箱上界
+    private val binCount: Int = 10,
+    private val windowSize: Int = 200            // 滑动窗口大小
+) {
+    private val recentOutputs = ArrayDeque<Float>(windowSize)
+    private var driftScore: Float = 0f
+
+    fun observe(output: Float) {
+        if (recentOutputs.size >= windowSize) {
+            recentOutputs.removeFirst()
+        }
+        recentOutputs.addLast(output)
+
+        if (recentOutputs.size >= windowSize) {
+            driftScore = computePSI(recentOutputs.toList())
+        }
+    }
+
+    private fun computePSI(samples: List<Float>): Float {
+        // 关键点：分箱边界必须复用基线阶段固定下来的 min/max，
+        // 不能按当前滑动窗口的 min/max 重新划分，否则基准分布和当前分布的分箱口径对不上，PSI 比较就失去了意义
+        val range = baselineMax - baselineMin + 1e-7f
+        val actualBins = FloatArray(binCount)
+        samples.forEach { v ->
+            val idx = ((v - baselineMin) / range * binCount).toInt()
+                .coerceIn(0, binCount - 1)
+            actualBins[idx]++
+        }
+        actualBins.forEachIndexed { i, _ -> actualBins[i] /= samples.size }
+
+        var psi = 0f
+        for (i in 0 until binCount) {
+            val a = actualBins[i] + 1e-7f
+            val e = baselineDistribution[i] + 1e-7f
+            psi += (a - e) * ln(a / e)
+        }
+        return psi
+    }
+}
+```
+
+这里有个很容易踩的坑：如果分箱边界每次都按当前滑动窗口的 `min()`/`max()` 动态重新生成，基线分布和实时分布就相当于在两套不同尺子上量尺子，即使真实分布没发生任何变化，PSI 也可能因为两边分箱口径不一致而给出假阳性（或反过来掩盖真实漂移）。正确的做法是在模型发布、建基线时就确定好分箱边界（`baselineMin`/`baselineMax`）并固化保存，后面每一次对实时滑动窗口计算 PSI 时都复用这套固定边界，这样两边的分箱口径才是可比的。
+
+### 上报策略
+
+不能每次检测到漂移就上报，流量扛不住。我用了两级阈值：
+
+- **软阈值（PSI > 0.2）**：设备本地记录，累计触发 3 次后才上报一次事件，附带当前的 PSI 值和机型信息。
+- **硬阈值（PSI > 0.3）**：立即上报，同时触发本地的降级逻辑。
+
+上报通道走已有的埋点管线，复用现有的采样率和去重机制，不需要额外拉一条数据通道。
+
+---
+
+> 下一篇我们将探讨「回滚层：模型版本管理与自动降级」，敬请关注本系列。
+
+**「深入 Android 端侧 AI 推理的模型效果漂移监控与自动回滚全链路」系列目录**
+
+1. **端侧模型漂移：为什么比服务端更难搞**（本文）
+2. 回滚层：模型版本管理与自动降级

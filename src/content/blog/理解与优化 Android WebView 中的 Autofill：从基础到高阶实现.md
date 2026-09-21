@@ -1,4 +1,6 @@
 ---
+slug: android-webview-autofill-optimization
+translationKey: android-webview-autofill-optimization
 title: 理解与优化 Android WebView 中的 Autofill：从基础到高阶实现
 excerpt: Autofill（自动填充） 是一种由浏览器或操作系统提供的功能，通过预先存储的用户数据（如地址、密码、信用卡信息等）自动填写表单字段，其核心目标是显著减少用户重复输入的操作，从而提升交互效率。
 publishDate: 2025-04-23

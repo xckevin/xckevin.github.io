@@ -11,8 +11,9 @@ tags:
 - TCP/IP
 - SOCKS5
 seo:
-  title: 深入 Android VpnService 全链路：从 TUN 虚拟网卡创建到数据包拦截与本地代理
+  title: Android VpnService：TUN 虚拟网卡与数据包拦截代理
   description: 详解 Android VpnService 从 TUN 虚拟网卡创建到数据包拦截与本地 SOCKS5 代理的完整实现链路，涵盖 IP 包解析、TCP 状态机维护和 NAT 地址转换。
+  pageType: article
 ---
 
 去年接了一个需求：在不修改 App 代码的前提下，对指定域名的 HTTPS 请求做证书校验增强。常规方案是搭一个中间人代理，但意味着要改网络配置、装 CA 证书、改 Wi-Fi 代理——对普通用户来说门槛太高。

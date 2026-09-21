@@ -1,4 +1,6 @@
 ---
+slug: android-dynamic-multilingual-localization
+translationKey: android-dynamic-multilingual-localization
 title: Android 多语言动态化实践
 excerpt: 作为国际化技术团队，多语言能力必不可少。目前在我们的开发流程中，多语言翻译由产品与本地同事手工录入 PRD 相关文档表格，再由各端开发同学复制粘贴到代码中。
 publishDate: 2024-03-23

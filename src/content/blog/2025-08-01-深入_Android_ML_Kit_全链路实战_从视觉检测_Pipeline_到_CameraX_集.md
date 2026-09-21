@@ -1,4 +1,6 @@
 ---
+slug: android-ml-kit-vision-camerax
+translationKey: android-ml-kit-vision-camerax
 title: 深入 Android ML Kit 全链路实战：从视觉检测 Pipeline 到 CameraX 集成的端侧智能工程落地
 excerpt: 基于工业缺陷检测实战，深入剖析 ML Kit 检测管线机制、CameraX 集成最佳实践与端侧推理优化全链路，分享从选型到落地的完整工程经验。
 publishDate: '2025-08-01'
@@ -9,8 +11,9 @@ tags:
 - 端侧推理
 - 计算机视觉
 seo:
-  title: 深入 Android ML Kit 全链路实战：从视觉检测 Pipeline 到 CameraX 集成的端侧智能工程落地
+  title: Android ML Kit：视觉检测 Pipeline 与 CameraX 端侧集成
   description: 以工业缺陷检测为实战场景，详解 ML Kit 检测管线机制、CameraX 集成要点（背压策略、分辨率选择、ImageProxy 管理）、多模型 Pipeline 设计及端侧推理优化的完整工程实践。
+  pageType: article
 ---
 
 去年在做一款工业巡检 App，需求是在产线不停机的前提下，用手机摄像头实时检测零件表面缺陷。当时团队里所有人都在聊大模型（LLM），但遇到这种纯视觉任务时，LLM 完全使不上劲——延迟太高、模型太大、推理成本扛不住。最终转向了 **ML Kit** 的端侧视觉能力，配合 CameraX 构建了一套实时分析链路。

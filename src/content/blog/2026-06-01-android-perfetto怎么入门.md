@@ -1,4 +1,5 @@
 ---
+translationKey: android-perfetto
 title: "Android Perfetto 怎么入门？从一条 Trace 开始定位性能问题"
 slug: android-perfetto
 excerpt: "面向 Android 开发者介绍 Perfetto 入门方法，覆盖 trace 抓取、关键轨道、Binder、调度、渲染和启动分析。"
@@ -78,7 +79,7 @@ Perfetto trace 本质上可以被 `trace_processor` 当成数据库查询。UI �
 ## 深入阅读
 
 - [返回对应专题：Android 性能优化](/android-performance/)
-- [Android Perfetto 与 Systrace：系统级性能分析和调优方法](/blog/系统级性能分析与调优-systrace_perfetto/)
-- [Android Perfetto 追踪体系：ftrace、TrackEvent 与生产级性能监控](/blog/2026-05-09-android_perfetto_追踪全链路深度解析_从内核_ftrace_数据源到_sdk_自定义_trackevent_的生产级性能监控体系/)
+- [Android Perfetto 与 Systrace：系统级性能分析和调优方法](/blog/android-system-performance-systrace-perfetto/)
+- [Android Perfetto 追踪体系：ftrace、TrackEvent 与生产级性能监控](/blog/android-perfetto-ftrace-trackevent/)
 - [Android App 启动优化指标：冷启动、首帧、TTID 与 Perfetto 分析](/blog/android-startup-metrics/)
 <!-- /seo-internal-links -->

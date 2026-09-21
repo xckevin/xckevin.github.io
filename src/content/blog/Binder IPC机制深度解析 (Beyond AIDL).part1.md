@@ -1,4 +1,6 @@
 ---
+slug: binder-ipc-beyond-aidl-part1
+translationKey: binder-ipc-beyond-aidl-part1
 title: "Binder IPC 机制深度解析（Beyond AIDL）（1）：引言：Android 世界的神经网络"
 excerpt: "「Binder IPC 机制深度解析（Beyond AIDL）」系列第 1/7 篇：引言：Android 世界的神经网络"
 publishDate: 2024-04-21

@@ -1,4 +1,6 @@
 ---
+slug: android-animation-principles-practice
+translationKey: android-animation-principles-practice
 title: Android动画深度解析：从原理到实践
 excerpt: 在当今移动应用开发的浪潮中，用户界面（UI）和用户体验（UX）的重要性被提升到了前所未有的高度。一个成功的应用，除了功能稳定、性能可靠之外，其交互是否自然、界面是否生动，也成为衡量其品质的关键因素。在这一切的背后，动画（Animation）扮演着至关重要的角色，它早已超越了简单的视觉装饰，成为现代移动应用中不可或缺的核心组成部分。
 publishDate: 2024-03-20

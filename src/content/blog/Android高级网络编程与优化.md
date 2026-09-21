@@ -1,4 +1,6 @@
 ---
+slug: android-advanced-network-programming-optimization
+translationKey: android-advanced-network-programming-optimization
 title: Android 高级网络编程与优化
 excerpt: 现代 Android 应用高度依赖网络通信来获取数据、同步状态、与用户互动。网络请求的性能直接决定了用户体验的关键方面——加载速度、界面响应性、实时交互能力，同时也深刻影响着设备的电池续航和数据流量消耗。对于构建一流应用而言，仅实现基本的网络请求功能是远远不够的。
 publishDate: 2025-03-17

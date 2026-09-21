@@ -1,4 +1,6 @@
 ---
+slug: android-16kb-page-size-elf-ndk
+translationKey: android-16kb-page-size-elf-ndk
 title: 深入 Android 16 KB 内存页对齐全链路：从 ELF 加载对齐到 NDK 编译适配与性能验证
 excerpt: Android 15 起系统与 Play Store 同步推进 16 KB 页迁移，本文从 ELF 段对齐原理、动态链接器影响、NDK 编译适配到 TLB 性能验证，给出从编译参数到 CI 门禁的完整迁移路线。
 publishDate: '2026-05-27'
@@ -9,8 +11,9 @@ tags:
 - 内存管理
 - ELF
 seo:
-  title: 深入 Android 16 KB 内存页对齐全链路：从 ELF 加载对齐到 NDK 编译适配与性能验证
+  title: Android 16KB 内存页对齐：ELF 加载与 NDK 编译适配
   description: Android 正从 4 KB 页向 16 KB 页迁移。本文详解 ELF 段对齐对 SO 加载链路的影响、NDK r27 编译适配方法及 TLB miss 性能验证，附完整 CI 门禁方案。
+  pageType: article
 ---
 
 去年在做 Native 内存优化时，Android 15 的 release notes 里有一条不起眼的改动：「支持 16 KB 页面大小」。当时扫了一眼没在意，直到同事的 AAR 包在模拟器上直接崩溃，堆栈指向 `mmap` 返回 `EINVAL`。排查后发现：SO 里的 `LOAD` 段对齐值锁死了 4 KB，碰上了 16 KB 页内核。

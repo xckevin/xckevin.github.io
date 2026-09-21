@@ -11,8 +11,9 @@ tags:
 - 字节码
 - SAM
 seo:
-  title: 深入 Kotlin Lambda 与函数引用的编译差异：从 SAM 转换到 Compose 重组优化的字节码级性能陷阱
+  title: Kotlin Lambda 与函数引用：SAM 转换与 Compose 重组性能差异
   description: Kotlin 函数引用与 Lambda 在 JVM 字节码层面有本质差异：::function 生成静态单例，而 {} 每次创建新实例。本文通过 SAM 转换、Compose 重组优化等场景，详解这些差异如何导致性能陷阱及最佳实践。
+  pageType: article
 ---
 
 几周前排查一个 Compose 页面卡顿问题，我把一个稳定传参的 `Modifier.clickable` 换成封装函数引用写法，Lint 没报警、逻辑也正确，但 Layout Inspector 显示重组次数翻了近一倍。直觉告诉我大概率是引用相等性出了问题，顺着字节码追下去，发现 Kotlin 编译器对 `::function` 和 `{ function(it) }` 的处理方式确实不一样——这层差异对 Compose 的运行时稳定性判断影响不小。

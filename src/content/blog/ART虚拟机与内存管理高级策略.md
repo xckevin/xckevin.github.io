@@ -1,4 +1,6 @@
 ---
+slug: art-vm-advanced-memory-management
+translationKey: art-vm-advanced-memory-management
 title: ART 虚拟机与内存管理高级策略
 excerpt: "Android开发中，内存管理决定性能与稳定性。OOM易致崩溃，频繁内存抖动触发GC暂停，引发UI卡顿，影响体验。我们看看如何避免和优化"
 publishDate: 2024-05-05

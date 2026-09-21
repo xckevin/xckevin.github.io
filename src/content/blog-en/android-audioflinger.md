@@ -71,6 +71,6 @@ Audio problems rarely exist in only one layer. AudioFlinger sits between apps, s
 ## Further reading
 
 - [Back to topic: Android performance optimization](/en/android-performance/)
-- [Android audio system internals: AudioFlinger, mixing policy, and AAudio low latency](/blog/2026-05-12-深入_android_音频系统全链路_从_audioflinger_混音策略到_aaudio_低延迟/)
-- [Getting started with Android Perfetto: capture traces, read tracks, and diagnose performance](/blog/android-perfetto/)
+- [Android audio system internals: AudioFlinger, mixing policy, and AAudio low latency](/blog/android-audio-system-audioflinger-aaudio/)
+- [Getting started with Android Perfetto: capture traces, read tracks, and diagnose performance](/en/blog/android-perfetto/)
 <!-- /seo-internal-links -->

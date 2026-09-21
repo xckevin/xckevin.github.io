@@ -1,4 +1,6 @@
 ---
+slug: large-app-architecture-modularization-part1
+translationKey: large-app-architecture-modularization-part1
 title: "大型 App 架构演进与模块化、组件化实践（1）：引言：应对规模化的必然演进"
 excerpt: "「大型 App 架构演进与模块化、组件化实践」系列第 1/3 篇：引言：应对规模化的必然演进"
 publishDate: 2025-10-11

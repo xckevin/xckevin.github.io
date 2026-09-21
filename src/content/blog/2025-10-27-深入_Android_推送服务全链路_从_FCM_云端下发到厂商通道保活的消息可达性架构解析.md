@@ -1,4 +1,6 @@
 ---
+slug: android-push-service-fcm-vendor-channels
+translationKey: android-push-service-fcm-vendor-channels
 title: 深入 Android 推送服务全链路：从 FCM 云端下发到厂商通道保活的消息可达性架构解析
 excerpt: 深入分析 Android 推送服务的完整链路，涵盖 FCM 与国内厂商通道的保活机制、Doze 模式影响及消息分级触达策略，提供多通道适配的工程实践与避坑指南。
 publishDate: '2025-10-27'
@@ -9,8 +11,9 @@ tags:
 - 性能优化
 - 架构设计
 seo:
-  title: 深入 Android 推送服务全链路：从 FCM 云端下发到厂商通道保活的消息可达性架构解析
+  title: Android 推送服务：FCM 下发与厂商通道保活
   description: 深入 Android 推送全链路架构：对比 FCM 与小米、华为、OPPO、VIVO 厂商通道的保活策略与心跳差异，剖析 Doze 模式对消息延迟的真实影响，给出消息分级触达与多通道适配的工程实践。
+  pageType: article
 ---
 
 去年在做一个海外社交 App 的国内版本适配时，遇到了一个棘手的问题：同样的消息推送逻辑，Google Play 版本到达率稳定在 95% 以上，国内版本却掉到了 70%，尤其在用户锁屏超过 15 分钟后几乎全军覆没。一条推送消息从服务端发出到用户手机亮屏，中间到底经历了什么？我把 FCM 和国内几家厂商的推送通道都拆了一遍。

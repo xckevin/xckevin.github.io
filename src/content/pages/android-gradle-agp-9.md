@@ -25,11 +25,11 @@ Android Gradle 的常见问题通常不是“看一篇概念介绍”，而是�
 ## 核心阅读
 
 - [移动端工程化专题](/android-engineering/)
-- [Android Gradle 构建慢怎么分析？从配置阶段到任务执行](/blog/2026-06-01-android-gradle构建慢怎么分析/)
-- [Android Gradle 构建提速：Configuration Cache、KSP 与任务治理](/blog/2026-05-06-android_gradle_构建提速全链路_从_configuration_cache_到_ksp/)
-- [Android Gradle Version Catalog 与 Convention Plugins](/blog/2026-03-10-深入_android_gradle_version_catalog_与_convention_plu/)
-- [Android APK 构建全链路：aapt2、V4 签名与 AGP 内部机制](/blog/2026-05-16-深入_android_apk_构建全链路_从_aapt2_资源编译到_v4_签名验证的_agp_内部/)
-- [Android CI/CD 质量门禁应该包含什么？](/blog/2026-06-01-android-ci-cd质量门禁/)
+- [Android Gradle 构建慢怎么分析？从配置阶段到任务执行](/blog/android-gradle-build-slow/)
+- [Android Gradle 构建提速：Configuration Cache、KSP 与任务治理](/blog/android-gradle-build-speed-configuration-cache-ksp/)
+- [Android Gradle Version Catalog 与 Convention Plugins](/blog/android-gradle-version-catalog-convention-plugins/)
+- [Android APK 构建全链路：aapt2、V4 签名与 AGP 内部机制](/blog/android-apk-build-aapt2-signing/)
+- [Android CI/CD 质量门禁应该包含什么？](/blog/android-ci-cd-quality-gates/)
 
 ## 排查路径
 

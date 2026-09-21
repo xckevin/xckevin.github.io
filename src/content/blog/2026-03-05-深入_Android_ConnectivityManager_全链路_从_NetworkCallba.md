@@ -1,4 +1,6 @@
 ---
+slug: android-connectivitymanager-networkcallback
+translationKey: android-connectivitymanager-networkcallback
 title: 深入 Android ConnectivityManager 全链路：从 NetworkCallback 实时监听到网络切换自适应架构
 excerpt: 从 NetworkInfo 缺陷到 NetworkCapabilities 能力模型，解析 ConnectivityManager 实时网络监控与自适应切换架构。
 publishDate: '2026-03-05'
@@ -9,8 +11,9 @@ tags:
 - 性能优化
 - Kotlin
 seo:
-  title: 深入 Android ConnectivityManager 全链路：从 NetworkCallback 实时监听到网络切换自适应架构
+  title: Android ConnectivityManager：NetworkCallback 监听与网络切换适配
   description: 深入解析 Android ConnectivityManager 网络状态管理，涵盖 NetworkCapabilities 能力模型、NetworkCallback 实时监听、Socket 网络绑定及 ConnectivityDiagnostics 弱网优化等完整工程实践。
+  pageType: article
 ---
 
 做视频通话 SDK 的时候碰到一个棘手问题：WiFi 切换到 4G 的一瞬间，所有正在传输的数据包全部超时，用户那边画面卡住 3-5 秒才能恢复。排查日志发现，业务层拿到网络断开的回调时，底层 TCP 连接早就死了。

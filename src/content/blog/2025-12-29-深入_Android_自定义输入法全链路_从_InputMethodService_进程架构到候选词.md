@@ -1,4 +1,6 @@
 ---
+slug: android-custom-ime-inputmethodservice
+translationKey: android-custom-ime-inputmethodservice
 title: 深入 Android 自定义输入法全链路：从 InputMethodService 进程架构到候选词引擎的 IME 工程实践
 excerpt: 剖析 Android 自定义输入法的工程全链路，涵盖独立进程架构、InputConnection 双向通信协议、候选词引擎延迟优化与键盘 UI 渲染等核心实践。
 publishDate: '2025-12-29'
@@ -9,8 +11,9 @@ tags:
 - 性能优化
 - 进程架构
 seo:
-  title: 深入 Android 自定义输入法全链路：从 InputMethodService 进程架构到候选词引擎的 IME 工程实践
+  title: Android 自定义输入法：InputMethodService 进程架构与候选词引擎
   description: 从 InputMethodService 进程模型到候选词引擎，详解 Android IME 全链路工程实践，涵盖进程隔离、InputConnection 协议、双缓冲引擎和键盘渲染优化。
+  pageType: article
 ---
 
 做语音输入功能时，我踩过一个大坑：在 InputMethodService 里拉起一个语音识别 Activity，结果键盘直接消失了，没有任何异常日志。排查了整整一天才发现，问题根源在于 IME 的进程模型和窗口层级管理。

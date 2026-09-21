@@ -1,20 +1,23 @@
 ---
-title: "Android 16 Edge-to-Edge: WindowInsets Dispatch and System Bar Adaptation"
+title: 'Android 16 Edge-to-Edge: WindowInsets Dispatch and System Bar Adaptation'
 lang: en
 translationKey: android-edge-to-edge-windowinsets
 slug: android-edge-to-edge-windowinsets
-excerpt: "Android 16 treats forced edge-to-edge as a breaking change for targetSdk 36 apps. This guide explains the WindowInsets dispatch path and practical adaptation strategies for both View and Compose UIs."
+excerpt: Android 16 treats forced edge-to-edge as a breaking change for targetSdk 36 apps. This guide explains the WindowInsets dispatch path and practical adaptation strategies for
+  both View and Compose UIs.
 publishDate: '2026-04-17'
 tags:
-- "Android"
-- "WindowInsets"
-- "Edge-to-Edge"
-- "Performance"
-- "System Compatibility"
+- Android
+- WindowInsets
+- Edge-to-Edge
+- Performance
+- System Compatibility
 seo:
-  title: "Android 16 Edge-to-Edge: WindowInsets Dispatch and System Bars"
-  description: "Adapt targetSdk 36 apps to Android 16 edge-to-edge with WindowInsets handling for status bars, navigation bars, IME, Views, and Compose."
+  title: 'Android 16 Edge-to-Edge: WindowInsets Dispatch and System Bars'
+  description: Adapt targetSdk 36 apps to Android 16 edge-to-edge with WindowInsets handling for status bars, navigation bars, IME, Views, and Compose.
   pageType: article
+  canonicalPath: /en/blog/android-16-edge-to-edge-windowinsets/
+displayInBlog: false
 ---
 
 After upgrading to targetSdk 36, QA sent over a batch of screenshots: the bottom TabBar was half covered by the navigation bar, and status bar icons overlapped the Toolbar. This is not an isolated app problem. Android 16 Beta 3 makes forced edge-to-edge a breaking change. For every app targeting SDK 36 or higher, the system ignores `Window.setStatusBarColor()` and `setNavigationBarColor()`, then forces content to extend behind the system bars.

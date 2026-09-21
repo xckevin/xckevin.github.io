@@ -1,4 +1,6 @@
 ---
+slug: smartdependency-source-aar-dual-mode-dependencies
+translationKey: smartdependency-source-aar-dual-mode-dependencies
 title: SmartDependency 源码/AAR 双模式依赖体系：让模块化工程既快又稳
 excerpt: 在大型 Android 工程中，模块数量增长后依赖方式直接影响研发效率。本文介绍一种源码/AAR 双模式依赖体系，通过统一注册、配置切换、版本治理和 CI 约束，让开发者按需打开源码模块，同时保证发布时回归二进制真实形态。
 publishDate: '2026-06-04'

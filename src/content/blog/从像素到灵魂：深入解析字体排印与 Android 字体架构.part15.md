@@ -1,4 +1,6 @@
 ---
+slug: android-typography-font-architecture-part15
+translationKey: android-typography-font-architecture-part15
 title: "从像素到灵魂：深入解析字体排印与 Android 字体架构（15）：包容性设计：无障碍 (Accessibility) 与字体"
 excerpt: "「从像素到灵魂：深入解析字体排印与 Android 字体架构」系列第 15/15 篇：包容性设计：无障碍 (Accessibility) 与字体"
 publishDate: 2026-01-12

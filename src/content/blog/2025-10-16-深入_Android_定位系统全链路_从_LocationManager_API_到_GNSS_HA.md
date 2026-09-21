@@ -1,4 +1,6 @@
 ---
+slug: android-locationmanager-gnss-hal
+translationKey: android-locationmanager-gnss-hal
 title: 深入 Android 定位系统全链路：从 LocationManager API 到 GNSS HAL 的卫星定位与 Fused Location Provider 融合定位架构解析
 excerpt: 本文从一次运动轨迹跳点问题出发，深入剖析 Android 定位系统全链路：涵盖 LocationManager API、Fused Provider 卡尔曼滤波融合算法、GNSS HAL 层 NMEA 协议解析及 AGPS 冷启动优化，提供跳点排查与功耗策略的实战经验。
 publishDate: '2025-10-16'
@@ -9,8 +11,9 @@ tags:
 - HAL
 - 系统架构
 seo:
-  title: 深入 Android 定位系统全链路：从 LocationManager API 到 GNSS HAL 的卫星定位与 Fused Location Provider 融合定位架构解析
+  title: Android 定位系统：LocationManager、GNSS HAL 与 Fused Location Provider
   description: 从 LocationManager API 到 GNSS HAL，深入剖析 Android 定位系统全链路架构，详解 Fused Provider 卡尔曼滤波融合算法、AGPS 冷启动优化及定位跳点排查实战。
+  pageType: article
 ---
 
 去年在做运动轨迹记录功能时，遇到一个奇怪的问题：同一段跑步路线，小米手机记录的轨迹平滑连续，某 ODM 设备却频繁跳点，配速直接从 5'30" 飘到 3'20"。排查后发现，问题出在 Fused Provider 的融合策略上——那台设备没有陀螺仪，融合引擎降级策略有 bug。这个经历让我把 Android 定位全链路重新捋了一遍。

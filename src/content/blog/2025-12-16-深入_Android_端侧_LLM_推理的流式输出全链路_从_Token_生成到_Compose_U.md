@@ -1,4 +1,6 @@
 ---
+slug: android-on-device-llm-streaming-output
+translationKey: android-on-device-llm-streaming-output
 title: 深入 Android 端侧 LLM 推理的流式输出全链路：从 Token 生成到 Compose UI 增量渲染的实时交互架构
 excerpt: 本文深入剖析 Android 端侧 LLM 流式输出的完整链路，涵盖 KV Cache 内存优化、Flow 背压机制与 Compose 增量重组三大关键技术，给出从推理引擎到 UI 渲染的协同架构设计与实测数据。
 publishDate: '2025-12-16'
@@ -9,8 +11,9 @@ tags:
 - Jetpack Compose
 - 性能优化
 seo:
-  title: 深入 Android 端侧 LLM 推理的流式输出全链路：从 Token 生成到 Compose UI 增量渲染的实时交互架构
+  title: Android 端侧 LLM 流式输出：Token 生成与 Compose UI 增量渲染
   description: 详解 Android 端侧大模型流式推理全链路：KV Cache 内存优化、Flow 背压机制与 Compose 增量重组，实现内存峰值从 380MB 降至 120MB、帧耗时从 80ms 降至 5ms 的工程实践。
+  pageType: article
 ---
 
 去年做端侧智能助手时踩了个坑：模型推理速度远快于 UI 消费速度，界面卡顿、内存暴涨。直觉反应是加 buffer 缓冲，结果越加越糟。后来发现，问题不在于缓冲大小，而在于整条链路缺乏统一的背压（Backpressure）机制。下面是我在这条链路上踩过的坑和最终落地的架构。

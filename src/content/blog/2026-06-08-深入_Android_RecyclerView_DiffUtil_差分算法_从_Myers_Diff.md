@@ -11,8 +11,9 @@ tags:
 - 性能优化
 - 算法
 seo:
-  title: 深入 Android RecyclerView DiffUtil：Myers Diff 与 AsyncListDiffer 全链路解析
+  title: Android RecyclerView DiffUtil：Myers Diff 与 AsyncListDiffer
   description: 深入解析 RecyclerView DiffUtil 的 Myers 差分算法、三阶段执行、payload 增量更新与 AsyncListDiffer 异步引擎，构建列表更新优化全链路。
+  pageType: article
 ---
 
 上一篇文章聊了 RecyclerView 的四级缓存机制，讲的是「视图复用」这一端。但缓存体系再精妙，如果数据变更时你还在用 `notifyDataSetChanged()` 全量刷新，缓存命中率直接归零——所有 ViewHolder 的 position 都变了，缓存全部失效。

@@ -1,4 +1,6 @@
 ---
+slug: android-on-device-ai-model-delivery-versioning
+translationKey: android-on-device-ai-model-delivery-versioning
 title: 深入 Android 端侧 AI 模型动态下发与版本管理全链路
 excerpt: 从 APK 解耦模型，通过三层版本体系、BSDiff 增量更新和热回滚机制，实现端侧 AI 模型独立下发、分钟级迭代与稳定保障。
 publishDate: '2025-12-08'

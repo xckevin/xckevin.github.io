@@ -17,12 +17,12 @@ Android 16 适配不是把 targetSdkVersion 改上去就结束。对成熟 App �
 
 ## 核心阅读
 
-- [Android API 版本兼容性工程体系](/blog/2026-01-28-android_api_版本兼容性工程体系_从_minsdk_编译期检查到运行时特性降级的全链路适配/)
-- [Android 16 强制 Edge-to-Edge：WindowInsets 分发机制重构与适配](/blog/2026-04-17-深入_android_16_强制_edge-to-edge_windowinsets_分发机制重构与/)
-- [Android 16 Predictive Back 工程实践](/blog/2026-04-21-android_16_predictive_back_全链路工程实践_从_windowonbacki/)
-- [Android 16 KB 内存页对齐：ELF 加载、NDK 编译与性能验证](/blog/2026-05-27-深入_android_16_kb_内存页对齐全链路_从_elf_加载对齐到_ndk_编译适配与性能验/)
-- [Android 16 App Functions：语义索引与跨应用智能操作](/blog/2026-02-17-深入_android_16_app_functions_全链路_从语义索引构建到跨应用智能操作的_a/)
-- [Android 权限系统演进：ActivityThread 权限拦截到 Android 16](/blog/2026-05-17-android_权限系统演进全链路_从_activitythread_权限拦截到_android_1/)
+- [Android API 版本兼容性工程体系](/blog/android-api-compatibility-minsdk-runtime-fallback/)
+- [Android 16 强制 Edge-to-Edge：WindowInsets 分发机制重构与适配](/blog/android-16-edge-to-edge-windowinsets/)
+- [Android 16 Predictive Back 工程实践](/blog/android-predictive-back/)
+- [Android 16 KB 内存页对齐：ELF 加载、NDK 编译与性能验证](/blog/android-16kb-page-size-elf-ndk/)
+- [Android 16 App Functions：语义索引与跨应用智能操作](/blog/android-16-app-functions-semantic-index/)
+- [Android 权限系统演进：ActivityThread 权限拦截到 Android 16](/blog/android-permission-system-evolution/)
 
 ## 测试矩阵
 

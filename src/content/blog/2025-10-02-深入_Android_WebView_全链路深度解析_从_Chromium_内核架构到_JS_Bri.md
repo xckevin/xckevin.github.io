@@ -1,4 +1,6 @@
 ---
+slug: android-webview-chromium-jsbridge
+translationKey: android-webview-chromium-jsbridge
 title: Android WebView 深度解析：从 Chromium 内核架构到 JS Bridge 安全通信
 excerpt: 本文深入解析 Android WebView 的 Chromium 多进程架构与渲染流水线，对比三种 JS Bridge 方案的优劣，并给出安全通信与崩溃恢复的实践建议。
 publishDate: '2025-10-02'
@@ -9,8 +11,9 @@ tags:
 - JS Bridge
 - 安全通信
 seo:
-  title: Android WebView 深度解析：从 Chromium 内核架构到 JS Bridge 安全通信
+  title: Android WebView：Chromium 内核架构与 JS Bridge 安全通信
   description: Android WebView 基于 Chromium 多进程架构运行，本文深入解析 Browser/Renderer 进程模型与渲染流水线，对比 addJavascriptInterface、URL 拦截、evaluateJavascript 三种 JS Bridge 方案的实现与安全实践。
+  pageType: article
 ---
 
 去年排查一个 WebView 白屏问题，定位了两天，最终发现是渲染进程被系统 kill 后，Java 侧 Bridge 回调静默丢失。这件事让我意识到，WebView 不是「一个嵌入浏览器的 View」那么简单——它的多进程架构和 JS Bridge 通信链路，坑比想象中多。

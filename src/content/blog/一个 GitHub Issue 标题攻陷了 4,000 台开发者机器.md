@@ -17,7 +17,7 @@ seo:
 > 
 > 读者将了解到攻击的五个步骤：提示注入 (prompt injection)、AI 执行任意代码、缓存中毒、凭据窃取和恶意发布；并能据此评估自己团队在自动化 agent、令牌治理、以及操作级别审计方面的防护缺口。
 
-![](../../assets/clinejection-chain-1600x900.png)
+![Clinejection 攻击链：Issue 标题注入、代码执行、缓存投毒、令牌窃取与恶意包发布](../../assets/clinejection-chain-1600x900.png)
 
 在 2026-02-17，`cline@2.3.0` 被发布到 npm。CLI 的二进制文件与之前版本字节相同，唯一的改动是在 `package.json` 中增加了一行：
 

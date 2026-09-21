@@ -1,4 +1,6 @@
 ---
+slug: android-on-device-ai-realtime-video
+translationKey: android-on-device-ai-realtime-video
 title: 深入 Android 端侧 AI 推理的实时视频流处理全链路
 excerpt: 从 CameraX 串行回调的队头阻塞、GPU 像素预处理管线到 LiteRT 推理延迟抖动治理，本文完整拆解端侧 AI 实时视频处理的三大瓶颈及优化方案，实现 1080P/30fps 端到端延迟控制在 35ms 以内。
 publishDate: '2026-05-06'

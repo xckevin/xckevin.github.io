@@ -1,4 +1,6 @@
 ---
+slug: binder-ipc-beyond-aidl-part7
+translationKey: binder-ipc-beyond-aidl-part7
 title: "Binder IPC 机制深度解析（Beyond AIDL）（7）：疑难问题排查：庖丁解牛 Binder"
 excerpt: "「Binder IPC 机制深度解析（Beyond AIDL）」系列第 7/7 篇：疑难问题排查：庖丁解牛 Binder"
 publishDate: 2024-04-21

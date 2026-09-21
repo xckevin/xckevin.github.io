@@ -1,4 +1,6 @@
 ---
+slug: kotlin-contracts-smartcast
+translationKey: kotlin-contracts-smartcast
 title: 深入 Kotlin Contracts 契约编程：从 SmartCast 失效到 callsInPlace 的编译器协作机制
 excerpt: 深入解析 Kotlin Contracts 契约编程机制，涵盖 returns() implies 与 callsInPlace 两种核心契约如何帮助编译器实现 SmartCast 和变量初始化推断，并探讨实际使用场景与限制。
 publishDate: '2026-01-20'
@@ -9,8 +11,9 @@ tags:
 - 编译器
 - 类型推断
 seo:
-  title: 深入 Kotlin Contracts 契约编程：从 SmartCast 失效到 callsInPlace 的编译器协作机制
+  title: Kotlin Contracts：SmartCast 失效与 callsInPlace 编译器协作
   description: Kotlin Contracts 契约编程深度解析：了解 returns() implies 和 callsInPlace 如何让编译器理解函数调用效应，解决 SmartCast 失效问题，实现更精确的类型推断。
+  pageType: article
 ---
 
 有一次在 Code Review 时看到一段代码，reviewer 问："这里为什么用 `!!`？用 `?.let` 不是更安全吗？" 我回他：前面已经调过 `requireNotNull` 了，但编译器不认。他愣了一下，然后我俩同时沉默了。

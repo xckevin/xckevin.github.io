@@ -1,4 +1,6 @@
 ---
+slug: kotlin-coroutines-flow-advanced-applications-internals-part2
+translationKey: kotlin-coroutines-flow-advanced-applications-internals-part2
 title: "Kotlin Coroutines 与 Flow 的高级应用与原理（2）：结构化并发：告别协程泄漏与混乱"
 excerpt: "「Kotlin Coroutines 与 Flow 的高级应用与原理」系列第 2/5 篇：结构化并发：告别协程泄漏与混乱"
 publishDate: 2025-03-30

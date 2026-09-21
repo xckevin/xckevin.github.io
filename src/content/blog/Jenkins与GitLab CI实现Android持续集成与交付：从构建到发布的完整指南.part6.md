@@ -1,4 +1,6 @@
 ---
+slug: jenkins-gitlab-ci-android-cicd-complete-guide-part6
+translationKey: jenkins-gitlab-ci-android-cicd-complete-guide-part6
 title: "Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南（6）：高级主题与最佳实践"
 excerpt: "「Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南」系列第 6/8 篇：高级主题与最佳实践"
 publishDate: 2025-09-06

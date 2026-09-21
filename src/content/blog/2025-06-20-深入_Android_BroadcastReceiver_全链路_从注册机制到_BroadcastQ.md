@@ -1,4 +1,6 @@
 ---
+slug: android-broadcastreceiver-broadcastqueue
+translationKey: android-broadcastreceiver-broadcastqueue
 title: 深入 Android BroadcastReceiver 全链路：从注册机制到 BroadcastQueue 调度引擎的广播分发架构解析
 excerpt: 本文深入剖析 Android BroadcastReceiver 的完整分发链路，涵盖动态/静态注册机制、BroadcastQueue 双队列调度、有序广播串行推进、粘性广播废弃及后台限制等核心原理，并给出异步超时处理实战方案。
 publishDate: '2025-06-20'
@@ -9,8 +11,9 @@ tags:
 - 性能优化
 - 架构设计
 seo:
-  title: 深入 Android BroadcastReceiver 全链路：从注册机制到 BroadcastQueue 调度引擎的广播分发架构解析
+  title: Android BroadcastReceiver：注册机制与 BroadcastQueue 广播调度
   description: 从注册机制到 BroadcastQueue 调度引擎，深入解析 Android BroadcastReceiver 广播分发全链路架构，涵盖动态/静态注册、有序广播、粘性广播废弃及后台限制等核心原理与实战方案。
+  pageType: article
 ---
 
 做性能监控时，我遇到了一个诡异的问题：App 切后台一段时间后，好几个 BroadcastReceiver 都不回调了。日志里没有异常，ANR 也没触发，广播就像被黑洞吞了一样。

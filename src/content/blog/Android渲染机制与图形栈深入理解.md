@@ -1,4 +1,6 @@
 ---
+slug: android-rendering-graphics-stack
+translationKey: android-rendering-graphics-stack
 title: Android 渲染机制与图形栈深入理解
 excerpt: 在移动应用中，用户体验的流畅度至关重要，而这在很大程度上取决于 UI 渲染的性能。无论是丝滑的列表滚动、平顺的过渡动画，还是即时的触摸反馈，背后都依赖于 Android 系统复杂而精密的渲染机制。达到并维持 60fps、90fps 甚至 120fps 的渲染帧率，是现代应用追求的目标。
 publishDate: 2025-06-19
@@ -433,8 +435,8 @@ Android 的渲染机制是一个涉及应用层、Framework 层、系统服务�
 ## 延伸阅读
 
 - [返回对应专题：Android 性能优化](/android-performance/)
-- [Android 启动优化：从 Zygote fork 到首帧上屏的 Perfetto 实战](/blog/2026-04-19-android_冷启动全链路优化工程实践_从_zygote_fork_到首帧上屏的_systrace/)
-- [Android App 启动优化专项：指标、链路、工具与治理方案](/blog/app启动优化专项/)
-- [RecyclerView 缓存机制详解：四级缓存、复用与 Prefetch](/blog/2026-04-14-深入_android_recyclerview_缓存机制_从四级缓存到_prefetch_的性能设计/)
-- [Android Bitmap 内存模型：Java 堆、Native 堆与 Hardware Bitmap](/blog/2026-04-14-深入_android_bitmap_内存模型_从_java_堆分配到_hardware_bitmap/)
+- [Android 启动优化：从 Zygote fork 到首帧上屏的 Perfetto 实战](/blog/android-cold-start-zygote-systrace/)
+- [Android App 启动优化专项：指标、链路、工具与治理方案](/blog/app-startup-optimization/)
+- [RecyclerView 缓存机制详解：四级缓存、复用与 Prefetch](/blog/android-recyclerview-cache-prefetch-deep-dive/)
+- [Android Bitmap 内存模型：Java 堆、Native 堆与 Hardware Bitmap](/blog/android-bitmap-memory-model-hardware-bitmap/)
 <!-- /seo-internal-links -->

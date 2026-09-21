@@ -9,8 +9,9 @@ tags:
 - 动画
 - 源码分析
 seo:
-  title: 深入 Android AnimatedVectorDrawable 全链路：从 XML 矢量路径动画到 Compose 声明式矢量动画的演进
+  title: Android AnimatedVectorDrawable：矢量路径动画与 Compose 矢量动画
   description: 深度解析 AnimatedVectorDrawable 的工作原理：从 ObjectAnimator 驱动模型、VectorDrawable 命名树匹配机制，到 pathData 动画的常见陷阱，再到 Compose 声明式方案的演进与选型建议。
+  pageType: article
 slug: android-animatedvectordrawable-compose-vector-animation
 translationKey: android-animatedvectordrawable-compose-vector-animation
 ---

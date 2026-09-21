@@ -1,4 +1,6 @@
 ---
+slug: android-workmanager-scheduling
+translationKey: android-workmanager-scheduling
 title: Android WorkManager 深度解析：从 Constraint 调度引擎到 Doze 模式兼容的后台任务全链路架构实践
 excerpt: 深入剖析 WorkManager 的调度机制与 Constraint 引擎原理，结合 Doze 模式兼容策略、任务链编排模型与实战调试方法，系统梳理后台任务可靠调度的全链路架构实践。
 publishDate: '2026-04-23'
@@ -9,8 +11,9 @@ tags:
 - 后台任务
 - Doze模式
 seo:
-  title: Android WorkManager 深度解析：从 Constraint 调度引擎到 Doze 模式兼容的后台任务全链路架构实践
+  title: Android WorkManager：Constraint 调度引擎与 Doze 兼容后台任务
   description: 深入解析 WorkManager 调度机制、ConstraintTracker 工作原理、Doze 模式兼容策略与任务链编排模型，涵盖 Expedited Work、前台服务取舍及 dumpsys 调试实践。
+  pageType: article
 ---
 
 做性能优化时遇到过一个让我困惑了很久的问题：明明用 WorkManager 调度了一个网络同步任务，约束条件设置的是有网络时执行，但在某些设备上任务始终不触发。抓日志发现任务确实进了队列，状态也是 ENQUEUED，就是不跑。

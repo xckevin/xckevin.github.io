@@ -1,15 +1,17 @@
 ---
-title: "Android Gradle 构建慢怎么分析？"
+translationKey: android-gradle-build-slow
+title: Android Gradle 构建慢怎么分析？
 slug: android-gradle-build-slow
-excerpt: "整理 Android Gradle 构建慢的分析路径，包括 Build Scan、Configuration Cache、KSP、任务依赖和缓存命中。"
+excerpt: 整理 Android Gradle 构建慢的分析路径，包括 Build Scan、Configuration Cache、KSP、任务依赖和缓存命中。
 publishDate: '2026-06-01'
 tags:
-- "Android"
-- "Gradle"
-- "工程化"
+- Android
+- Gradle
+- 工程化
 seo:
-  title: "Android Gradle 构建慢怎么分析？Configuration Cache 与任务治理"
-  description: "介绍 Android Gradle 构建慢的分析方法，覆盖 Build Scan、Configuration Cache、KSP、任务依赖、缓存命中和 CI 优化。"
+  title: Android Gradle 构建慢分析：任务耗时排查与任务治理
+  description: 介绍 Android Gradle 构建慢的分析方法，覆盖 Build Scan、Configuration Cache、KSP、任务依赖、缓存命中和 CI 优化。
+  pageType: article
 ---
 
 Android 构建慢不要先改插件，也不要先升级机器。构建耗时是配置阶段、任务执行、编译器、缓存命中、CI 环境共同叠加的结果。如果没有拆开看，优化动作大概率会打在错误的位置。
@@ -101,6 +103,6 @@ CI 里至少缓存三类目录：Gradle wrapper、Gradle dependency cache、Buil
 ## 深入阅读
 
 - [返回对应专题：移动端工程化](/android-engineering/)
-- [Android Gradle 构建提速：Configuration Cache、KSP 与任务治理](/blog/2026-05-06-android_gradle_构建提速全链路_从_configuration_cache_到_ksp/)
+- [Android Gradle 构建提速：Configuration Cache、KSP 与任务治理](/blog/android-gradle-build-speed-configuration-cache-ksp/)
 - [Android CI/CD 质量门禁：构建、测试、Lint、性能与发布检查](/blog/android-ci-cd-quality-gates/)
 <!-- /seo-internal-links -->

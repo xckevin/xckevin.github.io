@@ -1,5 +1,7 @@
 ---
-title: Android 电源管理深度解析：从 Wakelock 滥用到 Doze 模式的省电工程实践
+slug: android-battery-optimization-battery-historian
+translationKey: android-battery-optimization-battery-historian
+title: Android 电量优化：Battery Historian、Perfetto 与后台任务排查
 excerpt: 深入分析 Android 三大耗电源头（Wakelock、Alarm、Network）的治理策略，结合 Battery Historian 与 Perfetto 工具，实现后台电量从 23% 降至 6% 的系统级优化实践。
 publishDate: '2025-06-04'
 tags:
@@ -9,10 +11,17 @@ tags:
 - Battery Historian
 - 性能优化
 seo:
-  title: Android 电源管理深度解析：从 Wakelock 滥用到 Doze 模式的省电工程实践
+  title: Android 电量优化：Battery Historian、Perfetto 与后台任务排查
   description: 利用 Battery Historian 和 Perfetto 定位 Wakelock、Alarm、Network 三大耗电源头，通过分级策略和 CI 监控将后台电量消耗从 23% 降至 6%。
+  pageType: article
+updatedDate: '2026-09-21'
 ---
 
+先用 Battery Historian 找到后台耗电发生的时间段，再用 Perfetto 追踪触发来源。下面按 Wakelock、Alarm 和网络请求梳理诊断步骤与后台任务优化方法。
+
+## 采集 Battery Historian 报告
+
+```bash
 adb shell dumpsys batterystats --reset
 # 操作 App 30 分钟...
 adb bugreport bugreport.zip

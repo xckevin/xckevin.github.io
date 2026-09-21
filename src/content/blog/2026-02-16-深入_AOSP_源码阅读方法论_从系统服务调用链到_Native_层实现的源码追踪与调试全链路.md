@@ -1,4 +1,6 @@
 ---
+slug: aosp-source-reading-methodology
+translationKey: aosp-source-reading-methodology
 title: 深入 AOSP 源码阅读方法论：从系统服务调用链到 Native 层实现的源码追踪与调试全链路
 excerpt: 系统梳理AOSP源码阅读全链路：从Java层API入口定位、Binder调用追踪、JNI跨层跳转，到Native层数据流分析与调试技巧，建立模块协议边界的心智模型。
 publishDate: '2026-02-16'
@@ -9,8 +11,9 @@ tags:
 - JNI
 - Native
 seo:
-  title: 深入 AOSP 源码阅读方法论：从系统服务调用链到 Native 层实现的源码追踪与调试全链路
+  title: AOSP 源码阅读方法：系统服务调用链与 Native 层源码追踪
   description: 本文系统讲解AOSP源码阅读方法论，涵盖从Framework API到Binder系统服务调用、JNI跨层跳转定位、Native层数据流分析及dumpsys/AIDEGen/自定义日志三种调试手段，帮助开发者建立高效的源码追踪心智模型。
+  pageType: article
 ---
 
 三年前排查一个 SurfaceFlinger 合成卡顿的问题，我在 `performTraversals` 跟了整整两天，最后发现根因在 Native 层的 Gralloc 缓冲区分配策略上。那次之后我开始系统梳理 AOSP 的源码阅读方法——不是靠 IDE 跳转硬看，而是建立一套从 Java 层到 C++ 层的追踪链路。

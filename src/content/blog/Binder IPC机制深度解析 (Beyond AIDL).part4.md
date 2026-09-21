@@ -1,4 +1,6 @@
 ---
+slug: binder-ipc-beyond-aidl-part4
+translationKey: binder-ipc-beyond-aidl-part4
 title: "Binder IPC 机制深度解析（Beyond AIDL）（4）：线程模型：并发、同步与 ANR 之源"
 excerpt: "「Binder IPC 机制深度解析（Beyond AIDL）」系列第 4/7 篇：线程模型：并发、同步与 ANR 之源"
 publishDate: 2024-04-21

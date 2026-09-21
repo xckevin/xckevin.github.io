@@ -1,4 +1,6 @@
 ---
+slug: android-power-management-wakelock-doze
+translationKey: android-power-management-wakelock-doze
 title: Android 电源管理深度解析：从 Wakelock 滥用到 Doze 模式的省电工程实践
 excerpt: 从 Wakelock 泄漏入手，系统拆解 Android 电源管理的核心机制：Doze 两级模式、App Standby 分桶策略、Battery Historian 诊断实战，以及 WorkManager 的正确使用姿势，帮助开发者建立可落地的省电工程体系。
 publishDate: '2026-04-18'
@@ -9,8 +11,9 @@ tags:
 - WorkManager
 - Battery Historian
 seo:
-  title: Android 电源管理深度解析：从 Wakelock 滥用到 Doze 模式的省电工程实践
+  title: Android Doze 模式省电：Wakelock 限制与后台功耗治理
   description: 深入解析 Android 电源管理机制，涵盖 Wakelock 正确用法、Doze 两级模式、App Standby 分桶、Battery Historian 诊断与 WorkManager 实践，助你系统解决 App 耗电问题。
+  pageType: article
 ---
 
 有一次做用户反馈排查，发现某个版本上线后耗电量激增了 30%。Battery Historian 一跑，直接看到一条 Wakelock 持续了 40 分钟不释放——那是一个网络请求超时没有被正确捕获，导致 `WakeLock.release()` 永远没执行到。

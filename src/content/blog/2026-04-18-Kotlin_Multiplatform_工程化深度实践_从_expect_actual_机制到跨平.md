@@ -1,4 +1,6 @@
 ---
+slug: kotlin-multiplatform-expect-actual
+translationKey: kotlin-multiplatform-expect-actual
 title: Kotlin Multiplatform 工程化深度实践：expect/actual 机制与跨平台架构分层落地
 excerpt: 深入探讨 KMP 生产环境落地的核心问题，涵盖 expect/actual 正确使用姿势、三层架构分层方案、XCFramework 编译配置及 Compose Multiplatform 协同策略，聚焦真实工程踩坑与解法。
 publishDate: '2026-04-18'
@@ -9,8 +11,9 @@ tags:
 - 跨平台架构
 - Compose Multiplatform
 seo:
-  title: Kotlin Multiplatform 工程化深度实践：expect/actual 机制与跨平台架构分层落地
+  title: Kotlin Multiplatform：expect/actual 机制与跨平台架构分层
   description: 深入解析 KMP 生产环境工程化实践，包括 expect/actual 使用边界、三层架构分层设计、XCFramework 静态库配置、Compose Multiplatform 协同分层及 Kotlin/Native 调试要点。
+  pageType: article
 ---
 
 KMP（Kotlin Multiplatform）在 2023 年底正式 Stable，但真正大规模进入生产环境是在 2025-2026 年这个窗口。我们团队从去年 Q3 开始把核心业务逻辑层迁移到 KMP，踩了不少坑，这篇文章不讲 Hello World，只聊工程化阶段真实遇到的问题。

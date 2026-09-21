@@ -1,4 +1,6 @@
 ---
+slug: android-animation-principles-practice-part1
+translationKey: android-animation-principles-practice-part1
 title: "Android动画深度解析：从原理到实践（1）：动画，不仅仅是点缀"
 excerpt: "「Android动画深度解析：从原理到实践」系列第 1/9 篇：动画，不仅仅是点缀"
 publishDate: 2024-03-20

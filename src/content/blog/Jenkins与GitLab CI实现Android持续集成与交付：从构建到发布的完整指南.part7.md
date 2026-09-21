@@ -1,4 +1,6 @@
 ---
+slug: jenkins-gitlab-ci-android-cicd-complete-guide-part7
+translationKey: jenkins-gitlab-ci-android-cicd-complete-guide-part7
 title: "Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南（7）：2.1 Jenkins多分支Pipeline"
 excerpt: "「Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南」系列第 7/8 篇：2.1 Jenkins多分支Pipeline"
 publishDate: 2025-09-06

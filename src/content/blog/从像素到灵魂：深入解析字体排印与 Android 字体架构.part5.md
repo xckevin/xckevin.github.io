@@ -1,4 +1,6 @@
 ---
+slug: android-typography-font-architecture-part5
+translationKey: android-typography-font-architecture-part5
 title: "从像素到灵魂：深入解析字体排印与 Android 字体架构（5）：无规矩不成方圆——字体授权与合规"
 excerpt: "「从像素到灵魂：深入解析字体排印与 Android 字体架构」系列第 5/15 篇：无规矩不成方圆——字体授权与合规"
 publishDate: 2026-01-12

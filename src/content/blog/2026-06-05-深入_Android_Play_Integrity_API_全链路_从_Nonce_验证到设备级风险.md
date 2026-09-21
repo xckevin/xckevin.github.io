@@ -11,8 +11,9 @@ tags:
 - 风控
 - API 迁移
 seo:
-  title: 深入 Android Play Integrity API 全链路：从 Nonce 验证到设备级风险评分的端侧安全认证架构
+  title: Android Play Integrity API：Nonce 验证与设备风险评分
   description: 详解 Play Integrity API 三大判定维度、Nonce 防重放机制、服务端验签流程与分级决策策略，助力从 SafetyNet 平滑迁移。
+  pageType: article
 ---
 
 去年年初，Google 正式宣布 SafetyNet Attestation API 进入废弃倒计时。团队当时正在维护一个金融 App 的根检测模块，需要评估迁移成本和收益。改造过程中踩了不少坑，这篇文章把完整链路梳理一遍。

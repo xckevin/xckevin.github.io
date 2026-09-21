@@ -1,17 +1,18 @@
 ---
-title: "What Should Android CI/CD Quality Gates Include?"
+title: What Should Android CI/CD Quality Gates Include?
 lang: en
 translationKey: android-ci-cd-quality-gates
 slug: android-ci-cd-quality-gates
-excerpt: "A practical structure for Android CI/CD quality gates across builds, tests, lint, signing, performance benchmarks, release, and rollback."
+excerpt: A practical structure for Android CI/CD quality gates across builds, tests, lint, signing, performance benchmarks, release, and rollback.
 publishDate: '2026-06-01'
 tags:
-- "Android"
-- "CI/CD"
-- "Mobile Engineering"
+- Android
+- CI/CD
+- Mobile Engineering
 seo:
-  title: "Android CI/CD Quality Gates: Build, Test, Lint, Performance, and Release Checks"
-  description: "Learn how to design Android CI/CD quality gates across Jenkins, GitLab CI, unit tests, lint, signing, benchmarks, release, and rollback."
+  title: 'Android CI/CD Quality Gates: Tests, Lint, and Release Checks'
+  description: Learn how to design Android CI/CD quality gates across Jenkins, GitLab CI, unit tests, lint, signing, benchmarks, release, and rollback.
+  pageType: article
 ---
 
 The goal of Android CI/CD is not "automated packaging." It is to block quality risks before merge, release, and rollout. If a pipeline only produces an APK or AAB, it is just a remote build machine. Real CI/CD turns compilation, testing, static analysis, performance, signing, and release strategy into repeatable gates.
@@ -67,7 +68,7 @@ Mature CI/CD is not a YAML file. It is a risk-control system from commit to roll
 ## Further reading
 
 - [Back to topic: Mobile Engineering](/en/android-engineering/)
-- [Android CI/CD in practice: Jenkins, GitLab CI, build, release, and quality gates](/blog/jenkins与gitlab-ci实现android持续集成与交付从构建到发布的完整指南/)
-- [Android testing engineering: JUnit, integration tests, Compose semantics, and CI](/blog/2026-05-10-深入_android_测试全链路工程实践_从_junit_单元测试到_compose_semanti/)
+- [Android CI/CD in practice: Jenkins, GitLab CI, build, release, and quality gates](/blog/jenkins-gitlab-ci-android-cicd-complete-guide/)
+- [Android testing engineering: JUnit, integration tests, Compose semantics, and CI](/blog/android-testing-junit-compose/)
 - [How to analyze a slow Android Gradle build](/en/blog/android-gradle-build-slow/)
 <!-- /seo-internal-links -->

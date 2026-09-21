@@ -9,8 +9,9 @@ tags:
 - 调试工具
 - 端侧推理
 seo:
-  title: 深入 Android 端侧 AI 推理的开发调试实战：从模型输入可视化到推理链路追踪的日常排障工具链
+  title: Android 端侧 AI 调试：输入可视化与推理链路追踪
   description: 介绍一套轻量级 Android 端侧 AI 推理调试工具链，涵盖输入可视化、中间层截获、耗时拆解与内存监控，快速定位预处理污染与性能瓶颈。
+  pageType: article
 slug: android-on-device-ai-debugging-toolchain
 translationKey: android-on-device-ai-debugging-toolchain
 ---

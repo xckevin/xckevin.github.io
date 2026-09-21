@@ -1,4 +1,6 @@
 ---
+slug: android-sharedpreferences-datastore-deep-dive
+translationKey: android-sharedpreferences-datastore-deep-dive
 title: Android SharedPreferences 到 DataStore 深度演进：从同步 ANR 风险到 Flow 驱动的协程化存储架构实践
 excerpt: 深入剖析 SharedPreferences 锁机制与 ANR 根因，系统讲解 Jetpack DataStore 的设计逻辑与迁移路径，涵盖 Preferences DataStore、Proto DataStore 及协程化存储架构的工程实践。
 publishDate: '2026-04-23'
@@ -9,8 +11,9 @@ tags:
 - 协程
 - 性能优化
 seo:
-  title: Android SharedPreferences 到 DataStore 深度演进：从同步 ANR 风险到 Flow 驱动的协程化存储架构实践
+  title: Android SharedPreferences 到 DataStore：Flow 驱动协程化存储
   description: 深入剖析 SharedPreferences 锁机制与 ANR 根因，讲解 Jetpack DataStore 设计逻辑、SP 迁移路径与 Proto DataStore 实践，构建协程化存储架构。
+  pageType: article
 ---
 
 ---

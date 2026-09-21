@@ -19,29 +19,29 @@ This topic turns performance optimization from intuition into a verifiable workf
 
 ## Core Articles
 
-- [Android startup optimization: from Zygote fork to first frame with Perfetto](/blog/2026-04-19-android_冷启动全链路优化工程实践_从_zygote_fork_到首帧上屏的_systrace/)
-- [Android app startup optimization: metrics, paths, tools, and governance](/blog/app启动优化专项/)
-- [RecyclerView cache internals: four cache levels, reuse, and Prefetch](/blog/2026-04-14-深入_android_recyclerview_缓存机制_从四级缓存到_prefetch_的性能设计/)
-- [Android Bitmap memory model: Java heap, native heap, and Hardware Bitmap](/blog/2026-04-14-深入_android_bitmap_内存模型_从_java_堆分配到_hardware_bitmap/)
-- [Android RenderThread and HWUI: rendering pipeline, DisplayList, and jank analysis](/blog/2026-04-20-android_renderthread_与_hwui_渲染管线深度解析_从_displaylist/)
-- [Android rendering and graphics stack: View, HWUI, and SurfaceFlinger](/blog/android渲染机制与图形栈深入理解/)
-- [Android Perfetto and Systrace: system-level performance analysis](/blog/系统级性能分析与调优-systrace_perfetto/)
-- [Android Perfetto tracing: ftrace, TrackEvent, and production-grade performance monitoring](/blog/2026-05-09-android_perfetto_追踪全链路深度解析_从内核_ftrace_数据源到_sdk_自定义_trackevent_的生产级性能监控体系/)
-- [Android audio system: AudioFlinger, mixing policy, and AAudio low latency](/blog/2026-05-12-深入_android_音频系统全链路_从_audioflinger_混音策略到_aaudio_低延迟/)
-- [Android Macrobenchmark in practice: startup, scrolling, and performance regression testing](/blog/2026-05-26-深入_android_macrobenchmark_性能基准测试全链路_从_benchmarkrul/)
+- [Android startup optimization: from Zygote fork to first frame with Perfetto](/blog/android-cold-start-zygote-systrace/)
+- [Android app startup optimization: metrics, paths, tools, and governance](/blog/app-startup-optimization/)
+- [RecyclerView cache internals: four cache levels, reuse, and Prefetch](/blog/android-recyclerview-cache-prefetch-deep-dive/)
+- [Android Bitmap memory model: Java heap, native heap, and Hardware Bitmap](/blog/android-bitmap-memory-model-hardware-bitmap/)
+- [Android RenderThread and HWUI: rendering pipeline, DisplayList, and jank analysis](/blog/android-renderthread-hwui/)
+- [Android rendering and graphics stack: View, HWUI, and SurfaceFlinger](/blog/android-rendering-graphics-stack/)
+- [Android Perfetto and Systrace: system-level performance analysis](/blog/android-system-performance-systrace-perfetto/)
+- [Android Perfetto tracing: ftrace, TrackEvent, and production-grade performance monitoring](/blog/android-perfetto-ftrace-trackevent/)
+- [Android audio system: AudioFlinger, mixing policy, and AAudio low latency](/blog/android-audio-system-audioflinger-aaudio/)
+- [Android Macrobenchmark in practice: startup, scrolling, and performance regression testing](/blog/android-macrobenchmark-benchmarkrule/)
 
 ## Runtime, Memory, and Graphics Performance
 
-- [Android ART garbage collection internals](/blog/2025-05-26-深入_android_art_垃圾回收机制全链路_从_dalvik_mark-sweep_到_con/)
-- [Android ART dex2oat: from DEX bytecode to OAT machine code with AOT/JIT compilation](/blog/2026-02-20-深入_android_art_dex2oat_编译管线全链路_从_dex_字节码到_oat_机器码的/)
-- [Android native memory analysis: from malloc_debug to heapprofd](/blog/2025-08-08-深入_android_native_内存分析全链路_从_malloc_debug_到_heappro/)
-- [Android Vulkan rendering: from OpenGL ES migration to GPU driver tuning](/blog/2025-09-26-深入_android_vulkan_图形渲染全链路_从_opengl_es_迁移到_gpu_驱动调优/)
-- [Android power management: from WakeLock misuse to Doze-mode engineering](/blog/2025-06-04-深入_android_app_电量优化全链路_从_battery_historian_到后台任务收敛/)
-- [Android AlarmManager scheduling: Binder calls, AlarmManagerService, and exact wakeups under Doze](/blog/2025-05-29-深入_android_alarmmanager_定时调度全链路_从_alarmmanagerserv/)
-- [Android DEX bytecode and MultiDex loading](/blog/2025-05-08-深入_android_dex_字节码格式与_multidex_加载全链路解析/)
-- [Android Media3 playback architecture: from ExoPlayer to MediaSession](/blog/2025-05-05-深入_android_media3_媒体播放架构_从_exoplayer_演进到_mediasess/)
-- [Android networking stack: from DNS to HTTP/3 QUIC](/blog/2025-05-06-深入_android_网络协议栈全链路_从_dns_解析到_http_3_quic_的移动网络优化工/)
-- [Android font rendering: Typeface loading and Skia glyph rasterization](/blog/2025-10-15-深入_android_字体渲染架构_从_typeface_加载到_skia_字形光栅化的全链路解析/)
+- [Android ART garbage collection internals](/blog/android-art-garbage-collection/)
+- [Android ART dex2oat: from DEX bytecode to OAT machine code with AOT/JIT compilation](/blog/android-art-dex2oat-pipeline/)
+- [Android native memory analysis: from malloc_debug to heapprofd](/blog/android-native-memory-malloc-heapprofd/)
+- [Android Vulkan rendering: from OpenGL ES migration to GPU driver tuning](/blog/android-vulkan-opengl-es-gpu/)
+- [Android power management: from WakeLock misuse to Doze-mode engineering](/blog/android-battery-optimization-battery-historian/)
+- [Android AlarmManager scheduling: Binder calls, AlarmManagerService, and exact wakeups under Doze](/blog/android-alarmmanager-scheduling/)
+- [Android DEX bytecode and MultiDex loading](/blog/android-dex-bytecode-multidex/)
+- [Android Media3 playback architecture: from ExoPlayer to MediaSession](/blog/android-media3-exoplayer-mediasession/)
+- [Android networking stack: from DNS to HTTP/3 QUIC](/blog/android-network-stack-dns-http3-quic/)
+- [Android font rendering: Typeface loading and Skia glyph rasterization](/blog/android-font-rendering-typeface-skia/)
 
 ## Performance Debugging Framework
 

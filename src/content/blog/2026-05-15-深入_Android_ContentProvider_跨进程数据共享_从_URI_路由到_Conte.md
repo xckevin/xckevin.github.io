@@ -1,4 +1,6 @@
 ---
+slug: android-contentprovider-ipc
+translationKey: android-contentprovider-ipc
 title: 深入 Android ContentProvider 跨进程数据共享：从 URI 路由到 ContentObserver 变更通知的全链路架构解析
 excerpt: 深入解析 Android ContentProvider 跨进程数据共享机制，包括 URI 路由匹配、Cursor 跨进程透明代理与 ContentObserver 变更通知三条核心链路。
 publishDate: '2026-05-15'
@@ -127,8 +129,8 @@ ContentProvider 是四大组件里最"安静"的一个——没有界面，不�
 ## 延伸阅读
 
 - [返回对应专题：Android Framework](/android-framework/)
-- [Android Binder 原理：从驱动通信到 AIDL 调用链路](/blog/binder-ipc机制深度解析-beyond-aidl/)/)
-- [Android Framework 系统服务：AMS、WMS 与应用进程交互模型](/blog/android系统服务与framework层交互模型/)
-- [Android 进程与线程模型：Zygote、主线程、Binder 线程池解析](/blog/android进程与线程模型深度剖析/)
-- [Android 权限系统原理：运行时权限、拦截链路与安全边界](/blog/2026-05-17-android_权限系统演进全链路_从_activitythread_权限拦截到_android_1/)
+- [Android Binder 原理：从驱动通信到 AIDL 调用链路](/blog/binder-ipc-beyond-aidl/)/)
+- [Android Framework 系统服务：AMS、WMS 与应用进程交互模型](/blog/android-system-services-framework-interaction/)
+- [Android 进程与线程模型：Zygote、主线程、Binder 线程池解析](/blog/android-process-thread-model-deep-dive/)
+- [Android 权限系统原理：运行时权限、拦截链路与安全边界](/blog/android-permission-system-evolution/)
 <!-- /seo-internal-links -->

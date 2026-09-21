@@ -1,4 +1,6 @@
 ---
+slug: android-process-oom-adj-lmk
+translationKey: android-process-oom-adj-lmk
 title: Android 进程保活与资源调度深度解析：从 OOM Adj 评分机制到 LMK 低内存裁决的系统级博弈
 excerpt: 深度解析 Android OOM Adj 评分机制与 LMK 从内核轮询到用户态 lmkd 再到 Cgroup 内存隔离的三次演进，提供前台 Service、WorkManager 加急任务、内存自省等保活实战策略。
 publishDate: '2026-05-09'
@@ -9,8 +11,9 @@ tags:
 - LMK
 - 性能优化
 seo:
-  title: Android 进程保活与资源调度深度解析：从 OOM Adj 评分机制到 LMK 低内存裁决的系统级博弈
+  title: Android 进程保活与资源调度：OOM Adj 评分与 LMK 裁决
   description: 从 OOM Adj 评分到 LMK 三次演进，详解 Android 进程保活机制与系统资源调度的博弈。提供前台 Service 合规用法、WorkManager 加急任务、内存自省等实战策略。
+  pageType: article
 ---
 
 两年前做 ROM 适配，测试组反馈了一个诡异问题：我们的输入法在华为机型上切后台 3 秒就被杀，某竞品能活 10 分钟。排查到最后，问题不在代码，而在 **OOM Adj（Out-Of-Memory Adjustment）**——一个由 AMS 核算、LMK 执行的数值，决定了你的进程什么时候被"处决"。

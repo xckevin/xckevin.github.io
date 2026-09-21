@@ -1,4 +1,6 @@
 ---
+slug: android-on-device-ai-multi-model-orchestration
+translationKey: android-on-device-ai-multi-model-orchestration
 title: 深入 Android 端侧 AI 推理的多模型编排与 Pipe 模式：从单一推理到复合任务工作流引擎的设计与实践
 excerpt: 从单模型推理的舒适区出发，探讨 Android 端侧 AI 任务中 Pipe 串联、路由表分支到动态图执行的多模型编排实践，涵盖模型管理、错误兜底与协程调度的工程取舍。
 publishDate: '2026-07-02'
@@ -9,8 +11,9 @@ tags:
 - 架构设计
 - 模型编排
 seo:
-  title: 深入 Android 端侧 AI 推理的多模型编排与 Pipe 模式：从单一推理到复合任务工作流引擎的设计与实践
+  title: Android 端侧 AI 多模型编排：Pipe 模式与复合任务工作流
   description: 从Pipe串行编排到动态路由图执行，深入探讨Android端侧AI的多模型协同推理与工作流引擎设计，涵盖路由表、错误降级与协程调度的工程实践。
+  pageType: article
 ---
 
 去年在做一个相册整理功能时，需求听起来不复杂：识别照片中的物体，如果是宠物就按品种分类，如果是文档就提取文字摘要。单看每个子任务，跑个模型就够了。但串起来之后，状态管理、模型切换、错误兜底的问题全冒出来了。

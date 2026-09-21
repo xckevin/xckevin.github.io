@@ -1,4 +1,6 @@
 ---
+slug: kotlin-coroutines-flow-advanced-applications-internals-part3
+translationKey: kotlin-coroutines-flow-advanced-applications-internals-part3
 title: "Kotlin Coroutines 与 Flow 的高级应用与原理（3）：调度器（Dispatchers）：协程在何处运行"
 excerpt: "「Kotlin Coroutines 与 Flow 的高级应用与原理」系列第 3/5 篇：调度器（Dispatchers）：协程在何处运行"
 publishDate: 2025-03-30

@@ -25,11 +25,11 @@ Jetpack Compose 已经从“新 UI 框架”变成 Android 新功能开发的默
 ## 核心阅读
 
 - [Jetpack Compose 深度解析专题](/jetpack-compose/)
-- [Compose 为什么会频繁重组？从 Stability 到状态读取位置](/blog/2026-06-01-compose为什么频繁重组/)
-- [Jetpack Compose 重组性能全链路调优：Stability、derivedStateOf 与跳过重组](/blog/2026-05-07-jetpack_compose_重组性能全链路调优_从_stability_推断到_deriveds/)
-- [Android Compose LazyColumn 滑动性能调优：从重组追踪到帧率稳定](/blog/2026-02-26-深入_android_compose_lazycolumn_滑动性能调优全链路_从重组追踪到帧率稳定/)
-- [Compose 与 View 桥接实战：AndroidView 与 ComposeView 的双向通信](/blog/2026-05-19-jetpack_compose_与_view_互操作性深度解析_从_androidview_嵌入到_/)
-- [Android Compose 渐进式迁移：从 View/Compose 混用到全量声明式 UI](/blog/2025-07-04-深入_android_compose_渐进式迁移全链路_从_view_compose_混用架构到全量/)
+- [Compose 为什么会频繁重组？从 Stability 到状态读取位置](/blog/compose-recomposition/)
+- [Jetpack Compose 重组性能全链路调优：Stability、derivedStateOf 与跳过重组](/blog/jetpack-compose-recomposition-performance/)
+- [Android Compose LazyColumn 滑动性能调优：从重组追踪到帧率稳定](/blog/jetpack-compose-lazycolumn-performance/)
+- [Compose 与 View 桥接实战：AndroidView 与 ComposeView 的双向通信](/blog/jetpack-compose-view-interop/)
+- [Android Compose 渐进式迁移：从 View/Compose 混用到全量声明式 UI](/blog/android-compose-progressive-migration/)
 
 ## 性能排查重点
 

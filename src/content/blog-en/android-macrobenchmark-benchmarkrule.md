@@ -1,19 +1,19 @@
 ---
-title: "Android Macrobenchmark: The Full Performance Benchmarking Workflow"
+title: 'Android Macrobenchmark: The Full Performance Benchmarking Workflow'
 lang: en
 translationKey: android-macrobenchmark-benchmarkrule
 slug: android-macrobenchmark-benchmarkrule
-excerpt: "A practical Macrobenchmark workflow for cold-start measurement, frame smoothness, custom trace metrics, and CI regression gates."
+excerpt: A practical Macrobenchmark workflow for cold-start measurement, frame smoothness, custom trace metrics, and CI regression gates.
 publishDate: '2026-05-26'
 tags:
-- "Android"
-- "Performance"
-- "Macrobenchmark"
-- "CI/CD"
-- "Startup Optimization"
+- Android
+- Performance
+- Macrobenchmark
+- CI/CD
+- Startup Optimization
 seo:
-  title: "Android Macrobenchmark: Startup, Scrolling, Trace Metrics, and CI Regression Gates"
-  description: "Learn Android Macrobenchmark for startup and scrolling metrics, custom TraceSection metrics, Baseline Profiles, and CI performance regression control."
+  title: 'Android Macrobenchmark: Startup, Scrolling, and CI Checks'
+  description: Learn Android Macrobenchmark for startup and scrolling metrics, custom TraceSection metrics, Baseline Profiles, and CI performance regression control.
   pageType: article
 ---
 
@@ -186,8 +186,8 @@ Putting Macrobenchmark to work comes down to three steps: choose the right metri
 ## Further reading
 
 - [Back to topic: Android Performance Optimization](/en/android-performance/)
-- [Android startup optimization: from Zygote fork to first-frame Perfetto analysis](/blog/2026-04-19-android_冷启动全链路优化工程实践_从_zygote_fork_到首帧上屏的_systrace/)
-- [Android app startup optimization: metrics, execution path, tooling, and governance](/blog/app启动优化专项/)
-- [RecyclerView caching explained: four cache levels, reuse, and Prefetch](/blog/2026-04-14-深入_android_recyclerview_缓存机制_从四级缓存到_prefetch_的性能设计/)
-- [Android Bitmap memory model: Java heap, native heap, and Hardware Bitmap](/blog/2026-04-14-深入_android_bitmap_内存模型_从_java_堆分配到_hardware_bitmap/)
+- [Android startup optimization: from Zygote fork to first-frame Perfetto analysis](/blog/android-cold-start-zygote-systrace/)
+- [Android app startup optimization: metrics, execution path, tooling, and governance](/blog/app-startup-optimization/)
+- [RecyclerView caching explained: four cache levels, reuse, and Prefetch](/blog/android-recyclerview-cache-prefetch-deep-dive/)
+- [Android Bitmap memory model: Java heap, native heap, and Hardware Bitmap](/blog/android-bitmap-memory-model-hardware-bitmap/)
 <!-- /seo-internal-links -->

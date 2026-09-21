@@ -1,4 +1,6 @@
 ---
+slug: android-16-app-functions-semantic-index
+translationKey: android-16-app-functions-semantic-index
 title: Android 16 App Functions 深度解析：从语义索引到意图路由的端侧 AI 实践
 excerpt: 深入解析 Android 16 App Functions 框架如何通过语义索引和端侧 AI Agent，将跨应用交互从传统的 Intent 字符串匹配升级为基于语义理解的意图路由。
 publishDate: '2026-02-17'
@@ -9,8 +11,9 @@ tags:
 - 语义索引
 - 架构设计
 seo:
-  title: Android 16 App Functions 深度解析：从语义索引到意图路由的端侧 AI 实践
+  title: Android 16 App Functions：语义索引与意图路由
   description: 本文深入解析 Android 16 App Functions 框架，介绍如何通过语义索引、意图路由和端侧 AI Agent 两阶段协同，实现从传统 Intent 匹配到语义理解驱动的跨应用操作。
+  pageType: article
 ---
 
 以下是润色后的文章正文：

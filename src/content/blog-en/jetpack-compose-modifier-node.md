@@ -1,19 +1,20 @@
 ---
-title: "Jetpack Compose Modifier Internals: From Modifier.Node to Layout and Drawing"
+title: 'Jetpack Compose Modifier Internals: From Modifier.Node to Layout and Drawing'
 lang: en
 translationKey: jetpack-compose-modifier-node
 slug: jetpack-compose-modifier-node
-excerpt: "A deep dive into the Compose Modifier chain, the shift from composed to Modifier.Node, how declarative modifier pipelines are built, and where performance gains come from."
+excerpt: A deep dive into the Compose Modifier chain, the shift from composed to Modifier.Node, how declarative modifier pipelines are built, and where performance gains come from.
 publishDate: '2026-05-15'
 tags:
-- "Jetpack Compose"
-- "Android"
-- "Kotlin"
-- "Modifier.Node"
-- "Performance"
+- Jetpack Compose
+- Android
+- Kotlin
+- Modifier.Node
+- Performance
 seo:
-  title: "Jetpack Compose Modifier Internals: Modifier.Node, Layout, Drawing, and Input"
-  description: "Understand Compose Modifier chains, Modifier.Node, layout measurement, drawing, pointer input, lifecycle hooks, and performance migration."
+  title: 'Compose Modifier.Node: Layout, Drawing, and Input Internals'
+  description: Understand Compose Modifier chains, Modifier.Node, layout measurement, drawing, pointer input, lifecycle hooks, and performance migration.
+  pageType: article
 ---
 
 Last week I debugged a Compose layout bug where `clickable` refused to respond. After a long investigation, the cause was simply Modifier order: `padding` was placed before `clickable`, so the clickable area was pushed outside the range I expected.
@@ -262,7 +263,7 @@ Modifier is one of the easiest Compose topics to think you understand. The chain
 
 - [Back to the Jetpack Compose topic](/en/jetpack-compose/)
 - [Jetpack Compose recomposition performance: Stability, derivedStateOf, and skipping](/en/blog/jetpack-compose-recomposition-performance/)
-- [Jetpack Compose principles and advanced usage: State, layout, recomposition, and performance practice](/blog/jetpack-compose-高级应用与原理/)
+- [Jetpack Compose principles and advanced usage: State, layout, recomposition, and performance practice](/blog/jetpack-compose-advanced-applications-internals/)
 - [Jetpack Compose gestures: PointerInput event pipeline and nested scrolling](/en/blog/jetpack-compose-gestures/)
 - [Jetpack Compose animations: AnimationSpec, springs, and Transition](/en/blog/jetpack-compose-animation/)
 <!-- /seo-internal-links -->

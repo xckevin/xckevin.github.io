@@ -1,4 +1,6 @@
 ---
+slug: android-memory-leak-leakcanary-hprof
+translationKey: android-memory-leak-leakcanary-hprof
 title: Android 内存泄漏全链路治理：从 LeakCanary 检测原理到 HPROF 分析与生产级防劣化体系
 excerpt: 深入解析 LeakCanary 的 WeakReference 哨兵机制与 HPROF 分析方法，并介绍如何将检测能力迁移到生产环境，构建轻量指标采集、线上哨兵与条件触发 dump 的三层防劣化闭环体系。
 publishDate: '2026-04-22'
@@ -216,7 +218,7 @@ fun testActivityNotLeaked() {
 ## 延伸阅读
 
 - [返回对应专题：Android 性能优化](/android-performance/)
-- [Android Bitmap 内存模型：Java 堆、Native 堆与 Hardware Bitmap](/blog/2026-04-14-深入_android_bitmap_内存模型_从_java_堆分配到_hardware_bitmap/)
-- [Android Perfetto 与 Systrace：系统级性能分析和调优方法](/blog/系统级性能分析与调优-systrace_perfetto/)/)
-- [Android App 启动优化专项：指标、链路、工具与治理方案](/blog/app启动优化专项/)
+- [Android Bitmap 内存模型：Java 堆、Native 堆与 Hardware Bitmap](/blog/android-bitmap-memory-model-hardware-bitmap/)
+- [Android Perfetto 与 Systrace：系统级性能分析和调优方法](/blog/android-system-performance-systrace-perfetto/)/)
+- [Android App 启动优化专项：指标、链路、工具与治理方案](/blog/app-startup-optimization/)
 <!-- /seo-internal-links -->

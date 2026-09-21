@@ -1,19 +1,19 @@
 ---
-title: "Android StrictMode: From BlockGuard Hooks to CI Quality Gates"
+title: 'Android StrictMode: From BlockGuard Hooks to CI Quality Gates'
 lang: en
 translationKey: android-strictmode-blockguard
 slug: android-strictmode-blockguard
-excerpt: "How to turn Android StrictMode from a debug helper into a CI quality gate, with BlockGuard internals, structured JSON output, and production soft interception."
+excerpt: How to turn Android StrictMode from a debug helper into a CI quality gate, with BlockGuard internals, structured JSON output, and production soft interception.
 publishDate: '2026-05-20'
 tags:
-- "Android"
-- "StrictMode"
-- "ANR"
-- "Performance"
-- "CI/CD"
+- Android
+- StrictMode
+- ANR
+- Performance
+- CI/CD
 seo:
-  title: "Android StrictMode: BlockGuard, JSON Penalties, CI Gates, and ANR Prevention"
-  description: "Use Android StrictMode with BlockGuard hooks, structured JSON violation logs, CI quality gates, and production soft interception to reduce ANRs."
+  title: 'Android StrictMode: BlockGuard, Penalties, and ANR Prevention'
+  description: Use Android StrictMode with BlockGuard hooks, structured JSON violation logs, CI quality gates, and production soft interception to reduce ANRs.
   pageType: article
 ---
 

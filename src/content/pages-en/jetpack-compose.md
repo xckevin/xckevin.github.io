@@ -20,25 +20,25 @@ It is written for Android developers who are already building with Compose and w
 
 ## Core Articles
 
-- [Jetpack Compose recomposition performance: stability, `derivedStateOf`, and skip behavior](/blog/2026-05-07-jetpack_compose_重组性能全链路调优_从_stability_推断到_deriveds/)
-- [Advanced Jetpack Compose applications and internals](/blog/jetpack-compose-高级应用与原理/)
-- [Jetpack Compose `Modifier` internals: from chained APIs to `Modifier.Node`](/blog/2026-05-15-jetpack_compose_modifier_链式机制深度解析_从_modifier_node_/)
-- [Jetpack Compose gesture internals: from `pointerInput` to the modifier node pipeline](/blog/2026-05-16-jetpack_compose_手势系统深度解析_从_pointerinput_事件管道到_modi/)
-- [Jetpack Compose animation internals: from `AnimationSpec` to spring physics](/blog/2026-05-09-jetpack_compose_动画系统深度解析_从_animationspec_物理弹簧模型到_t/)
-- [Android Glance AppWidget internals: bridging Compose-style APIs to `RemoteViews`](/blog/2026-05-28-深入_android_glance_appwidget_全链路_从_remoteviews_渲染桥接/)
-- [Compose and View interoperability: embedding `AndroidView` and `ComposeView`](/blog/2026-05-19-jetpack_compose_与_view_互操作性深度解析_从_androidview_嵌入到_/)
+- [Jetpack Compose recomposition performance: stability, `derivedStateOf`, and skip behavior](/blog/jetpack-compose-recomposition-performance/)
+- [Advanced Jetpack Compose applications and internals](/blog/jetpack-compose-advanced-applications-internals/)
+- [Jetpack Compose `Modifier` internals: from chained APIs to `Modifier.Node`](/blog/jetpack-compose-modifier-node/)
+- [Jetpack Compose gesture internals: from `pointerInput` to the modifier node pipeline](/blog/jetpack-compose-gestures/)
+- [Jetpack Compose animation internals: from `AnimationSpec` to spring physics](/blog/jetpack-compose-animation/)
+- [Android Glance AppWidget internals: bridging Compose-style APIs to `RemoteViews`](/blog/android-glance-appwidget-remoteviews-deep-dive/)
+- [Compose and View interoperability: embedding `AndroidView` and `ComposeView`](/blog/jetpack-compose-view-interop/)
 
 ## Layout, Drawing, and State Scope
 
-- [Jetpack Compose phases: from composition to layout and draw](/blog/2026-01-15-深入_jetpack_compose_phases_三阶段模型_从_composition_到_dr/)
-- [CompositionLocal internals: implicit data flow inside the composition tree](/blog/2026-05-14-深入_jetpack_compose_compositionlocal_全链路_从隐式数据传递到组合/)
-- [Custom Compose layouts: from `MeasurePolicy` to fixed measurement constraints](/blog/2026-05-13-深入_compose_自定义_layout_全链路实战_从_measurepolicy_测量协议到固/)
-- [Compose Canvas custom drawing: from `DrawScope` to rendering details](/blog/2026-02-25-深入_android_compose_canvas_自定义绘制全链路_从_drawscope_绘图模/)
-- [Compose `LazyColumn` scroll performance: from recomposition tracing to stable frame rate](/blog/2026-02-26-深入_android_compose_lazycolumn_滑动性能调优全链路_从重组追踪到帧率稳定/)
-- [Android Material 3 dynamic color: from Monet extraction to Compose theming](/blog/2025-08-05-深入_android_material_3_动态配色全链路_从_monet_引擎色彩提取算法到_co/)
-- [Progressive Android Compose migration: from mixed View/Compose screens to declarative UI](/blog/2025-07-04-深入_android_compose_渐进式迁移全链路_从_view_compose_混用架构到全量/)
-- [Compose screenshot testing without devices: Paparazzi and JVM rendering](/blog/2025-07-01-深入_android_compose_无设备截图测试全链路_从_paparazzi_jvm_渲染到_/)
-- [Compose for Wear OS: building declarative watch interfaces](/blog/2026-03-19-深入_android_wear_os_全链路_compose_for_wear_os_的声明式手表_/)
+- [Jetpack Compose phases: from composition to layout and draw](/blog/jetpack-compose-phases-composition-layout-draw/)
+- [CompositionLocal internals: implicit data flow inside the composition tree](/blog/jetpack-compose-compositionlocal/)
+- [Custom Compose layouts: from `MeasurePolicy` to fixed measurement constraints](/blog/jetpack-compose-custom-layout-measurepolicy/)
+- [Compose Canvas custom drawing: from `DrawScope` to rendering details](/blog/jetpack-compose-canvas-drawscope/)
+- [Compose `LazyColumn` scroll performance: from recomposition tracing to stable frame rate](/blog/jetpack-compose-lazycolumn-performance/)
+- [Android Material 3 dynamic color: from Monet extraction to Compose theming](/blog/android-material3-dynamic-color-monet/)
+- [Progressive Android Compose migration: from mixed View/Compose screens to declarative UI](/blog/android-compose-progressive-migration/)
+- [Compose screenshot testing without devices: Paparazzi and JVM rendering](/blog/android-compose-screenshot-testing-paparazzi/)
+- [Compose for Wear OS: building declarative watch interfaces](/blog/android-wear-os-compose/)
 
 ## Common Questions
 

@@ -1,4 +1,6 @@
 ---
+slug: android-advanced-network-programming-optimization-part1
+translationKey: android-advanced-network-programming-optimization-part1
 title: "Android 高级网络编程与优化（1）：引言：应用的生命线——网络通信"
 excerpt: "「Android 高级网络编程与优化」系列第 1/3 篇：引言：应用的生命线——网络通信"
 publishDate: 2025-03-17

@@ -1,4 +1,6 @@
 ---
+slug: android-animation-principles-practice-part7
+translationKey: android-animation-principles-practice-part7
 title: "Android动画深度解析：从原理到实践（7）：D. Physics-Based Animation（基于物理的动画）"
 excerpt: "「Android动画深度解析：从原理到实践」系列第 7/9 篇：D. Physics-Based Animation（基于物理的动画）"
 publishDate: 2024-03-20

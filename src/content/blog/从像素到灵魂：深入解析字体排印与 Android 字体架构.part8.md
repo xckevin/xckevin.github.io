@@ -1,4 +1,6 @@
 ---
+slug: android-typography-font-architecture-part8
+translationKey: android-typography-font-architecture-part8
 title: "从像素到灵魂：深入解析字体排印与 Android 字体架构（8）：个性化表达：打包和使用自定义字体"
 excerpt: "「从像素到灵魂：深入解析字体排印与 Android 字体架构」系列第 8/15 篇：个性化表达：打包和使用自定义字体"
 publishDate: 2026-01-12

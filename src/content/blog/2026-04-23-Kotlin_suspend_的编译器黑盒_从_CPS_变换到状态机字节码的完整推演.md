@@ -1,4 +1,6 @@
 ---
+slug: kotlin-suspend-state-machine
+translationKey: kotlin-suspend-cps-state-machine
 title: Kotlin suspend 的编译器黑盒：从 CPS 变换到状态机字节码的完整推演
 excerpt: 深入剖析 Kotlin 编译器如何将 suspend 函数转换为状态机字节码，从 CPS 变换原理到局部变量活跃性分析，揭示协程挂起与恢复的底层实现机制及性能影响。
 publishDate: '2026-04-23'
@@ -212,7 +214,7 @@ javap -c -p ExampleKt\$loadProfile\$1.class
 ## 延伸阅读
 
 - [返回对应专题：Kotlin 与协程](/kotlin-coroutines/)
-- [Kotlin Flow 原理与工程实践：冷流、StateFlow、SharedFlow 对比](/blog/2026-04-23-kotlin_flow_工程化全景_从冷流惰性求值到_stateflow_sharedflow_热流/)
-- [Kotlin Coroutines 与 Flow：协程调度、结构化并发和响应式数据流](/blog/kotlin-coroutines-与-flow-的高级应用与原理/)
-- [Kotlin K2 编译器解析：统一前端、类型推断与 Android 构建影响](/blog/2026-04-23-kotlin_k2_编译器深度解析_从统一前端架构到智能类型推断重写的编译革新与_android_工/)
+- [Kotlin Flow 原理与工程实践：冷流、StateFlow、SharedFlow 对比](/blog/kotlin-flow-stateflow-sharedflow/)
+- [Kotlin Coroutines 与 Flow：协程调度、结构化并发和响应式数据流](/blog/kotlin-coroutines-flow-advanced-applications-internals/)
+- [Kotlin K2 编译器解析：统一前端、类型推断与 Android 构建影响](/blog/kotlin-k2-compiler-android/)
 <!-- /seo-internal-links -->

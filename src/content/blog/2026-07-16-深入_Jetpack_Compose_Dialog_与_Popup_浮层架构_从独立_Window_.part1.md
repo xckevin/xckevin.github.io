@@ -10,6 +10,7 @@ series:
 seo:
   title: "深入 Jetpack Compose Dialog 与 Popup 浮层架构：从独立 Window 创建到焦点管理的声明式浮层全链路（1）：Compose 浮层不是 View 叠加，是 Window 嵌套"
   description: "「深入 Jetpack Compose Dialog 与 Popup 浮层架构：从独立 Window 创建到焦点管理的声明式浮层全链路」系列第 1/2 篇：Compose 浮层不是 View 叠加，是 Window 嵌套"
+updatedDate: '2026-09-21'
 ---
 
 
@@ -41,7 +42,7 @@ fun Popup(
 }
 ```
 
-`PopupLayout` 内部持有一个 `PopupWindow`，而 `PopupWindow` 本质上是 `WindowManager.addView()` 的一个封装。Dialog 则更彻底——它直接创建一个独立的 `Window`，挂到 Activity 的 Window 层级之上：
+[AndroidX 实现](https://github.com/androidx/androidx/blob/androidx-main/compose/ui/ui/src/androidMain/kotlin/androidx/compose/ui/window/AndroidPopup.android.kt) 中的 `PopupLayout` 继承 `AbstractComposeView`，通过 `WindowManager.addView(this, params)` 将自身添加到窗口。这里直接使用 `WindowManager`，并未包装 Android 的 `PopupWindow`。Dialog 则更彻底——它直接创建一个独立的 `Window`，挂到 Activity 的 Window 层级之上：
 
 ```kotlin
 // AndroidDialog 的核心链路（简化）

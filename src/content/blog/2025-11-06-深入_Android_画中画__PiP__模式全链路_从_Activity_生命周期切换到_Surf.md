@@ -1,4 +1,6 @@
 ---
+slug: android-picture-in-picture-pip
+translationKey: android-picture-in-picture-pip
 title: 深入 Android 画中画 (PiP) 模式全链路：从 Activity 生命周期切换到 SurfaceView 无缝过渡的窗口管理架构解析
 excerpt: 深入解析 Android 画中画模式的实现机制，涵盖 Activity 生命周期串行调度、SurfaceView 无缝过渡、Ratio 自适应约束、RemoteAction 跨进程回调以及 MediaSession 状态同步等核心要点。
 publishDate: '2025-11-06'
@@ -9,8 +11,9 @@ tags:
 - MediaSession
 - 视频播放
 seo:
-  title: 深入 Android 画中画 (PiP) 模式全链路：从 Activity 生命周期切换到 SurfaceView 无缝过渡的窗口管理架构解析
+  title: Android 画中画模式：Activity 生命周期切换与 SurfaceView 过渡
   description: 深度剖析 Android PiP 模式的窗口管理架构：Activity 生命周期串行调度如何影响进入动画、SurfaceView 的无缝过渡原理、Ratio 三层约束机制，以及 RemoteAction 跨进程回调与 MediaSession 状态同步的最佳实践。
+  pageType: article
 ---
 
 做视频播放 App 时踩过一个坑：用户按下 Home 键进入 PiP，画面切过去了但声音还在播，过了 3 秒 ANR。日志显示 `onStop()` 里有个耗时操作阻塞了主线程，而 PiP 进入流程卡在 `onPause()` 之后一直等不到 `onStop()` 完成。

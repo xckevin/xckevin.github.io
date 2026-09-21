@@ -1,4 +1,6 @@
 ---
+slug: jenkins-gitlab-ci-android-cicd-complete-guide-part3
+translationKey: jenkins-gitlab-ci-android-cicd-complete-guide-part3
 title: "Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南（3）：自动化测试集成"
 excerpt: "「Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南」系列第 3/8 篇：自动化测试集成"
 publishDate: 2025-09-06

@@ -11,8 +11,9 @@ tags:
 - 状态机
 - 投屏
 seo:
-  title: 深入 Android 投屏全链路：从 MediaRouter 设备发现到 Google Cast Session 管理
+  title: Android 投屏：MediaRouter 设备发现与 Google Cast Session
   description: 深入 Android 投屏全链路：从 MediaRouter 路由发现到 Google Cast Session 状态机管理，拆解设备发现、Session 状态流转与后台续播的关键实现与常见坑。
+  pageType: article
 ---
 
 接手视频 App 的投屏需求时，PM 提了两个要求：投屏按钮只在有可用设备时亮起；App 切后台再回来要能恢复投屏进度。第一反应是查 MediaRouter 文档，结果文档把「发现设备」和「真正投上去」两件事的边界讲得很含糊。这篇文章把链路拆开，从 MediaRouter 路由发现一路跟到 Cast Session 状态机。

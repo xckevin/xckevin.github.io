@@ -1,4 +1,6 @@
 ---
+slug: app-startup-optimization
+translationKey: app-startup-optimization
 title: App 启动优化专项
 excerpt: 应用启动速度是用户对应用的第一印象，也是决定用户留存与否的关键因素之一。一个启动缓慢、长时间白屏或黑屏的应用，极易导致用户失去耐心而选择卸载。在竞争激烈的移动市场中，能够提供「秒开」体验的应用无疑拥有巨大优势。因此，应用启动优化是 Android 性能优化工作中投入产出比最高、最值得投入精力的专项之一。
 publishDate: 2024-03-07
@@ -276,8 +278,8 @@ seo:
 ## 延伸阅读
 
 - [返回对应专题：Android 性能优化](/android-performance/)
-- [Android 启动优化：从 Zygote fork 到首帧上屏的 Perfetto 实战](/blog/2026-04-19-android_冷启动全链路优化工程实践_从_zygote_fork_到首帧上屏的_systrace/)
-- [RecyclerView 缓存机制详解：四级缓存、复用与 Prefetch](/blog/2026-04-14-深入_android_recyclerview_缓存机制_从四级缓存到_prefetch_的性能设计/)
-- [Android Bitmap 内存模型：Java 堆、Native 堆与 Hardware Bitmap](/blog/2026-04-14-深入_android_bitmap_内存模型_从_java_堆分配到_hardware_bitmap/)
-- [Android RenderThread 与 HWUI：渲染管线、DisplayList 与掉帧分析](/blog/2026-04-20-android_renderthread_与_hwui_渲染管线深度解析_从_displaylist/)
+- [Android 启动优化：从 Zygote fork 到首帧上屏的 Perfetto 实战](/blog/android-cold-start-zygote-systrace/)
+- [RecyclerView 缓存机制详解：四级缓存、复用与 Prefetch](/blog/android-recyclerview-cache-prefetch-deep-dive/)
+- [Android Bitmap 内存模型：Java 堆、Native 堆与 Hardware Bitmap](/blog/android-bitmap-memory-model-hardware-bitmap/)
+- [Android RenderThread 与 HWUI：渲染管线、DisplayList 与掉帧分析](/blog/android-renderthread-hwui/)
 <!-- /seo-internal-links -->

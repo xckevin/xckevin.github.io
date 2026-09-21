@@ -32,10 +32,10 @@ The goal is not a rewrite for its own sake. The goal is a controlled path toward
 
 - [Jetpack Compose engineering notes](/en/jetpack-compose/)
 - [Why does Compose recompose so often? Stability and state-read scope](/blog/compose-recomposition/)
-- [Jetpack Compose recomposition performance: stability, `derivedStateOf`, and skip behavior](/blog/2026-05-07-jetpack_compose_重组性能全链路调优_从_stability_推断到_deriveds/)
-- [Compose `LazyColumn` scroll performance: from recomposition tracing to frame-rate stability](/blog/2026-02-26-深入_android_compose_lazycolumn_滑动性能调优全链路_从重组追踪到帧率稳定/)
-- [Compose and View interoperability: `AndroidView`, `ComposeView`, and two-way communication](/blog/2026-05-19-jetpack_compose_与_view_互操作性深度解析_从_androidview_嵌入到_/)
-- [Progressive Android Compose migration: from mixed View/Compose screens to full declarative UI](/blog/2025-07-04-深入_android_compose_渐进式迁移全链路_从_view_compose_混用架构到全量/)
+- [Jetpack Compose recomposition performance: stability, `derivedStateOf`, and skip behavior](/blog/jetpack-compose-recomposition-performance/)
+- [Compose `LazyColumn` scroll performance: from recomposition tracing to frame-rate stability](/blog/jetpack-compose-lazycolumn-performance/)
+- [Compose and View interoperability: `AndroidView`, `ComposeView`, and two-way communication](/blog/jetpack-compose-view-interop/)
+- [Progressive Android Compose migration: from mixed View/Compose screens to full declarative UI](/blog/android-compose-progressive-migration/)
 
 ## Performance Checklist
 

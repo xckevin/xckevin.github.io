@@ -9,8 +9,9 @@ tags:
 - 滑动优化
 - 自定义View
 seo:
-  title: 深入 Android RecyclerView SnapHelper 全链路：从 Fling 减速算法到自定义吸附策略的滑动定位引擎
+  title: Android RecyclerView SnapHelper：Fling 减速与自定义吸附策略
   description: 全面解析 RecyclerView SnapHelper 吸附引擎：Fling 事件截获、速度映射算法、自定义对齐策略及生产级注意事项，助你实现任意吸附效果。
+  pageType: article
 slug: android-recyclerview-snaphelper
 translationKey: android-recyclerview-snaphelper
 ---

@@ -1,19 +1,20 @@
 ---
-title: "Android Memory Leak Governance: LeakCanary, HPROF, and Production Monitoring"
+title: 'Android Memory Leak Governance: LeakCanary, HPROF, and Production Monitoring'
 lang: en
 translationKey: android-memory-leak-leakcanary-hprof
 slug: android-memory-leak-leakcanary-hprof
-excerpt: "A full Android memory leak governance workflow covering LeakCanary's WeakReference sentinel, HPROF reference-chain analysis, production retained-object monitoring, conditional dumps, and CI gates."
+excerpt: A full Android memory leak governance workflow covering LeakCanary's WeakReference sentinel, HPROF reference-chain analysis, production retained-object monitoring, conditional
+  dumps, and CI gates.
 publishDate: '2026-04-22'
 tags:
-- "Android"
-- "Performance Optimization"
-- "Memory Management"
-- "LeakCanary"
-- "Engineering"
+- Android
+- Performance Optimization
+- Memory Management
+- LeakCanary
+- Engineering
 seo:
-  title: "Android Memory Leak Governance: LeakCanary, HPROF, and Production Monitoring"
-  description: "Learn Android leak governance with LeakCanary internals, HPROF analysis, GC root paths, production monitoring, sentinels, and CI gates."
+  title: 'Android Memory Leaks: LeakCanary, HPROF, and Monitoring'
+  description: Learn Android leak governance with LeakCanary internals, HPROF analysis, GC root paths, production monitoring, sentinels, and CI gates.
   pageType: article
 ---
 

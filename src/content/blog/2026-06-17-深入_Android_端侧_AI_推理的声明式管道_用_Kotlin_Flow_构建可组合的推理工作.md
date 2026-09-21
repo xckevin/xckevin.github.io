@@ -11,8 +11,9 @@ tags:
 - TFLite
 - Kotlin Flow
 seo:
-  title: 深入 Android 端侧 AI 推理的声明式管道：用 Kotlin Flow 构建可组合的推理工作流
+  title: Android 端侧 AI 管道：Kotlin Flow 构建组合式推理工作流
   description: 用 Kotlin Flow 构建端侧 AI 推理的声明式管道，实现预处理、推理、后处理的解耦与可组合，结合背压控制与分层测试策略，构建健壮的端侧推理工作流。
+  pageType: article
 ---
 
 去年在做一个端侧 OCR 功能时，我遇到了一个很典型的困局：预处理、推理、后处理三段代码纠缠在一起，每加一个新模型就要复制粘贴几百行，测试只能靠手动跑一遍完整流程。改一处预处理逻辑，下游全部崩掉，排查起来像剥洋葱。

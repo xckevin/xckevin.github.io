@@ -1,19 +1,20 @@
 ---
-title: "Android Cold Start Optimization: From Zygote Fork to First Frame"
+title: 'Android Cold Start Optimization: From Zygote Fork to First Frame'
 lang: en
 translationKey: android-cold-start-zygote-systrace
 slug: android-cold-start-zygote-systrace
-excerpt: "A Perfetto-driven Android cold start optimization guide covering Zygote fork, bindApplication, Activity creation, first-frame composition, ContentProvider traps, layered initialization, and Binder backlog."
+excerpt: A Perfetto-driven Android cold start optimization guide covering Zygote fork, bindApplication, Activity creation, first-frame composition, ContentProvider traps, layered initialization,
+  and Binder backlog.
 publishDate: '2026-04-19'
 tags:
-- "Android"
-- "Performance Optimization"
-- "Cold Start"
-- "Perfetto"
-- "Systrace"
+- Android
+- Performance Optimization
+- Cold Start
+- Perfetto
+- Systrace
 seo:
-  title: "Android Startup Optimization: Zygote Fork, bindApplication, Perfetto, and First Frame"
-  description: "Use Perfetto and Systrace to analyze Android cold start, bindApplication, Activity creation, main-thread stalls, Binder calls, and first frame."
+  title: 'Android Cold Start: Zygote, bindApplication, and Perfetto'
+  description: Use Perfetto and Systrace to analyze Android cold start, bindApplication, Activity creation, main-thread stalls, Binder calls, and first frame.
   pageType: article
 ---
 

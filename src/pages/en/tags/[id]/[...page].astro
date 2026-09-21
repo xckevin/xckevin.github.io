@@ -37,8 +37,8 @@ const locale = 'en';
 ---
 
 <BaseLayout
-    title={`${currentTag?.name} Articles`}
-    description={`Browse English Android engineering articles tagged ${currentTag?.name}.`}
+    title={`${currentTag?.name} Articles${page.currentPage > 1 ? ` — Page ${page.currentPage}` : ''}`}
+    description={`Browse English Android engineering articles tagged ${currentTag?.name}. Page ${page.currentPage} of ${page.lastPage}.`}
     showHeader={false}
     locale={locale}
     languageSwitchHref="/tags/"

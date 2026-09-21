@@ -1,4 +1,6 @@
 ---
+slug: android-multiprocess-architecture
+translationKey: android-multiprocess-architecture
 title: 深入 Android 多进程架构设计全链路：从 WebView 独立进程到 Remote Service 的稳定性与内存优化工程实践
 excerpt: 本文从电商 App 稳定性治理实战出发，系统讲解 Android 多进程架构在 WebView 崩溃隔离、内存解耦和 Remote Service 优化中的工程实践，涵盖 AIDL 双向通信设计、进程死亡处理与跨进程数据共享的取舍。
 publishDate: '2026-03-31'
@@ -9,8 +11,9 @@ tags:
 - 内存优化
 - 架构设计
 seo:
-  title: 深入 Android 多进程架构设计全链路：从 WebView 独立进程到 Remote Service 的稳定性与内存优化工程实践
+  title: Android 多进程架构：WebView 独立进程与 Remote Service 稳定性
   description: 从 WebView Native Crash 隔离到 AIDL 双向通信设计，详解 Android 多进程架构在稳定性治理、内存解耦和 Remote Service 优化中的实战经验与踩坑总结。
+  pageType: article
 ---
 
 去年接手一个电商 App 的稳定性治理，Crash 率榜单上 WebView 相关的 Native Crash 占了 Top 3。翻了一遍崩溃堆栈，全是 `libwebviewchromium.so` 里的 SIGSEGV——渲染引擎内部状态异常，上层 Java 代码根本兜不住。

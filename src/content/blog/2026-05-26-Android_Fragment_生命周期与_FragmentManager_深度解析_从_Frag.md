@@ -1,4 +1,6 @@
 ---
+slug: android-fragment-fragmentmanager
+translationKey: android-fragment-fragmentmanager
 title: Android Fragment 生命周期与 FragmentManager 深度解析：从事务队列到状态恢复的全链路
 excerpt: 深入解析Fragment事务异步执行机制、回退栈状态恢复原理及ViewModel生命周期协同，涵盖commitNow、onSaveInstanceState时机等实战陷阱，帮助开发者避免NPE与内存泄漏。
 publishDate: '2026-05-26'
@@ -9,8 +11,9 @@ tags:
 - Jetpack
 - 生命周期
 seo:
-  title: Android Fragment 生命周期与 FragmentManager 深度解析：从事务队列到状态恢复的全链路
+  title: Android Fragment 生命周期与 FragmentManager 事务队列
   description: Fragment事务为何不是同步执行？回退栈如何保存和恢复状态？ViewModel如何跨配置变更存活？本文从事务队列到状态恢复，深度解析Fragment生命周期全链路。
+  pageType: article
 ---
 
 上周排查一个线上 crash，堆栈指向 `FragmentManager.executePendingTransactions()` 之后访问 View 导致的 NPE。代码逻辑看起来没问题——`commit()` 之后立刻 `findFragmentByTag()` 拿到的 Fragment 实例不为 null，但它的 View 却是 null。

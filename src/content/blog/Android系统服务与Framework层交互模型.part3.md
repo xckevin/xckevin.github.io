@@ -1,4 +1,6 @@
 ---
+slug: android-system-services-framework-interaction-part3
+translationKey: android-system-services-framework-interaction-part3
 title: "Android 系统服务与 Framework 层交互模型（3）：Framework 与 Service 的桥梁：getSystemService 全链路解析"
 excerpt: "「Android 系统服务与 Framework 层交互模型」系列第 3/3 篇：Framework 与 Service 的桥梁：getSystemService 全链路解析"
 publishDate: 2024-05-27

@@ -1,4 +1,6 @@
 ---
+slug: android-executorch-android-deployment
+translationKey: android-executorch-android-deployment
 title: 深入 Android 端侧 AI 推理的 ExecuTorch 全链路：从 PyTorch 模型原生导出到 Android 端部署的零转换推理引擎实践
 excerpt: 本文深入分析 ExecuTorch 在 Android 端的全链路实践，从 PyTorch 模型原生导出到 .pte 文件部署，对比 LiteRT 性能表现，剖析 AOT 委托机制与常见坑点，帮助开发者做出选型判断。
 publishDate: '2026-07-05'
@@ -9,8 +11,9 @@ tags:
 - 端侧AI
 - 模型部署
 seo:
-  title: 深入 Android 端侧 AI 推理的 ExecuTorch 全链路：从 PyTorch 模型原生导出到 Android 端部署的零转换推理引擎实践
+  title: Android 端侧 ExecuTorch：PyTorch 模型导出与零转换推理
   description: 深入分析 ExecuTorch 在 Android 端的全链路实践，从 PyTorch 模型原生导出到端侧部署，对比 LiteRT 性能表现，剖析 AOT 委托机制，帮助开发者做出选型判断。
+  pageType: article
 ---
 
 去年在做端侧图像分割时，我把一个训好的 PyTorch MobileNetV3 模型转成 TFLite，折腾了两天——算子不兼容、动态 shape 丢失、量化精度下降。当时的想法是：**为什么 PyTorch 模型非得经过 TFLite 这座桥？**

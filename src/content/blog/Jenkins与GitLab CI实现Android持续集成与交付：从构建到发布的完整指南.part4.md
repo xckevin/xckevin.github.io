@@ -1,4 +1,6 @@
 ---
+slug: jenkins-gitlab-ci-android-cicd-complete-guide-part4
+translationKey: jenkins-gitlab-ci-android-cicd-complete-guide-part4
 title: "Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南（4）：代码质量检查"
 excerpt: "「Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南」系列第 4/8 篇：代码质量检查"
 publishDate: 2025-09-06

@@ -1,4 +1,6 @@
 ---
+slug: android-animation-principles-practice-part6
+translationKey: android-animation-principles-practice-part6
 title: "Android动画深度解析：从原理到实践（6）：C. Drawable Animation"
 excerpt: "「Android动画深度解析：从原理到实践」系列第 6/9 篇：C. Drawable Animation"
 publishDate: 2024-03-20

@@ -22,19 +22,19 @@ Android AI 的工程关注点正在从“什么是 Gemini Nano”转向“怎样
 ## 核心阅读
 
 - [Android 端侧 AI 专题](/android-on-device-ai/)
-- [深入 Android AICore 与 Gemini Nano 端侧推理全链路](/blog/2025-05-21-深入_android_aicore_与_gemini_nano_端侧推理全链路_从系统服务架构到_l/)
-- [Android 端侧大模型推理全链路：从 LiteRT 到 MediaPipe LLM Inference](/blog/2026-04-17-android_端侧大模型推理全链路_从_litert_到_mediapipe_llm_infere/)
-- [Android 端侧 LLM 推理的流式输出：从 Token 生成到 Compose UI 增量渲染](/blog/2025-12-16-深入_android_端侧_llm_推理的流式输出全链路_从_token_生成到_compose_u/)
-- [Android 端侧 RAG 检索增强生成实战](/blog/2025-12-18-深入_android_端侧_rag_检索增强生成实战_从本地向量数据库到_llm_推理的知识增强全链/)
-- [Android 端侧多模态 AI 推理：Gemini Nano Multimodality 与 Compose 实时交互](/blog/2026-05-11-深入_android_端侧多模态_ai_推理全链路_从_gemini_nano_multimodal/)
+- [深入 Android AICore 与 Gemini Nano 端侧推理全链路](/blog/android-aicore-gemini-nano/)
+- [Android 端侧大模型推理全链路：从 LiteRT 到 MediaPipe LLM Inference](/blog/android-local-llm-litert-mediapipe/)
+- [Android 端侧 LLM 推理的流式输出：从 Token 生成到 Compose UI 增量渲染](/blog/android-on-device-llm-streaming-output/)
+- [Android 端侧 RAG 检索增强生成实战](/blog/android-on-device-rag-vector-database/)
+- [Android 端侧多模态 AI 推理：Gemini Nano Multimodality 与 Compose 实时交互](/blog/android-multimodal-on-device-ai/)
 
 ## 性能与生产化
 
-- [端侧 AI 推理 Benchmark：延迟、吞吐、功耗与热退化](/blog/2026-04-17-深入_android_端侧_ai_推理_benchmark_评测体系_从延迟_吞吐_功耗三维度量到热/)
-- [用 Perfetto 追踪 NPU 调度与内存带宽瓶颈](/blog/2025-11-17-深入_android_端侧_ai_推理性能剖析_用_perfetto_追踪_npu_调度与内存带宽瓶/)
-- [端侧 AI 推理的内存管理：模型加载峰值与 KV Cache 回收](/blog/2026-05-04-深入_android_端侧_ai_推理的内存管理策略_从模型加载的内存峰值优化到_kv_cache_/)
-- [端侧 AI 推理的并发调度与流控：优先级队列和背压治理](/blog/2026-05-07-深入_android_端侧_ai_推理的并发调度与流控架构_从单例引擎到多请求优先级队列的背压治理/)
-- [端侧 AI 模型安全：加密存储、TEE 推理与 IP 保护](/blog/2026-05-08-深入_android_端侧_ai_模型安全防护全链路_从模型加密存储到_tee_推理的_ip_保护架/)
+- [端侧 AI 推理 Benchmark：延迟、吞吐、功耗与热退化](/blog/android-on-device-ai-benchmark/)
+- [用 Perfetto 追踪 NPU 调度与内存带宽瓶颈](/blog/android-on-device-ai-perfetto-npu-profiling/)
+- [端侧 AI 推理的内存管理：模型加载峰值与 KV Cache 回收](/blog/android-on-device-ai-memory-kv-cache/)
+- [端侧 AI 推理的并发调度与流控：优先级队列和背压治理](/blog/android-on-device-ai-concurrency-backpressure/)
+- [端侧 AI 模型安全：加密存储、TEE 推理与 IP 保护](/blog/android-on-device-ai-model-security-tee/)
 
 ## 官方参考
 

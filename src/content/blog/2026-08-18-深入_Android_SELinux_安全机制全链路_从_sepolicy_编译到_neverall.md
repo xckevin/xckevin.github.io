@@ -11,8 +11,9 @@ tags:
 - 安全机制
 - 系统架构
 seo:
-  title: 深入 Android SELinux 安全机制全链路：从 sepolicy 编译到 neverallow 审计的系统级访问控制架构
+  title: Android SELinux：sepolicy 编译与 neverallow 审计
   description: 深入 Android SELinux 全链路：从 sepolicy 编译、域转换与 contexts 映射，到 neverallow 编译期审计，再到 avc 拒绝日志的排障方法与实践建议。
+  pageType: article
 ---
 
 适配新平台时，我给系统加了一个 native 服务，进程刚拉起来就挂。logcat 里只有一行：

@@ -1,19 +1,19 @@
 ---
-title: "Android App Battery Optimization with Battery Historian"
+title: Android App Battery Optimization with Battery Historian
 lang: en
 translationKey: android-battery-optimization-battery-historian
 slug: android-battery-optimization-battery-historian
-excerpt: "A practical Android battery optimization guide using Battery Historian and Perfetto to reduce Wakelock, Alarm, and Network drain through staged background policies and CI checks."
+excerpt: A practical Android battery optimization guide using Battery Historian and Perfetto to reduce Wakelock, Alarm, and Network drain through staged background policies and CI checks.
 publishDate: '2025-06-04'
 tags:
-- "Android"
-- "Battery Optimization"
-- "Wakelock"
-- "Battery Historian"
-- "Performance Optimization"
+- Android
+- Battery Optimization
+- Wakelock
+- Battery Historian
+- Performance Optimization
 seo:
-  title: "Android Battery Optimization: Battery Historian, Perfetto, and Background Work"
-  description: "Use Battery Historian and Perfetto to diagnose Wakelock, Alarm, and Network drain, then reduce Android background power with policy tiers and CI checks."
+  title: Android Battery Optimization with Battery Historian and Perfetto
+  description: Use Battery Historian and Perfetto to diagnose Wakelock, Alarm, and Network drain, then reduce Android background power with policy tiers and CI checks.
   pageType: article
 ---
 

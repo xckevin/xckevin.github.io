@@ -1,4 +1,6 @@
 ---
+slug: android-art-garbage-collection
+translationKey: android-art-garbage-collection
 title: 深入 Android ART 垃圾回收机制全链路
 excerpt: 从线上 OOM 排查切入，系统梳理 ART 垃圾回收从 CMS 到 Concurrent Copying 再到分代优化的三次演进，并给出分配风暴、大对象空间、启动期 GC 抑制等实战性能调优策略。
 publishDate: '2025-05-26'

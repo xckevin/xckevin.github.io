@@ -1,19 +1,20 @@
 ---
-title: "Android Large Screens and Foldables: From WindowSizeClass to Compose Adaptive Layouts"
+title: 'Android Large Screens and Foldables: From WindowSizeClass to Compose Adaptive Layouts'
 lang: en
 translationKey: android-large-screen-foldable-window-size-class-compose
 slug: android-large-screen-foldables
-excerpt: "A practical guide to Android large-screen and foldable adaptation with WindowSizeClass, Compose adaptive layouts, posture awareness, split-screen behavior, and responsive UI strategy."
+excerpt: A practical guide to Android large-screen and foldable adaptation with WindowSizeClass, Compose adaptive layouts, posture awareness, split-screen behavior, and responsive UI
+  strategy.
 publishDate: '2026-05-13'
 tags:
-- "Android"
-- "Jetpack Compose"
-- "WindowSizeClass"
-- "Large Screens"
-- "Foldables"
+- Android
+- Jetpack Compose
+- WindowSizeClass
+- Large Screens
+- Foldables
 seo:
-  title: "Android Large Screens and Foldables: WindowSizeClass and Compose Adaptive Layouts"
-  description: "Build adaptive Android layouts with WindowSizeClass, Compose Material 3 adaptive components, foldable posture awareness, and split-screen support."
+  title: 'Android Foldables: WindowSizeClass and Compose Adaptive Layouts'
+  description: Build adaptive Android layouts with WindowSizeClass, Compose Material 3 adaptive components, foldable posture awareness, and split-screen support.
   pageType: article
 ---
 

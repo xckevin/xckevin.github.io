@@ -1,4 +1,6 @@
 ---
+slug: android-zygote-init-fork-process
+translationKey: android-zygote-init-fork-process
 title: 深入 Android Zygote 进程全链路解析：从 init fork 到应用孵化的进程创建架构
 excerpt: 深入解析 Android Zygote 进程的启动链路、预加载机制与 fork 孵化原理，揭示 COW 机制如何将应用冷启动从秒级降至毫秒级。
 publishDate: '2025-10-03'
@@ -9,8 +11,9 @@ tags:
 - 进程管理
 - Framework
 seo:
-  title: 深入 Android Zygote 进程全链路解析：从 init fork 到应用孵化的进程创建架构
+  title: Android Zygote 进程：init fork 到应用孵化
   description: 深入解析 Android Zygote 进程全链路：从 init fork 到应用孵化的架构设计，包括预加载机制、Socket 通信、COW 原理及实践避坑指南。
+  pageType: article
 ---
 
 做 Android 性能优化时翻过 AOSP 里 Zygote 的源码，一个核心问题是：为什么冷启动一个应用要几百毫秒，而 fork 一个新进程只要几毫秒？答案藏在 Zygote 的设计里——它把"进程创建"这个重操作变成了"进程复制"。

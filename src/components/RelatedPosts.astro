@@ -14,13 +14,21 @@ type Props = {
 const { post, posts, limit = 4, locale = 'zh' } = Astro.props;
 const labels = locale === 'zh' ? { title: '相关文章' } : { title: 'Related Posts' };
 const currentTags = new Set(post.data.tags ?? []);
+const tagCounts = new Map<string, number>();
+const visiblePosts = posts.filter((candidate) => candidate.data.displayInBlog);
+for (const candidate of visiblePosts) {
+    for (const tag of new Set(candidate.data.tags ?? [])) {
+        tagCounts.set(tag, (tagCounts.get(tag) ?? 0) + 1);
+    }
+}
 const relatedPosts = posts
     .filter((candidate) => candidate.id !== post.id && candidate.data.displayInBlog)
     .map((candidate) => {
         const sharedTags = (candidate.data.tags ?? []).filter((tag) => currentTags.has(tag));
         return {
             post: candidate,
-            score: sharedTags.length
+            // Specific topics should outweigh a generic tag such as Android.
+            score: sharedTags.reduce((score, tag) => score + Math.log(1 + visiblePosts.length / (tagCounts.get(tag) ?? 1)), 0)
         };
     })
     .filter(({ score }) => score > 0)

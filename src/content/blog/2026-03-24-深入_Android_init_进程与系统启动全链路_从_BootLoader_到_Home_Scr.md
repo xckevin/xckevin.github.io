@@ -1,4 +1,6 @@
 ---
+slug: android-init-boot-process
+translationKey: android-init-boot-process
 title: 深入 Android init 进程与系统启动全链路：从 BootLoader 到 Home Screen 的启动流程架构解析
 excerpt: 深度解析 Android init 进程从 BootLoader 到 Home Screen 的完整启动链路，涵盖 init.rc 解析逻辑、属性系统触发链、system_server 启动顺序，以及启动优化实战经验与踩坑记录。
 publishDate: '2026-03-24'
@@ -9,8 +11,9 @@ tags:
 - 性能优化
 - 源码分析
 seo:
-  title: 深入 Android init 进程与系统启动全链路：从 BootLoader 到 Home Screen 的启动流程架构解析
+  title: Android init 进程与系统启动：BootLoader 到 Home Screen
   description: 深度解析 Android init 进程启动全链路：从 BootLoader 到内核、init.rc 语法与属性系统、system_server 及 Launcher 启动，附带启动优化实战经验与常见踩坑记录。
+  pageType: article
 ---
 
 ## 一次启动耗时排查引出的问题

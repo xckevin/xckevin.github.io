@@ -1,4 +1,6 @@
 ---
+slug: android-rendering-graphics-stack-part3
+translationKey: android-rendering-graphics-stack-part3
 title: "Android 渲染机制与图形栈深入理解（3）：从 GPU 到屏幕：缓冲区、合成与 SurfaceFlinger"
 excerpt: "「Android 渲染机制与图形栈深入理解」系列第 3/4 篇：从 GPU 到屏幕：缓冲区、合成与 SurfaceFlinger"
 publishDate: 2025-06-19

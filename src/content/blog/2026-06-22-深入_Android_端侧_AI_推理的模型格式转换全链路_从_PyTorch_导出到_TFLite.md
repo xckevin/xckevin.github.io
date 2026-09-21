@@ -11,8 +11,9 @@ tags:
 - ONNX
 - 端侧AI
 seo:
-  title: 深入 Android 端侧 AI 推理的模型格式转换全链路：从 PyTorch 导出到 TFLite/MediaPipe 部署的格式桥梁工程实践
+  title: Android 端侧 AI 模型转换：PyTorch 导出到 TFLite/MediaPipe
   description: 深入 PyTorch → ONNX → TFLite → MediaPipe 全链路转换实践，涵盖动态 shape 导出、算子兼容性、INT8 量化校准及 Android 端侧部署的工程化经验。
+  pageType: article
 ---
 
 去年在做端侧图像分割项目时，我在 PyTorch 上训好的 MobileNetV3 模型精度不错，但部署到 Android 的过程却踩了一串连环坑：PyTorch Mobile 的包体积太大，TFLite 的算子覆盖不全，MediaPipe 的图构建又对输入格式有特殊要求。最终我摸索出一条 **PyTorch → ONNX → TFLite → MediaPipe** 的转换链路，跑通了从训练到端侧部署的完整闭环。

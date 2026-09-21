@@ -1,4 +1,5 @@
 ---
+translationKey: android-recyclerview-four-level-cache
 title: "RecyclerView 四级缓存是哪四级？从复用链路理解列表性能"
 slug: recyclerview-cache-levels
 excerpt: "解释 RecyclerView 四级缓存、ViewHolder 复用顺序、RecycledViewPool 和 Prefetch 对滑动性能的影响。"
@@ -71,7 +72,7 @@ RecyclerView 的缓存机制很成熟，但它只能帮你复用 ViewHolder，�
 ## 深入阅读
 
 - [返回对应专题：Android 性能优化](/android-performance/)
-- [RecyclerView 缓存机制详解：四级缓存、复用与 Prefetch](/blog/2026-04-14-深入_android_recyclerview_缓存机制_从四级缓存到_prefetch_的性能设计/)
-- [Android 渲染机制与图形栈：View、HWUI、SurfaceFlinger 全链路](/blog/android渲染机制与图形栈深入理解/)
+- [RecyclerView 缓存机制详解：四级缓存、复用与 Prefetch](/blog/android-recyclerview-cache-prefetch-deep-dive/)
+- [Android 渲染机制与图形栈：View、HWUI、SurfaceFlinger 全链路](/blog/android-rendering-graphics-stack/)
 - [Bitmap 为什么容易导致 OOM？Android 图片内存模型入门](/blog/android-bitmap-oom/)
 <!-- /seo-internal-links -->

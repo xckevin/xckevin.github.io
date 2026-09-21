@@ -1,4 +1,6 @@
 ---
+slug: android-typography-font-architecture-part12
+translationKey: android-typography-font-architecture-part12
 title: "从像素到灵魂：深入解析字体排印与 Android 字体架构（12）：放眼全球：国际化 (I18N) 与字体再思考"
 excerpt: "「从像素到灵魂：深入解析字体排印与 Android 字体架构」系列第 12/15 篇：放眼全球：国际化 (I18N) 与字体再思考"
 publishDate: 2026-01-12

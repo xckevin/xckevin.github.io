@@ -1,4 +1,6 @@
 ---
+slug: android-app-shortcuts-shortcutmanager-deep-dive
+translationKey: android-app-shortcuts-shortcutmanager-deep-dive
 title: 深入 Android App Shortcuts 全链路：从 ShortcutManager 静态/动态配置到 Launcher 固定快捷方式的深度集成与 Compose 适配
 excerpt: 从启动优化中 Shortcut 消失的诡异 bug 切入，深度解析 Android App Shortcuts 全链路：ShortcutManager 数量上限规则与静态/动态双通道配置、Intent 双入口路由分发、Pinned Shortcut 桌面固定机制，以及 Jetpack Compose 场景下的图标生成与导航适配实战。
 publishDate: '2026-02-24'
@@ -9,19 +11,19 @@ tags:
 - Jetpack Compose
 - 启动优化
 seo:
-  title: 深入 Android App Shortcuts 全链路：从 ShortcutManager 静态/动态配置到 Launcher 固定快捷方式的深度集成与 Compose 适配
+  title: Android App Shortcuts：ShortcutManager 配置与 Launcher 固定
   description: 从启动优化中 Shortcut 消失问题切入，深度解析 Android App Shortcuts 全链路：ShortcutManager 上限规则、静态/动态配置、Intent 双入口分发、Pinned Shortcut 桌面固定及 Compose 适配实战。
+  pageType: article
+updatedDate: '2026-09-21'
 ---
 
-做启动优化时发现了一个诡异问题：测试机上长按 App 图标弹出的快捷菜单时有时无。Logcat 里躺着一条「Shortcut exceeds max count」。排查后确认——我们注册了 6 个动态 + 4 个静态捷径，总计 10 个，而系统上限是 5。但问题只在 Android 8.0 上复现，高版本丝毫无恙。
-
-这事促使我完整梳理了一遍 App Shortcuts 的注册、分发、固定全链路。
+排查 App 图标长按菜单缺失时，要先区分「发布数量超限」与「Launcher 展示数量有限」：两者发生在不同环节，不能只依据 Android 版本判断。本文梳理 App Shortcuts 的注册、分发与固定流程。
 
 ## ShortcutManager 双通道：上限规则与优先级
 
-捷径数量上限取决于 API 版本。`ShortcutManager.getMaxShortcutCountPerActivity()` 在 Android 8.0（API 26）上返回 5，静态和动态共享这个配额。从 Android 9 开始，上限提升到 15，但 Launcher 长按菜单只直接展示前 5 个，其余收进「更多」入口。
+静态和动态捷径共享每个 Launcher Activity 的发布配额，应在目标设备上调用 `ShortcutManager.getMaxShortcutCountPerActivity()` 读取上限。不要把 Android 9 固定视为 15 个，也不要把桌面展示数量当作 API 配额。参见 [ShortcutManager API](https://developer.android.com/reference/android/content/pm/ShortcutManager)。
 
-这就是那个 bug 的根因：8.0 总共只留 5 个位置，系统按 `rank` 值截断，低优先级直接丢弃。高版本换成 15 个容错空间大了不少，但部分定制 ROM（华为 EMUI、小米 MIUI）可能只渲染 4 个。一句话：捷径最终能展示多少个，裁量权在 Launcher，不在 ShortcutManager。
+使用 `setDynamicShortcuts` 或 `addDynamicShortcuts` 超过配额可能抛出 `IllegalArgumentException`，不能依赖系统自动按 `rank` 截断。Launcher 的展示与排序是另一层行为；固定捷径也应单独处理。参见 [捷径管理](https://developer.android.com/develop/ui/compose/system/shortcuts/managing-shortcuts)。
 
 静态捷径在 XML 中声明：
 

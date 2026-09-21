@@ -1,4 +1,6 @@
 ---
+slug: android-permission-system-evolution
+translationKey: android-permission-system-evolution
 title: Android 权限系统演进全链路：从 ActivityThread 权限拦截到 Android 14 精细化管控的架构解析
 excerpt: 深入解析 Android 权限三层拦截机制，梳理 Android 10 到 14 的权限管控演进与工程适配建议。
 publishDate: '2026-05-17'
@@ -120,8 +122,8 @@ adb shell appops set com.example CAMERA deny
 ## 延伸阅读
 
 - [返回对应专题：Android Framework](/android-framework/)
-- [Android Binder 原理：从驱动通信到 AIDL 调用链路](/blog/binder-ipc机制深度解析-beyond-aidl/)/)
-- [Android Framework 系统服务：AMS、WMS 与应用进程交互模型](/blog/android系统服务与framework层交互模型/)
-- [Android 进程与线程模型：Zygote、主线程、Binder 线程池解析](/blog/android进程与线程模型深度剖析/)
-- [Android ContentProvider 原理：URI 路由、跨进程访问与权限控制](/blog/2026-05-15-深入_android_contentprovider_跨进程数据共享_从_uri_路由到_conte/)
+- [Android Binder 原理：从驱动通信到 AIDL 调用链路](/blog/binder-ipc-beyond-aidl/)/)
+- [Android Framework 系统服务：AMS、WMS 与应用进程交互模型](/blog/android-system-services-framework-interaction/)
+- [Android 进程与线程模型：Zygote、主线程、Binder 线程池解析](/blog/android-process-thread-model-deep-dive/)
+- [Android ContentProvider 原理：URI 路由、跨进程访问与权限控制](/blog/android-contentprovider-ipc/)
 <!-- /seo-internal-links -->

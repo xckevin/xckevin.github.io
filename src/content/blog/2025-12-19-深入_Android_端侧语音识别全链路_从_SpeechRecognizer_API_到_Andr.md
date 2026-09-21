@@ -1,4 +1,6 @@
 ---
+slug: android-on-device-speech-recognition
+translationKey: android-on-device-speech-recognition
 title: 深入 Android 端侧语音识别全链路：从 SpeechRecognizer API 到 Android 16 设备端 ASR 引擎
 excerpt: 梳理 Android 端侧语音识别完整链路，从 AudioRecord 音频采集到 Android 16 内置 ASR 引擎的架构设计与工程实践。
 publishDate: '2025-12-19'
@@ -9,8 +11,9 @@ tags:
 - 端侧AI
 - 性能优化
 seo:
-  title: 深入 Android 端侧语音识别全链路：从 SpeechRecognizer API 到 Android 16 设备端 ASR 引擎
+  title: Android 端侧语音识别：SpeechRecognizer API 与 Android 16 ASR 引擎
   description: 深入 Android 端侧语音识别全链路：从 AudioRecord 音频采集、SpeechRecognizer API 到 Android 16 内置 OnDeviceAsrEngine，涵盖双缓冲设计、VAD 前置优化及离线优先兜底策略的完整工程实践。
+  pageType: article
 ---
 
 去年做车载导航项目时，产品提了一个需求：隧道里没网也要能语音搜索地址。我当时的第一反应是——Android 的语音识别不是一直依赖云端服务吗？

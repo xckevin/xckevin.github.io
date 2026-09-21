@@ -1,4 +1,5 @@
 ---
+translationKey: android-audioflinger
 title: "AudioFlinger 在 Android 音频系统中负责什么？"
 slug: android-audioflinger
 excerpt: "解释 AudioFlinger 在 Android 音频链路中的角色，包括混音、线程、AudioTrack、低延迟播放和 AAudio。"
@@ -67,6 +68,6 @@ AudioFlinger 是 Android 音频系统里的核心服务之一。它接收多个�
 ## 深入阅读
 
 - [返回对应专题：Android 性能优化](/android-performance/)
-- [Android 音频系统原理：AudioFlinger、混音策略与 AAudio 低延迟](/blog/2026-05-12-深入_android_音频系统全链路_从_audioflinger_混音策略到_aaudio_低延迟/)
+- [Android 音频系统原理：AudioFlinger、混音策略与 AAudio 低延迟](/blog/android-audio-system-audioflinger-aaudio/)
 - [Android Perfetto 入门：Trace 抓取、轨道分析与性能定位](/blog/android-perfetto/)
 <!-- /seo-internal-links -->

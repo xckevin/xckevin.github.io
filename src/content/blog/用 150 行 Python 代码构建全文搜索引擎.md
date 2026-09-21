@@ -15,7 +15,7 @@ seo:
 
 全文搜索（Full-text Search）无处不在。从在 Scribd 上找一本书、在 Netflix 上找一部电影、在 Amazon 上找卫生纸，到通过 Google 搜索网上的一切（比如[如何做好一个软件工程师](https://localghost.dev/2019/09/everything-i-googled-in-a-week-as-a-professional-software-engineer/)），你今天已经多次搜索了海量的非结构化数据。更令人惊叹的是，即使你搜索了数百万（甚至[数十亿](https://www.worldwidewebsize.com/)）条记录，也能在毫秒内得到响应。在这篇文章中，我们将探索全文搜索引擎的基本组件，并用它们构建一个能够在毫秒内搜索数百万文档并按相关性排序的搜索引擎——代码不超过 150 行 Python！
 
-# 数据
+## 数据
 
 本文中的所有代码都可以在 [Github](https://github.com/bartdegoede/python-searchengine/) 上找到。我会在代码片段旁提供链接，方便你自己尝试运行。你可以通过安装[依赖](https://github.com/bartdegoede/python-searchengine/blob/master/requirements.txt)（`pip install -r requirements.txt`）并运行 [`python run.py`](https://github.com/bartdegoede/python-searchengine/blob/master/run.py) 来执行完整示例。这会下载所有数据，并分别执行带排序和不带排序的示例查询。
 
@@ -74,7 +74,7 @@ def load_documents():
             element.clear()
 ```
 
-# 索引
+## 索引
 
 我们将把数据存储在一种叫做「倒排索引（Inverted Index）」或「倒排列表（Postings List）」的数据结构中。你可以把它想象成书后面的索引——按字母顺序列出相关的词汇和概念，并标注读者可以在哪一页找到它们。
 
@@ -175,7 +175,7 @@ class Index:
             self.index[token].add(document.ID)
 ```
 
-# 搜索
+## 搜索
 
 现在所有词元都已建好索引，搜索查询就变成了用相同的分析器对查询文本进行处理——这样我们得到的词元就能与索引中的词元匹配。对于每个词元，我们在字典中查找包含它的文档 ID。对所有词元都执行此操作，然后找到所有这些集合的交集（即一个文档必须包含查询中的所有词元才算匹配）。最后用得到的文档 ID 列表从 `documents` 存储中获取实际数据[^4]。
 
@@ -241,7 +241,7 @@ search took 0.029065370559692383 seconds
 Out[3]: 49627
 ```
 
-# 相关性
+## 相关性
 
 我们已经用基础 Python 实现了一个相当快的搜索引擎，但有一个关键方面明显缺失——**相关性（Relevance）**。目前我们只是返回一个无序的文档列表，让用户自己去判断哪些是真正需要的。对于大结果集来说，这是痛苦甚至不可能的（在我们的 `OR` 示例中，有近 50,000 条结果）。
 
@@ -336,7 +336,7 @@ def rank(self, analyzed_query, documents):
     return sorted(results, key=lambda doc: doc[1], reverse=True)
 ```
 
-# 未来工作
+## 未来工作
 
 这就是一个仅用几行 Python 代码实现的基础搜索引擎！你可以在 [Github](https://github.com/bartdegoede/python-searchengine) 上找到所有代码，我还提供了一个工具函数来下载维基百科摘要并构建索引。安装好依赖，在你喜欢的 Python 控制台中运行它，尽情探索数据结构和搜索功能吧。
 

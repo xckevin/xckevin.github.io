@@ -1,4 +1,6 @@
 ---
+slug: art-vm-advanced-memory-management-part4
+translationKey: art-vm-advanced-memory-management-part4
 title: "ART 虚拟机与内存管理高级策略（4）：Native 内存探秘：冰山下的部分"
 excerpt: "「ART 虚拟机与内存管理高级策略」系列第 4/4 篇：Native 内存探秘：冰山下的部分"
 publishDate: 2024-05-05

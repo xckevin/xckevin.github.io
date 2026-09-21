@@ -1,4 +1,6 @@
 ---
+slug: android-agsl-runtimeshader-skia
+translationKey: android-agsl-runtimeshader-skia
 title: 深入 Android AGSL RuntimeShader 全链路：从 Skia 着色器编译到 Compose 自定义图形特效
 excerpt: 本文深入剖析 Android AGSL RuntimeShader 的完整编译链路（AGSL→SkSL→GPU），详解 uniform shader 嵌套采样机制、Compose 两种集成方式及实战案例，并总结性能边界与工程实践建议。
 publishDate: '2026-05-28'
@@ -9,8 +11,9 @@ tags:
 - Skia
 - 图形渲染
 seo:
-  title: 深入 Android AGSL RuntimeShader 全链路：从 Skia 着色器编译到 Compose 自定义图形特效
+  title: Android AGSL RuntimeShader：Skia 着色器与 Compose 图形特效
   description: 深入剖析 Android AGSL RuntimeShader 完整编译链路，详解 uniform shader 机制、Compose 集成与性能优化实践。
+  pageType: article
 ---
 
 去年做 Compose 迁移时，我需要在列表里实现毛玻璃模糊的 Header。`Modifier.blur()` 能用，但没法和半透明遮罩叠加——它是对整个图层的操作，粒度太粗。当时的思路：能不能自己写一个 Shader，精确控制每个像素的混合？

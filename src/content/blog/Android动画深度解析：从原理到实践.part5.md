@@ -1,4 +1,6 @@
 ---
+slug: android-animation-principles-practice-part5
+translationKey: android-animation-principles-practice-part5
 title: "Android动画深度解析：从原理到实践（5）：A. View Animation（补间动画 - Tween Animation）、B. Property Animation（属性动画）"
 excerpt: "「Android动画深度解析：从原理到实践」系列第 5/9 篇：A. View Animation（补间动画 - Tween Animation）、B. Property Animation（属性动画）"
 publishDate: 2024-03-20

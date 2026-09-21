@@ -1,4 +1,6 @@
 ---
+slug: android-system-services-framework-interaction
+translationKey: android-system-services-framework-interaction
 title: Android 系统服务与 Framework 层交互模型
 excerpt: 如果说 Binder 是 Android 系统的神经网络，那么运行在 SystemServer 进程中的系统服务（System Services）则是驱动整个 Android 世界运转的核心引擎。从管理应用程序的生命周期（ActivityManagerService）、绘制用户界面窗口（WindowManagerService）、解析和管理应用程序包（PackageManagerServic...
 publishDate: 2024-05-27
@@ -318,8 +320,8 @@ Android 系统服务与 Framework 层之间通过 Binder 建立的交互模型�
 ## 延伸阅读
 
 - [返回对应专题：Android Framework](/android-framework/)
-- [Android Binder 原理：从驱动通信到 AIDL 调用链路](/blog/binder-ipc机制深度解析-beyond-aidl/)/)
-- [Android 进程与线程模型：Zygote、主线程、Binder 线程池解析](/blog/android进程与线程模型深度剖析/)
-- [Android ContentProvider 原理：URI 路由、跨进程访问与权限控制](/blog/2026-05-15-深入_android_contentprovider_跨进程数据共享_从_uri_路由到_conte/)
-- [Android 权限系统原理：运行时权限、拦截链路与安全边界](/blog/2026-05-17-android_权限系统演进全链路_从_activitythread_权限拦截到_android_1/)
+- [Android Binder 原理：从驱动通信到 AIDL 调用链路](/blog/binder-ipc-beyond-aidl/)/)
+- [Android 进程与线程模型：Zygote、主线程、Binder 线程池解析](/blog/android-process-thread-model-deep-dive/)
+- [Android ContentProvider 原理：URI 路由、跨进程访问与权限控制](/blog/android-contentprovider-ipc/)
+- [Android 权限系统原理：运行时权限、拦截链路与安全边界](/blog/android-permission-system-evolution/)
 <!-- /seo-internal-links -->

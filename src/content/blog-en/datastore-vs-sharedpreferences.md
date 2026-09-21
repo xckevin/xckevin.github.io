@@ -1,17 +1,18 @@
 ---
-title: "How Should You Choose Between DataStore and SharedPreferences?"
+title: How Should You Choose Between DataStore and SharedPreferences?
 lang: en
 translationKey: datastore-vs-sharedpreferences
 slug: datastore-vs-sharedpreferences
-excerpt: "Compares SharedPreferences, Preferences DataStore, and Proto DataStore across use cases, threading, type safety, and migration strategy."
+excerpt: Compares SharedPreferences, Preferences DataStore, and Proto DataStore across use cases, threading, type safety, and migration strategy.
 publishDate: '2026-06-01'
 tags:
-- "Android"
-- "DataStore"
-- "SharedPreferences"
+- Android
+- DataStore
+- SharedPreferences
 seo:
-  title: "DataStore vs SharedPreferences: Choosing Android Local Configuration Storage"
-  description: "Compares Android SharedPreferences, Preferences DataStore, and Proto DataStore, including thread safety, ANR risk, type safety, and migration strategy."
+  title: 'DataStore vs SharedPreferences: Android Storage Tradeoffs'
+  description: Compares Android SharedPreferences, Preferences DataStore, and Proto DataStore, including thread safety, ANR risk, type safety, and migration strategy.
+  pageType: article
 ---
 
 For new projects, local configuration should generally start with DataStore. In existing projects, SharedPreferences does not always need to be rewritten immediately, but main-thread access, high-frequency reads and writes, and cross-process dependencies need active cleanup.
@@ -74,6 +75,6 @@ DataStore's value is not just that it is newer. Its real value is moving local c
 ## Further reading
 
 - [Back to the Kotlin Coroutines and Flow topic](/en/kotlin-coroutines/)
-- [Android SharedPreferences to DataStore evolution: From synchronous ANRs to reactive storage](/blog/2026-04-23-android_sharedpreferences_到_datastore_深度演进_从同步_anr/)
+- [Android SharedPreferences to DataStore evolution: From synchronous ANRs to reactive storage](/blog/android-sharedpreferences-datastore-deep-dive/)
 - [Why does a Room Flow update automatically?](/en/blog/room-flow-auto-update/)
 <!-- /seo-internal-links -->

@@ -11,8 +11,9 @@ tags:
 - 回声消除
 - 端侧语音识别
 seo:
-  title: 深入 Android 音频采集全链路：从 AudioRecord 低延迟输入到回声消除与端侧语音识别的协同
+  title: Android 音频采集：AudioRecord 低延迟与回声消除
   description: 系统梳理 Android 音频采集全链路，从 AudioRecord 缓冲区与 AAudio 低延迟到回声消除、重采样与 VAD，再到端侧 ASR 适配，附可落地参考架构。
+  pageType: article
 ---
 
 在端侧语音助手项目里，我遇到过一个挺尴尬的场景：TTS 正在播报时用户插话打断，麦克风把喇叭刚说出去的话又录了回来，ASR 把机器自己的台词转成了文字。排查发现，网上讲 Android 音频的文章基本都在聊播放链路，采集这条线要么一笔带过，要么默认"照着官方 demo 抄就行"。

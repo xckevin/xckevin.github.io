@@ -1,4 +1,6 @@
 ---
+slug: android-glance-appwidget-remoteviews-deep-dive
+translationKey: android-glance-appwidget-remoteviews-deep-dive
 title: 深入 Android Glance AppWidget 全链路：从 RemoteViews 渲染桥接到 Compose 声明式小组件的架构演进与更新策略
 excerpt: 本文深入剖析 Android Glance AppWidget 的完整技术链路，从 RemoteViews 跨进程渲染机制到 Glance 翻译引擎的设计原理，涵盖声明式 UI 构建、Actions 交互处理、跨进程更新流程及更新策略选型。
 publishDate: '2026-05-28'
@@ -9,8 +11,9 @@ tags:
 - Compose
 - 架构设计
 seo:
-  title: "Android Glance AppWidget 原理：RemoteViews、更新机制与 Compose 小组件"
-  description: "解析 Glance AppWidget 如何转换为 RemoteViews，覆盖跨进程渲染、更新策略、Action 交互与传统 Widget 方案对比。"
+  title: Android Glance AppWidget：RemoteViews 更新与 Compose 小组件
+  description: 解析 Glance AppWidget 如何转换为 RemoteViews，覆盖跨进程渲染、更新策略、Action 交互与传统 Widget 方案对比。
+  pageType: article
 ---
 
 去年接手一个桌面小组件需求时，我打开项目一看——800 行的 `RemoteViews` 构建代码，`findViewById` 式的字符串 ID 满天飞，布局改一行要脑补渲染结果。小组件本应是轻量入口，结果维护成本比主 App 还高。这就是 Glance 要解决的核心问题。
@@ -208,8 +211,8 @@ Widget 的本质是 App 在主屏幕上的一扇远程视图窗口。Glance 没�
 ## 延伸阅读
 
 - [返回对应专题：Jetpack Compose](/jetpack-compose/)
-- [Jetpack Compose 重组性能优化：Stability、derivedStateOf 与跳过重组](/blog/2026-05-07-jetpack_compose_重组性能全链路调优_从_stability_推断到_deriveds/)
-- [Jetpack Compose 原理与高级应用：状态、布局、重组与性能实践](/blog/jetpack-compose-高级应用与原理/)
-- [Jetpack Compose Modifier 原理：链式节点、布局绘制与事件处理](/blog/2026-05-15-jetpack_compose_modifier_链式机制深度解析_从_modifier_node_/)
-- [Jetpack Compose 手势系统：PointerInput 事件管道与嵌套滚动](/blog/2026-05-16-jetpack_compose_手势系统深度解析_从_pointerinput_事件管道到_modi/)
+- [Jetpack Compose 重组性能优化：Stability、derivedStateOf 与跳过重组](/blog/jetpack-compose-recomposition-performance/)
+- [Jetpack Compose 原理与高级应用：状态、布局、重组与性能实践](/blog/jetpack-compose-advanced-applications-internals/)
+- [Jetpack Compose Modifier 原理：链式节点、布局绘制与事件处理](/blog/jetpack-compose-modifier-node/)
+- [Jetpack Compose 手势系统：PointerInput 事件管道与嵌套滚动](/blog/jetpack-compose-gestures/)
 <!-- /seo-internal-links -->

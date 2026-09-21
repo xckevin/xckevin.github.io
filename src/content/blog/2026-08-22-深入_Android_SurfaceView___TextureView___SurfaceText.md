@@ -11,8 +11,9 @@ tags:
 - SurfaceView
 - TextureView
 seo:
-  title: 深入 Android SurfaceView / TextureView / SurfaceTexture 全链路：从 BufferQueue 生产端到 Surface 合成路径的渲染桥接架构
+  title: Android SurfaceView/TextureView：BufferQueue 与 Surface 合成
   description: 深入解析 SurfaceView、TextureView、SurfaceTexture 的 BufferQueue 桥接关系与合成路径差异，对比低延迟直通与 UI 灵活性，给出视频渲染选型建议。
+  pageType: article
 ---
 
 有一次做视频通话优化，同一路 720p 视频流，在 SurfaceView 上稳定 60 帧，换到 TextureView 直接掉到 45 帧，还多了 20ms 延迟。当时第一反应是 TextureView 用得不对，查了三天才发现问题不在业务层，而在两条完全不同的合成路径。这篇文章从 BufferQueue 的生产-消费模型出发，把这三者的桥接关系拆开讲。

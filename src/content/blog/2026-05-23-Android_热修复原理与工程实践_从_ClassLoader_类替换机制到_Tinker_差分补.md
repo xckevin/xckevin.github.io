@@ -1,4 +1,6 @@
 ---
+slug: android-hotfix-classloader-tinker
+translationKey: android-hotfix-classloader-tinker
 title: Android 热修复原理与工程实践：从 ClassLoader 类替换机制到 Tinker 差分补丁的线上急救全链路
 excerpt: 深入解析 Android 热修复核心原理，从 ClassLoader 类替换机制到 Tinker 差分补丁，涵盖兼容性陷阱与百万级 App 工程实践。
 publishDate: '2026-05-23'
@@ -9,8 +11,9 @@ tags:
 - ClassLoader
 - 工程实践
 seo:
-  title: Android 热修复原理与工程实践：从 ClassLoader 类替换机制到 Tinker 差分补丁的线上急救全链路
+  title: Android 热修复：ClassLoader 类替换与 Tinker 差分补丁
   description: 详解 Android 热修复实现原理：ClassLoader Dex 插桩、Tinker BSdiff 差分补丁生成与加载、Android 版本兼容性陷阱及百万日活工程落地经验。
+  pageType: article
 ---
 
 凌晨两点，线上突然爆发 NPE 崩溃，影响 30% 用户。发新版本？审核加灰度至少两天。这时候热修复是唯一的选择。

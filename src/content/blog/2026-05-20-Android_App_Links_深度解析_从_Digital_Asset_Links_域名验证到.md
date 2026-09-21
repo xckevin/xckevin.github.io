@@ -1,4 +1,6 @@
 ---
+slug: android-app-links-digital-asset-links
+translationKey: android-app-links-digital-asset-links
 title: Android App Links 深度解析：从 Digital Asset Links 域名验证到 Intent 路由分发的 Web-to-App 全链路工程实践
 excerpt: 本文系统梳理 Android App Links 的完整接入链路：从 Digital Asset Links 双向信任模型、系统自动验证机制，到多场景路由差异处理与调试工具箱，分享签名配置、跨域验证、Chrome 行为差异等实际踩坑经验。
 publishDate: '2026-05-20'
@@ -9,8 +11,9 @@ tags:
 - Intent
 - 路由分发
 seo:
-  title: Android App Links 深度解析：从 Digital Asset Links 域名验证到 Intent 路由分发的 Web-to-App 全链路工程实践
+  title: Android App Links：Digital Asset Links 验证与 Intent 路由
   description: Android App Links 全链路实践指南，涵盖 Digital Asset Links 域名验证机制、系统自动审批流程、多场景路由实战及调试工具，助你避开签名配置与跨域验证等常见坑点。
+  pageType: article
 ---
 
 ## 一个诡异的跳转失败

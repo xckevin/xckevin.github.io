@@ -1,4 +1,6 @@
 ---
+slug: openclaw-architecture-node-tool-skill-executable-ai-system
+translationKey: openclaw-architecture-node-tool-skill-executable-ai-system
 title: OpenClaw 架构拆解：Node、Tool、Skill 如何把 AI 变成可执行系统
 excerpt: 本文从一段 OpenClaw 技术对话出发，拆解 Node、Tool、Skill 的职责边界与调用链路，解释为什么 Node 设计是 AI 从“会回答”走向“会执行”的关键。
 publishDate: 2026-03-06

@@ -1,4 +1,5 @@
 ---
+translationKey: android-ci-cd-quality-gates
 title: "Android CI/CD 质量门禁应该包含什么？"
 slug: android-ci-cd-quality-gates
 excerpt: "整理 Android CI/CD 中构建、测试、Lint、签名、性能基准、发布和回滚的质量门禁设计。"
@@ -65,7 +66,7 @@ Android 发布不是上传商店后就结束。灰度阶段应继续观察 crash
 ## 深入阅读
 
 - [返回对应专题：移动端工程化](/android-engineering/)
-- [Android CI/CD 实践：Jenkins、GitLab CI、构建发布与质量门禁](/blog/jenkins与gitlab-ci实现android持续集成与交付从构建到发布的完整指南/)
-- [Android 测试工程实践：JUnit、集成测试、Compose 语义与 CI](/blog/2026-05-10-深入_android_测试全链路工程实践_从_junit_单元测试到_compose_semanti/)
+- [Android CI/CD 实践：Jenkins、GitLab CI、构建发布与质量门禁](/blog/jenkins-gitlab-ci-android-cicd-complete-guide/)
+- [Android 测试工程实践：JUnit、集成测试、Compose 语义与 CI](/blog/android-testing-junit-compose/)
 - [Android Gradle 构建慢怎么分析？](/blog/android-gradle-build-slow/)
 <!-- /seo-internal-links -->

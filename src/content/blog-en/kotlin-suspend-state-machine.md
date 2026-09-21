@@ -217,6 +217,6 @@ I prefer to think of coroutines as "callbacks plus a scheduler, written by the c
 
 - [Back to the Kotlin and Coroutines topic](/en/kotlin-coroutines/)
 - [Kotlin Flow engineering: cold flows, StateFlow, and SharedFlow](/en/blog/kotlin-flow-stateflow-sharedflow/)
-- [Advanced Kotlin Coroutines and Flow usage](/blog/kotlin-coroutines-与-flow-的高级应用与原理/)
+- [Advanced Kotlin Coroutines and Flow usage](/blog/kotlin-coroutines-flow-advanced-applications-internals/)
 - [Kotlin K2 compiler: unified frontend, type inference, and Android build impact](/en/blog/kotlin-k2-compiler-android/)
 <!-- /seo-internal-links -->

@@ -37,8 +37,8 @@ const locale = 'zh';
 ---
 
 <BaseLayout
-    title={`${currentTag?.name} 相关文章`}
-    description={`浏览 ${currentTag?.name} 标签下的 Android 技术文章、源码解析、性能优化与工程实践。`}
+    title={`${currentTag?.name} 相关文章${page.currentPage > 1 ? ` · 第 ${page.currentPage} 页` : ''}`}
+    description={`浏览 ${currentTag?.name} 标签下的 Android 技术文章、源码解析、性能优化与工程实践。第 ${page.currentPage} 页，共 ${page.lastPage} 页。`}
     showHeader={false}
     locale={locale}
     languageSwitchHref="/en/tags/"

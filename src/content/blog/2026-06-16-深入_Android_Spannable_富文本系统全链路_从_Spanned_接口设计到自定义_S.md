@@ -11,8 +11,9 @@ tags:
 - Canvas
 - 自定义View
 seo:
-  title: 深入 Android Spannable 富文本系统全链路：从 Spanned 接口设计到自定义 Span 的 Canvas 渲染引擎
+  title: Android Spannable 富文本：Spanned 接口与自定义 Span 渲染
   description: 从 Spanned 接口的标记存储模型，到 SpannableStringBuilder 内部数组管理，再到 TextLine 的 Canvas 渲染调度——全面拆解 Android 富文本引擎，附自定义 Span 实战与 Compose AnnotatedString 对比。
+  pageType: article
 ---
 
 ## 三行代码的背后

@@ -11,8 +11,9 @@ tags:
 - APM
 - 卡顿检测
 seo:
-  title: 深入 Android Matrix 性能监控框架全链路：从 TracePlugin 卡顿检测原理到自建 APM 体系
+  title: Android Matrix 性能监控：TracePlugin 卡顿检测与自建 APM
   description: 拆解 Matrix TracePlugin 基于 Looper Printer 的堆栈采样机制与 IOCanary 的 PLT Hook 三层 IO 检测原理，分享自建 APM 的分级告警、聚类策略与性能开销控制的最佳实践。
+  pageType: article
 ---
 
 上季度线上 ANR 率从 0.3% 飙到 1.8%，Firebase 堆栈指向主线程 I/O，但代码 review 了一圈也没找到明显的文件操作。这种"明知主线程干了重活但不知道具体是什么"的感觉，估计做过性能优化的都经历过。

@@ -1,4 +1,6 @@
 ---
+slug: android-predictive-back
+translationKey: android-predictive-back
 title: Android 16 Predictive Back 全链路工程实践：从 WindowOnBackInvokedDispatcher 到 Compose BackHandler 的迁移与动画架构解析
 excerpt: Android 16 强制开启 Predictive Back，本文系统讲解 OnBackInvokedDispatcher 注册机制、OnBackAnimationCallback 帧驱动动画、Fragment 与 Compose PredictiveBackHandler 的迁移实践，并附完整迁移检查清单。
 publishDate: '2026-04-21'
@@ -9,8 +11,9 @@ tags:
 - 架构设计
 - 动画
 seo:
-  title: Android 16 Predictive Back 全链路工程实践：从 WindowOnBackInvokedDispatcher 到 Compose BackHandler 的迁移与动画架构解析
+  title: Android 16 Predictive Back：返回分发与 Compose BackHandler
   description: 深入解析 Android 16 强制 Predictive Back 迁移方案，涵盖 OnBackInvokedDispatcher 优先级、OnBackAnimationCallback 帧动画、Fragment 与 Compose PredictiveBackHandler 实践及迁移检查清单。
+  pageType: article
 ---
 
 Android 16 Beta 4 发布后，Google 正式宣布 targetSdk 36 将强制开启 Predictive Back（预测性返回），不再像 Android 13–15 那样允许通过 `android:enableOnBackInvokedCallback="false"` 跳过。如果你的 App 还在用 `onBackPressed()` 或 `KeyEvent.KEYCODE_BACK`，用户在 Android 16 设备上会看到系统默认的预测返回动画，但你的业务逻辑可能压根不触发。

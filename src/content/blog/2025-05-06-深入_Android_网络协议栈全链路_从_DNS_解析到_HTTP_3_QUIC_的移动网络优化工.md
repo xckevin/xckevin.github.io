@@ -1,4 +1,6 @@
 ---
+slug: android-network-stack-dns-http3-quic
+translationKey: android-network-stack-dns-http3-quic
 title: 深入 Android 网络协议栈全链路：从 DNS 解析到 HTTP/3 QUIC 的移动网络优化工程实践
 excerpt: 本文深入剖析 Android 网络协议栈全链路优化，从 DNS 解析（DoH/HttpDNS）、TLS 1.3 握手，到 HTTP/3 QUIC 的工程实践，提供了一套按优先级落地的移动网络优化方案。
 publishDate: '2025-05-06'
@@ -9,8 +11,9 @@ tags:
 - DNS
 - TLS
 seo:
-  title: 深入 Android 网络协议栈全链路：从 DNS 解析到 HTTP/3 QUIC 的移动网络优化工程实践
+  title: Android 网络协议栈：DNS 解析与 HTTP/3 QUIC 移动网络优化
   description: 深入 Android 网络协议栈全链路优化实践，涵盖 DNS 解析（DoH/HttpDNS）、TLS 1.3、HTTP/3 QUIC 与 0-RTT，提供按优先级落地的工程方案。
+  pageType: article
 ---
 
 去年做海外版 App 的网络优化时，我盯着抓包数据看了很久：一个简单的 API 请求，DNS 解析占了 200ms，TCP 握手又 150ms，TLS 握手再加 300ms——光建连就耗掉 650ms，这还是 WiFi 环境下的数据。切换到 4G，数字直接翻倍。

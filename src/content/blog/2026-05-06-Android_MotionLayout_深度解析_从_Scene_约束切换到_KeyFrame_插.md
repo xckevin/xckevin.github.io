@@ -1,4 +1,6 @@
 ---
+slug: android-motionlayout-scene-keyframe
+translationKey: android-motionlayout-scene-constraint-keyframe
 title: Android MotionLayout 深度解析：从 Scene 约束切换到 KeyFrame 插值的动画状态机工程实践
 excerpt: MotionLayout 的核心价值在于将复杂交互动画建模为可推理的状态机，通过 ConstraintSet 定义离散状态、KeyFrame 控制插值路径，本文深入解析其工程落地的设计思路与调试实践。
 publishDate: '2026-05-06'
@@ -9,8 +11,9 @@ tags:
 - ConstraintSet
 - 架构设计
 seo:
-  title: Android MotionLayout 深度解析：从 Scene 约束切换到 KeyFrame 插值的动画状态机工程实践
+  title: Android MotionLayout：Scene 约束切换与 KeyFrame 动画状态机
   description: 深入解析 Android MotionLayout 的状态机建模思路，涵盖 ConstraintSet 状态设计、KeyFrame 插值路径控制、Scene 工程拆分策略与调试技巧。
+  pageType: article
 ---
 
 做复杂交互动画时，很多人一开始用 `ObjectAnimator` 或 `ViewPropertyAnimator`，简单场景完全够用。但一旦交互里混进拖拽、中断、回退、状态恢复，代码很快就会散掉——位置在改，透明度在改，手势还在改，最后没人说得清界面此刻到底处于哪个状态。

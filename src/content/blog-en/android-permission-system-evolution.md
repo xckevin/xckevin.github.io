@@ -125,7 +125,7 @@ The permission system has moved from Android 6.0's broad runtime permission mode
 
 - [Back to topic: Android Framework](/en/android-framework/)
 - [Android Binder internals: from driver communication to the AIDL call chain](/en/blog/android-binder/)
-- [Android Framework system services: AMS, WMS, and the app-process interaction model](/blog/android系统服务与framework层交互模型/)
-- [Android process and thread model: Zygote, main thread, and Binder thread pools](/blog/android进程与线程模型深度剖析/)
+- [Android Framework system services: AMS, WMS, and the app-process interaction model](/blog/android-system-services-framework-interaction/)
+- [Android process and thread model: Zygote, main thread, and Binder thread pools](/blog/android-process-thread-model-deep-dive/)
 - [Android ContentProvider IPC: URI routing, cross-process access, and permission control](/en/blog/android-contentprovider-ipc/)
 <!-- /seo-internal-links -->

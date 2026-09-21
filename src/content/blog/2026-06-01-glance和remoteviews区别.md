@@ -1,16 +1,18 @@
 ---
-title: "Glance 和 RemoteViews 有什么区别？"
+translationKey: glance-vs-remoteviews
+title: Glance 和 RemoteViews 有什么区别？
 slug: glance-vs-remoteviews
-excerpt: "解释 Android Glance AppWidget 与 RemoteViews 的关系、差异、适用场景和迁移判断。"
+excerpt: 解释 Android Glance AppWidget 与 RemoteViews 的关系、差异、适用场景和迁移判断。
 publishDate: '2026-06-01'
 tags:
-- "Android"
-- "Jetpack Glance"
-- "AppWidget"
-- "Compose"
+- Android
+- Jetpack Glance
+- AppWidget
+- Compose
 seo:
-  title: "Glance 和 RemoteViews 有什么区别？Android AppWidget 方案对比"
-  description: "对比 Android Glance 与 RemoteViews，解释声明式小组件、RemoteViews 翻译层、更新机制、限制和适用场景。"
+  title: Android Glance 与 RemoteViews 对比：AppWidget 方案选型
+  description: 对比 Android Glance 与 RemoteViews，解释声明式小组件、RemoteViews 翻译层、更新机制、限制和适用场景。
+  pageType: article
 ---
 
 Glance 不是替代 Android AppWidget 底层机制的新渲染引擎，它更像是 RemoteViews 之上的声明式封装。理解这一点很重要，否则很容易把 Glance 当成“能在桌面小组件里跑完整 Compose”的方案。
@@ -69,6 +71,6 @@ Glance 可以帮你根据状态生成新的 RemoteViews，但你仍然要设计�
 ## 深入阅读
 
 - [返回对应专题：Jetpack Compose](/jetpack-compose/)
-- [Android Glance AppWidget 原理：RemoteViews、更新机制与 Compose 小组件](/blog/2026-05-28-深入_android_glance_appwidget_全链路_从_remoteviews_渲染桥接/)
-- [Jetpack Compose 原理与高级应用：状态、布局、重组与性能实践](/blog/jetpack-compose-高级应用与原理/)
+- [Android Glance AppWidget 原理：RemoteViews、更新机制与 Compose 小组件](/blog/android-glance-appwidget-remoteviews-deep-dive/)
+- [Jetpack Compose 原理与高级应用：状态、布局、重组与性能实践](/blog/jetpack-compose-advanced-applications-internals/)
 <!-- /seo-internal-links -->

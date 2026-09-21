@@ -1,4 +1,6 @@
 ---
+slug: android-vulkan-opengl-es-gpu
+translationKey: android-vulkan-opengl-es-gpu
 title: 深入 Android Vulkan 图形渲染全链路：从 OpenGL ES 迁移到 GPU 驱动调优的低开销渲染架构
 excerpt: 本文系统梳理了 Android 端从 OpenGL ES 向 Vulkan 迁移的完整链路，涵盖命令缓冲多线程录制、Render Pass 带宽优化、描述符集与管线缓存等驱动调优实践，帧率提升达 35%。
 publishDate: '2025-09-26'
@@ -9,8 +11,9 @@ tags:
 - 图形渲染
 - 性能优化
 seo:
-  title: 深入 Android Vulkan 图形渲染全链路：从 OpenGL ES 迁移到 GPU 驱动调优的低开销渲染架构
+  title: Android Vulkan 渲染：OpenGL ES 迁移与 GPU 驱动调优
   description: 深度解析 Android Vulkan 图形渲染全链路，从 OpenGL ES 迁移到命令缓冲、Render Pass、描述符集缓存等 GPU 驱动调优实践，实现帧率提升 35% 的低开销渲染架构。
+  pageType: article
 ---
 
 去年在做视频特效 SDK 的性能优化时，遇到一个棘手问题：OpenGL ES 渲染管线在高帧率场景下 GPU 利用率只有 60%，驱动层的隐式状态校验吃掉了大量 CPU 时间。切到 Vulkan 后，同样的 shader 逻辑帧率提升了 35%。这篇文章把整个迁移链路和调优思路整理出来。

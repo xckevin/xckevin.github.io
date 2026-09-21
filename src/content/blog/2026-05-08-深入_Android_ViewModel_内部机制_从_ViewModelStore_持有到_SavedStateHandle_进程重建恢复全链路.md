@@ -1,4 +1,6 @@
 ---
+slug: android-viewmodel-savedstatehandle
+translationKey: android-viewmodel-savedstatehandle
 title: 深入 Android ViewModel 内部机制：从 ViewModelStore 持有到 SavedStateHandle 进程重建恢复全链路
 excerpt: 从 ViewModelStore 容器持有机制讲到 SavedStateHandle 进程重建恢复，厘清 ViewModel 在配置变更与进程死亡两种场景下的不同存活逻辑，带你理解 ViewModel 内部的双重生命周期。
 publishDate: '2026-05-08'
@@ -8,6 +10,11 @@ tags:
 - 架构设计
 - Kotlin
 - Jetpack
+seo:
+  title: Android ViewModel：生命周期与 SavedStateHandle 状态恢复
+  pageType: article
+  description: 解析 ViewModelStore 如何持有 ViewModel，区分配置变更存活与进程死亡恢复，并说明 SavedStateHandle 的状态保存边界。
+updatedDate: '2026-09-21'
 ---
 
 
@@ -256,3 +263,4 @@ override fun onSaveInstanceState(outState: Bundle) {
     Log.d("SaveState", "Bundle size: ${parcel.dataSize() / 1024}KB")
     parcel.recycle()
 }
+```

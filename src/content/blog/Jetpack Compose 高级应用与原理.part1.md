@@ -1,4 +1,6 @@
 ---
+slug: jetpack-compose-advanced-applications-internals-part1
+translationKey: jetpack-compose-advanced-applications-internals-part1
 title: "Jetpack Compose 高级应用与原理（1）：引言：声明式 UI 的范式革命"
 excerpt: "「Jetpack Compose 高级应用与原理」系列第 1/3 篇：引言：声明式 UI 的范式革命"
 publishDate: 2024-11-18

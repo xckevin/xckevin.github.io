@@ -150,8 +150,8 @@ RecyclerView's cache design is fundamentally a layered time-space tradeoff. Cach
 ## Further Reading
 
 - [Back to the topic: Android Performance Optimization](/android-performance/)
-- [Android Startup Optimization: From Zygote Fork to First Frame with Perfetto](/blog/2026-04-19-android_冷启动全链路优化工程实践_从_zygote_fork_到首帧上屏的_systrace/)
-- [Android App Startup Optimization: Metrics, Pipeline, Tools, and Governance](/blog/app启动优化专项/)
-- [Android Bitmap Memory Model: Java Heap, Native Heap, and Hardware Bitmap](/blog/2026-04-14-深入_android_bitmap_内存模型_从_java_堆分配到_hardware_bitmap/)
-- [Android RenderThread and HWUI: Rendering Pipeline, DisplayList, and Dropped-Frame Analysis](/blog/2026-04-20-android_renderthread_与_hwui_渲染管线深度解析_从_displaylist/)
+- [Android Startup Optimization: From Zygote Fork to First Frame with Perfetto](/blog/android-cold-start-zygote-systrace/)
+- [Android App Startup Optimization: Metrics, Pipeline, Tools, and Governance](/blog/app-startup-optimization/)
+- [Android Bitmap Memory Model: Java Heap, Native Heap, and Hardware Bitmap](/blog/android-bitmap-memory-model-hardware-bitmap/)
+- [Android RenderThread and HWUI: Rendering Pipeline, DisplayList, and Dropped-Frame Analysis](/blog/android-renderthread-hwui/)
 <!-- /seo-internal-links -->

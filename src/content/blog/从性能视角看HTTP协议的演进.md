@@ -1,4 +1,6 @@
 ---
+slug: http-protocol-evolution-performance
+translationKey: http-protocol-evolution-performance
 title: 从性能视角看HTTP协议的演进
 excerpt: "HTTP（HyperText Transfer Protocol，超文本传输协议）是一种基于请求-响应模型的应用层协议，用于在 Web 浏览器与 Web 服务器之间传输超文本（如 HTML）。作为互联网的基础协议之一，它定义了客户端与服务器之间的通信规则，使用户能够访问和浏览网页、图片、视频等各类网络资源。"
 publishDate: 2025-09-13
@@ -55,7 +57,7 @@ HTTP 协议基于 TCP 协议。在早期版本中，每次请求都需要建立�
 2. **Pipeline**：管道化，允许在收到响应前发送多个请求
 3. **Chunked**：分块传输编码，支持流式传输响应体
 
-![](../../assets/从性能视角看http协议的演进-1.png)
+![HTTP 短连接、持久连接和管线化请求的客户端与服务端时序对比](../../assets/从性能视角看http协议的演进-1.png)
 
 ### 域名分片
 

@@ -1,4 +1,6 @@
 ---
+slug: art-vm-advanced-memory-management-part1
+translationKey: art-vm-advanced-memory-management-part1
 title: "ART 虚拟机与内存管理高级策略（1）：引言：性能与稳定的基石"
 excerpt: "「ART 虚拟机与内存管理高级策略」系列第 1/4 篇：引言：性能与稳定的基石"
 publishDate: 2024-05-05

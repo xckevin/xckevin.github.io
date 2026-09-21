@@ -11,8 +11,9 @@ tags:
 - Kotlin协程
 - 性能优化
 seo:
-  title: 深入 Android 线程池与并发编程全链路：从 ThreadPoolExecutor 调参到协程调度器底层映射的工程实践
+  title: Android 线程池与并发：ThreadPoolExecutor 调参与协程调度器映射
   description: 从 ThreadPoolExecutor 参数调优、队列选型、拒绝策略，到 Kotlin 协程调度器底层线程池映射，系统讲解 Android 并发编程的工程落地与线程治理实践。
+  pageType: article
 ---
 
 去年接手一个即时通讯模块的优化，线上 ANR 率 2.3%。Trace 打开，全场共用一个无界线程池处理消息收发，高峰期线程数干到 200+。**Android 面试里人人能背四种线程池，但工程落地时，大多数人停在 Handler 和协程之间，对中间地带一知半解。**

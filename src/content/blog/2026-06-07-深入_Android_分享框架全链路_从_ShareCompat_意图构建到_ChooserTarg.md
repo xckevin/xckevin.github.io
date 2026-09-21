@@ -11,8 +11,9 @@ tags:
 - Intent
 - 架构设计
 seo:
-  title: 深入 Android 分享框架全链路：从 ShareCompat 意图构建到 ChooserTarget 动态目标的架构解析
+  title: Android 分享框架：ShareCompat 意图构建与 ChooserTarget
   description: 深度解析 Android 分享框架全链路，涵盖 ShareCompat 意图构建、Chooser 目标匹配、ChooserTargetService 动态目标实现，以及 Jetpack Compose 适配要点和常见踩坑经验。
+  pageType: article
 ---
 
 去年做一个社交 App 的分享功能时，产品要求"把最近聊过的好友直接显示在分享框首页"。原以为调个 `Intent.createChooser()` 就能收工，结果 Android 的分享框架比预想的深得多——Intent 解析、Chooser 界面渲染、Direct Share 的动态目标服务，每一层都有独立的机制。

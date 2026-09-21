@@ -1,4 +1,6 @@
 ---
+slug: app-stability-online-operations
+translationKey: app-stability-online-operations
 title: App稳定性建设与线上运维
 excerpt: "用户对一个应用的最低期望通常是：它能够稳定运行。频繁的崩溃（Crash）、无响应（ANR - Application Not Responding）或因内存溢出（OOM - Out-of-Memory）导致的异常退出，会极大地破坏用户体验，侵蚀用户信任，最终导致用户流失。因此，应用稳定性是衡量应用质量的生命线指标，其重要性不亚于功能和性能。"
 publishDate: 2024-04-13

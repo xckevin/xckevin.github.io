@@ -179,6 +179,6 @@ Understand the core differences between cold and hot flows, Channel's point-to-p
 
 - [Back to the Kotlin and Coroutines topic](/en/kotlin-coroutines/)
 - [Kotlin `suspend` internals: CPS, Continuation, and state-machine bytecode](/en/blog/kotlin-suspend-state-machine/)
-- [Advanced Kotlin Coroutines and Flow usage](/blog/kotlin-coroutines-与-flow-的高级应用与原理/)
+- [Advanced Kotlin Coroutines and Flow usage](/blog/kotlin-coroutines-flow-advanced-applications-internals/)
 - [Kotlin K2 compiler: unified frontend, type inference, and Android build impact](/en/blog/kotlin-k2-compiler-android/)
 <!-- /seo-internal-links -->

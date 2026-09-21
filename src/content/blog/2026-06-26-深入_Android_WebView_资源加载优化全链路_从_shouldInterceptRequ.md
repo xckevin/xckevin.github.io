@@ -11,8 +11,9 @@ tags:
 - 离线包缓存
 - shouldInterceptRequest
 seo:
-  title: 深入 Android WebView 资源加载优化全链路：从 shouldInterceptRequest 资源拦截到离线包缓存策略的加载性能工程实践
+  title: Android WebView 资源加载：shouldInterceptRequest 拦截与离线包
   description: 从实战出发详解 Android WebView 资源加载优化：利用 shouldInterceptRequest 拦截请求 + 离线包架构，配合内存缓存、资源合并等策略，首屏白屏时间从 2.8s 优化至 0.6s。含同步 IO 阻塞、Cookie 认证等踩坑全记录。
+  pageType: article
 ---
 
 去年接手一个混合开发项目，WebView 加载活动页的首屏白屏时间高达 2.8 秒。Leader 甩了一句"优化到 1 秒内"就走了。当时我的思路是：把线上资源搬到本地，用拦截 API 做分流。

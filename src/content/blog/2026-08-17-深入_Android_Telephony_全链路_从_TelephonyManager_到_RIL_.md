@@ -11,8 +11,9 @@ tags:
 - 架构设计
 - 源码分析
 seo:
-  title: 深入 Android Telephony 全链路：从 TelephonyManager 到 RIL 层的通话状态机与短信收发架构解析
+  title: Android Telephony：TelephonyManager、RIL 通话状态机与短信收发
   description: 解析 Android Telephony 全链路架构：TelephonyManager 门面、Phone 进程通话状态机、RIL 层序列号协议，以及短信收发双路径与问题排查方法。
+  pageType: article
 ---
 
 排查过一次"来电不响铃"的线上问题，日志从应用层一路翻到 RIL 的 socket 输出，才发现同一个通话状态在四个进程里各维护了一份。Telephony 是 Android 里最典型的跨进程 + HAL 分层系统：应用层 API 只是入口，真正的状态机、协议处理和 Modem 交互都藏在 Phone 进程和 RIL 层。理解这条链路，才能把通话、短信、数据网络的异常问题定位到正确的层。

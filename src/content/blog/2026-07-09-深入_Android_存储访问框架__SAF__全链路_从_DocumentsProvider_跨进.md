@@ -1,4 +1,6 @@
 ---
+slug: android-storage-access-framework
+translationKey: android-storage-access-framework
 title: 深入 Android 存储访问框架 (SAF) 全链路：从 DocumentsProvider 跨进程到 DocumentFile 的云存储与本地文件统一访问架构
 excerpt: 深入解析 Android SAF 存储访问框架的全链路架构，涵盖 DocumentsProvider 实现、跨进程 Uri 授权机制、DocumentFile 统一访问抽象，以及云存储与本地文件的三种植入模式选型。
 publishDate: '2026-07-09'
@@ -9,8 +11,9 @@ tags:
 - 存储架构
 - Kotlin
 seo:
-  title: 深入 Android 存储访问框架 (SAF) 全链路：从 DocumentsProvider 跨进程到 DocumentFile 的云存储与本地文件统一访问架构
+  title: Android 存储访问框架 SAF：DocumentsProvider 与 DocumentFile
   description: 深入解析 Android 存储访问框架 (SAF) 全链路，从 DocumentsProvider 实现到 DocumentFile 统一访问，覆盖 Uri 授权机制、云存储集成与三种接入模式选型。
+  pageType: article
 ---
 
 App 需要让用户选文件——可能是本地相册的照片，也可能是 OneDrive 上的文档。做过的都清楚，传统方案是分别对接各云服务 SDK，然后自己维护一套文件访问抽象层。

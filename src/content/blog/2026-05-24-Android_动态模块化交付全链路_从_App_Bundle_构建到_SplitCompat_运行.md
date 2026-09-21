@@ -1,4 +1,6 @@
 ---
+slug: android-dynamic-feature-delivery-splitcompat
+translationKey: android-dynamic-feature-delivery-splitcompat
 title: Android 动态模块化交付全链路：从 App Bundle 构建到 SplitCompat 运行时加载的按需分发架构
 excerpt: 深入解析 Android 动态模块化交付全链路，涵盖 App Bundle 构建拆分、SplitCompat ClassLoader 注入机制、Play Feature Delivery 按需分发，以及包体积优化的实战踩坑与收益。
 publishDate: '2026-05-24'
@@ -9,8 +11,9 @@ tags:
 - SplitCompat
 - 性能优化
 seo:
-  title: Android 动态模块化交付全链路：从 App Bundle 构建到 SplitCompat 运行时加载的按需分发架构
+  title: Android 动态模块化：App Bundle 构建与 SplitCompat 按需加载
   description: 从 App Bundle 构建、Split APK 生成到 SplitCompat ClassLoader 注入与 Play Feature Delivery 按需分发，全面解析 Android 动态模块化交付体系，包含反射修改 parent 链原理、资源加载、MultiDex 兼容与包体积优化实战。
+  pageType: article
 ---
 
 去年接手一个海外项目时，APK 已经膨胀到 120MB。砍代码、压缩资源效果有限，真正的突破口是把"用户现在用不到的东西"拆出去——这就涉及 Android 动态模块化交付体系。下面从 App Bundle 构建、Split APK 生成，到 SplitCompat 运行时加载和 Play Feature Delivery 按需安装，把完整链路串一遍。

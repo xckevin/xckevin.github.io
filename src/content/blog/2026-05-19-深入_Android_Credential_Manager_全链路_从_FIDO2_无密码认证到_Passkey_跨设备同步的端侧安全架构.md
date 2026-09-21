@@ -1,4 +1,6 @@
 ---
+slug: android-credential-manager-passkeys
+translationKey: android-credential-manager-passkeys
 title: 深入 Android Credential Manager 全链路：从 FIDO2 无密码认证到 Passkey 跨设备同步的端侧安全架构
 excerpt: 深入解析 Android Credential Manager 全链路，从 FIDO2 无密码认证、TEE 密钥保护到 Passkey 跨设备同步的端侧安全架构。
 publishDate: '2026-05-19'
@@ -9,11 +11,11 @@ tags:
 - Passkey
 - 安全架构
 seo:
-  title: 深入 Android Credential Manager 全链路：FIDO2 无密码认证与 Passkey 同步
+  title: Android Credential Manager：FIDO2 无密码认证与 Passkey 同步
   description: 解析 Android Credential Manager、FIDO2/WebAuthn、TEE 密钥保护与 Passkey 跨设备同步机制，梳理端侧无密码认证安全架构。
+  pageType: article
 ---
 
-# 深入 Android Credential Manager 全链路：从 FIDO2 无密码认证到 Passkey 跨设备同步的端侧安全架构
 
 在做登录模块改造时，产品和我说「一键登录，不要输密码」。当时第一反应是 WebAuthn，但 Android 端 API 碎片化严重——FIDO2 API 和 One Tap API 各自为战，选哪个都要填另一半的坑。
 

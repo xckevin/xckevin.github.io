@@ -1,4 +1,6 @@
 ---
+slug: android-feature-flags-gradual-rollout
+translationKey: android-feature-flags-gradual-rollout
 title: 深入 Android App 特性开关与灰度发布全链路：从远程配置架构到实验分流引擎的工程实践
 excerpt: 深入探讨 Android App 特性开关系统的自研实践，涵盖三层架构设计、哈希分桶实验分流、灰度发布全链路及容灾兜底策略，并给出自研与 Firebase Remote Config 的选型建议。
 publishDate: '2025-05-30'
@@ -9,8 +11,9 @@ tags:
 - 灰度发布
 - A/B测试
 seo:
-  title: 深入 Android App 特性开关与灰度发布全链路：从远程配置架构到实验分流引擎的工程实践
+  title: Android 特性开关与灰度发布：远程配置架构与实验分流引擎
   description: 本文分享从 Firebase Remote Config 到自研 Android 特性开关系统的工程实践，涵盖三层架构设计、哈希分桶实验分流、灰度发布流程及容灾兜底策略。
+  pageType: article
 ---
 
 去年做某电商 App 的首页改版，PM 提了一个要求：新版首页先对 5% 用户放开，观察三天数据再全量。我用 Firebase Remote Config 配了一个条件参数，灰度当天就出了问题——部分用户切换网络后配置丢失，展示回了旧版，数据直接对不上。

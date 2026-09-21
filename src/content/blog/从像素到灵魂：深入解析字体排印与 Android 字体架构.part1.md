@@ -1,4 +1,6 @@
 ---
+slug: android-typography-font-architecture-part1
+translationKey: android-typography-font-architecture-part1
 title: "从像素到灵魂：深入解析字体排印与 Android 字体架构（1）：分 - 万丈高楼平地起：奠定字体排印的坚实基础"
 excerpt: "「从像素到灵魂：深入解析字体排印与 Android 字体架构」系列第 1/15 篇：分 - 万丈高楼平地起：奠定字体排印的坚实基础"
 publishDate: 2026-01-12

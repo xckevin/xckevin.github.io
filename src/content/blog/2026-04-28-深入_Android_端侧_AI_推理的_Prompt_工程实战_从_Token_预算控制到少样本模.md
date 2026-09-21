@@ -1,4 +1,6 @@
 ---
+slug: android-on-device-ai-prompt-engineering
+translationKey: android-on-device-ai-prompt-engineering
 title: 深入 Android 端侧 AI 推理的 Prompt 工程实战
 excerpt: 在 Android 端侧部署 LLM 时，通过 Token 预算管理、少样本模板压缩与动态预算切换，将首 Token 延迟从 8.7 秒优化至 2 秒内，兼顾摘要质量。
 publishDate: '2026-04-28'

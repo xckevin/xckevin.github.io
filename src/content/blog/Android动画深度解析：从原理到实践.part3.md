@@ -1,4 +1,6 @@
 ---
+slug: android-animation-principles-practice-part3
+translationKey: android-animation-principles-practice-part3
 title: "Android动画深度解析：从原理到实践（3）：系统架构概览（System Architecture Overview）"
 excerpt: "「Android动画深度解析：从原理到实践」系列第 3/9 篇：系统架构概览（System Architecture Overview）"
 publishDate: 2024-03-20

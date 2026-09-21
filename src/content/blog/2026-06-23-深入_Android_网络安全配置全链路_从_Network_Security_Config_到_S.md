@@ -11,8 +11,9 @@ tags:
 - 证书透明度
 - Network Security Config
 seo:
-  title: 深入 Android 网络安全配置全链路：从 Network Security Config 到 SSL Pinning 与证书透明度验证的端侧安全工程实践
+  title: Android 网络安全配置：SSL Pinning 与证书透明度验证
   description: 详解 Android Network Security Config、SSL Pinning 与证书透明度三层防御体系，从配置陷阱到线上监控，构建端侧网络安全工程实践。
+  pageType: article
 ---
 
 做安全审计时，Burp Suite 抓包居然抓不到我们 App 的 HTTPS 请求。安全团队问我是不是加了证书固定，我翻遍代码没找到 OkHttp 的 CertificatePinner 配置。最后发现是 Android 7.0+ 的默认行为——系统只信任预装 CA，用户安装的证书（包括 Charles 和 Burp 的根证书）对 App 默认不生效。

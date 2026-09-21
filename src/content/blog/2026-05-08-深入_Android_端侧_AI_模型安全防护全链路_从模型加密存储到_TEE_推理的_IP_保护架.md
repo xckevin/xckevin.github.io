@@ -1,4 +1,6 @@
 ---
+slug: android-on-device-ai-model-security-tee
+translationKey: android-on-device-ai-model-security-tee
 title: 深入 Android 端侧 AI 模型安全防护全链路：从模型加密存储到 TEE 推理的 IP 保护架构
 excerpt: 系统阐述 Android 端侧 AI 模型的多层安全防护方案：从加密存储、硬件密钥管理到 TEE 推理的纵深防御体系，并结合工程实践分析现实约束与取舍。
 publishDate: '2026-05-08'
@@ -9,8 +11,9 @@ tags:
 - AI
 - 加密
 seo:
-  title: 深入 Android 端侧 AI 模型安全防护全链路：从模型加密存储到 TEE 推理的 IP 保护架构
+  title: Android 端侧 AI 模型安全：模型加密存储与 TEE 推理
   description: 深入探讨 Android 端侧 AI 模型的 IP 保护架构，覆盖 AES-GCM 加密存储、Keystore 硬件绑定密钥管理及 TEE 推理三层纵深防御，分析工程约束与实践取舍。
+  pageType: article
 ---
 
 去年在做端侧 LLM 项目时，安全团队丢过来一个问题：你们打包进 APK 的 .tflite 模型文件，我一分钟就能从 res/raw 里解出来。更让人头皮发麻的是，模型文件里能直接看到权重数值——这就是把训练好的 IP 裸奔着发布。

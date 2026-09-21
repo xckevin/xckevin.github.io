@@ -1,4 +1,6 @@
 ---
+slug: android-health-connect-fhir
+translationKey: android-health-connect-fhir
 title: 深入 Android Health Connect 健康数据平台全链路
 excerpt: 深入解析 Android Health Connect 的 FHIR 数据模型、细粒度权限管控、变更令牌增量同步机制及纯端侧聚合架构，结合实际接入踩坑经验，为健康类 App 开发者提供完整的技术参考。
 publishDate: '2025-07-31'

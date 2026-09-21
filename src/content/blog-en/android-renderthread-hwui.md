@@ -1,19 +1,20 @@
 ---
-title: "Android RenderThread and HWUI: From DisplayList Recording to GPU Rasterization"
+title: 'Android RenderThread and HWUI: From DisplayList Recording to GPU Rasterization'
 lang: en
 translationKey: android-renderthread-hwui
 slug: android-renderthread-hwui
-excerpt: "A deep dive into Android HWUI rendering, main-thread and RenderThread responsibilities, DisplayList recording, RenderNode synchronization, Skia/Vulkan rasterization, and Compose rendering."
+excerpt: A deep dive into Android HWUI rendering, main-thread and RenderThread responsibilities, DisplayList recording, RenderNode synchronization, Skia/Vulkan rasterization, and Compose
+  rendering.
 publishDate: '2026-04-20'
 tags:
-- "Android"
-- "Performance Optimization"
-- "HWUI"
-- "Compose"
-- "Vulkan"
+- Android
+- Performance Optimization
+- HWUI
+- Compose
+- Vulkan
 seo:
-  title: "Android RenderThread and HWUI: Rendering Pipeline, DisplayList, and Jank Analysis"
-  description: "Understand Android HWUI, RenderThread, DisplayList recording, RenderNode sync, GPU rasterization, Compose layers, Vulkan, and frame drops."
+  title: 'Android RenderThread and HWUI: DisplayList and Jank Analysis'
+  description: Understand Android HWUI, RenderThread, DisplayList recording, RenderNode sync, GPU rasterization, Compose layers, Vulkan, and frame drops.
   pageType: article
 ---
 

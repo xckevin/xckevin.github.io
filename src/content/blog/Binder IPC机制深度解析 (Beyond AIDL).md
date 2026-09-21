@@ -1,4 +1,6 @@
 ---
+slug: binder-ipc-beyond-aidl
+translationKey: binder-ipc-beyond-aidl
 title: Binder IPC 机制深度解析（Beyond AIDL）
 excerpt: "在 Android 这个以多进程为基础构建的操作系统中，进程间通信（Inter-Process Communication，IPC）是不可或缺的粘合剂。从应用程序与系统服务（如 ActivityManagerService、WindowManagerService）的交互，到应用内部不同进程（例如主进程与推送服务进程）的协作，再到硬件抽象层（HAL）与系统框架的沟通，都离不开高效、稳定、安全..."
 publishDate: 2024-04-21
@@ -1110,8 +1112,8 @@ Binder 远不止于 AIDL 的语法糖。它是一个精巧、复杂且高效的 
 ## 延伸阅读
 
 - [返回对应专题：Android Framework](/android-framework/)
-- [Android Framework 系统服务：AMS、WMS 与应用进程交互模型](/blog/android系统服务与framework层交互模型/)
-- [Android 进程与线程模型：Zygote、主线程、Binder 线程池解析](/blog/android进程与线程模型深度剖析/)
-- [Android ContentProvider 原理：URI 路由、跨进程访问与权限控制](/blog/2026-05-15-深入_android_contentprovider_跨进程数据共享_从_uri_路由到_conte/)
-- [Android 权限系统原理：运行时权限、拦截链路与安全边界](/blog/2026-05-17-android_权限系统演进全链路_从_activitythread_权限拦截到_android_1/)
+- [Android Framework 系统服务：AMS、WMS 与应用进程交互模型](/blog/android-system-services-framework-interaction/)
+- [Android 进程与线程模型：Zygote、主线程、Binder 线程池解析](/blog/android-process-thread-model-deep-dive/)
+- [Android ContentProvider 原理：URI 路由、跨进程访问与权限控制](/blog/android-contentprovider-ipc/)
+- [Android 权限系统原理：运行时权限、拦截链路与安全边界](/blog/android-permission-system-evolution/)
 <!-- /seo-internal-links -->

@@ -1,4 +1,6 @@
 ---
+slug: android-privacy-sandbox-sdk-runtime
+translationKey: android-privacy-sandbox-sdk-runtime
 title: 深入 Android Privacy Sandbox 全链路：从 SDK Runtime 进程隔离到 Protected Audience 再营销的隐私保护架构
 excerpt: 本文系统梳理 Android Privacy Sandbox 全链路架构，从 SDK Runtime 进程隔离、Protected Audience 端侧竞价到 Attribution Reporting 归因机制，并结合实战经验给出工程迁移落地建议。
 publishDate: '2025-08-28'
@@ -9,8 +11,9 @@ tags:
 - 隐私保护
 - 架构设计
 seo:
-  title: 深入 Android Privacy Sandbox 全链路：从 SDK Runtime 进程隔离到 Protected Audience 再营销的隐私保护架构
+  title: Android Privacy Sandbox：SDK Runtime 隔离与 Protected Audience
   description: 深入解析 Android Privacy Sandbox 全链路架构：SDK Runtime 进程隔离、Protected Audience 端侧竞价、Attribution Reporting 归因报告三大核心机制，附工程迁移落地建议。
+  pageType: article
 ---
 
 ## 当设备标识符不再是「免费的午餐」

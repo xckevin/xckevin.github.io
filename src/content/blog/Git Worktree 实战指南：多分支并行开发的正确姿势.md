@@ -1,4 +1,6 @@
 ---
+slug: git-worktree-parallel-branch-development
+translationKey: git-worktree-parallel-branch-development
 title: Git Worktree 实战指南：多分支并行开发的正确姿势
 excerpt: 传统 Git 工作流中，频繁切分支、stash 管理混乱、多任务并行困难是常见痛点。git worktree 通过"一个仓库挂载多个工作目录"的方式，将分支切换问题升级为多工作空间并行方案。本文从原理到实战，完整拆解这一被低估的 Git 能力。
 publishDate: 2026-03-26

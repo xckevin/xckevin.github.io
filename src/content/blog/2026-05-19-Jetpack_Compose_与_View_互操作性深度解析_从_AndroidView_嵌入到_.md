@@ -1,4 +1,6 @@
 ---
+slug: jetpack-compose-view-interop
+translationKey: jetpack-compose-view-interop
 title: Compose 与 View 桥接实战：AndroidView 与 ComposeView 的双向通信
 excerpt: 深入解析 Compose 与 View 双向桥接机制，涵盖 AndroidView/ComposeView 生命周期绑定、状态同步策略、焦点管理及触摸事件冲突处理，并给出渐进式迁移的实践建议。
 publishDate: '2026-05-19'
@@ -9,8 +11,9 @@ tags:
 - 状态管理
 - 视图桥接
 seo:
-  title: "Jetpack Compose 与 View 互操作：AndroidView、生命周期与迁移策略"
-  description: "解析 Compose 与传统 View 互操作的生命周期、状态同步、AndroidView 嵌入、性能风险和渐进式迁移实践。"
+  title: Compose 与 View 互操作：AndroidView、生命周期与迁移
+  description: 解析 Compose 与传统 View 互操作的生命周期、状态同步、AndroidView 嵌入、性能风险和渐进式迁移实践。
+  pageType: article
 ---
 
 这篇文章的骨架很扎实，技术点也都对，主要是 AI 痕迹需要清理——排比句、空洞过渡词、还有几处被动语态。代码块我检查过了，没有技术问题，不动。下面直接上润色后的版本。
@@ -167,8 +170,8 @@ AndroidView(
 ## 延伸阅读
 
 - [返回对应专题：Jetpack Compose](/jetpack-compose/)
-- [Jetpack Compose 重组性能优化：Stability、derivedStateOf 与跳过重组](/blog/2026-05-07-jetpack_compose_重组性能全链路调优_从_stability_推断到_deriveds/)
-- [Jetpack Compose 原理与高级应用：状态、布局、重组与性能实践](/blog/jetpack-compose-高级应用与原理/)
-- [Jetpack Compose Modifier 原理：链式节点、布局绘制与事件处理](/blog/2026-05-15-jetpack_compose_modifier_链式机制深度解析_从_modifier_node_/)
-- [Jetpack Compose 手势系统：PointerInput 事件管道与嵌套滚动](/blog/2026-05-16-jetpack_compose_手势系统深度解析_从_pointerinput_事件管道到_modi/)
+- [Jetpack Compose 重组性能优化：Stability、derivedStateOf 与跳过重组](/blog/jetpack-compose-recomposition-performance/)
+- [Jetpack Compose 原理与高级应用：状态、布局、重组与性能实践](/blog/jetpack-compose-advanced-applications-internals/)
+- [Jetpack Compose Modifier 原理：链式节点、布局绘制与事件处理](/blog/jetpack-compose-modifier-node/)
+- [Jetpack Compose 手势系统：PointerInput 事件管道与嵌套滚动](/blog/jetpack-compose-gestures/)
 <!-- /seo-internal-links -->

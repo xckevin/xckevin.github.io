@@ -1,4 +1,6 @@
 ---
+slug: kotlin-coroutines-flow-advanced-applications-internals-part1
+translationKey: kotlin-coroutines-flow-advanced-applications-internals-part1
 title: "Kotlin Coroutines 与 Flow 的高级应用与原理（1）：引言：告别回调地狱，拥抱结构化并发"
 excerpt: "「Kotlin Coroutines 与 Flow 的高级应用与原理」系列第 1/5 篇：引言：告别回调地狱，拥抱结构化并发"
 publishDate: 2025-03-30

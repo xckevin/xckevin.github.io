@@ -1,4 +1,6 @@
 ---
+slug: android-user-data-backup-restore
+translationKey: android-user-data-backup-restore
 title: 深入 Android 用户数据备份恢复全链路：从 Auto Backup 传输机制到 Key/Value Backup 与 DataStore 迁移的数据安全保障
 excerpt: 深入剖析 Android Auto Backup 与 Key/Value Backup 的工作机制，结合 DataStore 迁移实战，详解备份调度策略、传输加密及恢复流程中的常见陷阱与解决方案。
 publishDate: '2026-04-03'
@@ -9,8 +11,9 @@ tags:
 - Auto Backup
 - 架构设计
 seo:
-  title: 深入 Android 用户数据备份恢复全链路：从 Auto Backup 传输机制到 Key/Value Backup 与 DataStore 迁移的数据安全保障
+  title: Android 数据备份恢复：Auto Backup 与 Key/Value Backup 迁移
   description: 深入解析 Android Auto Backup 与 Key/Value Backup 机制，涵盖备份调度、传输加密、DataStore 迁移策略及恢复流程陷阱，附实战排查技巧与 adb 调试命令。
+  pageType: article
 ---
 
 去年接手一个海外社交 App 时，用户反馈换机后登录态丢了——不是 Token 过期，是整个 SharedPreferences 文件没恢复回来。排查发现 Auto Backup 在 Android 12 上静默跳过了超过 25MB 的数据文件，且没有任何回调通知。这让我重新审视了 Android 备份恢复的全链路机制。

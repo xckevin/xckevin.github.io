@@ -1,0 +1,3141 @@
+{
+  "baselineCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592",
+  "note": "Verified historical pairing evidence; existing Chinese slugs were retained when already present. New 42 translations are recorded in d35cdab.",
+  "records": [
+    {
+      "file": "src/content/blog/2025-05-05-深入_Android_Media3_媒体播放架构_从_ExoPlayer_演进到_MediaSess.md",
+      "translationKey": "android-media3-exoplayer-mediasession",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-media3-exoplayer-mediasession.md",
+      "samePublishDate": "2025-05-05",
+      "sharedNormalizedCodeCharacters": 733,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-05-06-深入_Android_网络协议栈全链路_从_DNS_解析到_HTTP_3_QUIC_的移动网络优化工.md",
+      "translationKey": "android-network-stack-dns-http3-quic",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-network-stack-dns-http3-quic.md",
+      "samePublishDate": "2025-05-06",
+      "firstSectionZh": "DNS 解析：第一个容易被忽略的延迟源",
+      "firstSectionEn": "DNS resolution: the first overlooked source of latency",
+      "lastSectionZh": "工程落地的优先级",
+      "lastSectionEn": "Engineering rollout priorities",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-05-08-深入_Android_DEX_字节码格式与_MultiDex_加载全链路解析.md",
+      "translationKey": "android-dex-bytecode-multidex",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-dex-bytecode-multidex.md",
+      "samePublishDate": "2025-05-08",
+      "sharedNormalizedCodeCharacters": 617,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-05-13-Android_多语言国际化动态化工程实践_从_Configuration_资源系统到_Androi.md",
+      "translationKey": "android-i18n-configuration-resource-system",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-i18n-configuration-resource-system.md",
+      "samePublishDate": "2025-05-13",
+      "sharedNormalizedCodeCharacters": 754,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-05-21-深入_Android_AICore_与_Gemini_Nano_端侧推理全链路_从系统服务架构到_L.md",
+      "translationKey": "android-aicore-gemini-nano",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-aicore-gemini-nano.md",
+      "samePublishDate": "2025-05-21",
+      "sharedNormalizedCodeCharacters": 736,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-05-26-深入_Android_ART_垃圾回收机制全链路_从_Dalvik_Mark-Sweep_到_Con.md",
+      "translationKey": "android-art-garbage-collection",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-art-garbage-collection.md",
+      "samePublishDate": "2025-05-26",
+      "sharedNormalizedCodeCharacters": 245,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-05-29-深入_Android_AlarmManager_定时调度全链路_从_AlarmManagerServ.md",
+      "translationKey": "android-alarmmanager-scheduling",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-alarmmanager-scheduling.md",
+      "samePublishDate": "2025-05-29",
+      "sharedNormalizedCodeCharacters": 514,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-05-30-深入_Android_App_特性开关与灰度发布全链路_从远程配置架构到实验分流引擎的工程实践.md",
+      "translationKey": "android-feature-flags-gradual-rollout",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-feature-flags-gradual-rollout.md",
+      "samePublishDate": "2025-05-30",
+      "sharedNormalizedCodeCharacters": 833,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-06-04-深入_Android_App_电量优化全链路_从_Battery_Historian_到后台任务收敛.md",
+      "translationKey": "android-battery-optimization-battery-historian",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-battery-optimization-battery-historian.md",
+      "samePublishDate": "2025-06-04",
+      "firstSectionZh": "用 Perfetto 做毫秒级归因",
+      "firstSectionEn": "Use Perfetto for millisecond-level attribution",
+      "lastSectionZh": "从单点优化到架构决策",
+      "lastSectionEn": "From local optimization to architecture decisions",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-06-10-深入_Android_BLE_蓝牙低功耗全链路_从_GATT_协议栈到扫描策略与长连接保活的工程实践.md",
+      "translationKey": "android-ble-gatt-scanning-long-connection",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-ble-gatt-scanning-long-connection.md",
+      "samePublishDate": "2025-06-10",
+      "sharedNormalizedCodeCharacters": 745,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-06-20-深入_Android_BroadcastReceiver_全链路_从注册机制到_BroadcastQ.md",
+      "translationKey": "android-broadcastreceiver-broadcastqueue",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-broadcastreceiver-broadcastqueue.md",
+      "samePublishDate": "2025-06-20",
+      "sharedNormalizedCodeCharacters": 618,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-06-23-深入_Android_CI_CD_持续交付全链路_从静态代码检查到自动化测试与_Firebase_A.md",
+      "translationKey": "android-ci-cd-ktlint-detekt-firebase-pipeline",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-ci-cd-ktlint-detekt-firebase-pipeline.md",
+      "samePublishDate": "2025-06-23",
+      "firstSectionZh": "自动化测试：模拟器是稀缺资源",
+      "firstSectionEn": "Automated Testing: Emulators Are Scarce Resources",
+      "lastSectionZh": "工程化交付的几个实践心得",
+      "lastSectionEn": "Practical Lessons from Engineering Delivery",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-07-01-深入_Android_Compose_无设备截图测试全链路_从_Paparazzi_JVM_渲染到_.md",
+      "translationKey": "android-compose-screenshot-testing-paparazzi",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-compose-screenshot-testing-paparazzi.md",
+      "samePublishDate": "2025-07-01",
+      "sharedNormalizedCodeCharacters": 1152,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-07-04-深入_Android_Compose_渐进式迁移全链路_从_View_Compose_混用架构到全量.md",
+      "translationKey": "android-compose-progressive-migration",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-compose-progressive-migration.md",
+      "samePublishDate": "2025-07-04",
+      "sharedNormalizedCodeCharacters": 1698,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-07-15-深入_Android_ConstraintLayout_布局引擎全链路_从_Cassowary_约束.md",
+      "translationKey": "android-constraintlayout-cassowary-engine",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-constraintlayout-cassowary-engine.md",
+      "samePublishDate": "2025-07-15",
+      "sharedNormalizedCodeCharacters": 181,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-07-18-深入_Android_DataBinding_双向绑定机制_从_ObservableField_编译.md",
+      "translationKey": "android-databinding-two-way-binding",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-databinding-two-way-binding.md",
+      "samePublishDate": "2025-07-18",
+      "sharedNormalizedCodeCharacters": 475,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-07-28-深入_Android_Dumpsys_调试全链路_从系统服务_dump___内部机制到_adb_sh.md",
+      "translationKey": "android-dumpsys-system-service-debugging",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-dumpsys-system-service-debugging.md",
+      "samePublishDate": "2025-07-28",
+      "sharedNormalizedCodeCharacters": 988,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-07-30-深入_Android_Google_Play_In-App_Update_全链路_从_Play_Co.md",
+      "translationKey": "android-google-play-in-app-update",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-google-play-in-app-update.md",
+      "samePublishDate": "2025-07-30",
+      "sharedNormalizedCodeCharacters": 711,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-07-31-深入_Android_Health_Connect_健康数据平台全链路_从_FHIR_数据模型到跨_.md",
+      "translationKey": "android-health-connect-fhir",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-health-connect-fhir.md",
+      "samePublishDate": "2025-07-31",
+      "firstSectionZh": "FHIR 数据模型：不只是键值对",
+      "firstSectionEn": "FHIR data model: more than key-value storage",
+      "lastSectionZh": "实际接入的几个注意点",
+      "lastSectionEn": "Practical integration notes",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-08-01-深入_Android_ML_Kit_全链路实战_从视觉检测_Pipeline_到_CameraX_集.md",
+      "translationKey": "android-ml-kit-vision-camerax",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-ml-kit-vision-camerax.md",
+      "samePublishDate": "2025-08-01",
+      "sharedNormalizedCodeCharacters": 938,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-08-05-深入_Android_Material_3_动态配色全链路_从_Monet_引擎色彩提取算法到_Co.md",
+      "translationKey": "android-material3-dynamic-color-monet",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-material3-dynamic-color-monet.md",
+      "samePublishDate": "2025-08-05",
+      "sharedNormalizedCodeCharacters": 479,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-08-06-深入_Android_NFC_近场通信全链路_从_NfcAdapter_API_到_NDEF_协议栈.md",
+      "translationKey": "android-nfc-nfcadapter-ndef",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-nfc-nfcadapter-ndef.md",
+      "samePublishDate": "2025-08-06",
+      "sharedNormalizedCodeCharacters": 286,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-08-07-深入_Android_NNAPI_全链路_从_HAL_硬件抽象到_Qualcomm_MTK_NPU_.md",
+      "translationKey": "android-nnapi-hal-npu",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-nnapi-hal-npu.md",
+      "samePublishDate": "2025-08-07",
+      "sharedNormalizedCodeCharacters": 261,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-08-08-深入_Android_Native_内存分析全链路_从_malloc_debug_到_heappro.md",
+      "translationKey": "android-native-memory-malloc-heapprofd",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-native-memory-malloc-heapprofd.md",
+      "samePublishDate": "2025-08-08",
+      "sharedNormalizedCodeCharacters": 316,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-08-15-深入_Android_PackageManager_全链路_从_APK_解析到_PMS_组件注册与权.md",
+      "translationKey": "android-packagemanager-pms-apk-parsing",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-packagemanager-pms-apk-parsing.md",
+      "samePublishDate": "2025-08-15",
+      "sharedNormalizedCodeCharacters": 1382,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-08-28-深入_Android_Privacy_Sandbox_全链路_从_SDK_Runtime_进程隔离到.md",
+      "translationKey": "android-privacy-sandbox-sdk-runtime",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-privacy-sandbox-sdk-runtime.md",
+      "samePublishDate": "2025-08-28",
+      "sharedNormalizedCodeCharacters": 1332,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-09-12-深入_Android_Sensor_框架全链路_从_SensorManager_API_到_Sens.md",
+      "translationKey": "android-sensor-framework-sensormanager",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-sensor-framework-sensormanager.md",
+      "samePublishDate": "2025-09-12",
+      "sharedNormalizedCodeCharacters": 464,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-09-22-深入_Android_Splash_Screen_API_全链路_从_Android_12_系统级闪.md",
+      "translationKey": "android-splash-screen-api",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-splash-screen-api.md",
+      "samePublishDate": "2025-09-22",
+      "sharedNormalizedCodeCharacters": 1322,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-09-23-深入_Android_TTS_语音合成全链路_从_TextToSpeech_API_引擎桥接到端侧神.md",
+      "translationKey": "android-tts-texttospeech-engine",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-tts-texttospeech-engine.md",
+      "samePublishDate": "2025-09-23",
+      "sharedNormalizedCodeCharacters": 1193,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-09-26-深入_Android_Vulkan_图形渲染全链路_从_OpenGL_ES_迁移到_GPU_驱动调优.md",
+      "translationKey": "android-vulkan-opengl-es-gpu",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-vulkan-opengl-es-gpu.md",
+      "samePublishDate": "2025-09-26",
+      "sharedNormalizedCodeCharacters": 848,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-09-30-深入_Android_Watchdog_机制_从_SystemServer_锁监控到系统自动重启的全.md",
+      "translationKey": "android-watchdog-systemserver",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-watchdog-systemserver.md",
+      "samePublishDate": "2025-09-30",
+      "firstSectionZh": "Watchdog 的核心监控模型",
+      "firstSectionEn": "Watchdog's core monitoring model",
+      "lastSectionZh": "Watchdog 与 ANR 的协作",
+      "lastSectionEn": "How Watchdog and ANR cooperate",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-10-02-深入_Android_WebView_全链路深度解析_从_Chromium_内核架构到_JS_Bri.md",
+      "translationKey": "android-webview-chromium-jsbridge",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-webview-chromium-jsbridge.md",
+      "samePublishDate": "2025-10-02",
+      "sharedNormalizedCodeCharacters": 1016,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-10-03-深入_Android_Zygote_进程全链路解析_从_init_fork_到应用孵化的进程创建架构.md",
+      "translationKey": "android-zygote-init-fork-process",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-zygote-init-fork-process.md",
+      "samePublishDate": "2025-10-03",
+      "sharedNormalizedCodeCharacters": 462,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-10-07-深入_Android_共享元素转场动画全链路_从_View_系统的_ActivityOptions_.md",
+      "translationKey": "android-shared-element-transition",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-shared-element-transition.md",
+      "samePublishDate": "2025-10-07",
+      "sharedNormalizedCodeCharacters": 395,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-10-13-深入_Android_剪贴板框架全链路_从_ClipboardManager_跨进程数据交换到_Co.md",
+      "translationKey": "android-clipboardmanager-coordinator",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-clipboardmanager-coordinator.md",
+      "samePublishDate": "2025-10-13",
+      "sharedNormalizedCodeCharacters": 206,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-10-15-深入_Android_字体渲染架构_从_Typeface_加载到_Skia_字形光栅化的全链路解析.md",
+      "translationKey": "android-font-rendering-typeface-skia",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-font-rendering-typeface-skia.md",
+      "samePublishDate": "2025-10-15",
+      "firstSectionZh": "Typeface 的世界：不是你想的那几个",
+      "firstSectionEn": "The World Behind Typeface",
+      "lastSectionZh": "最后",
+      "lastSectionEn": "Final Thoughts",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-10-16-深入_Android_定位系统全链路_从_LocationManager_API_到_GNSS_HA.md",
+      "translationKey": "android-locationmanager-gnss-hal",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-locationmanager-gnss-hal.md",
+      "samePublishDate": "2025-10-16",
+      "sharedNormalizedCodeCharacters": 797,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-10-20-深入_Android_屏幕捕获全链路_从_MediaProjection_虚拟显示到_Surface.md",
+      "translationKey": "android-screen-capture-mediaprojection",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-screen-capture-mediaprojection.md",
+      "samePublishDate": "2025-10-20",
+      "sharedNormalizedCodeCharacters": 1352,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-10-22-深入_Android_应用安全区域与防截录全链路_从_FLAG_SECURE_窗口标志到_Surfa.md",
+      "translationKey": "android-flag-secure-surface-security",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-flag-secure-surface-security.md",
+      "samePublishDate": "2025-10-22",
+      "sharedNormalizedCodeCharacters": 550,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-10-27-深入_Android_推送服务全链路_从_FCM_云端下发到厂商通道保活的消息可达性架构解析.md",
+      "translationKey": "android-push-service-fcm-vendor-channels",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-push-service-fcm-vendor-channels.md",
+      "samePublishDate": "2025-10-27",
+      "sharedNormalizedCodeCharacters": 372,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-10-28-深入_Android_插件化架构全链路_从_ClassLoader_动态加载到_Shadow_零反射.md",
+      "translationKey": "android-plugin-architecture-classloader-shadow",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-plugin-architecture-classloader-shadow.md",
+      "samePublishDate": "2025-10-28",
+      "sharedNormalizedCodeCharacters": 606,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-11-06-深入_Android_画中画__PiP__模式全链路_从_Activity_生命周期切换到_Surf.md",
+      "translationKey": "android-picture-in-picture-pip",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-picture-in-picture-pip.md",
+      "samePublishDate": "2025-11-06",
+      "sharedNormalizedCodeCharacters": 972,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-11-13-深入_Android_端云协同_AI_推理架构_从模型路由策略到离线降级的混合智能调度全链路.md",
+      "translationKey": "android-hybrid-ai-routing-offline-fallback",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-hybrid-ai-routing-offline-fallback.md",
+      "samePublishDate": "2025-11-13",
+      "sharedNormalizedCodeCharacters": 565,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-11-14-深入_Android_端侧_AI_图像预处理全链路_从_Bitmap_像素操作到_Tensor_输入.md",
+      "translationKey": "android-on-device-ai-image-preprocessing",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-on-device-ai-image-preprocessing.md",
+      "samePublishDate": "2025-11-14",
+      "sharedNormalizedCodeCharacters": 1025,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-11-17-深入_Android_端侧_AI_推理性能剖析_用_Perfetto_追踪_NPU_调度与内存带宽瓶.md",
+      "translationKey": "android-on-device-ai-perfetto-npu-profiling",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-on-device-ai-perfetto-npu-profiling.md",
+      "samePublishDate": "2025-11-17",
+      "sharedNormalizedCodeCharacters": 432,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-11-20-深入_Android_端侧_AI_推理的内存带宽优化_从_GPU_共享内存到_NPU_零拷贝的异构数.md",
+      "translationKey": "android-on-device-ai-memory-bandwidth",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-on-device-ai-memory-bandwidth.md",
+      "samePublishDate": "2025-11-20",
+      "sharedNormalizedCodeCharacters": 1051,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-11-21-深入_Android_端侧_AI_推理的功耗与热管理全链路_从_SoC_DVFS_调度到_Therm.md",
+      "translationKey": "android-on-device-ai-power-thermal-management",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-on-device-ai-power-thermal-management.md",
+      "samePublishDate": "2025-11-21",
+      "sharedNormalizedCodeCharacters": 289,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-12-08-深入_Android_端侧_AI_模型动态下发与版本管理全链路_从_App_Bundle_条件分发到.md",
+      "translationKey": "android-on-device-ai-model-delivery-versioning",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-on-device-ai-model-delivery-versioning.md",
+      "samePublishDate": "2025-12-08",
+      "sharedNormalizedCodeCharacters": 2743,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-12-16-深入_Android_端侧_LLM_推理的流式输出全链路_从_Token_生成到_Compose_U.md",
+      "translationKey": "android-on-device-llm-streaming-output",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-on-device-llm-streaming-output.md",
+      "samePublishDate": "2025-12-16",
+      "sharedNormalizedCodeCharacters": 825,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-12-17-深入_Android_端侧_LLM_的上下文窗口工程_从_Prompt_压缩到对话状态机的全链路实践.md",
+      "translationKey": "android-on-device-llm-context-window",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-on-device-llm-context-window.md",
+      "samePublishDate": "2025-12-17",
+      "sharedNormalizedCodeCharacters": 622,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-12-18-深入_Android_端侧_RAG_检索增强生成实战_从本地向量数据库到_LLM_推理的知识增强全链.md",
+      "translationKey": "android-on-device-rag-vector-database",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-on-device-rag-vector-database.md",
+      "samePublishDate": "2025-12-18",
+      "sharedNormalizedCodeCharacters": 2170,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-12-19-深入_Android_端侧语音识别全链路_从_SpeechRecognizer_API_到_Andr.md",
+      "translationKey": "android-on-device-speech-recognition",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-on-device-speech-recognition.md",
+      "samePublishDate": "2025-12-19",
+      "firstSectionZh": "AudioRecord：不只是录个音",
+      "firstSectionEn": "AudioRecord: more than just recording audio",
+      "lastSectionZh": "踩坑记录",
+      "lastSectionEn": "Pitfalls",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-12-23-深入_Android_线上稳定性监控体系全链路_从异常采集_SDK_设计到_APM_性能看板的工程质.md",
+      "translationKey": "android-stability-monitoring-apm",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-stability-monitoring-apm.md",
+      "samePublishDate": "2025-12-23",
+      "sharedNormalizedCodeCharacters": 1370,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-12-25-深入_Android_缓存系统全链路_从_LruCache_到_DiskLruCache_的三级缓存.md",
+      "translationKey": "android-cache-system-lrucache-disklrucache",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-cache-system-lrucache-disklrucache.md",
+      "samePublishDate": "2025-12-25",
+      "firstSectionZh": "LruCache：不止于 LRU",
+      "firstSectionEn": "LruCache: more than LRU",
+      "lastSectionZh": "上线前的检查清单",
+      "lastSectionEn": "Pre-release checklist",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-12-26-深入_Android_自定义_Lint_规则全链路_从_UAST_语法树到_Detector_检测器.md",
+      "translationKey": "android-custom-lint-uast-detector",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-custom-lint-uast-detector.md",
+      "samePublishDate": "2025-12-26",
+      "sharedNormalizedCodeCharacters": 859,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2025-12-29-深入_Android_自定义输入法全链路_从_InputMethodService_进程架构到候选词.md",
+      "translationKey": "android-custom-ime-inputmethodservice",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-custom-ime-inputmethodservice.md",
+      "samePublishDate": "2025-12-29",
+      "sharedNormalizedCodeCharacters": 930,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-01-09-深入_Android_跨进程大数据传输全链路_从_Binder_1MB_限制到_ASharedMem.md",
+      "translationKey": "android-large-ipc-asharedmemory",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-large-ipc-asharedmemory.md",
+      "samePublishDate": "2026-01-09",
+      "sharedNormalizedCodeCharacters": 449,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-01-15-深入_Jetpack_Compose_Phases_三阶段模型_从_Composition_到_Dr.md",
+      "translationKey": "jetpack-compose-phases-composition-layout-draw",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/jetpack-compose-phases-composition-layout-draw.md",
+      "samePublishDate": "2026-01-15",
+      "sharedNormalizedCodeCharacters": 454,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-01-16-深入_Kotlin_Context_Receivers_上下文接收器_从_Multiple_Rece.md",
+      "translationKey": "kotlin-context-receivers",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/kotlin-context-receivers.md",
+      "samePublishDate": "2026-01-16",
+      "sharedNormalizedCodeCharacters": 654,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-01-20-深入_Kotlin_Contracts_契约编程_从_SmartCast_类型推断到_callsIn.md",
+      "translationKey": "kotlin-contracts-smartcast",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/kotlin-contracts-smartcast.md",
+      "samePublishDate": "2026-01-20",
+      "sharedNormalizedCodeCharacters": 237,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-01-21-深入_Kotlin_Sealed_Class_Interface_密封类层次_从编译期穷举检查到_C.md",
+      "translationKey": "kotlin-sealed-class-interface",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/kotlin-sealed-class-interface.md",
+      "samePublishDate": "2026-01-21",
+      "sharedNormalizedCodeCharacters": 3662,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-01-22-深入_Kotlin_Symbol_Processing__KSP__全链路解析_从_SymbolPr.md",
+      "translationKey": "kotlin-symbol-processing-ksp",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/kotlin-symbol-processing-ksp.md",
+      "samePublishDate": "2026-01-22",
+      "sharedNormalizedCodeCharacters": 1307,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-01-23-深入_Kotlin_inline_class_value_class_全链路_从编译期装箱消除到类型.md",
+      "translationKey": "kotlin-value-class-inline-class",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/kotlin-value-class-inline-class.md",
+      "samePublishDate": "2026-01-23",
+      "sharedNormalizedCodeCharacters": 195,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-01-26-深入_Kotlin_内联函数全链路解析_从_inline_字节码内联到_reified_泛型特化的编.md",
+      "translationKey": "kotlin-inline-functions-reified",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/kotlin-inline-functions-reified.md",
+      "samePublishDate": "2026-01-26",
+      "sharedNormalizedCodeCharacters": 180,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-01-28-Android_API_版本兼容性工程体系_从_minSdk_编译期检查到运行时特性降级的全链路适配.md",
+      "translationKey": "android-api-compatibility-minsdk-runtime-fallback",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-api-compatibility-minsdk-runtime-fallback.md",
+      "samePublishDate": "2026-01-28",
+      "sharedNormalizedCodeCharacters": 557,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-02-06-Android_混淆崩溃堆栈的自动化反混淆还原系统_从_mapping_txt_版本管理到线上实时符.md",
+      "translationKey": "android-crash-stack-deobfuscation-mapping",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-crash-stack-deobfuscation-mapping.md",
+      "samePublishDate": "2026-02-06",
+      "sharedNormalizedCodeCharacters": 1105,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-02-10-Android_端侧_AI_聊天的_Compose_UI_架构_流式渲染与多轮对话的声明式工程实践.md",
+      "translationKey": "android-on-device-ai-chat-compose-ui",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-on-device-ai-chat-compose-ui.md",
+      "samePublishDate": "2026-02-10",
+      "sharedNormalizedCodeCharacters": 1691,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-02-16-深入_AOSP_源码阅读方法论_从系统服务调用链到_Native_层实现的源码追踪与调试全链路.md",
+      "translationKey": "aosp-source-reading-methodology",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/aosp-source-reading-methodology.md",
+      "samePublishDate": "2026-02-16",
+      "firstSectionZh": "定位入口：从 API 到 Binder 调用",
+      "firstSectionEn": "Locating the entry point: from API to Binder call",
+      "lastSectionZh": "建立源码索引的心智模型",
+      "lastSectionEn": "Building a mental model of source indexes",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-02-17-深入_Android_16_App_Functions_全链路_从语义索引构建到跨应用智能操作的_A.md",
+      "translationKey": "android-16-app-functions-semantic-index",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-16-app-functions-semantic-index.md",
+      "samePublishDate": "2026-02-17",
+      "firstSectionZh": "语义索引：App 能力的向量化表达",
+      "firstSectionEn": "Semantic indexing: vectorized app capabilities",
+      "lastSectionZh": "工程落地的几个关键点",
+      "lastSectionEn": "Engineering details that matter in practice",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-02-20-深入_Android_ART_dex2oat_编译管线全链路_从_DEX_字节码到_OAT_机器码的.md",
+      "translationKey": "android-art-dex2oat-pipeline",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-art-dex2oat-pipeline.md",
+      "samePublishDate": "2026-02-20",
+      "firstSectionZh": "dex2oat 到底做了什么",
+      "firstSectionEn": "What dex2oat actually does",
+      "lastSectionZh": "三个可落地的实践",
+      "lastSectionEn": "Three practices that work",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-02-24-深入_Android_App_Shortcuts_全链路_从_ShortcutManager_静态_.md",
+      "translationKey": "android-app-shortcuts-shortcutmanager-deep-dive",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-app-shortcuts-shortcutmanager-deep-dive.md",
+      "samePublishDate": "2026-02-24",
+      "sharedNormalizedCodeCharacters": 870,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-02-25-深入_Android_Compose_Canvas_自定义绘制全链路_从_DrawScope_绘图模.md",
+      "translationKey": "android-compose-canvas-drawscope-declarative-charts",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/jetpack-compose-canvas-drawscope.md",
+      "samePublishDate": "2026-02-25",
+      "sharedNormalizedCodeCharacters": 1125,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-02-26-深入_Android_Compose_LazyColumn_滑动性能调优全链路_从重组追踪到帧率稳定.md",
+      "translationKey": "android-compose-lazycolumn-scroll-performance",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/jetpack-compose-lazycolumn-performance.md",
+      "samePublishDate": "2026-02-26",
+      "sharedNormalizedCodeCharacters": 669,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-03-05-深入_Android_ConnectivityManager_全链路_从_NetworkCallba.md",
+      "translationKey": "android-connectivitymanager-networkcallback",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-connectivitymanager-networkcallback.md",
+      "samePublishDate": "2026-03-05",
+      "sharedNormalizedCodeCharacters": 1634,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-03-10-深入_Android_Gradle_Version_Catalog_与_Convention_Plu.md",
+      "translationKey": "android-gradle-version-catalog-convention-plugins",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-gradle-version-catalog-convention-plugins.md",
+      "samePublishDate": "2026-03-10",
+      "sharedNormalizedCodeCharacters": 2228,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-03-11-深入_Android_OTA_系统更新全链路_从_A_B_无缝分区切换到_Virtual_A_B_快.md",
+      "translationKey": "android-ota-ab-virtual-ab",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-ota-ab-virtual-ab.md",
+      "samePublishDate": "2026-03-11",
+      "sharedNormalizedCodeCharacters": 1200,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-03-12-深入_Android_Studio_Gemini_代码助手_从上下文感知补全到多文件重构的_AI_辅.md",
+      "translationKey": "android-studio-gemini-ai-assistant",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-studio-gemini-ai-assistant.md",
+      "samePublishDate": "2026-03-12",
+      "sharedNormalizedCodeCharacters": 214,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-03-18-深入_Android_Task_Stack_与_Activity_启动模式全链路_从_launchM.md",
+      "translationKey": "android-task-stack-launch-modes",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-task-stack-launch-modes.md",
+      "samePublishDate": "2026-03-18",
+      "sharedNormalizedCodeCharacters": 505,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-03-19-深入_Android_Wear_OS_全链路_Compose_for_Wear_OS_的声明式手表_.md",
+      "translationKey": "android-wear-os-compose",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-wear-os-compose.md",
+      "samePublishDate": "2026-03-19",
+      "sharedNormalizedCodeCharacters": 1009,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-03-24-深入_Android_init_进程与系统启动全链路_从_BootLoader_到_Home_Scr.md",
+      "translationKey": "android-init-boot-process",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-init-boot-process.md",
+      "samePublishDate": "2026-03-24",
+      "sharedNormalizedCodeCharacters": 433,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-03-26-深入_Android_多设备协同开发全链路_从_Cross-Device_SDK_到跨设备通信架构的.md",
+      "translationKey": "android-cross-device-sdk-collaboration",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-cross-device-sdk-collaboration.md",
+      "samePublishDate": "2026-03-26",
+      "sharedNormalizedCodeCharacters": 792,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-03-31-深入_Android_多进程架构设计全链路_从_WebView_独立进程到_Remote_Servi.md",
+      "translationKey": "android-multiprocess-architecture",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-multiprocess-architecture.md",
+      "samePublishDate": "2026-03-31",
+      "sharedNormalizedCodeCharacters": 547,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-04-01-深入_Android_应用内搜索__In-App_Search__全链路_从_FTS_全文索引到_C.md",
+      "translationKey": "android-in-app-search-fts",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-in-app-search-fts.md",
+      "samePublishDate": "2026-04-01",
+      "sharedNormalizedCodeCharacters": 1029,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-04-03-深入_Android_用户数据备份恢复全链路_从_Auto_Backup_传输机制到_Key_Val.md",
+      "translationKey": "android-user-data-backup-restore",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-user-data-backup-restore.md",
+      "samePublishDate": "2026-04-03",
+      "sharedNormalizedCodeCharacters": 627,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-04-14-深入_Android_Bitmap_内存模型_从_Java_堆分配到_Hardware_Bitmap.md",
+      "translationKey": "android-bitmap-memory-model-hardware-bitmap",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-bitmap-memory-model-hardware-bitmap.md",
+      "samePublishDate": "2026-04-14",
+      "sharedNormalizedCodeCharacters": 411,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-04-14-深入_Android_Navigation3_架构设计_从_Scene_模型到_Composable.md",
+      "translationKey": "android-navigation3-scene-composable",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-navigation3-scene-composable.md",
+      "samePublishDate": "2026-04-14",
+      "sharedNormalizedCodeCharacters": 244,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-04-14-深入_Android_RecyclerView_缓存机制_从四级缓存到_Prefetch_的性能设计.md",
+      "translationKey": "android-recyclerview-cache-prefetch-deep-dive",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-recyclerview-cache-prefetch-deep-dive.md",
+      "samePublishDate": "2026-04-14",
+      "sharedNormalizedCodeCharacters": 401,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-04-15-Android_官方_Skills_深度解析_用_AI_Agent_重新定义_Android_开发工.md",
+      "translationKey": "android-official-skills-ai-agent",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-official-skills-ai-agent.md",
+      "samePublishDate": "2026-04-15",
+      "sharedNormalizedCodeCharacters": 385,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-04-17-Android_端侧大模型推理全链路_从_LiteRT_到_MediaPipe_LLM_Infere.md",
+      "translationKey": "android-local-llm-litert-mediapipe",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-local-llm-litert-mediapipe.md",
+      "samePublishDate": "2026-04-17",
+      "sharedNormalizedCodeCharacters": 1088,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-04-17-Jetpack_Compose_Snapshot_状态系统深度解析_从_MutableState_到.md",
+      "translationKey": "jetpack-compose-snapshot-state",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/jetpack-compose-snapshot-state.md",
+      "samePublishDate": "2026-04-17",
+      "sharedNormalizedCodeCharacters": 370,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-04-17-深入_Android_16_强制_Edge-to-Edge_WindowInsets_分发机制重构与.md",
+      "translationKey": "android-16-edge-to-edge-windowinsets",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-16-edge-to-edge-windowinsets.md",
+      "samePublishDate": "2026-04-17",
+      "sharedNormalizedCodeCharacters": 698,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-04-17-深入_Android_端侧_AI_推理_Benchmark_评测体系_从延迟_吞吐_功耗三维度量到热.md",
+      "translationKey": "android-on-device-ai-benchmark",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-on-device-ai-benchmark.md",
+      "samePublishDate": "2026-04-17",
+      "sharedNormalizedCodeCharacters": 672,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-04-18-Android_电源管理深度解析_从_Wakelock_滥用到_Doze_模式的省电工程实践.md",
+      "translationKey": "android-power-management-wakelock-doze",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-power-management-wakelock-doze.md",
+      "samePublishDate": "2026-04-18",
+      "firstSectionZh": "Wakelock 的本质与正确用法",
+      "firstSectionEn": "What a Wakelock really does, and how to use it safely",
+      "lastSectionZh": "几条可操作的实践建议",
+      "lastSectionEn": "Practical rules you can apply",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-04-18-Kotlin_Multiplatform_工程化深度实践_从_expect_actual_机制到跨平.md",
+      "translationKey": "kotlin-multiplatform-expect-actual",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/kotlin-multiplatform-expect-actual.md",
+      "samePublishDate": "2026-04-18",
+      "sharedNormalizedCodeCharacters": 2136,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-04-19-Android_ANR_深度治理_从主线程卡顿根因到_ANR_Trace_全链路分析方法论.md",
+      "translationKey": "android-anr-trace-governance",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-anr-trace-governance.md",
+      "samePublishDate": "2026-04-19",
+      "sharedNormalizedCodeCharacters": 985,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-04-19-Android_冷启动全链路优化工程实践_从_Zygote_fork_到首帧上屏的_Systrace.md",
+      "translationKey": "android-cold-start-zygote-systrace",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-cold-start-zygote-systrace.md",
+      "samePublishDate": "2026-04-19",
+      "sharedNormalizedCodeCharacters": 413,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-04-20-Android_RenderThread_与_HWUI_渲染管线深度解析_从_DisplayList.md",
+      "translationKey": "android-renderthread-hwui",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-renderthread-hwui.md",
+      "samePublishDate": "2026-04-20",
+      "firstSectionZh": "两线程分工：主线程录制，RenderThread 回放",
+      "firstSectionEn": "Two-thread split: main thread records, RenderThread replays",
+      "lastSectionZh": "延伸阅读",
+      "lastSectionEn": "Further reading",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-04-21-Android_16_Predictive_Back_全链路工程实践_从_WindowOnBackI.md",
+      "translationKey": "android-predictive-back",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-predictive-back.md",
+      "samePublishDate": "2026-04-21",
+      "sharedNormalizedCodeCharacters": 1613,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-04-22-Android_内存泄漏全链路治理_从_LeakCanary_检测原理到_HPROF_分析与生产级防.md",
+      "translationKey": "android-memory-leak-leakcanary-hprof",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-memory-leak-leakcanary-hprof.md",
+      "samePublishDate": "2026-04-22",
+      "sharedNormalizedCodeCharacters": 467,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-04-23-Android_SharedPreferences_到_DataStore_深度演进_从同步_ANR.md",
+      "translationKey": "android-sharedpreferences-datastore-deep-dive",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-sharedpreferences-datastore-deep-dive.md",
+      "samePublishDate": "2026-04-23",
+      "sharedNormalizedCodeCharacters": 1136,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-04-23-Android_WorkManager_深度解析_从_Constraint_调度引擎到_Doze_模.md",
+      "translationKey": "android-workmanager-scheduling",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-workmanager-scheduling.md",
+      "samePublishDate": "2026-04-23",
+      "sharedNormalizedCodeCharacters": 1111,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-04-23-Kotlin_Flow_工程化全景_从冷流惰性求值到_StateFlow_SharedFlow_热流.md",
+      "translationKey": "kotlin-flow-stateflow-sharedflow",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/kotlin-flow-stateflow-sharedflow.md",
+      "samePublishDate": "2026-04-23",
+      "sharedNormalizedCodeCharacters": 797,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-04-23-Kotlin_K2_编译器深度解析_从统一前端架构到智能类型推断重写的编译革新与_Android_工.md",
+      "translationKey": "kotlin-k2-compiler-android",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/kotlin-k2-compiler-android.md",
+      "samePublishDate": "2026-04-23",
+      "sharedNormalizedCodeCharacters": 344,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-04-23-Kotlin_suspend_的编译器黑盒_从_CPS_变换到状态机字节码的完整推演.md",
+      "translationKey": "kotlin-suspend-cps-state-machine",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/kotlin-suspend-state-machine.md",
+      "samePublishDate": "2026-04-23",
+      "sharedNormalizedCodeCharacters": 253,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-04-24-Android_Paging3_深度解析_从_PagingSource_分页引擎到_RemoteMe.md",
+      "translationKey": "android-paging3-pagingsource-remotemediator",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-paging3-pagingsource-remotemediator.md",
+      "samePublishDate": "2026-04-24",
+      "sharedNormalizedCodeCharacters": 1846,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-04-27-深入_Android_端侧_AI_推理与系统健康度的协同优化_基于设备温度_电量和内存压力的动态推理.md",
+      "translationKey": "android-on-device-ai-system-health",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-on-device-ai-system-health.md",
+      "samePublishDate": "2026-04-27",
+      "sharedNormalizedCodeCharacters": 822,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-04-28-深入_Android_端侧_AI_推理的_Prompt_工程实战_从_Token_预算控制到少样本模.md",
+      "translationKey": "android-on-device-ai-prompt-engineering",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-on-device-ai-prompt-engineering.md",
+      "samePublishDate": "2026-04-28",
+      "sharedNormalizedCodeCharacters": 206,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-04-深入_Android_端侧_AI_推理的内存管理策略_从模型加载的内存峰值优化到_KV_Cache_.md",
+      "translationKey": "android-on-device-ai-memory-kv-cache",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-on-device-ai-memory-kv-cache.md",
+      "samePublishDate": "2026-05-04",
+      "sharedNormalizedCodeCharacters": 535,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-06-Android_Gradle_构建提速全链路_从_Configuration_Cache_到_KSP.md",
+      "translationKey": "android-gradle-build-speed-configuration-cache-ksp",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-gradle-build-speed-configuration-cache-ksp.md",
+      "samePublishDate": "2026-05-06",
+      "sharedNormalizedCodeCharacters": 769,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-06-Android_MotionLayout_深度解析_从_Scene_约束切换到_KeyFrame_插.md",
+      "translationKey": "android-motionlayout-scene-constraint-keyframe",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-motionlayout-scene-keyframe.md",
+      "samePublishDate": "2026-05-06",
+      "sharedNormalizedCodeCharacters": 681,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-06-深入_Android_端侧_AI_推理的实时视频流处理全链路_从_CameraX_帧回调到_GPU_.md",
+      "translationKey": "android-on-device-ai-realtime-video",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-on-device-ai-realtime-video.md",
+      "samePublishDate": "2026-05-06",
+      "firstSectionZh": "问题：30fps 的相机，模型只吃到了 8 帧",
+      "firstSectionEn": "The problem: a 30 fps camera, but the model only saw 8 frames",
+      "lastSectionZh": "三阶段管线编排",
+      "lastSectionEn": "Three-stage pipeline orchestration",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-07-Jetpack_Compose_重组性能全链路调优_从_Stability_推断到_derivedS.md",
+      "translationKey": "jetpack-compose-recomposition-performance",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/jetpack-compose-recomposition-performance.md",
+      "samePublishDate": "2026-05-07",
+      "sharedNormalizedCodeCharacters": 916,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-07-深入_Android_端侧_AI_推理的并发调度与流控架构_从单例引擎到多请求优先级队列的背压治理.md",
+      "translationKey": "android-on-device-ai-concurrency-backpressure",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-on-device-ai-concurrency-backpressure.md",
+      "samePublishDate": "2026-05-07",
+      "sharedNormalizedCodeCharacters": 700,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-08-深入_Android_ViewModel_内部机制_从_ViewModelStore_持有到_SavedStateHandle_进程重建恢复全链路.md",
+      "translationKey": "android-viewmodel-savedstatehandle",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-viewmodel-savedstatehandle.md",
+      "samePublishDate": "2026-05-08",
+      "sharedNormalizedCodeCharacters": 268,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-08-深入_Android_端侧_AI_模型安全防护全链路_从模型加密存储到_TEE_推理的_IP_保护架.md",
+      "translationKey": "android-on-device-ai-model-security-tee",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-on-device-ai-model-security-tee.md",
+      "samePublishDate": "2026-05-08",
+      "sharedNormalizedCodeCharacters": 1060,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-09-Android_Perfetto_追踪全链路深度解析_从内核_ftrace_数据源到_SDK_自定义_TrackEvent_的生产级性能监控体系.md",
+      "translationKey": "android-perfetto-ftrace-trackevent",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-perfetto-ftrace-trackevent.md",
+      "samePublishDate": "2026-05-09",
+      "sharedNormalizedCodeCharacters": 390,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-09-Android_进程保活与资源调度深度解析_从_OOM_Adj_评分机制到_LMK_低内存裁决的系统.md",
+      "translationKey": "android-process-oom-adj-lmk",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-process-oom-adj-lmk.md",
+      "samePublishDate": "2026-05-09",
+      "firstSectionZh": "OOM Adj：进程的\"死刑优先级\"",
+      "firstSectionEn": "OOM Adj: a process's kill priority",
+      "lastSectionZh": "实战：三个可以用的策略",
+      "lastSectionEn": "Three strategies that actually work",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-09-Jetpack_Compose_动画系统深度解析_从_AnimationSpec_物理弹簧模型到_T.md",
+      "translationKey": "jetpack-compose-animation",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/jetpack-compose-animation.md",
+      "samePublishDate": "2026-05-09",
+      "sharedNormalizedCodeCharacters": 316,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-09-深入_Android_Room_数据库引擎_从_KSP_编译期代码生成到_Flow_响应式查询的全链路解析.md",
+      "translationKey": "android-room-ksp-flow",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-room-ksp-flow.md",
+      "samePublishDate": "2026-05-09",
+      "sharedNormalizedCodeCharacters": 972,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-10-深入_Android_CameraX_架构解析_从_Camera2_Pipeline_到_Compo.md",
+      "translationKey": "android-camerax-camera2-pipeline",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-camerax-camera2-pipeline.md",
+      "samePublishDate": "2026-05-10",
+      "sharedNormalizedCodeCharacters": 1145,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-10-深入_Android_测试全链路工程实践_从_JUnit_单元测试到_Compose_Semanti.md",
+      "translationKey": "android-testing-junit-compose",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-testing-junit-compose.md",
+      "samePublishDate": "2026-05-10",
+      "sharedNormalizedCodeCharacters": 2300,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-11-深入_Android_端侧多模态_AI_推理全链路_从_Gemini_Nano_Multimodal.md",
+      "translationKey": "android-multimodal-on-device-ai",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-multimodal-on-device-ai.md",
+      "samePublishDate": "2026-05-11",
+      "sharedNormalizedCodeCharacters": 1391,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-12-深入_Android_音频系统全链路_从_AudioFlinger_混音策略到_AAudio_低延迟.md",
+      "translationKey": "android-audio-system-audioflinger-aaudio",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-audio-system-audioflinger-aaudio.md",
+      "samePublishDate": "2026-05-12",
+      "sharedNormalizedCodeCharacters": 1572,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-13-Android_大屏与折叠屏适配全链路_从_WindowSizeClass_窗口尺寸分级到_Comp.md",
+      "translationKey": "android-large-screen-foldable-window-size-class-compose",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-large-screen-foldables.md",
+      "samePublishDate": "2026-05-13",
+      "sharedNormalizedCodeCharacters": 1415,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-13-深入_Compose_自定义_Layout_全链路实战_从_MeasurePolicy_测量协议到固.md",
+      "translationKey": "jetpack-compose-custom-layout-measurepolicy",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/jetpack-compose-custom-layout-measurepolicy.md",
+      "samePublishDate": "2026-05-13",
+      "sharedNormalizedCodeCharacters": 3718,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-14-深入_Jetpack_Compose_CompositionLocal_全链路_从隐式数据传递到组合.md",
+      "translationKey": "jetpack-compose-compositionlocal",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/jetpack-compose-compositionlocal.md",
+      "samePublishDate": "2026-05-14",
+      "sharedNormalizedCodeCharacters": 230,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-15-Jetpack_Compose_Modifier_链式机制深度解析_从_Modifier_Node_.md",
+      "translationKey": "jetpack-compose-modifier-node",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/jetpack-compose-modifier-node.md",
+      "samePublishDate": "2026-05-15",
+      "sharedNormalizedCodeCharacters": 1144,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-15-深入_Android_ContentProvider_跨进程数据共享_从_URI_路由到_Conte.md",
+      "translationKey": "android-contentprovider-ipc",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-contentprovider-ipc.md",
+      "samePublishDate": "2026-05-15",
+      "sharedNormalizedCodeCharacters": 852,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-15-深入_Kotlin_Coroutines_测试全链路_从_TestDispatcher_调度控制到_.md",
+      "translationKey": "kotlin-coroutines-testing",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/kotlin-coroutines-testing.md",
+      "samePublishDate": "2026-05-15",
+      "sharedNormalizedCodeCharacters": 749,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-16-Jetpack_Compose_手势系统深度解析_从_PointerInput_事件管道到_Modi.md",
+      "translationKey": "jetpack-compose-gestures",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/jetpack-compose-gestures.md",
+      "samePublishDate": "2026-05-16",
+      "sharedNormalizedCodeCharacters": 1788,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-16-深入_Android_APK_构建全链路_从_aapt2_资源编译到_V4_签名验证的_AGP_内部.md",
+      "translationKey": "android-apk-build-aapt2-signing",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-apk-build-aapt2-signing.md",
+      "samePublishDate": "2026-05-16",
+      "firstSectionZh": "资源编译：aapt2 的两阶段模式",
+      "firstSectionEn": "Resource compilation: aapt2's two-phase model",
+      "lastSectionZh": "对齐与包优化",
+      "lastSectionEn": "Alignment and package optimization",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-17-Android_权限系统演进全链路_从_ActivityThread_权限拦截到_Android_1.md",
+      "translationKey": "android-permission-system-evolution",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-permission-system-evolution.md",
+      "samePublishDate": "2026-05-17",
+      "firstSectionZh": "三层拦截：一次权限检查要过的关卡",
+      "firstSectionEn": "Three-layer interception: the gates behind one permission check",
+      "lastSectionZh": "延伸阅读",
+      "lastSectionEn": "Further reading",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-17-深入_Android_字节码插桩全链路_从_ASM_ClassVisitor_到_Gradle_Pl.md",
+      "translationKey": "android-bytecode-instrumentation-asm-gradle",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-bytecode-instrumentation-asm-gradle.md",
+      "samePublishDate": "2026-05-17",
+      "sharedNormalizedCodeCharacters": 2057,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-18-深入_Android_MediaCodec_视频编解码全链路_从_MediaExtractor_解封.md",
+      "translationKey": "android-mediacodec-mediaextractor",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-mediacodec-mediaextractor.md",
+      "samePublishDate": "2026-05-18",
+      "sharedNormalizedCodeCharacters": 760,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-18-深入_Android_分区存储全链路_从_Scoped_Storage_沙箱隔离到_MediaSto.md",
+      "translationKey": "android-scoped-storage-media-store",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-scoped-storage-media-store.md",
+      "samePublishDate": "2026-05-18",
+      "sharedNormalizedCodeCharacters": 678,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-19-Android_组件化模块间通信架构深度解析_从路由表到_SPI_服务发现的模块解耦实践.md",
+      "translationKey": "android-modular-communication",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-modular-communication.md",
+      "samePublishDate": "2026-05-19",
+      "sharedNormalizedCodeCharacters": 428,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-19-Jetpack_Compose_与_View_互操作性深度解析_从_AndroidView_嵌入到_.md",
+      "translationKey": "jetpack-compose-view-interop",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/jetpack-compose-view-interop.md",
+      "samePublishDate": "2026-05-19",
+      "sharedNormalizedCodeCharacters": 671,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-19-深入_Android_Credential_Manager_全链路_从_FIDO2_无密码认证到_Passkey_跨设备同步的端侧安全架构.md",
+      "translationKey": "android-credential-manager-passkeys",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-credential-manager-passkeys.md",
+      "samePublishDate": "2026-05-19",
+      "sharedNormalizedCodeCharacters": 917,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-20-Android_App_Links_深度解析_从_Digital_Asset_Links_域名验证到.md",
+      "translationKey": "android-app-links-digital-asset-links",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-app-links-digital-asset-links.md",
+      "samePublishDate": "2026-05-20",
+      "sharedNormalizedCodeCharacters": 629,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-20-深入_Android_StrictMode_从_BlockGuard_拦截机制到自定义_Penalt.md",
+      "translationKey": "android-strictmode-blockguard",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-strictmode-blockguard.md",
+      "samePublishDate": "2026-05-20",
+      "sharedNormalizedCodeCharacters": 625,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-22-深入_Android_配置变更全链路解析_从_Activity_销毁重建到_ViewModel_跨旋.md",
+      "translationKey": "android-configuration-changes-viewmodel",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-configuration-changes-viewmodel.md",
+      "samePublishDate": "2026-05-22",
+      "sharedNormalizedCodeCharacters": 198,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-23-Android_热修复原理与工程实践_从_ClassLoader_类替换机制到_Tinker_差分补.md",
+      "translationKey": "android-hotfix-classloader-tinker",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-hotfix-classloader-tinker.md",
+      "samePublishDate": "2026-05-23",
+      "sharedNormalizedCodeCharacters": 690,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-23-深入_Android_架构模式演进_从_MVC_的混乱到_MVI_单向数据流在_Compose_中的.md",
+      "translationKey": "android-architecture-mvi-compose",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-architecture-mvi-compose.md",
+      "samePublishDate": "2026-05-23",
+      "sharedNormalizedCodeCharacters": 1270,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-24-Android_动态模块化交付全链路_从_App_Bundle_构建到_SplitCompat_运行.md",
+      "translationKey": "android-dynamic-feature-delivery-splitcompat",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-dynamic-feature-delivery-splitcompat.md",
+      "samePublishDate": "2026-05-24",
+      "sharedNormalizedCodeCharacters": 309,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-26-Android_Fragment_生命周期与_FragmentManager_深度解析_从_Frag.md",
+      "translationKey": "android-fragment-fragmentmanager",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-fragment-fragmentmanager.md",
+      "samePublishDate": "2026-05-26",
+      "sharedNormalizedCodeCharacters": 189,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-26-深入_Android_Macrobenchmark_性能基准测试全链路_从_BenchmarkRul.md",
+      "translationKey": "android-macrobenchmark-benchmarkrule",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-macrobenchmark-benchmarkrule.md",
+      "samePublishDate": "2026-05-26",
+      "sharedNormalizedCodeCharacters": 1200,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-27-深入_Android_16_KB_内存页对齐全链路_从_ELF_加载对齐到_NDK_编译适配与性能验.md",
+      "translationKey": "android-16kb-page-size-elf-ndk",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-16kb-page-size-elf-ndk.md",
+      "samePublishDate": "2026-05-27",
+      "sharedNormalizedCodeCharacters": 212,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-27-深入_Kotlin_类型安全构建器与_DSL_设计全链路_从__DslMarker_隐式作用域到_C.md",
+      "translationKey": "kotlin-type-safe-builders-dsl",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/kotlin-type-safe-builders-dsl.md",
+      "samePublishDate": "2026-05-27",
+      "sharedNormalizedCodeCharacters": 209,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-28-深入_Android_AGSL_RuntimeShader_全链路_从_Skia_着色器编译到_Co.md",
+      "translationKey": "android-agsl-runtimeshader-skia",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-agsl-runtimeshader-skia.md",
+      "samePublishDate": "2026-05-28",
+      "sharedNormalizedCodeCharacters": 1422,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-05-28-深入_Android_Glance_AppWidget_全链路_从_RemoteViews_渲染桥接.md",
+      "translationKey": "android-glance-appwidget-remoteviews-deep-dive",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-glance-appwidget-remoteviews-deep-dive.md",
+      "samePublishDate": "2026-05-28",
+      "sharedNormalizedCodeCharacters": 600,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-06-01-android-app启动优化指标.md",
+      "translationKey": "android-startup-metrics",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-startup-metrics.md",
+      "samePublishDate": "2026-06-01",
+      "firstSectionZh": "先分清几个启动时间",
+      "firstSectionEn": "Separate the different startup times first",
+      "lastSectionZh": "深入阅读",
+      "lastSectionEn": "Further reading",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-06-01-android-binder是什么.md",
+      "translationKey": "android-binder",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-binder.md",
+      "samePublishDate": "2026-06-01",
+      "firstSectionZh": "Binder 解决的到底是什么问题",
+      "firstSectionEn": "What problem does Binder solve?",
+      "lastSectionZh": "深入阅读",
+      "lastSectionEn": "Further reading",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-06-01-android-ci-cd质量门禁.md",
+      "translationKey": "android-ci-cd-quality-gates",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-ci-cd-quality-gates.md",
+      "samePublishDate": "2026-06-01",
+      "firstSectionZh": "门禁要按阶段设计",
+      "firstSectionEn": "Design gates by stage",
+      "lastSectionZh": "深入阅读",
+      "lastSectionEn": "Further reading",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-06-01-android-gradle构建慢怎么分析.md",
+      "translationKey": "android-gradle-build-slow",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-gradle-build-slow.md",
+      "samePublishDate": "2026-06-01",
+      "firstSectionZh": "第一步：先拿到可比较的基线",
+      "firstSectionEn": "Step one: capture a comparable baseline",
+      "lastSectionZh": "深入阅读",
+      "lastSectionEn": "Further reading",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-06-01-android-perfetto怎么入门.md",
+      "translationKey": "android-perfetto",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-perfetto.md",
+      "samePublishDate": "2026-06-01",
+      "firstSectionZh": "先抓一条足够干净的 trace",
+      "firstSectionEn": "Capture a clean enough trace first",
+      "lastSectionZh": "深入阅读",
+      "lastSectionEn": "Further reading",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-06-01-audioflinger做什么.md",
+      "translationKey": "android-audioflinger",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-audioflinger.md",
+      "samePublishDate": "2026-06-01",
+      "firstSectionZh": "从 AudioTrack 到 AudioFlinger",
+      "firstSectionEn": "From AudioTrack to AudioFlinger",
+      "lastSectionZh": "深入阅读",
+      "lastSectionEn": "Further reading",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-06-01-bitmap为什么oom.md",
+      "translationKey": "android-bitmap-oom",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-bitmap-oom.md",
+      "samePublishDate": "2026-06-01",
+      "firstSectionZh": "先算清楚一张图占多少内存",
+      "firstSectionEn": "First, calculate how much memory an image uses",
+      "lastSectionZh": "深入阅读",
+      "lastSectionEn": "Further reading",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-06-01-compose为什么频繁重组.md",
+      "translationKey": "compose-recomposition",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/compose-recomposition.md",
+      "samePublishDate": "2026-06-01",
+      "firstSectionZh": "状态读取位置决定重组范围",
+      "firstSectionEn": "State read location controls recomposition scope",
+      "lastSectionZh": "深入阅读",
+      "lastSectionEn": "Further reading",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-06-01-datastore和sharedpreferences怎么选.md",
+      "translationKey": "datastore-vs-sharedpreferences",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/datastore-vs-sharedpreferences.md",
+      "samePublishDate": "2026-06-01",
+      "firstSectionZh": "SharedPreferences 的问题在哪里",
+      "firstSectionEn": "Where SharedPreferences causes problems",
+      "lastSectionZh": "深入阅读",
+      "lastSectionEn": "Further reading",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-06-01-glance和remoteviews区别.md",
+      "translationKey": "glance-vs-remoteviews",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/glance-vs-remoteviews.md",
+      "samePublishDate": "2026-06-01",
+      "firstSectionZh": "RemoteViews 是底层协议",
+      "firstSectionEn": "RemoteViews is the underlying protocol",
+      "lastSectionZh": "深入阅读",
+      "lastSectionEn": "Further reading",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-06-01-paging3-remotemediator适用场景.md",
+      "translationKey": "paging3-remotemediator",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/paging3-remotemediator.md",
+      "samePublishDate": "2026-06-01",
+      "firstSectionZh": "RemoteMediator 的定位",
+      "firstSectionEn": "The role of RemoteMediator",
+      "lastSectionZh": "深入阅读",
+      "lastSectionEn": "Further reading",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-06-01-recyclerview四级缓存是哪四级.md",
+      "translationKey": "android-recyclerview-four-level-cache",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-recyclerview-four-level-cache.md",
+      "samePublishDate": "2026-06-01",
+      "firstSectionZh": "第一层：Attached Scrap",
+      "firstSectionEn": "Level 1: Attached Scrap",
+      "lastSectionZh": "深入阅读",
+      "lastSectionEn": "Further reading",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-06-01-room-flow为什么自动更新.md",
+      "translationKey": "room-flow-auto-update",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/room-flow-auto-update.md",
+      "samePublishDate": "2026-06-01",
+      "firstSectionZh": "Flow 本身不会监听数据库",
+      "firstSectionEn": "Flow itself does not listen to databases",
+      "lastSectionZh": "深入阅读",
+      "lastSectionEn": "Further reading",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-06-02-深入_Android_Simpleperf_火焰图分析_从_CPU_采样到性能瓶颈定位的全链路.md",
+      "translationKey": "android-simpleperf-flamegraph-cpu-profiling",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-simpleperf-flamegraph-cpu-profiling.md",
+      "samePublishDate": "2026-06-02",
+      "firstSectionZh": "Simpleperf 是什么",
+      "firstSectionEn": "What is Simpleperf?",
+      "lastSectionZh": "与 Systrace 互补的定位方法论",
+      "lastSectionEn": "Methodology Complementing Systrace",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-06-04-Native与H5路由灰度切换_用RedirectRouterInterceptor实现零风险页面迁移.md",
+      "translationKey": "native-h5-routing-gray-release-redirect-router-interceptor",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/native-h5-routing-gray-release-redirect-router-interceptor.md",
+      "samePublishDate": "2026-06-04",
+      "sharedNormalizedCodeCharacters": 1291,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-06-04-SmartDependency_源码与AAR双模式依赖体系.md",
+      "translationKey": "smartdependency-source-aar-dual-mode-dependencies",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/smartdependency-source-aar-dual-mode-dependencies.md",
+      "samePublishDate": "2026-06-04",
+      "sharedNormalizedCodeCharacters": 905,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-06-04-动态Launcher_Icon与启动入口切换_换图标背后的工程治理.md",
+      "translationKey": "dynamic-launcher-icon-entry-switching",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/dynamic-launcher-icon-entry-switching.md",
+      "samePublishDate": "2026-06-04",
+      "sharedNormalizedCodeCharacters": 2938,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-06-04-启动框架分阶段初始化_background与activity两类StartType.md",
+      "translationKey": "app-startup-phased-initialization-starttype",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/app-startup-phased-initialization-starttype.md",
+      "samePublishDate": "2026-06-04",
+      "sharedNormalizedCodeCharacters": 1659,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-06-04-图片加载稳定性实战_自定义SSL确认与DoH_DNS双管齐下.md",
+      "translationKey": "image-loading-stability-custom-ssl-doh-dns",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/image-loading-stability-custom-ssl-doh-dns.md",
+      "samePublishDate": "2026-06-04",
+      "sharedNormalizedCodeCharacters": 2179,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-06-04-图片加载统一门面_用ImageUrlProcessor动态裁剪告别混乱的图片代码.md",
+      "translationKey": "image-loading-facade-imageurlprocessor-dynamic-resizing",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/image-loading-facade-imageurlprocessor-dynamic-resizing.md",
+      "samePublishDate": "2026-06-04",
+      "sharedNormalizedCodeCharacters": 2361,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-06-04-字节码try-catch插桩治理第三方Crash_用hookPoint精准止血.md",
+      "translationKey": "bytecode-try-catch-instrumentation-third-party-crash-hookpoint",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/bytecode-try-catch-instrumentation-third-party-crash-hookpoint.md",
+      "samePublishDate": "2026-06-04",
+      "sharedNormalizedCodeCharacters": 1675,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-06-04-异步Inflate管理器_用线程池预加载与安全回退加速首帧渲染.md",
+      "translationKey": "async-inflate-manager-thread-pool-first-frame",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/async-inflate-manager-thread-pool-first-frame.md",
+      "samePublishDate": "2026-06-04",
+      "sharedNormalizedCodeCharacters": 2393,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-06-04-截屏检测与支持浮层_在用户最想求助的时刻提供入口.md",
+      "translationKey": "screenshot-detection-support-overlay",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/screenshot-detection-support-overlay.md",
+      "samePublishDate": "2026-06-04",
+      "sharedNormalizedCodeCharacters": 1433,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-06-04-深入_Compose_Multiplatform_桌面端实战_从_JVM_窗口管理到平台互操作的跨桌.md",
+      "translationKey": "compose-multiplatform-desktop-jvm-window-platform-interop",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/compose-multiplatform-desktop-jvm-window-platform-interop.md",
+      "samePublishDate": "2026-06-04",
+      "sharedNormalizedCodeCharacters": 2731,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-06-04-网络诊断体系设计_让每一次失败都可追溯可解释.md",
+      "translationKey": "network-diagnostics-system-traceable-explainable-failures",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/network-diagnostics-system-traceable-explainable-failures.md",
+      "samePublishDate": "2026-06-04",
+      "sharedNormalizedCodeCharacters": 996,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-06-04-自研缓存策略体系_用FirstCache等策略终结混乱的缓存代码.md",
+      "translationKey": "custom-cache-strategy-firstcache-firstnet-onlynet-timeout",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/custom-cache-strategy-firstcache-firstnet-onlynet-timeout.md",
+      "samePublishDate": "2026-06-04",
+      "sharedNormalizedCodeCharacters": 1670,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-06-04-路由预取与请求合并_让首屏数据提前跑且不重复跑.md",
+      "translationKey": "route-prefetch-request-merging-first-screen-data",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/route-prefetch-request-merging-first-screen-data.md",
+      "samePublishDate": "2026-06-04",
+      "sharedNormalizedCodeCharacters": 2747,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/2026-06-26-深入_Android_App_Standby_Buckets_全链路_从应用待机分组算法到后台资源限.md",
+      "translationKey": "android-app-standby-buckets",
+      "method": "recoveredHistoricalVerified",
+      "evidenceCommit": "485e5d6"
+    },
+    {
+      "file": "src/content/blog/2026-06-27-深入_Android_Context_上下文全链路_从_ContextImpl_内部实现到四大组件上.md",
+      "translationKey": "android-context-internals",
+      "method": "recoveredHistoricalVerified",
+      "evidenceCommit": "485e5d6"
+    },
+    {
+      "file": "src/content/blog/2026-06-28-深入_Android_端侧_AI_推理的_Token_化与解码策略_从_BPE_分词原理到_Top-.md",
+      "translationKey": "android-on-device-ai-tokenization-decoding",
+      "method": "recoveredHistoricalVerified",
+      "evidenceCommit": "485e5d6"
+    },
+    {
+      "file": "src/content/blog/2026-06-29-深入_Android_端侧_AI_推理引擎横向对比_从_LiteRT_到_ExecuTorch_的多.md",
+      "translationKey": "android-on-device-ai-inference-engine-selection",
+      "method": "recoveredHistoricalVerified",
+      "evidenceCommit": "485e5d6"
+    },
+    {
+      "file": "src/content/blog/2026-06-30-深入_Android_eBPF_全链路_从内核虚拟机到端侧网络监控与性能追踪的可编程观测架构.md",
+      "translationKey": "android-ebpf-observability",
+      "method": "recoveredHistoricalVerified",
+      "evidenceCommit": "485e5d6"
+    },
+    {
+      "file": "src/content/blog/2026-07-01-深入_Kotlin_协程的协作式取消机制_从_CancellationException_传播到_N.md",
+      "translationKey": "kotlin-coroutine-cooperative-cancellation",
+      "method": "recoveredHistoricalVerified",
+      "evidenceCommit": "485e5d6"
+    },
+    {
+      "file": "src/content/blog/2026-07-02-深入_Android_端侧_AI_推理的多模型编排与_Pipe_模式_从单一推理到复合任务工作流引擎.md",
+      "translationKey": "android-on-device-ai-multi-model-orchestration",
+      "method": "recoveredHistoricalVerified",
+      "evidenceCommit": "485e5d6"
+    },
+    {
+      "file": "src/content/blog/2026-07-03-深入_Android_APK_签名机制全链路_从_V1_JAR_签名到_V4_流式签名的演进与验证原.md",
+      "translationKey": "android-apk-signing-schemes",
+      "method": "recoveredHistoricalVerified",
+      "evidenceCommit": "485e5d6"
+    },
+    {
+      "file": "src/content/blog/2026-07-04-深入_Android_端侧_AI_推理的端到端延迟拆解与优化_从用户点击到首_Token_上屏的全链.md",
+      "translationKey": "android-on-device-ai-first-token-latency",
+      "method": "recoveredHistoricalVerified",
+      "evidenceCommit": "485e5d6"
+    },
+    {
+      "file": "src/content/blog/2026-07-05-深入_Android_端侧_AI_推理的_ExecuTorch_全链路_从_PyTorch_模型原生.md",
+      "translationKey": "android-executorch-android-deployment",
+      "method": "recoveredHistoricalVerified",
+      "evidenceCommit": "485e5d6"
+    },
+    {
+      "file": "src/content/blog/2026-07-06-深入_Android_LiveData_全链路_从_Lifecycle_感知机制到数据倒灌陷阱与_F.md",
+      "translationKey": "android-livedata-lifecycle-flow-migration",
+      "method": "recoveredHistoricalVerified",
+      "evidenceCommit": "485e5d6"
+    },
+    {
+      "file": "src/content/blog/2026-07-07-深入_Android_端侧_AI_推理的_ONNX_Runtime_全链路_从_ONNX_模型导出到.md",
+      "translationKey": "android-onnx-runtime-android-inference",
+      "method": "recoveredHistoricalVerified",
+      "evidenceCommit": "485e5d6"
+    },
+    {
+      "file": "src/content/blog/2026-07-08-深入_Android_端侧_AI_推理的隐私合规架构_从数据最小化到透明性设计的工程实践.md",
+      "translationKey": "android-on-device-ai-privacy-compliance",
+      "method": "recoveredHistoricalVerified",
+      "evidenceCommit": "485e5d6"
+    },
+    {
+      "file": "src/content/blog/2026-07-09-深入_Android_存储访问框架__SAF__全链路_从_DocumentsProvider_跨进.md",
+      "translationKey": "android-storage-access-framework",
+      "method": "recoveredHistoricalVerified",
+      "evidenceCommit": "485e5d6"
+    },
+    {
+      "file": "src/content/blog/2026-07-10-深入_Android_悬浮窗全链路_从_SYSTEM_ALERT_WINDOW_权限模型演进到_Wi.md",
+      "translationKey": "android-overlay-window-permissions",
+      "method": "recoveredHistoricalVerified",
+      "evidenceCommit": "485e5d6"
+    },
+    {
+      "file": "src/content/blog/2026-07-11-深入_Android_TextView_文本测量与布局全链路_从_StaticLayout_创建到_.md",
+      "translationKey": "android-textview-layout-linebreaker",
+      "method": "recoveredHistoricalVerified",
+      "evidenceCommit": "485e5d6"
+    },
+    {
+      "file": "src/content/blog/2026-07-13-深入_Android_ARCore_增强现实全链路_从_SLAM_空间定位到_Light_Estim.md",
+      "translationKey": "android-arcore-slam-light-estimation",
+      "method": "recoveredHistoricalVerified",
+      "evidenceCommit": "485e5d6"
+    },
+    {
+      "file": "src/content/blog/2026-07-13-深入_Android_端侧_AI_推理的可观测性全链路_从推理链路追踪到线上性能退化监控的工程实践.md",
+      "translationKey": "android-on-device-ai-observability",
+      "method": "recoveredHistoricalVerified",
+      "evidenceCommit": "485e5d6"
+    },
+    {
+      "file": "src/content/blog/2026-07-14-深入_Android_端侧_AI_的独立进程推理架构_从进程隔离到_AIDL_通信的稳定性保障.md",
+      "translationKey": "android-on-device-ai-isolated-process-aidl",
+      "method": "recoveredHistoricalVerified",
+      "evidenceCommit": "485e5d6"
+    },
+    {
+      "file": "src/content/blog/7个Android开发者必须知道的ADB命令.md",
+      "translationKey": "seven-adb-commands-android-developers",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/seven-adb-commands-android-developers.md",
+      "samePublishDate": "2024-07-29",
+      "firstSectionZh": "1. ADB 屏幕录制命令",
+      "firstSectionEn": "1. Record the Screen with ADB",
+      "lastSectionZh": "结语",
+      "lastSectionEn": "Conclusion",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/ART虚拟机与内存管理高级策略.md",
+      "translationKey": "art-vm-advanced-memory-management",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/art-vm-advanced-memory-management.md",
+      "samePublishDate": "2024-05-05",
+      "sharedNormalizedCodeCharacters": 1673,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/ART虚拟机与内存管理高级策略.part1.md",
+      "translationKey": "art-vm-advanced-memory-management-part1",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/art-vm-advanced-memory-management-part1.md",
+      "samePublishDate": "2024-05-05",
+      "sharedNormalizedCodeCharacters": 810,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/ART虚拟机与内存管理高级策略.part2.md",
+      "translationKey": "art-vm-advanced-memory-management-part2",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/art-vm-advanced-memory-management-part2.md",
+      "samePublishDate": "2024-05-05",
+      "sharedNormalizedCodeCharacters": 863,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/ART虚拟机与内存管理高级策略.part3.md",
+      "translationKey": "art-vm-advanced-memory-management-part3",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/art-vm-advanced-memory-management-part3.md",
+      "samePublishDate": "2024-05-05",
+      "firstSectionZh": "三、高级内存问题诊断",
+      "firstSectionEn": "3. Advanced memory problem diagnosis",
+      "lastSectionZh": "命令行工具",
+      "lastSectionEn": "Command-line tools",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/ART虚拟机与内存管理高级策略.part4.md",
+      "translationKey": "art-vm-advanced-memory-management-part4",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/art-vm-advanced-memory-management-part4.md",
+      "samePublishDate": "2024-05-05",
+      "firstSectionZh": "五、Native 内存探秘：冰山下的部分",
+      "firstSectionEn": "5. Native memory exploration: the part below the surface",
+      "lastSectionZh": "七、结论：内存优化，道阻且长，行则将至",
+      "lastSectionEn": "7. Conclusion: memory optimization is hard, but persistence works",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Android APP内存管理：深入理解Dalvik虚拟机参数.md",
+      "translationKey": "android-app-memory-dalvik-vm-parameters",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-app-memory-dalvik-vm-parameters.md",
+      "samePublishDate": "2025-12-08",
+      "firstSectionZh": "设备整体内存概览",
+      "firstSectionEn": "Device-level memory overview",
+      "lastSectionZh": "扩展阅读",
+      "lastSectionEn": "Further reading",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Android Native Crash 及 Firebase 捕获方案详解.md",
+      "translationKey": "android-native-crash-firebase-capture",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-native-crash-firebase-capture.md",
+      "samePublishDate": "2025-02-03",
+      "sharedNormalizedCodeCharacters": 344,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Android 冷启动优化- Baseline 优化.md",
+      "translationKey": "android-cold-start-baseline-optimization",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-cold-start-baseline-optimization.md",
+      "samePublishDate": "2025-11-18",
+      "sharedNormalizedCodeCharacters": 2898,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Android 冷启动优化- Baseline 优化.part1.md",
+      "translationKey": "android-cold-start-baseline-optimization-part1",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-cold-start-baseline-optimization-part1.md",
+      "samePublishDate": "2025-11-18",
+      "firstSectionZh": "背景",
+      "firstSectionEn": "Background",
+      "lastSectionZh": "预先编译时机",
+      "lastSectionEn": "Precompilation timing",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Android 冷启动优化- Baseline 优化.part2.md",
+      "translationKey": "android-cold-start-baseline-optimization-part2",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-cold-start-baseline-optimization-part2.md",
+      "samePublishDate": "2025-11-18",
+      "sharedNormalizedCodeCharacters": 1542,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Android 冷启动优化- Baseline 优化.part3.md",
+      "translationKey": "android-cold-start-baseline-optimization-part3",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-cold-start-baseline-optimization-part3.md",
+      "samePublishDate": "2025-11-18",
+      "sharedNormalizedCodeCharacters": 1356,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Android 模块化滚动容器架构：从多 ViewType 到 Section 化页面引擎.md",
+      "translationKey": "android-modular-scroll-container-section-engine",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-modular-scroll-container-section-engine.md",
+      "samePublishDate": "2025-03-22",
+      "sharedNormalizedCodeCharacters": 2655,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Android动画深度解析：从原理到实践.md",
+      "translationKey": "android-animation-principles-practice",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-animation-principles-practice.md",
+      "samePublishDate": "2024-03-20",
+      "sharedNormalizedCodeCharacters": 3141,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Android动画深度解析：从原理到实践.part1.md",
+      "translationKey": "android-animation-principles-practice-part1",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-animation-principles-practice-part1.md",
+      "samePublishDate": "2024-03-20",
+      "firstSectionZh": "动画，不仅仅是点缀",
+      "firstSectionEn": "Animation is more than decoration",
+      "lastSectionZh": "1. 动画与绘制管线（Animation and the Drawing Pipeline）",
+      "lastSectionEn": "1. Animation and the drawing pipeline",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Android动画深度解析：从原理到实践.part2.md",
+      "translationKey": "android-animation-principles-practice-part2",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-animation-principles-practice-part2.md",
+      "samePublishDate": "2024-03-20",
+      "firstSectionZh": "2. 核心动画概念（Core Animation Concepts）",
+      "firstSectionEn": "2. Core Animation Concepts",
+      "lastSectionZh": "第二部分：Android 动画系统架构与核心组件",
+      "lastSectionEn": "Part 2: Android animation system architecture and core components",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Android动画深度解析：从原理到实践.part3.md",
+      "translationKey": "android-animation-principles-practice-part3",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-animation-principles-practice-part3.md",
+      "samePublishDate": "2024-03-20",
+      "firstSectionZh": "1. 系统架构概览（System Architecture Overview）",
+      "firstSectionEn": "1. System Architecture Overview",
+      "lastSectionZh": "1. 系统架构概览（System Architecture Overview）",
+      "lastSectionEn": "1. System Architecture Overview",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Android动画深度解析：从原理到实践.part4.md",
+      "translationKey": "android-animation-principles-practice-part4",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-animation-principles-practice-part4.md",
+      "samePublishDate": "2024-03-20",
+      "sharedNormalizedCodeCharacters": 451,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Android动画深度解析：从原理到实践.part5.md",
+      "translationKey": "android-animation-principles-practice-part5",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-animation-principles-practice-part5.md",
+      "samePublishDate": "2024-03-20",
+      "sharedNormalizedCodeCharacters": 876,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Android动画深度解析：从原理到实践.part6.md",
+      "translationKey": "android-animation-principles-practice-part6",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-animation-principles-practice-part6.md",
+      "samePublishDate": "2024-03-20",
+      "sharedNormalizedCodeCharacters": 690,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Android动画深度解析：从原理到实践.part7.md",
+      "translationKey": "android-animation-principles-practice-part7",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-animation-principles-practice-part7.md",
+      "samePublishDate": "2024-03-20",
+      "firstSectionZh": "D. Physics-Based Animation（基于物理的动画）",
+      "firstSectionEn": "D. Physics-Based Animation",
+      "lastSectionZh": "D. Physics-Based Animation（基于物理的动画）",
+      "lastSectionEn": "D. Physics-Based Animation",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Android动画深度解析：从原理到实践.part8.md",
+      "translationKey": "android-animation-principles-practice-part8",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-animation-principles-practice-part8.md",
+      "samePublishDate": "2024-03-20",
+      "sharedNormalizedCodeCharacters": 1124,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Android动画深度解析：从原理到实践.part9.md",
+      "translationKey": "android-animation-principles-practice-part9",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-animation-principles-practice-part9.md",
+      "samePublishDate": "2024-03-20",
+      "firstSectionZh": "第四部分：如何选型",
+      "firstSectionEn": "Part 4: How to Choose the Right Animation Tool",
+      "lastSectionZh": "结语：动画是匠心，更是工程",
+      "lastSectionEn": "Conclusion: Animation Is Craft and Engineering",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Android多语言动态化实践.md",
+      "translationKey": "android-dynamic-multilingual-localization",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-dynamic-multilingual-localization.md",
+      "samePublishDate": "2024-03-23",
+      "sharedNormalizedCodeCharacters": 4662,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Android应用安全加固与攻防.md",
+      "translationKey": "android-app-security-hardening-attack-defense",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-app-security-hardening-attack-defense.md",
+      "samePublishDate": "2024-12-13",
+      "sharedNormalizedCodeCharacters": 1293,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Android应用安全加固与攻防.part1.md",
+      "translationKey": "android-app-security-hardening-attack-defense-part1",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-app-security-hardening-attack-defense-part1.md",
+      "samePublishDate": "2024-12-13",
+      "sharedNormalizedCodeCharacters": 716,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Android应用安全加固与攻防.part2.md",
+      "translationKey": "android-app-security-hardening-attack-defense-part2",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-app-security-hardening-attack-defense-part2.md",
+      "samePublishDate": "2024-12-13",
+      "firstSectionZh": "二、代码保护：提升逆向工程门槛",
+      "firstSectionEn": "2. Code protection: raising the reverse engineering bar",
+      "lastSectionZh": "考量",
+      "lastSectionEn": "Considerations",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Android应用安全加固与攻防.part3.md",
+      "translationKey": "android-app-security-hardening-attack-defense-part3",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-app-security-hardening-attack-defense-part3.md",
+      "samePublishDate": "2024-12-13",
+      "sharedNormalizedCodeCharacters": 577,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Android渲染机制与图形栈深入理解.md",
+      "translationKey": "android-rendering-graphics-stack",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-rendering-graphics-stack.md",
+      "samePublishDate": "2025-06-19",
+      "sharedNormalizedCodeCharacters": 2319,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Android渲染机制与图形栈深入理解.part1.md",
+      "translationKey": "android-rendering-graphics-stack-part1",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-rendering-graphics-stack-part1.md",
+      "samePublishDate": "2025-06-19",
+      "sharedNormalizedCodeCharacters": 657,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Android渲染机制与图形栈深入理解.part2.md",
+      "translationKey": "android-rendering-graphics-stack-part2",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-rendering-graphics-stack-part2.md",
+      "samePublishDate": "2025-06-19",
+      "sharedNormalizedCodeCharacters": 743,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Android渲染机制与图形栈深入理解.part3.md",
+      "translationKey": "android-rendering-graphics-stack-part3",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-rendering-graphics-stack-part3.md",
+      "samePublishDate": "2025-06-19",
+      "sharedNormalizedCodeCharacters": 919,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Android渲染机制与图形栈深入理解.part4.md",
+      "translationKey": "android-rendering-graphics-stack-part4",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-rendering-graphics-stack-part4.md",
+      "samePublishDate": "2025-06-19",
+      "firstSectionZh": "六、特殊视图辨析：SurfaceView vs TextureView vs SurfaceControlViewHost",
+      "firstSectionEn": "6. Special View types: SurfaceView vs TextureView vs SurfaceControlViewHost",
+      "lastSectionZh": "九、结论：驾驭像素，创造流畅",
+      "lastSectionEn": "9. Conclusion: control the pixels, build smooth experiences",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Android系统服务与Framework层交互模型.md",
+      "translationKey": "android-system-services-framework-interaction",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-system-services-framework-interaction.md",
+      "samePublishDate": "2024-05-27",
+      "firstSectionZh": "引言：驱动 Android 世界的引擎",
+      "firstSectionEn": "Introduction: The Engine That Drives Android",
+      "lastSectionZh": "延伸阅读",
+      "lastSectionEn": "Further reading",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Android系统服务与Framework层交互模型.part1.md",
+      "translationKey": "android-system-services-framework-interaction-part1",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-system-services-framework-interaction-part1.md",
+      "samePublishDate": "2024-05-27",
+      "firstSectionZh": "引言：驱动 Android 世界的引擎",
+      "firstSectionEn": "Introduction: The Engine That Drives Android",
+      "lastSectionZh": "4. SystemServer 的线程模型",
+      "lastSectionEn": "4. The SystemServer thread model",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Android系统服务与Framework层交互模型.part2.md",
+      "translationKey": "android-system-services-framework-interaction-part2",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-system-services-framework-interaction-part2.md",
+      "samePublishDate": "2024-05-27",
+      "firstSectionZh": "二、服务注册：让世界发现我——ServiceManager",
+      "firstSectionEn": "2. Service Registration: Letting the World Discover Me, ServiceManager",
+      "lastSectionZh": "4. 其他关键服务（掠影）",
+      "lastSectionEn": "4. Other key services, briefly",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Android系统服务与Framework层交互模型.part3.md",
+      "translationKey": "android-system-services-framework-interaction-part3",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-system-services-framework-interaction-part3.md",
+      "samePublishDate": "2024-05-27",
+      "sharedNormalizedCodeCharacters": 1467,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Android进程与线程模型深度剖析.md",
+      "translationKey": "android-process-thread-model-deep-dive",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-process-thread-model-deep-dive.md",
+      "samePublishDate": "2025-07-04",
+      "sharedNormalizedCodeCharacters": 1205,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Android进程与线程模型深度剖析.part1.md",
+      "translationKey": "android-process-thread-model-deep-dive-part1",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-process-thread-model-deep-dive-part1.md",
+      "samePublishDate": "2025-07-04",
+      "sharedNormalizedCodeCharacters": 614,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Android进程与线程模型深度剖析.part2.md",
+      "translationKey": "android-process-thread-model-deep-dive-part2",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-process-thread-model-deep-dive-part2.md",
+      "samePublishDate": "2025-07-04",
+      "sharedNormalizedCodeCharacters": 591,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Android进程与线程模型深度剖析.part3.md",
+      "translationKey": "android-process-thread-model-deep-dive-part3",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-process-thread-model-deep-dive-part3.md",
+      "samePublishDate": "2025-07-04",
+      "firstSectionZh": "七、高级同步与线程安全",
+      "firstSectionEn": "7. Advanced Synchronization and Thread Safety",
+      "lastSectionZh": "九、结论：掌控并发，驾驭响应",
+      "lastSectionEn": "9. Conclusion: Control Concurrency, Control Responsiveness",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Android高级网络编程与优化.md",
+      "translationKey": "android-advanced-network-programming-optimization",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-advanced-network-programming-optimization.md",
+      "samePublishDate": "2025-03-17",
+      "firstSectionZh": "引言：应用的生命线——网络通信",
+      "firstSectionEn": "Introduction: network communication is the app's lifeline",
+      "lastSectionZh": "七、结论：网络优化，精益求精",
+      "lastSectionEn": "7. Conclusion: network optimization is continuous refinement",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Android高级网络编程与优化.part1.md",
+      "translationKey": "android-advanced-network-programming-optimization-part1",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-advanced-network-programming-optimization-part1.md",
+      "samePublishDate": "2025-03-17",
+      "firstSectionZh": "引言：应用的生命线——网络通信",
+      "firstSectionEn": "Introduction: network communication is the app's lifeline",
+      "lastSectionZh": "3. QUIC 与 HTTP/3：基于 UDP 的下一代协议",
+      "lastSectionEn": "3. QUIC and HTTP/3: the UDP-based next generation",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Android高级网络编程与优化.part2.md",
+      "translationKey": "android-advanced-network-programming-optimization-part2",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-advanced-network-programming-optimization-part2.md",
+      "samePublishDate": "2025-03-17",
+      "firstSectionZh": "二、OkHttp 深度解析：网络请求的瑞士军刀",
+      "firstSectionEn": "2. OkHttp internals: the networking Swiss army knife",
+      "lastSectionZh": "1. 核心组件",
+      "lastSectionEn": "1. Core components",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Android高级网络编程与优化.part3.md",
+      "translationKey": "android-advanced-network-programming-optimization-part3",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-advanced-network-programming-optimization-part3.md",
+      "samePublishDate": "2025-03-17",
+      "firstSectionZh": "三、Retrofit 高级用法：优雅定义 API",
+      "firstSectionEn": "3. Advanced Retrofit usage: defining APIs cleanly",
+      "lastSectionZh": "七、结论：网络优化，精益求精",
+      "lastSectionEn": "7. Conclusion: network optimization is continuous refinement",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/App启动优化专项.md",
+      "translationKey": "app-startup-optimization",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/app-startup-optimization.md",
+      "samePublishDate": "2024-03-07",
+      "sharedNormalizedCodeCharacters": 1035,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/App稳定性建设与线上运维.md",
+      "translationKey": "app-stability-online-operations",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/app-stability-online-operations.md",
+      "samePublishDate": "2024-04-13",
+      "firstSectionZh": "引言：用户的信任基石",
+      "firstSectionEn": "Introduction: the foundation of user trust",
+      "lastSectionZh": "六、结论：稳定，源于体系与匠心",
+      "lastSectionEn": "6. Conclusion: stability comes from systems and craftsmanship",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Binder IPC机制深度解析 (Beyond AIDL).md",
+      "translationKey": "binder-ipc-beyond-aidl",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/binder-ipc-beyond-aidl.md",
+      "samePublishDate": "2024-04-21",
+      "sharedNormalizedCodeCharacters": 16104,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Binder IPC机制深度解析 (Beyond AIDL).part1.md",
+      "translationKey": "binder-ipc-beyond-aidl-part1",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/binder-ipc-beyond-aidl-part1.md",
+      "samePublishDate": "2024-04-21",
+      "sharedNormalizedCodeCharacters": 905,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Binder IPC机制深度解析 (Beyond AIDL).part2.md",
+      "translationKey": "binder-ipc-beyond-aidl-part2",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/binder-ipc-beyond-aidl-part2.md",
+      "samePublishDate": "2024-04-21",
+      "sharedNormalizedCodeCharacters": 717,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Binder IPC机制深度解析 (Beyond AIDL).part3.md",
+      "translationKey": "binder-ipc-beyond-aidl-part3",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/binder-ipc-beyond-aidl-part3.md",
+      "samePublishDate": "2024-04-21",
+      "sharedNormalizedCodeCharacters": 1251,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Binder IPC机制深度解析 (Beyond AIDL).part4.md",
+      "translationKey": "binder-ipc-beyond-aidl-part4",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/binder-ipc-beyond-aidl-part4.md",
+      "samePublishDate": "2024-04-21",
+      "firstSectionZh": "四、线程模型：并发、同步与 ANR 之源",
+      "firstSectionEn": "4. Thread Model: Concurrency, Synchronization, and the Source of ANR",
+      "lastSectionZh": "4. Binder 与 ANR",
+      "lastSectionEn": "4. Binder and ANR",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Binder IPC机制深度解析 (Beyond AIDL).part5.md",
+      "translationKey": "binder-ipc-beyond-aidl-part5",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/binder-ipc-beyond-aidl-part5.md",
+      "samePublishDate": "2024-04-21",
+      "sharedNormalizedCodeCharacters": 12497,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Binder IPC机制深度解析 (Beyond AIDL).part6.md",
+      "translationKey": "binder-ipc-beyond-aidl-part6",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/binder-ipc-beyond-aidl-part6.md",
+      "samePublishDate": "2024-04-21",
+      "sharedNormalizedCodeCharacters": 734,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Binder IPC机制深度解析 (Beyond AIDL).part7.md",
+      "translationKey": "binder-ipc-beyond-aidl-part7",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/binder-ipc-beyond-aidl-part7.md",
+      "samePublishDate": "2024-04-21",
+      "firstSectionZh": "九、疑难问题排查：庖丁解牛 Binder",
+      "firstSectionEn": "9. Troubleshooting: Dissecting Binder Like Pao Ding",
+      "lastSectionZh": "结论：超越接口，洞悉系统",
+      "lastSectionEn": "Conclusion: Go Beyond the Interface and See the System",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Git Worktree 实战指南：多分支并行开发的正确姿势.md",
+      "translationKey": "git-worktree-parallel-branch-development",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/git-worktree-parallel-branch-development.md",
+      "samePublishDate": "2026-03-26",
+      "firstSectionZh": "传统工作流的三个痛点",
+      "firstSectionEn": "Three Pain Points in the Traditional Workflow",
+      "lastSectionZh": "小结",
+      "lastSectionEn": "Summary",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Git 存储原理解析：从快照到 checkout 的底层实现.md",
+      "translationKey": "git-storage-internals-snapshots-checkout",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/git-storage-internals-snapshots-checkout.md",
+      "samePublishDate": "2026-03-03",
+      "firstSectionZh": "Git 存的不是操作，而是快照",
+      "firstSectionEn": "Git Stores Snapshots, Not Operations",
+      "lastSectionZh": "小结",
+      "lastSectionEn": "Summary",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Git基础功能全面指南：从入门到精通.md",
+      "translationKey": "git-complete-guide-from-basics-to-mastery",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/git-complete-guide-from-basics-to-mastery.md",
+      "samePublishDate": "2026-03-16",
+      "sharedNormalizedCodeCharacters": 540,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Gradle编译构建系统优化.md",
+      "translationKey": "gradle-build-system-optimization",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/gradle-build-system-optimization.md",
+      "samePublishDate": "2025-09-29",
+      "sharedNormalizedCodeCharacters": 752,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南.md",
+      "translationKey": "jenkins-gitlab-ci-android-cicd-complete-guide",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/jenkins-gitlab-ci-android-cicd-complete-guide.md",
+      "samePublishDate": "2025-09-06",
+      "sharedNormalizedCodeCharacters": 13981,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南.part1.md",
+      "translationKey": "jenkins-gitlab-ci-android-cicd-complete-guide-part1",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/jenkins-gitlab-ci-android-cicd-complete-guide-part1.md",
+      "samePublishDate": "2025-09-06",
+      "sharedNormalizedCodeCharacters": 2331,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南.part2.md",
+      "translationKey": "jenkins-gitlab-ci-android-cicd-complete-guide-part2",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/jenkins-gitlab-ci-android-cicd-complete-guide-part2.md",
+      "samePublishDate": "2025-09-06",
+      "sharedNormalizedCodeCharacters": 1623,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南.part3.md",
+      "translationKey": "jenkins-gitlab-ci-android-cicd-complete-guide-part3",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/jenkins-gitlab-ci-android-cicd-complete-guide-part3.md",
+      "samePublishDate": "2025-09-06",
+      "sharedNormalizedCodeCharacters": 1662,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南.part4.md",
+      "translationKey": "jenkins-gitlab-ci-android-cicd-complete-guide-part4",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/jenkins-gitlab-ci-android-cicd-complete-guide-part4.md",
+      "samePublishDate": "2025-09-06",
+      "sharedNormalizedCodeCharacters": 1924,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南.part5.md",
+      "translationKey": "jenkins-gitlab-ci-android-cicd-complete-guide-part5",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/jenkins-gitlab-ci-android-cicd-complete-guide-part5.md",
+      "samePublishDate": "2025-09-06",
+      "sharedNormalizedCodeCharacters": 2955,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南.part6.md",
+      "translationKey": "jenkins-gitlab-ci-android-cicd-complete-guide-part6",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/jenkins-gitlab-ci-android-cicd-complete-guide-part6.md",
+      "samePublishDate": "2025-09-06",
+      "sharedNormalizedCodeCharacters": 982,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南.part7.md",
+      "translationKey": "jenkins-gitlab-ci-android-cicd-complete-guide-part7",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/jenkins-gitlab-ci-android-cicd-complete-guide-part7.md",
+      "samePublishDate": "2025-09-06",
+      "firstSectionZh": "8.2.1 Jenkins多分支Pipeline",
+      "firstSectionEn": "8.2.1 Jenkins multibranch Pipeline",
+      "lastSectionZh": "8.2.1 Jenkins多分支Pipeline",
+      "lastSectionEn": "8.2.1 Jenkins multibranch Pipeline",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南.part8.md",
+      "translationKey": "jenkins-gitlab-ci-android-cicd-complete-guide-part8",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/jenkins-gitlab-ci-android-cicd-complete-guide-part8.md",
+      "samePublishDate": "2025-09-06",
+      "sharedNormalizedCodeCharacters": 2504,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Jetpack Compose 高级应用与原理.md",
+      "translationKey": "jetpack-compose-advanced-applications-internals",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/jetpack-compose-advanced-applications-internals.md",
+      "samePublishDate": "2025-03-27",
+      "sharedNormalizedCodeCharacters": 641,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Jetpack Compose 高级应用与原理.part1.md",
+      "translationKey": "jetpack-compose-advanced-applications-internals-part1",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/jetpack-compose-advanced-applications-internals-part1.md",
+      "samePublishDate": "2024-11-18",
+      "sharedNormalizedCodeCharacters": 641,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Jetpack Compose 高级应用与原理.part2.md",
+      "translationKey": "jetpack-compose-advanced-applications-internals-part2",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/jetpack-compose-advanced-applications-internals-part2.md",
+      "samePublishDate": "2025-07-24",
+      "firstSectionZh": "三、高级状态管理：超越 remember { mutableStateOf(...) }",
+      "firstSectionEn": "3. Advanced State Management: Beyond remember { mutableStateOf(...) }",
+      "lastSectionZh": "2. 关键 Effect API",
+      "lastSectionEn": "2. Key Effect APIs",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Jetpack Compose 高级应用与原理.part3.md",
+      "translationKey": "jetpack-compose-advanced-applications-internals-part3",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/jetpack-compose-advanced-applications-internals-part3.md",
+      "samePublishDate": "2025-01-27",
+      "firstSectionZh": "五、Compose 布局模型：声明式的测量与放置",
+      "firstSectionEn": "5. The Compose Layout Model: Declarative Measurement and Placement",
+      "lastSectionZh": "九、结论：拥抱声明式，精通其道",
+      "lastSectionEn": "9. Conclusion: Embrace Declarative UI and Master Its Mechanics",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Kotlin Coroutines 与 Flow 的高级应用与原理.md",
+      "translationKey": "kotlin-coroutines-flow-advanced-applications-internals",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/kotlin-coroutines-flow-advanced-applications-internals.md",
+      "samePublishDate": "2025-03-30",
+      "sharedNormalizedCodeCharacters": 3433,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Kotlin Coroutines 与 Flow 的高级应用与原理.part1.md",
+      "translationKey": "kotlin-coroutines-flow-advanced-applications-internals-part1",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/kotlin-coroutines-flow-advanced-applications-internals-part1.md",
+      "samePublishDate": "2025-03-30",
+      "sharedNormalizedCodeCharacters": 1309,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Kotlin Coroutines 与 Flow 的高级应用与原理.part2.md",
+      "translationKey": "kotlin-coroutines-flow-advanced-applications-internals-part2",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/kotlin-coroutines-flow-advanced-applications-internals-part2.md",
+      "samePublishDate": "2025-03-30",
+      "sharedNormalizedCodeCharacters": 886,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Kotlin Coroutines 与 Flow 的高级应用与原理.part3.md",
+      "translationKey": "kotlin-coroutines-flow-advanced-applications-internals-part3",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/kotlin-coroutines-flow-advanced-applications-internals-part3.md",
+      "samePublishDate": "2025-03-30",
+      "sharedNormalizedCodeCharacters": 1238,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Kotlin Coroutines 与 Flow 的高级应用与原理.part4.md",
+      "translationKey": "kotlin-coroutines-flow-advanced-applications-internals-part4",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/kotlin-coroutines-flow-advanced-applications-internals-part4.md",
+      "samePublishDate": "2025-03-30",
+      "firstSectionZh": "五、StateFlow & SharedFlow：热流状态与事件总线",
+      "firstSectionEn": "5. StateFlow and SharedFlow: Hot-Flow State and Event Buses",
+      "lastSectionZh": "5. Flow 的异常处理",
+      "lastSectionEn": "5. Flow Exception Handling",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Kotlin Coroutines 与 Flow 的高级应用与原理.part5.md",
+      "translationKey": "kotlin-coroutines-flow-advanced-applications-internals-part5",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/kotlin-coroutines-flow-advanced-applications-internals-part5.md",
+      "samePublishDate": "2025-03-30",
+      "firstSectionZh": "八、取消机制：优雅地停止",
+      "firstSectionEn": "8. Cancellation: Stopping Gracefully",
+      "lastSectionZh": "十二、结论：并发编程的现代利器",
+      "lastSectionEn": "12. Conclusion: A Modern Tool for Concurrent Programming",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/MySQL的mysql_native_password 错误怎么解决.md",
+      "translationKey": "mysql-native-password-error-fix",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/mysql-native-password-error-fix.md",
+      "samePublishDate": "2025-08-25",
+      "firstSectionZh": "背景",
+      "firstSectionEn": "Background",
+      "lastSectionZh": "后记",
+      "lastSectionEn": "Afterword",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/OpenClaw Agent 体系深度解析：运行时、通信与多 Agent 工程实践.md",
+      "translationKey": "openclaw-agent-runtime-communication-multi-agent-engineering",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/openclaw-agent-runtime-communication-multi-agent-engineering.md",
+      "samePublishDate": "2026-03-11",
+      "sharedNormalizedCodeCharacters": 189,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/OpenClaw Memory 设计解析：从文件化记忆到可扩展检索架构.md",
+      "translationKey": "openclaw-memory-file-based-memory-scalable-retrieval",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/openclaw-memory-file-based-memory-scalable-retrieval.md",
+      "samePublishDate": "2026-03-10",
+      "firstSectionZh": "设计原理：Memory 不是神经状态，而是工程状态",
+      "firstSectionEn": "Design Principles: Memory Is Not Neural State, but Engineering State",
+      "lastSectionZh": "总结",
+      "lastSectionEn": "Summary",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/OpenClaw Tools 权限排障：为什么能聊天却不能 exec 和联网.md",
+      "translationKey": "openclaw-tools-permission-troubleshooting-exec-network",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/openclaw-tools-permission-troubleshooting-exec-network.md",
+      "samePublishDate": "2026-03-05",
+      "firstSectionZh": "先给结论",
+      "firstSectionEn": "The short answer",
+      "lastSectionZh": "实践建议",
+      "lastSectionEn": "Practical advice",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/OpenClaw 架构拆解：Node、Tool、Skill 如何把 AI 变成可执行系统.md",
+      "translationKey": "openclaw-architecture-node-tool-skill-executable-ai-system",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/openclaw-architecture-node-tool-skill-executable-ai-system.md",
+      "samePublishDate": "2026-03-06",
+      "firstSectionZh": "为什么 Node 是第一关键点",
+      "firstSectionEn": "Why Node is the first key concept",
+      "lastSectionZh": "实践建议：先做“最小可执行网络”",
+      "lastSectionEn": "Practical advice: start with a minimal executable network",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/OpenClaw 节点远程连接与网络通信架构分析.md",
+      "translationKey": "openclaw-node-remote-connection-network-architecture",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/openclaw-node-remote-connection-network-architecture.md",
+      "samePublishDate": "2026-03-06",
+      "firstSectionZh": "一、先看最小通信模型：控制面与执行面分离",
+      "firstSectionEn": "1. Start with the minimal communication model: control plane and execution plane",
+      "lastSectionZh": "九、结论",
+      "lastSectionEn": "9. Conclusion",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/Prompt 成本优化的边界：何时该写长，何时该写短.md",
+      "translationKey": "prompt-cost-optimization-when-long-or-short",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/prompt-cost-optimization-when-long-or-short.md",
+      "samePublishDate": "2026-03-04",
+      "firstSectionZh": "问题定义：我们到底在优化什么",
+      "firstSectionEn": "Problem definition: what are we actually optimizing?",
+      "lastSectionZh": "结论",
+      "lastSectionEn": "Conclusion",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/SQL基础功能全面指南：从入门到精通.md",
+      "translationKey": "sql-complete-guide-from-basics-to-mastery",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/sql-complete-guide-from-basics-to-mastery.md",
+      "samePublishDate": "2024-07-02",
+      "sharedNormalizedCodeCharacters": 1202,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/WebView 渲染进程崩溃问题全解析.md",
+      "translationKey": "webview-render-process-crash-deep-dive",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/webview-render-process-crash-deep-dive.md",
+      "samePublishDate": "2025-10-17",
+      "firstSectionZh": "1. 问题背景与错误日志解读",
+      "firstSectionEn": "1. Background and Error Log Interpretation",
+      "lastSectionZh": "6. 总结",
+      "lastSectionEn": "6. Summary",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/三端动效协作实战：用 Motion Spec 打通设计到代码.md",
+      "translationKey": "motion-spec-design-to-code-collaboration",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/motion-spec-design-to-code-collaboration.md",
+      "samePublishDate": "2026-03-03",
+      "sharedNormalizedCodeCharacters": 187,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/从像素到灵魂：深入解析字体排印与 Android 字体架构.md",
+      "translationKey": "android-typography-font-architecture",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-typography-font-architecture.md",
+      "samePublishDate": "2026-01-12",
+      "sharedNormalizedCodeCharacters": 1082,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/从像素到灵魂：深入解析字体排印与 Android 字体架构.part1.md",
+      "translationKey": "android-typography-font-architecture-part1",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-typography-font-architecture-part1.md",
+      "samePublishDate": "2026-01-12",
+      "firstSectionZh": "第一部分 - 万丈高楼平地起：奠定字体排印的坚实基础",
+      "firstSectionEn": "Part One - Building on Solid Ground: The Foundations of Typography",
+      "lastSectionZh": "第二章：告别混淆：厘清字体排印的核心术语",
+      "lastSectionEn": "Chapter 2: Clearing Up the Core Terms of Typography",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/从像素到灵魂：深入解析字体排印与 Android 字体架构.part10.md",
+      "translationKey": "android-typography-font-architecture-part10",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-typography-font-architecture-part10.md",
+      "samePublishDate": "2026-01-12",
+      "sharedNormalizedCodeCharacters": 1825,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/从像素到灵魂：深入解析字体排印与 Android 字体架构.part11.md",
+      "translationKey": "android-typography-font-architecture-part11",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-typography-font-architecture-part11.md",
+      "samePublishDate": "2026-01-12",
+      "firstSectionZh": "第三章：未雨绸缪：字体预加载 (Font Preloading)",
+      "firstSectionEn": "Chapter 3: Planning Ahead: Font Preloading",
+      "lastSectionZh": "第四章：深入引擎室：渲染引擎与性能考量（概念篇）",
+      "lastSectionEn": "Chapter 4: Inside the Engine Room: Rendering Engines and Performance Considerations (Conceptual)",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/从像素到灵魂：深入解析字体排印与 Android 字体架构.part12.md",
+      "translationKey": "android-typography-font-architecture-part12",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-typography-font-architecture-part12.md",
+      "samePublishDate": "2026-01-12",
+      "firstSectionZh": "第五章：放眼全球：国际化 (I18N) 与字体再思考",
+      "firstSectionEn": "Chapter 5: Looking Globally: Rethinking Internationalization (I18N) and Fonts",
+      "lastSectionZh": "引言：从理论到卓越实践的最后一公里",
+      "lastSectionEn": "Introduction: The Last Mile from Theory to Excellent Practice",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/从像素到灵魂：深入解析字体排印与 Android 字体架构.part13.md",
+      "translationKey": "android-typography-font-architecture-part13",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-typography-font-architecture-part13.md",
+      "samePublishDate": "2026-01-12",
+      "sharedNormalizedCodeCharacters": 1961,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/从像素到灵魂：深入解析字体排印与 Android 字体架构.part14.md",
+      "translationKey": "android-typography-font-architecture-part14",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-typography-font-architecture-part14.md",
+      "samePublishDate": "2026-01-12",
+      "firstSectionZh": "第三章：现代 UI 的字体之道：Jetpack Compose 中的实践",
+      "firstSectionEn": "Chapter 3: Modern UI Typography: Practice in Jetpack Compose",
+      "lastSectionZh": "第三章：现代 UI 的字体之道：Jetpack Compose 中的实践",
+      "lastSectionEn": "Chapter 3: Modern UI Typography: Practice in Jetpack Compose",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/从像素到灵魂：深入解析字体排印与 Android 字体架构.part15.md",
+      "translationKey": "android-typography-font-architecture-part15",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-typography-font-architecture-part15.md",
+      "samePublishDate": "2026-01-12",
+      "firstSectionZh": "第四章：包容性设计：无障碍 (Accessibility) 与字体",
+      "firstSectionEn": "Chapter 4: Inclusive Design: Accessibility and Fonts",
+      "lastSectionZh": "第五章：质量的保证：有效的字体测试策略",
+      "lastSectionEn": "Chapter 5: Quality Assurance: Effective Font Testing Strategy",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/从像素到灵魂：深入解析字体排印与 Android 字体架构.part2.md",
+      "translationKey": "android-typography-font-architecture-part2",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-typography-font-architecture-part2.md",
+      "samePublishDate": "2026-01-12",
+      "firstSectionZh": "第三章：初识门径：字体的基本分类",
+      "firstSectionEn": "Chapter 3: First Steps: Basic Font Classification",
+      "lastSectionZh": "第四章：阅读的体验：可读性 (Readability) 与易读性 (Legibility)",
+      "lastSectionEn": "Chapter 4: The Reading Experience: Readability and Legibility",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/从像素到灵魂：深入解析字体排印与 Android 字体架构.part3.md",
+      "translationKey": "android-typography-font-architecture-part3",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-typography-font-architecture-part3.md",
+      "samePublishDate": "2026-01-12",
+      "firstSectionZh": "第一部分小结与展望",
+      "firstSectionEn": "Part One Summary and Outlook",
+      "lastSectionZh": "第一章：数字骨架——字体文件格式详解",
+      "lastSectionEn": "Chapter 1: Digital Skeletons: Font File Formats Explained",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/从像素到灵魂：深入解析字体排印与 Android 字体架构.part4.md",
+      "translationKey": "android-typography-font-architecture-part4",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-typography-font-architecture-part4.md",
+      "samePublishDate": "2026-01-12",
+      "firstSectionZh": "第二章：从曲线到像素——字体渲染管线揭秘",
+      "firstSectionEn": "Chapter 2: From Curves to Pixels: The Font Rendering Pipeline",
+      "lastSectionZh": "第二章：从曲线到像素——字体渲染管线揭秘",
+      "lastSectionEn": "Chapter 2: From Curves to Pixels: The Font Rendering Pipeline",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/从像素到灵魂：深入解析字体排印与 Android 字体架构.part5.md",
+      "translationKey": "android-typography-font-architecture-part5",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-typography-font-architecture-part5.md",
+      "samePublishDate": "2026-01-12",
+      "firstSectionZh": "第三章：无规矩不成方圆——字体授权与合规",
+      "firstSectionEn": "Chapter 3: Rules Before Use: Font Licensing and Compliance",
+      "lastSectionZh": "引言：字体理论落地 Android 平台",
+      "lastSectionEn": "Introduction: Bringing Font Theory onto Android",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/从像素到灵魂：深入解析字体排印与 Android 字体架构.part6.md",
+      "translationKey": "android-typography-font-architecture-part6",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-typography-font-architecture-part6.md",
+      "samePublishDate": "2026-01-12",
+      "sharedNormalizedCodeCharacters": 1187,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/从像素到灵魂：深入解析字体排印与 Android 字体架构.part7.md",
+      "translationKey": "android-typography-font-architecture-part7",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-typography-font-architecture-part7.md",
+      "samePublishDate": "2026-01-12",
+      "sharedNormalizedCodeCharacters": 201,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/从像素到灵魂：深入解析字体排印与 Android 字体架构.part8.md",
+      "translationKey": "android-typography-font-architecture-part8",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-typography-font-architecture-part8.md",
+      "samePublishDate": "2026-01-12",
+      "sharedNormalizedCodeCharacters": 1660,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/从像素到灵魂：深入解析字体排印与 Android 字体架构.part9.md",
+      "translationKey": "android-typography-font-architecture-part9",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-typography-font-architecture-part9.md",
+      "samePublishDate": "2026-01-12",
+      "sharedNormalizedCodeCharacters": 2377,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/从性能视角看HTTP协议的演进.md",
+      "translationKey": "http-protocol-evolution-performance",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/http-protocol-evolution-performance.md",
+      "samePublishDate": "2025-09-13",
+      "sharedNormalizedCodeCharacters": 760,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/大型App架构演进与模块化_组件化实践.md",
+      "translationKey": "large-app-architecture-modularization",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/large-app-architecture-modularization.md",
+      "samePublishDate": "2025-10-11",
+      "sharedNormalizedCodeCharacters": 2931,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/大型App架构演进与模块化_组件化实践.part1.md",
+      "translationKey": "large-app-architecture-modularization-part1",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/large-app-architecture-modularization-part1.md",
+      "samePublishDate": "2025-10-11",
+      "sharedNormalizedCodeCharacters": 1920,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/大型App架构演进与模块化_组件化实践.part2.md",
+      "translationKey": "large-app-architecture-modularization-part2",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/large-app-architecture-modularization-part2.md",
+      "samePublishDate": "2025-10-11",
+      "sharedNormalizedCodeCharacters": 1011,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/大型App架构演进与模块化_组件化实践.part3.md",
+      "translationKey": "large-app-architecture-modularization-part3",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/large-app-architecture-modularization-part3.md",
+      "samePublishDate": "2025-10-11",
+      "firstSectionZh": "四、组件化：模块化的延伸与独立运行",
+      "firstSectionEn": "4. Componentization: extending modularization into independent runtime",
+      "lastSectionZh": "十一、结论：架构演进，永无止境",
+      "lastSectionEn": "11. Conclusion: architecture evolution never ends",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/如何设计实验？AABB实验简析.md",
+      "translationKey": "experiment-design-aabb-testing",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/experiment-design-aabb-testing.md",
+      "samePublishDate": "2025-04-13",
+      "firstSectionZh": "AABB 实验的基本概念",
+      "firstSectionEn": "Core concepts of AABB testing",
+      "lastSectionZh": "总结",
+      "lastSectionEn": "Summary",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/技术领导力与影响力.md",
+      "translationKey": "technical-leadership-and-influence",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/technical-leadership-and-influence.md",
+      "samePublishDate": "2026-01-20",
+      "firstSectionZh": "引言：超越代码，驱动卓越",
+      "firstSectionEn": "Introduction: Beyond Code, Toward Technical Excellence",
+      "lastSectionZh": "八、结论：技术深度与领导广度的融合",
+      "lastSectionEn": "8. Conclusion: Combining Technical Depth with Leadership Breadth",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/提示词工程：从核心原则到前沿实践.md",
+      "translationKey": "prompt-engineering-core-principles",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/prompt-engineering-core-principles.md",
+      "samePublishDate": "2026-02-10",
+      "sharedNormalizedCodeCharacters": 476,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/提示词工程：从核心原则到前沿实践.part1.md",
+      "translationKey": "prompt-engineering-core-principles-part1",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/prompt-engineering-core-principles-part1.md",
+      "samePublishDate": "2026-02-10",
+      "firstSectionZh": "引言：为何提示词工程是技术团队的核心能力",
+      "firstSectionEn": "Introduction: Why prompt engineering is a core capability for technical teams",
+      "lastSectionZh": "2.3 外部知识与工具增强（Resource/Tools Augmented）",
+      "lastSectionEn": "2.3 External knowledge and tool augmentation",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/提示词工程：从核心原则到前沿实践.part2.md",
+      "translationKey": "prompt-engineering-core-principles-part2",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/prompt-engineering-core-principles-part2.md",
+      "samePublishDate": "2026-02-10",
+      "sharedNormalizedCodeCharacters": 65050,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/提示词工程：从核心原则到前沿实践.part3.md",
+      "translationKey": "prompt-engineering-core-principles-part3",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/prompt-engineering-core-principles-part3.md",
+      "samePublishDate": "2026-02-10",
+      "firstSectionZh": "评估原则",
+      "firstSectionEn": "Evaluation Principles",
+      "lastSectionZh": "🌰DSPY：核心理念：编程而非提示 (Programming, not Prompting)",
+      "lastSectionEn": "DSPy: The Core Idea, Programming Instead of Prompting",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/提示词工程：从核心原则到前沿实践.part4.md",
+      "translationKey": "prompt-engineering-core-principles-part4",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/prompt-engineering-core-principles-part4.md",
+      "samePublishDate": "2026-02-10",
+      "sharedNormalizedCodeCharacters": 476,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/新兴技术与Android生态演进.md",
+      "translationKey": "emerging-technologies-android-ecosystem",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/emerging-technologies-android-ecosystem.md",
+      "samePublishDate": "2025-10-03",
+      "firstSectionZh": "引言：拥抱变革，引领未来",
+      "firstSectionEn": "Introduction: embrace change and lead what comes next",
+      "lastSectionZh": "七、结论：拥抱变化，保持敏锐，引领方向",
+      "lastSectionEn": "7. Conclusion: embrace change, stay sharp, and lead direction",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/本地脚本通过服务器IP访问受限API：6种方案与实战指南.md",
+      "translationKey": "server-ip-restricted-api-access-six-approaches",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/server-ip-restricted-api-access-six-approaches.md",
+      "samePublishDate": "2026-03-13",
+      "sharedNormalizedCodeCharacters": 600,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/深入浅出 Android TextView：揭秘文本测量与布局的艺术.md",
+      "translationKey": "android-textview-measure-layout",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-textview-measure-layout.md",
+      "samePublishDate": "2025-05-18",
+      "sharedNormalizedCodeCharacters": 2405,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/深入浅出 Android TextView：揭秘文本测量与布局的艺术.part1.md",
+      "translationKey": "android-textview-measure-layout-part1",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-textview-measure-layout-part1.md",
+      "samePublishDate": "2024-05-18",
+      "firstSectionZh": "1. 开篇：文字的旅程 —— 从字符到像素",
+      "firstSectionEn": "1. Opening: The Journey from Characters to Pixels",
+      "lastSectionZh": "3. 核心引擎：Layout 类及其职责",
+      "lastSectionEn": "3. The Core Engine: Layout and Its Responsibilities",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/深入浅出 Android TextView：揭秘文本测量与布局的艺术.part2.md",
+      "translationKey": "android-textview-measure-layout-part2",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-textview-measure-layout-part2.md",
+      "samePublishDate": "2025-05-18",
+      "sharedNormalizedCodeCharacters": 294,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/深入浅出 Android TextView：揭秘文本测量与布局的艺术.part3.md",
+      "translationKey": "android-textview-measure-layout-part3",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-textview-measure-layout-part3.md",
+      "samePublishDate": "2025-05-18",
+      "sharedNormalizedCodeCharacters": 1640,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/深入浅出 Android TextView：揭秘文本测量与布局的艺术.part4.md",
+      "translationKey": "android-textview-measure-layout-part4",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-textview-measure-layout-part4.md",
+      "samePublishDate": "2025-05-18",
+      "sharedNormalizedCodeCharacters": 1371,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/深入理解 Android 的 FlexboxLayout 和 FlexboxLayoutManager.md",
+      "translationKey": "android-flexboxlayout-flexboxlayoutmanager",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-flexboxlayout-flexboxlayoutmanager.md",
+      "samePublishDate": "2024-03-13",
+      "sharedNormalizedCodeCharacters": 738,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/深入解析 APK 反编译与重新编译：从基础到进阶实战.md",
+      "translationKey": "android-apk-decompile-recompile",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-apk-decompile-recompile.md",
+      "samePublishDate": "2025-02-14",
+      "sharedNormalizedCodeCharacters": 262,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/深入解析 Android 隐藏 API：从 _hide 到 Greylist 和 Blacklist.md",
+      "translationKey": "android-hidden-api-greylist-blacklist",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-hidden-api-greylist-blacklist.md",
+      "samePublishDate": "2024-06-18",
+      "sharedNormalizedCodeCharacters": 188,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/理解与优化 Android WebView 中的 Autofill：从基础到高阶实现.md",
+      "translationKey": "android-webview-autofill-optimization",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/android-webview-autofill-optimization.md",
+      "samePublishDate": "2025-04-23",
+      "firstSectionZh": "第一部分：什么是 Autofill？与 Autocomplete 的关系与区别",
+      "firstSectionEn": "Part 1: What Is Autofill, and How Is It Related to Autocomplete?",
+      "lastSectionZh": "关键要点",
+      "lastSectionEn": "Key Takeaways",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/系统级性能分析与调优 (Systrace_Perfetto).md",
+      "translationKey": "android-system-performance-systrace-perfetto",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/android-system-performance-systrace-perfetto.md",
+      "samePublishDate": "2025-07-02",
+      "sharedNormalizedCodeCharacters": 325,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/音视频入门基础.md",
+      "translationKey": "audio-video-fundamentals",
+      "method": "manualContentReview",
+      "englishFile": "src/content/blog-en/audio-video-fundamentals.md",
+      "samePublishDate": "2025-05-04",
+      "firstSectionZh": "声音",
+      "firstSectionEn": "Sound",
+      "lastSectionZh": "常用工具",
+      "lastSectionEn": "Common Tools",
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    },
+    {
+      "file": "src/content/blog/高级数据持久化与缓存策略.md",
+      "translationKey": "advanced-data-persistence-cache-strategies",
+      "method": "verifiedContentMatch",
+      "englishFile": "src/content/blog-en/advanced-data-persistence-cache-strategies.md",
+      "samePublishDate": "2025-02-24",
+      "sharedNormalizedCodeCharacters": 1692,
+      "evidenceCommit": "9f5611ae8fd1c57fa1f67eab48220a02fd2b8592"
+    }
+  ]
+}

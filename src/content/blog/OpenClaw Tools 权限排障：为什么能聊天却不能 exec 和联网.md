@@ -1,4 +1,6 @@
 ---
+slug: openclaw-tools-permission-troubleshooting-exec-network
+translationKey: openclaw-tools-permission-troubleshooting-exec-network
 title: OpenClaw Tools 权限排障：为什么能聊天却不能 exec 和联网
 excerpt: 很多 OpenClaw 升级或新装后会出现“能聊天但不能执行 shell、不能联网搜索”。本文拆解 Tools 权限模型与 exec 安全策略，给出可直接落地的排障路径和配置模板。
 publishDate: 2026-03-05

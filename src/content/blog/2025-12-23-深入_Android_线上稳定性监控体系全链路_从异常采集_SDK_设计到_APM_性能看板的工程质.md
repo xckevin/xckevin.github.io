@@ -1,4 +1,6 @@
 ---
+slug: android-stability-monitoring-apm
+translationKey: android-stability-monitoring-apm
 title: 深入 Android 线上稳定性监控体系全链路：从异常采集 SDK 设计到 APM 性能看板的工程质量保障实践
 excerpt: 本文详细剖析了 Android 线上稳定性监控体系的全链路设计，涵盖 Java/Native 异常采集 SDK、ANR 双通道检测、三级缓冲上报架构以及基于堆栈指纹的异常聚类与 APM 看板建设，分享了生产环境中踩过的文件权限、多进程冲突等关键实践坑。
 publishDate: '2025-12-23'
@@ -9,8 +11,9 @@ tags:
 - 性能优化
 - 架构设计
 seo:
-  title: 深入 Android 线上稳定性监控体系全链路：从异常采集 SDK 设计到 APM 性能看板的工程质量保障实践
+  title: Android 稳定性监控：异常采集 SDK 与 APM 性能看板
   description: 从 Java/Native 崩溃捕获、ANR 双通道检测到三级缓冲上报与堆栈指纹聚类，完整解析 Android 稳定性监控体系的设计思路与生产实践，含文件权限、多进程冲突等关键避坑指南。
+  pageType: article
 ---
 
 去年年底，我们 App 的 Google Play ANR 率从 0.3% 突然跳到 1.2%，团队排查了三天才定位到是一个第三方 SDK 在特定机型上触发了主线程文件 I/O。那次之后我下了决心：内部自建一套完整的异常采集和监控体系，不再完全依赖平台的滞后数据。

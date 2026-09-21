@@ -1,4 +1,6 @@
 ---
+slug: kotlin-symbol-processing-ksp
+translationKey: kotlin-symbol-processing-ksp
 title: 深入 KSP 全链路：从注解扫描到代码生成的编译期元编程
 excerpt: 深入解析 KSP 替代 KAPT 的技术原理，从 SymbolProcessor、Resolver 到 CodeGenerator，揭示其跳过 Java Stub、原生理解 Kotlin AST 带来的编译性能飞跃（55 秒→9 秒），并给出完整的迁移实践指南。
 publishDate: '2026-01-22'

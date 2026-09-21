@@ -11,8 +11,9 @@ tags:
 - FlashAttention
 - Transformer
 seo:
-  title: 深入 Android 端侧 AI 推理的 Transformer 算子优化全链路：从 Self-Attention 计算瓶颈到移动 GPU 计算着色器的 FlashAttention 加速
+  title: Android 端侧 Transformer 优化：Self-Attention 与移动 GPU FlashAttention
   description: 记录在 Android 端侧将 FlashAttention 移植到 OpenGL ES Compute Shader 的完整优化链路：从 Self-Attention 访存瓶颈、Online Softmax 分块重排，到 fp16 精度、bank conflict 等移动 GPU 实战坑。
+  pageType: article
 ---
 
 在端侧跑 1B 参数 LLM，prefill 阶段延迟总卡在 attention 算子。用 Mali Offline Compiler 和系统 profiler 抓数据，发现瓶颈不在 GEMM 算力，而在中间张量的读写。本文记录我把 FlashAttention 搬进 OpenGL ES Compute Shader 的过程。

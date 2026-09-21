@@ -9,8 +9,9 @@ tags:
 - GGUF
 - 性能优化
 seo:
-  title: 深入 Android 端侧 AI 推理的 GGUF 格式适配与 llama.cpp 引擎移植全链路
+  title: Android 端侧 GGUF 格式与 llama.cpp 引擎移植
   description: 深入 Android 端侧 AI 推理的全链路实战：GGUF 量化格式选型与 llama.cpp 引擎移植，涵盖交叉编译、量化等级对比、线程亲和性与 KV Cache 优化。
+  pageType: article
 slug: android-gguf-llama-cpp-on-device-inference
 translationKey: android-gguf-llama-cpp-on-device-inference
 ---

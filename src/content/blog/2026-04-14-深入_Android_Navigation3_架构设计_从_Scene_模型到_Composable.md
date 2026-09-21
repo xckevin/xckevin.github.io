@@ -1,4 +1,6 @@
 ---
+slug: android-navigation3-scene-composable
+translationKey: android-navigation3-scene-composable
 title: "深入 Android Navigation3 架构设计：回退栈回归开发者手中"
 excerpt: "解析 Navigation3 的核心设计思路：将回退栈从 NavController 黑盒中解放出来，变为开发者可直接操作的 Compose 状态列表，并通过 Scene 策略链实现多窗格适配。"
 publishDate: 2026-04-14

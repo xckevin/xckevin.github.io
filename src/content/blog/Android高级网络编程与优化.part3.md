@@ -1,4 +1,6 @@
 ---
+slug: android-advanced-network-programming-optimization-part3
+translationKey: android-advanced-network-programming-optimization-part3
 title: "Android 高级网络编程与优化（3）：Retrofit 高级用法：优雅定义 API"
 excerpt: "「Android 高级网络编程与优化」系列第 3/3 篇：Retrofit 高级用法：优雅定义 API"
 publishDate: 2025-03-17

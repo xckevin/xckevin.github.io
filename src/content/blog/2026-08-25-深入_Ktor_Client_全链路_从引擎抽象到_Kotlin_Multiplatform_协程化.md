@@ -11,8 +11,9 @@ tags:
 - 协程
 - 网络层
 seo:
-  title: 深入 Ktor Client 全链路：从引擎抽象到 Kotlin Multiplatform 协程化网络层的工程实践
+  title: Ktor Client：引擎抽象与 Kotlin Multiplatform 网络层
   description: 深入 Ktor Client 全链路，解析引擎抽象、拦截器管道、协程化网络层，以及引擎选型、超时语义和 MockEngine 测试等落地实践。
+  pageType: article
 ---
 
 ## OkHttp 之外的选型空白

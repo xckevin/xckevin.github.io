@@ -1,4 +1,6 @@
 ---
+slug: android-on-device-ai-memory-bandwidth
+translationKey: android-on-device-ai-memory-bandwidth
 title: 深入 Android 端侧 AI 推理的内存带宽优化：从 GPU 共享内存到 NPU 零拷贝的异构数据传输架构
 excerpt: 端侧AI推理的性能瓶颈不在算力而在内存带宽。本文深入分析从Camera到GPU再到NPU的数据搬运开销，介绍AHardwareBuffer共享内存、ION buffer复用和NPU零拷贝三条优化路径，给出不同场景的选型建议。
 publishDate: '2025-11-20'
@@ -9,8 +11,9 @@ tags:
 - 内存优化
 - NPU
 seo:
-  title: 深入 Android 端侧 AI 推理的内存带宽优化：从 GPU 共享内存到 NPU 零拷贝的异构数据传输架构
+  title: Android 端侧 AI 内存优化：GPU 共享内存与 NPU 零拷贝传输
   description: 端侧AI推理的性能瓶颈不在算力而在内存带宽。详解从GPU共享内存到NPU零拷贝的异构数据传输优化方案，包含AHardwareBuffer、ION与高通NeuroPilot的实战经验。
+  pageType: article
 ---
 
 去年在做端侧实时图像分割时，碰到一个反直觉的问题：骁龙 8 Gen 3 的 NPU 理论算力是上一代的 2 倍，推理延迟却只降了 15%。瓶颈不在计算单元——时间全花在数据搬运上了。

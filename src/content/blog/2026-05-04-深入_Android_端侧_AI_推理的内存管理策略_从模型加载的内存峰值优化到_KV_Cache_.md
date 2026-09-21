@@ -1,4 +1,6 @@
 ---
+slug: android-on-device-ai-memory-kv-cache
+translationKey: android-on-device-ai-memory-kv-cache
 title: 深入 Android 端侧 AI 推理的内存管理策略：从模型加载的内存峰值优化到 KV Cache 的动态回收机制
 excerpt: 系统梳理 Android 端侧大模型部署的内存优化全链路：从 mmap 模型加载降低峰值、张量生命周期标记实现用完即弃，到 KV Cache 滑动窗口与按层衰减回收，最终将 3B 模型稳定运行在 6GB RAM 设备上。
 publishDate: '2026-05-04'

@@ -11,8 +11,9 @@ tags:
 - 性能优化
 - 自定义View
 seo:
-  title: 深入 Android RecyclerView 自定义 LayoutManager 全链路：从布局算法到动画协同的视口管理引擎
+  title: Android RecyclerView 自定义 LayoutManager：布局算法与动画协同
   description: 深入解析 RecyclerView 自定义 LayoutManager 全链路实现，涵盖 Fill 布局算法、缓存分层（Scrap/Cache/Pool）、视口编排、滚动状态机与预测性动画协同，附性能优化与调试指南。
+  pageType: article
 ---
 
 项目中接了个需求：实现一个首项居中放大、两侧渐隐的横向滑动控件。LinearLayoutManager 的 `PagerSnapHelper` 能处理居中，但缩放效果只能在外层套 `ViewPager2` 后用 PageTransformer 做——两层嵌套加上滑动冲突，帧率直接崩了。

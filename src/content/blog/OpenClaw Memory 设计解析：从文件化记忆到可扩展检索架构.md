@@ -1,4 +1,6 @@
 ---
+slug: openclaw-memory-file-based-memory-scalable-retrieval
+translationKey: openclaw-memory-file-based-memory-scalable-retrieval
 title: OpenClaw Memory 设计解析：从文件化记忆到可扩展检索架构
 excerpt: 本文基于 OpenClaw Memory 相关对话与资料，系统拆解其设计原理、架构分层、隔离与扩展机制，分析优缺点，并给出可落地的工程实践建议。
 publishDate: 2026-03-10

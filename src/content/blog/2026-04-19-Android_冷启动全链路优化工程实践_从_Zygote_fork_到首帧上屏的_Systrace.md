@@ -1,4 +1,6 @@
 ---
+slug: android-cold-start-zygote-systrace
+translationKey: android-cold-start-zygote-systrace
 title: Android 冷启动全链路优化工程实践：从 Zygote fork 到首帧上屏的 Systrace 驱动性能调优方法论
 excerpt: 以 Perfetto trace 为驱动，系统拆解 Android 冷启动四个阶段（Zygote fork、bindApplication、Activity 创建、首帧合成）的瓶颈定位与优化方法，覆盖 ContentProvider 陷阱、分层初始化、Binder 堆积等高频问题。
 publishDate: '2026-04-19'
@@ -185,8 +187,8 @@ inflate 的时间随 View 树深度线性增长。在 trace 里，`LayoutInflate
 ## 延伸阅读
 
 - [返回对应专题：Android 性能优化](/android-performance/)
-- [Android App 启动优化专项：指标、链路、工具与治理方案](/blog/app启动优化专项/)
-- [RecyclerView 缓存机制详解：四级缓存、复用与 Prefetch](/blog/2026-04-14-深入_android_recyclerview_缓存机制_从四级缓存到_prefetch_的性能设计/)
-- [Android Bitmap 内存模型：Java 堆、Native 堆与 Hardware Bitmap](/blog/2026-04-14-深入_android_bitmap_内存模型_从_java_堆分配到_hardware_bitmap/)
-- [Android RenderThread 与 HWUI：渲染管线、DisplayList 与掉帧分析](/blog/2026-04-20-android_renderthread_与_hwui_渲染管线深度解析_从_displaylist/)
+- [Android App 启动优化专项：指标、链路、工具与治理方案](/blog/app-startup-optimization/)
+- [RecyclerView 缓存机制详解：四级缓存、复用与 Prefetch](/blog/android-recyclerview-cache-prefetch-deep-dive/)
+- [Android Bitmap 内存模型：Java 堆、Native 堆与 Hardware Bitmap](/blog/android-bitmap-memory-model-hardware-bitmap/)
+- [Android RenderThread 与 HWUI：渲染管线、DisplayList 与掉帧分析](/blog/android-renderthread-hwui/)
 <!-- /seo-internal-links -->

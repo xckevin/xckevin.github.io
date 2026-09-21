@@ -9,8 +9,9 @@ tags:
 - 安全防御
 - Native
 seo:
-  title: 深入 Android 端侧 AI 推理的安全对抗全链路：从 Prompt 注入攻击到模型输出防护的端侧防御工程实践
+  title: Android 端侧 AI 安全对抗：Prompt 注入与模型输出防护
   description: 分析 Android 端侧 AI 推理面临的 Prompt 注入、越狱攻击与敏感信息泄露三重威胁，提出从输入分类模型、输出结构化约束到 Native 层数据脱敏的多层防御方案。
+  pageType: article
 slug: android-on-device-ai-prompt-security
 translationKey: android-on-device-ai-prompt-security
 ---

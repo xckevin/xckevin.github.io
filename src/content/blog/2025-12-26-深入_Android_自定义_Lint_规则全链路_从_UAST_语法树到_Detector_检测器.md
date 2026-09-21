@@ -1,4 +1,6 @@
 ---
+slug: android-custom-lint-uast-detector
+translationKey: android-custom-lint-uast-detector
 title: 深入 Android 自定义 Lint 规则全链路：从 UAST 语法树到 Detector 检测器的编译期代码规范自动化实战
 excerpt: 深入解析 Android 自定义 Lint 规则的完整构建链路，从 UAST 语法树原理、Detector 实现到发布集成与调试，让代码规范在编译期自动落地。
 publishDate: '2025-12-26'
@@ -9,8 +11,9 @@ tags:
 - 代码规范
 - Kotlin
 seo:
-  title: 深入 Android 自定义 Lint 规则全链路：从 UAST 语法树到 Detector 检测器的编译期代码规范自动化实战
+  title: Android 自定义 Lint：UAST 语法树与 Detector 检测器
   description: 从 UAST 语法树原理到 Detector 实现，系统讲解 Android 自定义 Lint 规则的构建、发布集成与调试，让编译期自动守护代码规范。
+  pageType: article
 ---
 
 某个周二下午，Code Review 里第三次出现同一个问题：有人把 `LiveData` 直接暴露给了 Fragment。规范文档写了、周会上强调过、甚至还录了视频教程——但人总会疏忽。

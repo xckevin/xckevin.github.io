@@ -1,4 +1,6 @@
 ---
+slug: jetpack-compose-snapshot-state
+translationKey: jetpack-compose-snapshot-state
 title: Jetpack Compose Snapshot 状态系统深度解析：从 MutableState 到 Recomposition 触发的响应式运行时原理
 excerpt: 深入剖析 Compose Snapshot 系统的 MVCC 设计本质，揭示从 MutableState 写入、Snapshot apply 到 RecomposeScope 失效的完整重组触发链路，并讲解 derivedStateOf、MutationPolicy 等机制的实际应用与常见陷阱。
 publishDate: '2026-04-17'
@@ -9,8 +11,9 @@ tags:
 - 响应式编程
 - Kotlin
 seo:
-  title: Jetpack Compose Snapshot 状态系统深度解析：从 MutableState 到 Recomposition 触发的响应式运行时原理
+  title: Jetpack Compose Snapshot：MutableState 与 Recomposition 触发
   description: 深入解析 Compose Snapshot 的 MVCC 设计，涵盖 MutableState 读写原理、RecomposeScope 订阅机制、derivedStateOf 优化逻辑与多线程 MutationPolicy 冲突处理，帮你彻底搞清 Recomposition 触发根源。
+  pageType: article
 ---
 
 Strong Skipping Mode 在 Compose 1.7 正式落地之后，我发现团队里很多人对它的理解停留在"跳过不必要的重组"这一层，却说不清楚为什么之前会触发不必要的重组。根源在 Snapshot 系统本身——一个被大多数人忽略的响应式运行时。

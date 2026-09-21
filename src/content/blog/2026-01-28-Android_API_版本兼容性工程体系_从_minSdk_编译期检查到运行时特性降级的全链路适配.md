@@ -1,4 +1,6 @@
 ---
+slug: android-api-compatibility-minsdk-runtime-fallback
+translationKey: android-api-compatibility-minsdk-runtime-fallback
 title: Android API 版本兼容性工程体系：从编译期检查到运行时降级的全链路策略
 excerpt: 建立从编译期 NewApi Lint 检查到运行时 SDK_INT 判断、反射降级与 Compat 库选型的 Android API 版本兼容工程体系，将不兼容调用在开发阶段暴露，避免线上崩溃。
 publishDate: '2026-01-28'

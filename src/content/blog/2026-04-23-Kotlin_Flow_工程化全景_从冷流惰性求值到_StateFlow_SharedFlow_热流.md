@@ -1,4 +1,6 @@
 ---
+slug: kotlin-flow-stateflow-sharedflow
+translationKey: kotlin-flow-stateflow-sharedflow
 title: Kotlin Flow 工程化全景：冷热流模型、Channel 本质与 Android 架构层选型
 excerpt: 深入剖析 Kotlin Flow 的冷热流模型与 Channel 底层原语，结合 SharedFlow、StateFlow 的选型陷阱，梳理 MVVM 各架构层的 Flow 使用规范与最佳实践。
 publishDate: '2026-04-23'
@@ -9,8 +11,9 @@ tags:
 - 架构设计
 - 性能优化
 seo:
-  title: "Kotlin Flow 原理与工程实践：冷流、StateFlow、SharedFlow 对比"
-  description: "系统讲解 Kotlin Flow 的冷流模型、背压、异常处理、StateFlow、SharedFlow 与 Android 工程化使用策略。"
+  title: Kotlin Flow：冷流与 StateFlow、SharedFlow 对比
+  description: 系统讲解 Kotlin Flow 的冷流模型、背压、异常处理、StateFlow、SharedFlow 与 Android 工程化使用策略。
+  pageType: article
 ---
 
 在一次线上 bug 排查中，我发现某个页面的 UI 状态在配置变更后会短暂闪烁——原因是 `SharedFlow` 的 `replay = 0` 导致新订阅者错过了最后一次状态更新。这个问题让我重新审视了 Flow 的冷热模型，以及三种热流在架构层的选型逻辑。
@@ -174,7 +177,7 @@ lifecycleScope.launch {
 ## 延伸阅读
 
 - [返回对应专题：Kotlin 与协程](/kotlin-coroutines/)
-- [Kotlin suspend 原理：CPS 变换、Continuation 与状态机字节码](/blog/2026-04-23-kotlin_suspend_的编译器黑盒_从_cps_变换到状态机字节码的完整推演/)
-- [Kotlin Coroutines 与 Flow：协程调度、结构化并发和响应式数据流](/blog/kotlin-coroutines-与-flow-的高级应用与原理/)
-- [Kotlin K2 编译器解析：统一前端、类型推断与 Android 构建影响](/blog/2026-04-23-kotlin_k2_编译器深度解析_从统一前端架构到智能类型推断重写的编译革新与_android_工/)
+- [Kotlin suspend 原理：CPS 变换、Continuation 与状态机字节码](/blog/kotlin-suspend-state-machine/)
+- [Kotlin Coroutines 与 Flow：协程调度、结构化并发和响应式数据流](/blog/kotlin-coroutines-flow-advanced-applications-internals/)
+- [Kotlin K2 编译器解析：统一前端、类型推断与 Android 构建影响](/blog/kotlin-k2-compiler-android/)
 <!-- /seo-internal-links -->

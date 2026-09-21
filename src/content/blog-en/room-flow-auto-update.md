@@ -87,7 +87,7 @@ Once you understand that chain, many behaviors make sense: why the UI updates af
 ## Further reading
 
 - [Back to the Kotlin Coroutines and Flow topic](/en/kotlin-coroutines/)
-- [Android Room database engine: KSP code generation, Flow reactive queries, and transaction model](/blog/2026-05-09-深入_android_room_数据库引擎_从_ksp_编译期代码生成到_flow_响应式查询的全链路解析/)
-- [Kotlin Flow principles and engineering practice: Cold flows, StateFlow, and SharedFlow](/blog/2026-04-23-kotlin_flow_工程化全景_从冷流惰性求值到_stateflow_sharedflow_热流/)
-- [When should you use Paging3 RemoteMediator?](/blog/paging3-remotemediator/)
+- [Android Room database engine: KSP code generation, Flow reactive queries, and transaction model](/blog/android-room-ksp-flow/)
+- [Kotlin Flow principles and engineering practice: Cold flows, StateFlow, and SharedFlow](/blog/kotlin-flow-stateflow-sharedflow/)
+- [When should you use Paging3 RemoteMediator?](/en/blog/paging3-remotemediator/)
 <!-- /seo-internal-links -->

@@ -1,4 +1,6 @@
 ---
+slug: jetpack-compose-advanced-applications-internals
+translationKey: jetpack-compose-advanced-applications-internals
 title: Jetpack Compose 高级应用与原理
 excerpt: Jetpack Compose 代表了 Android UI 开发的未来方向，它引入了一种与传统命令式 View 系统截然不同的声明式（Declarative）编程范式。开发者不再需要手动查找并操作 UI 控件（如 findViewById、textView.setText），而是通过编写 Composable 函数来描述 UI 在特定状态下的外观，Compose 框架则负责在状态变化时高效...
 publishDate: 2025-03-27
@@ -402,8 +404,8 @@ Jetpack Compose 不仅是 Android UI 开发的范式转变，更是一个设计�
 ## 延伸阅读
 
 - [返回对应专题：Jetpack Compose](/jetpack-compose/)
-- [Jetpack Compose 重组性能优化：Stability、derivedStateOf 与跳过重组](/blog/2026-05-07-jetpack_compose_重组性能全链路调优_从_stability_推断到_deriveds/)
-- [Jetpack Compose Modifier 原理：链式节点、布局绘制与事件处理](/blog/2026-05-15-jetpack_compose_modifier_链式机制深度解析_从_modifier_node_/)
-- [Jetpack Compose 手势系统：PointerInput 事件管道与嵌套滚动](/blog/2026-05-16-jetpack_compose_手势系统深度解析_从_pointerinput_事件管道到_modi/)
-- [Jetpack Compose 动画系统：AnimationSpec、弹簧模型与 Transition](/blog/2026-05-09-jetpack_compose_动画系统深度解析_从_animationspec_物理弹簧模型到_t/)
+- [Jetpack Compose 重组性能优化：Stability、derivedStateOf 与跳过重组](/blog/jetpack-compose-recomposition-performance/)
+- [Jetpack Compose Modifier 原理：链式节点、布局绘制与事件处理](/blog/jetpack-compose-modifier-node/)
+- [Jetpack Compose 手势系统：PointerInput 事件管道与嵌套滚动](/blog/jetpack-compose-gestures/)
+- [Jetpack Compose 动画系统：AnimationSpec、弹簧模型与 Transition](/blog/jetpack-compose-animation/)
 <!-- /seo-internal-links -->

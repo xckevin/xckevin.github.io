@@ -1,4 +1,6 @@
 ---
+slug: android-shared-element-transition
+translationKey: android-shared-element-transition
 title: 深入 Android 共享元素转场动画全链路：从 View 系统的 ActivityOptions 到 Compose SharedTransitionScope 的声明式过渡架构
 excerpt: 本文系统梳理 Android 共享元素转场动画的两套实现体系：View 体系的 ActivityOptions（Snapshot → GhostView → RenderThread 动画）和 Compose 的 SharedTransitionScope 声明式过渡，涵盖底层机制、常见踩坑与渐进迁移策略。
 publishDate: '2025-10-07'
@@ -9,8 +11,9 @@ tags:
 - SharedTransitionScope
 - 性能优化
 seo:
-  title: 深入 Android 共享元素转场动画全链路：从 View 系统的 ActivityOptions 到 Compose SharedTransitionScope 的声明式过渡架构
+  title: Android 共享元素转场：View ActivityOptions 与 Compose SharedTransitionScope
   description: 从 View 体系的 ActivityOptions 到 Compose 的 SharedTransitionScope，系统梳理 Android 共享元素转场动画的底层机制、Snapshot 时机、渲染管线差异与渐进迁移策略。
+  pageType: article
 ---
 
 做共享元素转场时踩过一个诡异的坑：两个 Activity 之间传了一个 ImageView，在 Pixel 设备上动画丝滑，到了某厂商的低端机上却直接闪白屏。排查发现，厂商 ROM 改了 Window 的动画帧提交时序，导致共享元素的 snapshot 还没生成完，过渡就已经开始了。这个问题的根源，得从 View 体系 Transition API 的底层机制聊起。

@@ -1,4 +1,6 @@
 ---
+slug: android-wear-os-compose
+translationKey: android-wear-os-compose
 title: 当手机版 Compose 组件在手表上崩掉：Wear OS 声明式 UI 的排坑之路
 excerpt: 深入分析手机 Compose 组件迁移 Wear OS 的适配难点，涵盖圆形裁剪、ScalingLazyColumn 视口缩放、Tile 服务渲染沙箱及 DataLayer 数据同步等关键技术。
 publishDate: '2026-03-19'

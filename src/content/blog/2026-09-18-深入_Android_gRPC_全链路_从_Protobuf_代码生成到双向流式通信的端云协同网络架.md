@@ -11,8 +11,9 @@ tags:
 - Kotlin
 - 网络架构
 seo:
-  title: 深入 Android gRPC 全链路：从 Protobuf 代码生成到双向流式通信的端云协同网络架构
+  title: Android gRPC：Protobuf 代码生成与双向流式通信
   description: 从端云协同语音助手出发，详解 Android 端 gRPC 全链路：Protobuf 代码生成、双向流式通信实现，以及线程、背压、重连等实战要点。
+  pageType: article
 ---
 
 做端云协同的语音助手时，我遇到一个绕不开的问题：客户端要持续上传音频流，服务端要实时返回识别和生成结果。REST 只能一问一答；WebSocket 全双工，但消息没有强类型约束；MQTT 偏 IoT 的发布订阅，方法语义很弱。gRPC 正好补上这块拼图——它把「远程方法调用」和「二进制流」结合起来，再用 Protobuf 提供契约。

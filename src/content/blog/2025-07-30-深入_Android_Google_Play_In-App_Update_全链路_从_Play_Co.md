@@ -1,4 +1,6 @@
 ---
+slug: android-google-play-in-app-update
+translationKey: android-google-play-in-app-update
 title: 深入 Android Google Play In-App Update 全链路：从 Play Core 内部分发机制到即时/灵活更新模式的工程实践
 excerpt: 详解 Android In-App Update 从 Play Core IPC 请求链路、Immediate/Flexible 策略选型到 App Bundle 差分机制的全链路实现，结合工程实践将更新完成率从 30% 提升至 70% 以上。
 publishDate: '2025-07-30'
@@ -9,8 +11,9 @@ tags:
 - 应用内更新
 - 工程实践
 seo:
-  title: 深入 Android Google Play In-App Update 全链路：从 Play Core 内部分发机制到即时/灵活更新模式的工程实践
+  title: Google Play In-App Update：Play Core 分发与即时/灵活更新模式
   description: 深入解析 Android In-App Update 全链路实现，涵盖 Play Core 请求机制、Immediate 与 Flexible 模式选型策略、App Bundle 版本差分优化及工程化落地实践。
+  pageType: article
 ---
 
 去年我在一个海外项目中接手了应用内更新（In-App Update）模块，线上数据显示只有 30% 的用户在收到更新提示后完成了升级。翻看代码后发现，团队只是在 Activity 里调了 `startUpdateFlowForResult`，没有处理任何边界情况——网络中断怎么办、用户拒绝后何时再次提示、灵活更新下载到一半 App 被杀掉怎么恢复。

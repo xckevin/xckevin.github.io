@@ -11,8 +11,9 @@ tags:
 - 模拟器
 - QEMU
 seo:
-  title: 深入 Android Emulator 虚拟化加速全链路：从 QEMU 引擎到 Hypervisor GPU 直通的开发环境性能调优
+  title: Android Emulator 虚拟化加速：QEMU 引擎与 Hypervisor GPU 直通
   description: 深入分析 Android Emulator 虚拟化加速全链路：从 QEMU/KVM 引擎指令翻译、virtio-gpu 渲染直通到快照机制，提供可量化的性能调优方案与实测数据。
+  pageType: article
 ---
 
 做 Android 系统开发那几年，模拟器的启动速度一直是个心病。一台 i9 + 32GB 的机器，冷启动 AVD 要花 45 秒，跑个 Hello World 都觉得卡。有次排查一个启动白屏的 bug，一天重启模拟器 30 多次，光等启动就耗了近半小时。

@@ -1,4 +1,6 @@
 ---
+slug: android-on-device-ai-privacy-compliance
+translationKey: android-on-device-ai-privacy-compliance
 title: 深入 Android 端侧 AI 推理的隐私合规架构：从数据最小化到透明性设计的工程实践
 excerpt: 端侧 AI 推理并非数据不出设备就自动合规。本文从数据最小化、透明性设计和审计追溯三个维度，给出 GDPR 合规落地的具体工程方案与代码实践。
 publishDate: '2026-07-08'

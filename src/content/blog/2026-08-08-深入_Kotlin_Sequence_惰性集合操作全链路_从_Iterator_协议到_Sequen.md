@@ -9,8 +9,9 @@ tags:
 - 性能优化
 - 协程
 seo:
-  title: 深入 Kotlin Sequence 惰性集合操作全链路：从 Iterator 协议到 SequenceScope 挂起转换的链式操作性能优化
+  title: Kotlin Sequence：Iterator 协议与 SequenceScope 挂起转换
   description: 深入解析 Kotlin Sequence 惰性求值原理，从 Iterator 协议到 SequenceScope 挂起转换，结合性能 benchmark 给出 Android 开发中的集合操作选型指南。
+  pageType: article
 slug: kotlin-sequence-lazy-collection-performance
 translationKey: kotlin-sequence-lazy-collection-performance
 ---

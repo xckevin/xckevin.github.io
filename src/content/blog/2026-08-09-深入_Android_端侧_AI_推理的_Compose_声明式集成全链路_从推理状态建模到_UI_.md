@@ -9,8 +9,9 @@ tags:
 - 状态管理
 - 工程化
 seo:
-  title: 深入 Android 端侧 AI 推理的 Compose 声明式集成全链路：从推理状态建模到 UI 响应式渲染的工程化实践
+  title: Android 端侧 AI 的 Compose 集成：推理状态建模与响应式渲染
   description: 从推理状态机建模到 Compose UI 响应式渲染，详解端侧 AI 推理在声明式 UI 中的工程化集成方案，包括生命周期管理、流式渲染优化与错误处理策略。
+  pageType: article
 slug: android-on-device-ai-compose-integration
 translationKey: android-on-device-ai-compose-integration
 ---

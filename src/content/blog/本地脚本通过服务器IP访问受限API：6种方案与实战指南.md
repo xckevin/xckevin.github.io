@@ -1,4 +1,6 @@
 ---
+slug: server-ip-restricted-api-access-six-approaches
+translationKey: server-ip-restricted-api-access-six-approaches
 title: 本地脚本通过服务器 IP 访问受限 API：6 种方案与实战指南
 excerpt: 当目标接口仅允许指定服务器 IP 访问时，本文系统比较 6 种方案（SSH 隧道、代理、远程执行等），并给出实用命令与最佳实践，帮助你在开发和生产场景中选择合适方案。
 publishDate: 2026-03-13

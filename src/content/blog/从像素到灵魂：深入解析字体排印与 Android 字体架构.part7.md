@@ -1,4 +1,6 @@
 ---
+slug: android-typography-font-architecture-part7
+translationKey: android-typography-font-architecture-part7
 title: "从像素到灵魂：深入解析字体排印与 Android 字体架构（7）：指令式操作：在代码中动态设置字体"
 excerpt: "「从像素到灵魂：深入解析字体排印与 Android 字体架构」系列第 7/15 篇：指令式操作：在代码中动态设置字体"
 publishDate: 2026-01-12

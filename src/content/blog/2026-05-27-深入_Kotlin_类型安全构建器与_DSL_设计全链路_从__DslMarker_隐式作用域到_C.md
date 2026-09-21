@@ -1,4 +1,6 @@
 ---
+slug: kotlin-type-safe-builders-dsl
+translationKey: kotlin-type-safe-builders-dsl
 title: 深入 Kotlin 类型安全构建器与 DSL 设计全链路
 excerpt: 从 Compose 嵌套编译报错出发，深入解析 Kotlin DSL 的类型安全设计核心——lambda with receiver、@DslMarker 作用域控制，涵盖 Compose、Gradle KTS 与自定义 DSL 全链路实战。
 publishDate: '2026-05-27'

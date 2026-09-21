@@ -31,25 +31,29 @@ export async function getStaticPaths() {
 
 type Props = { post: CollectionEntry<'blog'>; prevPost: CollectionEntry<'blog'>; nextPost: CollectionEntry<'blog'> };
 
-const href = new URL(`${Astro.url.pathname}${Astro.url.search}`, siteConfig.website).toString();
-const canonicalHref = new URL(Astro.url.pathname, siteConfig.website).toString();
 const { post, prevPost, nextPost } = Astro.props;
+const canonicalPathname = post.data.seo?.canonicalPath ?? getPostHref(post, 'zh');
+const canonicalHref = new URL(canonicalPathname, siteConfig.website).toString();
+const href = canonicalHref;
+// Hidden excerpts are noindex; full duplicate articles consolidate through canonical instead.
+const noindex = post.data.seo?.noindex ?? (!post.data.displayInBlog && !post.data.seo?.canonicalPath);
 const { title, publishDate, updatedDate, excerpt, tags = [], seo } = post.data;
 const { Content, headings } = await render(post);
 const allPosts = await getCollection('blog');
+const archiveTags = new Set(allPosts.filter(({ data }) => data.displayInBlog).flatMap(({ data }) => data.tags.map(slugify)));
 const allEnglishPosts = await getCollection('blogEn');
 const englishPost = allEnglishPosts.find((candidate) => {
     return Boolean(post.data.translationKey && candidate.data.translationKey === post.data.translationKey);
 });
 const locale = 'zh';
 const languageSwitchHref = englishPost ? getPostHref(englishPost, 'en') : '/en/';
-const alternatePathnames = englishPost ? { zh: getPostHref(post, 'zh'), en: getPostHref(englishPost, 'en'), 'x-default': getPostHref(post, 'zh') } : undefined;
+const alternatePathnames = englishPost && post.data.displayInBlog && !noindex && !post.data.seo?.canonicalPath && englishPost.data.displayInBlog && !englishPost.data.seo?.noindex && !englishPost.data.seo?.canonicalPath ? { zh: getPostHref(post, 'zh'), en: getPostHref(englishPost, 'en'), 'x-default': getPostHref(post, 'zh') } : undefined;
 const description = seo?.description ?? excerpt;
 const structuredData = [
     {
         '@context': 'https://schema.org',
-        '@type': 'Article',
-        headline: seo?.title ?? title,
+        '@type': 'BlogPosting',
+        headline: title,
         description,
         datePublished: publishDate.toISOString(),
         dateModified: (updatedDate ?? publishDate).toISOString(),
@@ -102,12 +106,16 @@ const structuredData = [
     description={description}
     image={seo?.image}
     pageType="article"
+    canonicalPathname={canonicalPathname}
+    noindex={noindex}
+    publishedTime={publishDate.toISOString()}
+    modifiedTime={(updatedDate ?? publishDate).toISOString()}
     showHeader={false}
     locale={locale}
     languageSwitchHref={languageSwitchHref}
     alternatePathnames={alternatePathnames}
 >
-    <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
+    <script type="application/ld+json" set:html={JSON.stringify(structuredData).replace(/</g, '\\u003c')} />
     <TableOfContents headings={headings} />
     <article class="mb-16 sm:mb-24">
         <header class="mb-8">
@@ -119,7 +127,7 @@ const structuredData = [
                         <>
                             {' '}
                             <span>
-                                (Updated on <FormattedDate date={updatedDate} />)
+                                （更新于 <FormattedDate date={updatedDate} />）
                             </span>
                         </>
                     )
@@ -134,9 +142,11 @@ const structuredData = [
                 tags.length > 0 && (
                     <div class="flex flex-wrap gap-x-5 gap-y-1 text-sm">
                         {tags.map((tag) => (
-                            <a class="text-main hover:underline" href={`/tags/${slugify(tag)}`}>
-                                #{tag}
-                            </a>
+                            archiveTags.has(slugify(tag)) ? (
+                                <a class="text-main hover:underline" href={`/tags/${slugify(tag)}/`}>
+                                    #{tag}
+                                </a>
+                            ) : <span>#{tag}</span>
                         ))}
                     </div>
                 )
@@ -148,7 +158,7 @@ const structuredData = [
     {
         (prevPost || nextPost) && (
             <div class="my-16 sm:my-24">
-                <h2 class="mb-12 font-serif text-xl italic sm:mb-16 sm:text-2xl">Read Next</h2>
+                <h2 class="mb-12 font-serif text-xl italic sm:mb-16 sm:text-2xl">继续阅读</h2>
                 {nextPost && <PostPreview post={nextPost} class="mb-10 sm:mb-12" headingLevel="h3" locale={locale} />}
                 {prevPost && <PostPreview post={prevPost} class="mb-10 sm:mb-12" headingLevel="h3" locale={locale} />}
             </div>

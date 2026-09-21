@@ -11,8 +11,9 @@ tags:
 - HAL
 - 架构设计
 seo:
-  title: 深入 Android 触觉反馈系统全链路：从 VibrationEffect 波形合成到 Vibrator HAL 的触感设计工程实践
+  title: Android 触觉反馈：VibrationEffect 波形合成与 Vibrator HAL
   description: 深入 Android 触觉反馈全链路：解析 VibrationEffect 波形合成、VibratorManager 调度、HAL 驱动与省电约束，分享触感设计工程实践。
+  pageType: article
 ---
 
 做输入法震动反馈时遇到过一个问题：同一个 `VibrationEffect`，普通模式下震动清脆，开了省电模式却直接静默。顺着调用栈一路追到 HAL，才发现触觉反馈不是"调个 API 就震"，中间隔着波形合成、震动调度、权限校验、省电策略四层。

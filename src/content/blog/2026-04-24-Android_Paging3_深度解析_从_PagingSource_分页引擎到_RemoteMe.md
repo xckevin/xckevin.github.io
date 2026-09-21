@@ -1,4 +1,6 @@
 ---
+slug: android-paging3-pagingsource-remotemediator
+translationKey: android-paging3-pagingsource-remotemediator
 title: Android Paging3 深度解析：PagingSource、RemoteMediator 与响应式分页架构
 excerpt: 深入拆解 Paging3 的三层架构——Pager、PagingSource、RemoteMediator，厘清各层职责边界，剖析与 Room、RecyclerView、协程调度器的耦合原理及实践中的高频坑点。
 publishDate: '2026-04-24'
@@ -9,8 +11,9 @@ tags:
 - 架构设计
 - 性能优化
 seo:
-  title: Android Paging3 深度解析：PagingSource、RemoteMediator 与响应式分页架构
+  title: Android Paging3：PagingSource、RemoteMediator 与响应式分页
   description: 深入解析 Paging3 三层架构：PagingSource 分页引擎、Pager 数据流组装、RemoteMediator 网络与数据库协调，涵盖 cachedIn 缓存、线程模型与实战踩坑。
+  pageType: article
 ---
 
 在做一个信息流功能时，我发现 Paging3 和 Paging2 的接入体感差异极大——不只是 API 风格变了，整个数据流向的设计逻辑都换了。Paging2 的 DataSource + PagedList 是命令式的，你得手动管理加载状态；Paging3 把分页抽象成一条 `Flow<PagingData<T>>`，加载逻辑、缓存策略、UI 状态全部内聚在这条数据流里。

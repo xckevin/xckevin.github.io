@@ -1,4 +1,6 @@
 ---
+slug: android-nfc-nfcadapter-ndef
+translationKey: android-nfc-nfcadapter-ndef
 title: 深入 Android NFC 近场通信全链路：从 NfcAdapter API 到 NDEF 协议栈的卡片读写与 HCE 卡模拟架构
 excerpt: 深入解析Android NFC三种工作模式的硬件分工、NDEF数据封装协议、Reader/Writer链路调度优化以及HCE卡模拟的APDU处理与路由表排查机制，覆盖从API调用到协议栈的完整数据流。
 publishDate: '2025-08-06'
@@ -9,8 +11,9 @@ tags:
 - NDEF
 - 卡模拟
 seo:
-  title: 深入 Android NFC 近场通信全链路：从 NfcAdapter API 到 NDEF 协议栈的卡片读写与 HCE 卡模拟架构
+  title: Android NFC：NfcAdapter、NDEF 读写与 HCE 卡模拟
   description: 深入Android NFC近场通信全链路，从NfcAdapter API到NDEF协议栈，详解Reader/Writer模式延迟优化、HCE卡模拟APDU处理及路由表冲突排查，附工程实践要点。
+  pageType: article
 ---
 
 在做门禁刷卡功能时遇到一个偶发失效问题：NFC 读卡有时正常，有时完全没反应。排查后发现，大部分人对 Android NFC 的理解停留在 `enableForegroundDispatch` 上——能读卡就行，底层发生了什么，一概不知。当需求从"读卡"升级到"模拟一张门禁卡"，架构层面的问题就藏不住了。

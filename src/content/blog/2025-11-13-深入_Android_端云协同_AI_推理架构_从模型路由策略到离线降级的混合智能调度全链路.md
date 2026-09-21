@@ -1,4 +1,6 @@
 ---
+slug: android-hybrid-ai-routing-offline-fallback
+translationKey: android-hybrid-ai-routing-offline-fallback
 title: 深入 Android 端云协同 AI 推理架构：从模型路由策略到离线降级的混合智能调度全链路
 excerpt: 本文深入探讨Android端云协同AI推理架构设计，涵盖多维路由决策引擎、网络质量感知、三级离线降级策略及优先级请求调度等核心机制，为移动端AI工程化落地提供实践参考。
 publishDate: '2025-11-13'
@@ -9,8 +11,9 @@ tags:
 - 性能优化
 - 架构设计
 seo:
-  title: 深入 Android 端云协同 AI 推理架构：从模型路由策略到离线降级的混合智能调度全链路
+  title: Android 端云协同 AI 推理：模型路由与离线降级调度
   description: 深入解析Android端云协同AI推理架构：从四维路由决策引擎、网络质量感知到三级离线降级策略，全景呈现混合智能调度的工程实践与关键取舍。
+  pageType: article
 ---
 
 在做端侧 AI 功能时，我们踩过一个典型的坑：智能抠图在 Wi-Fi 下一切正常，QA 在地铁上测试却直接卡死，整个页面 ANR。排查下来发现，路由逻辑只判断了"是否联网"，没考虑网络质量和模型复杂度——一个 200MB 的模型在弱网下光上传图片就耗了 30 秒。

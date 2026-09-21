@@ -1,4 +1,6 @@
 ---
+slug: image-loading-stability-custom-ssl-doh-dns
+translationKey: image-loading-stability-custom-ssl-doh-dns
 title: 图片加载稳定性实战：自定义 SSL 确认与 DoH DNS 双管齐下
 excerpt: 移动端图片加载看似简单，但用户看到的头像不显示、内容图片灰块、首屏瀑布流空白，背后往往是证书链校验失败、DNS 被污染、运营商局部解析异常等问题。本文介绍图片网络层的两项稳定性增强：自定义 SSL 确认和 DoH DNS 解析。
 publishDate: '2026-06-04'

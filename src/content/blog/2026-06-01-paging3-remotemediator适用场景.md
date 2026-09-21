@@ -1,4 +1,5 @@
 ---
+translationKey: paging3-remotemediator
 title: "Paging3 RemoteMediator 适合什么场景？"
 slug: paging3-remotemediator
 excerpt: "解释 Paging3 RemoteMediator 的定位、网络数据库分页协作、缓存优先列表和常见错误用法。"
@@ -73,6 +74,6 @@ RemoteMediator 本质上不是分页工具，而是缓存一致性工具。把�
 ## 深入阅读
 
 - [返回对应专题：Android 性能优化](/android-performance/)
-- [Android Paging3 深度解析：PagingSource、RemoteMediator 与分页缓存](/blog/2026-04-24-android_paging3_深度解析_从_pagingsource_分页引擎到_remoteme/)
+- [Android Paging3 深度解析：PagingSource、RemoteMediator 与分页缓存](/blog/android-paging3-pagingsource-remotemediator/)
 - [Room Flow 为什么能自动更新？](/blog/room-flow-auto-update/)
 <!-- /seo-internal-links -->

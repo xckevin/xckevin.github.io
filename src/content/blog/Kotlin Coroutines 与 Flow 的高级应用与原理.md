@@ -1,4 +1,6 @@
 ---
+slug: kotlin-coroutines-flow-advanced-applications-internals
+translationKey: kotlin-coroutines-flow-advanced-applications-internals
 title: Kotlin Coroutines 与 Flow 的高级应用与原理
 excerpt: 在 Android 开发中，异步编程是不可避免的。我们需要在不阻塞主线程（UI 线程）的情况下执行网络请求、数据库操作、复杂计算等耗时任务。传统的并发模型，如直接使用 Thread、AsyncTask 或基于回调（Callback）的设计，往往会导致代码结构复杂、难以维护（回调地狱 Callback Hell）、资源管理困难（内存泄漏、线程泄漏），以及复杂的取消和异常处理逻辑。
 publishDate: 2025-03-30
@@ -500,7 +502,7 @@ Kotlin Coroutines 与 Flow 为 Android 开发者提供了强大、现代且优�
 ## 延伸阅读
 
 - [返回对应专题：Kotlin 与协程](/kotlin-coroutines/)
-- [Kotlin suspend 原理：CPS 变换、Continuation 与状态机字节码](/blog/2026-04-23-kotlin_suspend_的编译器黑盒_从_cps_变换到状态机字节码的完整推演/)
-- [Kotlin Flow 原理与工程实践：冷流、StateFlow、SharedFlow 对比](/blog/2026-04-23-kotlin_flow_工程化全景_从冷流惰性求值到_stateflow_sharedflow_热流/)
-- [Kotlin K2 编译器解析：统一前端、类型推断与 Android 构建影响](/blog/2026-04-23-kotlin_k2_编译器深度解析_从统一前端架构到智能类型推断重写的编译革新与_android_工/)
+- [Kotlin suspend 原理：CPS 变换、Continuation 与状态机字节码](/blog/kotlin-suspend-state-machine/)
+- [Kotlin Flow 原理与工程实践：冷流、StateFlow、SharedFlow 对比](/blog/kotlin-flow-stateflow-sharedflow/)
+- [Kotlin K2 编译器解析：统一前端、类型推断与 Android 构建影响](/blog/kotlin-k2-compiler-android/)
 <!-- /seo-internal-links -->

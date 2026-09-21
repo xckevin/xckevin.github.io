@@ -10,12 +10,12 @@ seo:
 ## 核心文章
 
 - [OpenAI 如何使用 Codex](/blog/openai-如何使用-codex/)
-- [提示词工程：从核心原则到前沿实践](/blog/提示词工程从核心原则到前沿实践/)
+- [提示词工程：从核心原则到前沿实践](/blog/prompt-engineering-core-principles/)
 - [Ollama 在 Apple Silicon 上全面转向 MLX 驱动](/blog/ollama-在-apple-silicon-上全面转向-mlx-驱动预览版/)
-- [深入 Android Studio Gemini 代码助手：从上下文感知补全到多文件重构的 AI 辅助开发全链路](/blog/2026-03-12-深入_android_studio_gemini_代码助手_从上下文感知补全到多文件重构的_ai_辅/)
-- [OpenClaw 架构拆解：Node、Tool、Skill 如何把 AI 变成可执行系统](/blog/openclaw-架构拆解nodetoolskill-如何把-ai-变成可执行系统/)
-- [OpenClaw Agent 体系深度解析：运行时、通信与多 Agent 工程实践](/blog/openclaw-agent-体系深度解析运行时通信与多-agent-工程实践/)
-- [OpenClaw Memory 设计解析：从文件化记忆到可扩展检索架构](/blog/openclaw-memory-设计解析从文件化记忆到可扩展检索架构/)
+- [深入 Android Studio Gemini 代码助手：从上下文感知补全到多文件重构的 AI 辅助开发全链路](/blog/android-studio-gemini-ai-assistant/)
+- [OpenClaw 架构拆解：Node、Tool、Skill 如何把 AI 变成可执行系统](/blog/openclaw-architecture-node-tool-skill-executable-ai-system/)
+- [OpenClaw Agent 体系深度解析：运行时、通信与多 Agent 工程实践](/blog/openclaw-agent-runtime-communication-multi-agent-engineering/)
+- [OpenClaw Memory 设计解析：从文件化记忆到可扩展检索架构](/blog/openclaw-memory-file-based-memory-scalable-retrieval/)
 
 ## 落地方向
 

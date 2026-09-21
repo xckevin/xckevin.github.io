@@ -1,4 +1,6 @@
 ---
+slug: android-textview-layout-linebreaker
+translationKey: android-textview-layout-linebreaker
 title: 深入 Android TextView 文本测量与布局全链路：从 StaticLayout 创建到 LineBreaker 断行的文本排版引擎解析
 excerpt: 深入解析 Android 文本排版引擎核心机制，涵盖 StaticLayout 布局创建、FontMetrics 度量坐标系、LineBreaker 断行算法策略及自定义 View 文本渲染实践。
 publishDate: '2026-07-11'
@@ -9,8 +11,9 @@ tags:
 - 自定义View
 - FontMetrics
 seo:
-  title: 深入 Android TextView 文本测量与布局全链路：从 StaticLayout 创建到 LineBreaker 断行的文本排版引擎解析
+  title: Android TextView 测量布局：StaticLayout 创建与 LineBreaker 断行
   description: 深入解析 Android TextView 文本排版全链路，从 StaticLayout 与 DynamicLayout 的选型机制、FontMetrics 基线坐标系到 LineBreaker 三种断行策略，助你掌握自定义文本渲染的核心原理。
+  pageType: article
 ---
 
 做自定义 View 的文本渲染时，我踩过一个坑：用 `Canvas.drawText()` 画多行文本，手动算换行位置，结果中英文混排时行尾参差不齐，加上 `\n` 换行符还要额外处理。后来才意识到，Android 提供了完整的文本排版引擎——**StaticLayout**，它就是 TextView 内部的排版核心。

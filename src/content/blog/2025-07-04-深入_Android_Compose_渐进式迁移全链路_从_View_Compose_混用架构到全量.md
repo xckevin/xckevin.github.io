@@ -1,4 +1,6 @@
 ---
+slug: android-compose-progressive-migration
+translationKey: android-compose-progressive-migration
 title: 深入 Android Compose 渐进式迁移全链路：从 View/Compose 混用架构到全量声明式 UI 的工程化转型策略与性能验证
 excerpt: 复盘从View到Compose的渐进式迁移全链路策略，涵盖基础设施铺路、分阶段替换、列表优化、混用治理及灰度验证的工程实践与性能对比。
 publishDate: '2025-07-04'
@@ -9,8 +11,9 @@ tags:
 - 性能优化
 - 渐进式迁移
 seo:
-  title: 深入 Android Compose 渐进式迁移全链路：从 View/Compose 混用架构到全量声明式 UI 的工程化转型策略与性能验证
+  title: Compose 渐进式迁移：View/Compose 混用与全量声明式 UI 转型
   description: 详细复盘百万DAU电商App从View到Jetpack Compose的渐进式迁移全链路，包括分阶段替换策略、列表性能优化、混用边界治理与灰度验证，附TTI、帧率、崩溃率真实性能对比数据。
+  pageType: article
 ---
 
 去年接手一个百万 DAU 的电商 App 技术改造项目时，团队内部对 Compose 迁移争执不下 —— 激进派想直接重写，保守派觉得 XML 够用。最终我们花了 8 个月完成渐进式迁移，没有阻断任何一次发版。这篇文章复盘整个过程里的架构决策和踩过的坑。

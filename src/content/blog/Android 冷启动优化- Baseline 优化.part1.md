@@ -1,4 +1,6 @@
 ---
+slug: android-cold-start-baseline-optimization-part1
+translationKey: android-cold-start-baseline-optimization-part1
 title: "Android 冷启动优化：Baseline 优化方案（1）：背景"
 excerpt: "「Android 冷启动优化：Baseline 优化方案」系列第 1/3 篇：背景"
 publishDate: 2025-11-18

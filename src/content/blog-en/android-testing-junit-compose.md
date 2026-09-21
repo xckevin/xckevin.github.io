@@ -201,6 +201,6 @@ Treating tests as documentation earns much more team buy-in than treating them o
 ## Further reading
 
 - [Back to topic: Mobile Engineering](/en/android-engineering/)
-- [Android Gradle build acceleration: Configuration Cache, KSP, and task governance](/blog/2026-05-06-android_gradle_构建提速全链路_从_configuration_cache_到_ksp/)
+- [Android Gradle build acceleration: Configuration Cache, KSP, and task governance](/blog/android-gradle-build-speed-configuration-cache-ksp/)
 - [Android CI/CD quality gates: build, test, lint, performance, and release checks](/en/blog/android-ci-cd-quality-gates/)
 <!-- /seo-internal-links -->

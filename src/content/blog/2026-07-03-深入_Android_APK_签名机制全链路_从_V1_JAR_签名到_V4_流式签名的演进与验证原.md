@@ -1,4 +1,6 @@
 ---
+slug: android-apk-signing-schemes
+translationKey: android-apk-signing-schemes
 title: 深入 Android APK 签名机制全链路：从 V1 JAR 签名到 V4 流式签名的演进与验证原理
 excerpt: 梳理 Android APK 签名从 V1 JAR 签名到 V4 流式签名的完整演进链路，深入分析各版本签名结构、验证原理、安全漏洞及实践建议。
 publishDate: '2026-07-03'
@@ -9,8 +11,9 @@ tags:
 - 签名验证
 - 应用打包
 seo:
-  title: 深入 Android APK 签名机制全链路：从 V1 JAR 签名到 V4 流式签名的演进与验证原理
+  title: Android APK 签名：V1 JAR 签名到 V4 流式签名演进
   description: 梳理 Android APK 签名从 V1 到 V4 的完整演进链路，涵盖 JAR 签名、APK Signing Block、密钥轮转、流式签名及验证优先级，附实践建议。
+  pageType: article
 ---
 
 去年帮团队排查一个线上崩溃：用户从应用商店下载的 APK 安装时提示"签名不一致"。排查后发现是 CI 流程中 V2 签名和 V1 签名用了不同证书。这个问题让我把四种签名方案从头到尾捋了一遍，发现很多细节在日常开发中容易被忽略。

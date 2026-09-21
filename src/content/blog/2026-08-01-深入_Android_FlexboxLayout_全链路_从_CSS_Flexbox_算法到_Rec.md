@@ -9,8 +9,9 @@ tags:
 - 布局优化
 - 源码分析
 seo:
-  title: 深入 Android FlexboxLayout 全链路：从 CSS Flexbox 算法到 RecyclerView 自适应流式布局引擎
+  title: Android FlexboxLayout：CSS Flexbox 算法与 RecyclerView 流式布局
   description: 深入学习 Android FlexboxLayout 从 W3C CSS Flexbox 规范到 RecyclerView 流式布局的完整实现链路，包括 flex-grow 分配算法、常见踩坑经验和选型决策框架。
+  pageType: article
 slug: android-flexboxlayout-recyclerview
 translationKey: android-flexboxlayout-recyclerview
 ---

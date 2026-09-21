@@ -1,5 +1,7 @@
 ---
-title: 流水线中的 ktlint 检查步骤
+slug: android-ci-cd-ktlint-detekt-firebase-pipeline
+translationKey: android-ci-cd-ktlint-detekt-firebase-pipeline
+title: Android CI/CD 实践：静态检查、自动化测试与 Firebase 分发
 excerpt: 分享 Android 项目 CI/CD 流水线的完整实践：从 ktlint、Detekt 代码质量检查，到 Gradle Managed Devices 自动化测试、版本管理，再到 Firebase App Distribution 分发，总结工程化交付的实战经验。
 publishDate: '2025-06-23'
 tags:
@@ -9,10 +11,17 @@ tags:
 - 自动化测试
 - Firebase
 seo:
-  title: 流水线中的 ktlint 检查步骤
+  title: Android CI/CD 实践：静态检查、自动化测试与 Firebase 分发
   description: Android CI/CD 流水线实战：ktlint 与 Detekt 静态分析、Gradle Managed Devices 自动化测试、版本管理及 Firebase App Distribution 分发全流程。
+  pageType: article
+updatedDate: '2026-09-21'
 ---
 
+Android CI/CD 的质量门禁需要覆盖静态分析、自动化测试、版本管理和测试包分发。本文从 ktlint 检查开始，串联 Detekt、Gradle Managed Devices 与 Firebase App Distribution 的接入步骤。
+
+## 静态检查：ktlint 与 Detekt
+
+```bash
 ./gradlew ktlintCheck
 ```
 

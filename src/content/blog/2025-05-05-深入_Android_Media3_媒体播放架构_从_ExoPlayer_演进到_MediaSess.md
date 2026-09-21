@@ -1,4 +1,6 @@
 ---
+slug: android-media3-exoplayer-mediasession
+translationKey: android-media3-exoplayer-mediasession
 title: 深入 Android Media3 媒体播放架构：从 ExoPlayer 演进到 MediaSession 统一播放管线的全链路解析
 excerpt: 深入解析 Android Media3 媒体播放架构演进，从 ExoPlayer 内核重构到 MediaSession 统一控制管线，涵盖缓冲策略优化与实战迁移建议。
 publishDate: '2025-05-05'
@@ -9,8 +11,9 @@ tags:
 - 媒体播放
 - 架构设计
 seo:
-  title: 深入 Android Media3 媒体播放架构：从 ExoPlayer 演进到 MediaSession 统一播放管线的全链路解析
+  title: Android Media3 播放架构：ExoPlayer 演进与 MediaSession 播放管线
   description: 深入解析 Android Media3 架构演进：从 ExoPlayer 内核重构到 MediaSession 统一播放管线，详解 TrackSelector、缓冲策略优化及实际项目迁移经验。
+  pageType: article
 ---
 
 去年接手一个视频播放项目时，画中画、耳机线控、通知栏控制各写了一套逻辑——每次改播放策略要在三个地方同步修改。团队当时还在用 ExoPlayer 2.x，切到 Media3 之后，这些分散的控制逻辑终于收敛到了一处。这篇文章把升级过程中对架构的理解梳理出来。

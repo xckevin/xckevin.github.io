@@ -77,6 +77,6 @@ Image OOM is rarely fixed by "just call recycle manually." The stable solution i
 ## Further reading
 
 - [Back to topic: Android performance optimization](/en/android-performance/)
-- [Android Bitmap memory model: Java heap, native heap, and Hardware Bitmap](/blog/2026-04-14-深入_android_bitmap_内存模型_从_java_堆分配到_hardware_bitmap/)
+- [Android Bitmap memory model: Java heap, native heap, and Hardware Bitmap](/blog/android-bitmap-memory-model-hardware-bitmap/)
 - [What are the four RecyclerView cache levels? Understanding list performance through the reuse pipeline](/blog/recyclerview-cache-levels/)
 <!-- /seo-internal-links -->

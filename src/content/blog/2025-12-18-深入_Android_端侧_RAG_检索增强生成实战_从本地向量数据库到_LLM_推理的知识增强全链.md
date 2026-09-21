@@ -1,4 +1,6 @@
 ---
+slug: android-on-device-rag-vector-database
+translationKey: android-on-device-rag-vector-database
 title: 深入 Android 端侧 RAG 检索增强生成实战：从本地向量数据库到 LLM 推理的知识增强全链路
 excerpt: 本文介绍在 Android 端侧落地 RAG 检索增强生成的全链路实践，涵盖文档向量化、SQLite 本地向量检索、MediaPipe LLM 推理等关键技术选型与性能优化。
 publishDate: '2025-12-18'
@@ -9,8 +11,9 @@ tags:
 - MediaPipe
 - 向量检索
 seo:
-  title: 深入 Android 端侧 RAG 检索增强生成实战：从本地向量数据库到 LLM 推理的知识增强全链路
+  title: Android 端侧 RAG：本地向量数据库与 LLM 知识增强
   description: 深入解析 Android 端侧 RAG 系统构建全流程：从 all-MiniLM-L6-v2 文本向量化、SQLite 本地向量检索到 Gemma 2B LLM 推理，附完整代码实现与性能评测。
+  pageType: article
 ---
 
 去年在做一个企业知识库 App 时，产品提了个需求：用户在飞机上也能查内部文档、问技术问题。服务端 RAG 方案直接 pass——没网。当时的第一反应是"这怎么可能"，但拆解下来发现，端侧 RAG 的三块拼图其实都有现成的轮子。

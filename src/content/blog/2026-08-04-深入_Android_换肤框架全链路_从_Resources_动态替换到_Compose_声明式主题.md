@@ -9,8 +9,9 @@ tags:
 - Resources
 - 架构设计
 seo:
-  title: 深入 Android 换肤框架全链路：从 Resources 动态替换到 Compose 声明式主题的运行时切换架构
+  title: Android 换肤框架：Resources 动态替换与 Compose 运行时主题
   description: 详解 Android 统一换肤架构设计：通过 Resources 拦截实现 View 层换肤，通过 CompositionLocal 驱动 Compose 声明式主题，两种 UI 体系共享同一状态源，实现运行时无缝切换。
+  pageType: article
 slug: android-runtime-skinning-resources-compose
 translationKey: android-runtime-skinning-resources-compose
 ---

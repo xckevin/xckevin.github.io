@@ -77,6 +77,6 @@ Frequent recomposition is rarely a single isolated bug. It is usually a state de
 ## Further reading
 
 - [Back to the Jetpack Compose topic](/en/jetpack-compose/)
-- [Jetpack Compose recomposition performance: Stability, derivedStateOf, and skipping recomposition](/blog/2026-05-07-jetpack_compose_重组性能全链路调优_从_stability_推断到_deriveds/)
-- [Jetpack Compose principles and advanced usage: State, layout, recomposition, and performance practice](/blog/jetpack-compose-高级应用与原理/)
+- [Jetpack Compose recomposition performance: Stability, derivedStateOf, and skipping recomposition](/blog/jetpack-compose-recomposition-performance/)
+- [Jetpack Compose principles and advanced usage: State, layout, recomposition, and performance practice](/blog/jetpack-compose-advanced-applications-internals/)
 <!-- /seo-internal-links -->

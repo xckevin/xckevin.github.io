@@ -1,4 +1,5 @@
 ---
+translationKey: android-startup-metrics
 title: "Android App 启动优化应该先看哪些指标？"
 slug: android-startup-metrics
 excerpt: "整理 Android 启动优化的关键指标、阶段拆分、Perfetto trace 观察点和线上治理优先级。"
@@ -64,7 +65,7 @@ Google Play Console、Firebase Performance 和自建埋点给出的启动时间�
 ## 深入阅读
 
 - [返回对应专题：Android 性能优化](/android-performance/)
-- [Android 启动优化：从 Zygote fork 到首帧上屏的 Perfetto 实战](/blog/2026-04-19-android_冷启动全链路优化工程实践_从_zygote_fork_到首帧上屏的_systrace/)
-- [Android App 启动优化专项：指标、链路、工具与治理方案](/blog/app启动优化专项/)
+- [Android 启动优化：从 Zygote fork 到首帧上屏的 Perfetto 实战](/blog/android-cold-start-zygote-systrace/)
+- [Android App 启动优化专项：指标、链路、工具与治理方案](/blog/app-startup-optimization/)
 - [Android Perfetto 入门：Trace 抓取、轨道分析与性能定位](/blog/android-perfetto/)
 <!-- /seo-internal-links -->

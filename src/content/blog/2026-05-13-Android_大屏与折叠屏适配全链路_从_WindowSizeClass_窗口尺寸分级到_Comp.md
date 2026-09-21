@@ -1,4 +1,6 @@
 ---
+slug: android-large-screen-foldables
+translationKey: android-large-screen-foldable-window-size-class-compose
 title: Android 大屏与折叠屏适配全链路：从 WindowSizeClass 窗口尺寸分级到 Compose 自适应布局的声明式响应架构
 excerpt: 深入讲解 Android 大屏与折叠屏适配实践：基于 WindowSizeClass 窗口尺寸分级机制，结合 Compose 声明式自适应组件，实现从手机到平板的响应式布局，并覆盖折叠屏姿态感知与分屏场景。
 publishDate: '2026-05-13'
@@ -9,8 +11,9 @@ tags:
 - 大屏适配
 - 折叠屏
 seo:
-  title: Android 大屏与折叠屏适配全链路：从 WindowSizeClass 窗口尺寸分级到 Compose 自适应布局的声明式响应架构
+  title: Android 大屏折叠屏适配：WindowSizeClass 与 Compose 自适应布局
   description: 基于 WindowSizeClass 窗口尺寸分级与 Jetpack Compose 自适应组件，详解 Android 大屏与折叠屏适配全链路，涵盖断点定制、声明式布局与折叠屏姿态感知。
+  pageType: article
 ---
 
 两年前我接手一个平板适配项目，第一件事就是改布局 XML —— 给十几个页面分别加 `layout-sw600dp` 和 `layout-sw840dp` 资源目录。改到第 5 个页面我就不干了：维护两套独立布局文件，UI 调一处就得同步改三处，不出三个月必然出现"平板端改了竖屏忘了横屏"的线上事故。

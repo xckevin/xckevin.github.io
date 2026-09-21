@@ -1,20 +1,23 @@
 ---
-title: "Android Instant Apps: URL Routing and Architecture Notes"
+title: 'Android Instant Apps: Legacy Architecture After Shutdown'
 lang: en
 translationKey: android-instant-apps-url-routing
 slug: android-instant-apps-url-routing
-excerpt: "A hands-on record of building an Android Instant App, from App Bundle slicing and sandboxed launch to URL routing and install prompts."
+excerpt: Review Instant Apps modules and URL routing as legacy architecture. Google Play Instant stopped serving apps in December 2025.
 publishDate: '2026-07-27'
 tags:
-- "Android"
-- "Instant Apps"
-- "App Bundle"
-- "URL Routing"
+- Android
+- Instant Apps
+- App Bundle
+- URL Routing
 seo:
-  title: "Android Instant Apps URL Routing and Architecture"
-  description: "How Android Instant Apps slice App Bundles, launch in a sandbox, route URLs, and prompt installation, with practical trade-offs."
+  title: 'Android Instant Apps: Legacy Architecture After Shutdown'
+  description: Review Instant Apps modules and URL routing as legacy architecture. Google Play Instant stopped serving apps in December 2025.
   pageType: article
+updatedDate: '2026-09-21'
 ---
+
+> **Status update (2026-09-21):** Google Play Instant stopped being available in December 2025. Instant Apps can no longer be published through Google Play, Play no longer serves them, and the Google Play services Instant APIs no longer work. The implementation below is a historical architecture reference. For new products, use a regular app and deep links into relevant features. [Official documentation](https://developer.android.com/topic/google-play-instant/overview)
 
 > **⁉️ Important note:** Google Play Instant (Instant Apps) was discontinued in December 2025 — Instant Apps can no longer be published through Google Play, the related Google Play services Instant API has also been retired, and the Play platform no longer distributes Instant experiences to users in any way (official announcement: https://developer.android.com/topic/google-play-instant/overview). The official guidance now recommends using Deep Links to route users directly to the fully installed app. This article is retained as a historical record of the technical solution at the time and as a reference for architecture design ideas (ideas such as App Bundle slicing, sandboxed launch, and URL intent routing remain useful references for today's dynamic feature delivery), but do not use the solution in this article as the basis for new project development.
 

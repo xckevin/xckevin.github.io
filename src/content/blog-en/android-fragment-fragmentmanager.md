@@ -1,19 +1,20 @@
 ---
-title: "Android Fragment Lifecycle and FragmentManager: Transactions, Back Stack, and State Recovery"
+title: 'Android Fragment Lifecycle and FragmentManager: Transactions, Back Stack, and State Recovery'
 lang: en
 translationKey: android-fragment-fragmentmanager
 slug: android-fragment-fragmentmanager
-excerpt: "A deep dive into Fragment transaction async execution, back-stack state recovery, ViewModel lifecycle coordination, commitNow, onSaveInstanceState timing, and common NPE and leak traps."
+excerpt: A deep dive into Fragment transaction async execution, back-stack state recovery, ViewModel lifecycle coordination, commitNow, onSaveInstanceState timing, and common NPE and
+  leak traps.
 publishDate: '2026-05-26'
 tags:
-- "Android"
-- "Fragment"
-- "ViewModel"
-- "Jetpack"
-- "Lifecycle"
+- Android
+- Fragment
+- ViewModel
+- Jetpack
+- Lifecycle
 seo:
-  title: "Android Fragment Lifecycle and FragmentManager: Transactions to State Recovery"
-  description: "Why are Fragment transactions asynchronous? How does the back stack restore state? Learn Fragment lifecycle, ViewModel, commitNow, and state pitfalls."
+  title: 'Android Fragments: Lifecycle, Transactions, and State Recovery'
+  description: Why are Fragment transactions asynchronous? How does the back stack restore state? Learn Fragment lifecycle, ViewModel, commitNow, and state pitfalls.
   pageType: article
 ---
 

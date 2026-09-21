@@ -1,4 +1,6 @@
 ---
+slug: kotlin-coroutines-testing
+translationKey: kotlin-coroutines-testing
 title: 深入 Kotlin Coroutines 测试全链路：从 TestDispatcher 调度控制到 Turbine Flow 断言的协程单元测试工程实践
 excerpt: 深入解析 Kotlin 协程单元测试全链路，涵盖 runTest 虚拟时钟机制、TestDispatcher 调度注入、Turbine Flow 断言实战及工程落地的常见陷阱与最佳实践。
 publishDate: '2026-05-15'
@@ -9,8 +11,9 @@ tags:
 - Android
 - Flow
 seo:
-  title: 深入 Kotlin Coroutines 测试全链路：从 TestDispatcher 调度控制到 Turbine Flow 断言的协程单元测试工程实践
+  title: Kotlin 协程测试：TestDispatcher 调度与 Turbine Flow 断言
   description: 深入 Kotlin Coroutines 测试全链路实践：从 runTest 虚拟时钟原理、TestDispatcher 调度注入到 Turbine Flow 断言，系统讲解协程单元测试的工程化方案与常见陷阱。
+  pageType: article
 ---
 
 上个月给一个网络层模块补单元测试，遇到了一个让人头大的问题：一个 `viewModelScope.launch` 里调 `delay(2000)` 后更新 UI 的逻辑，测试要么跑 2 秒，要么 assertion 永远拿不到更新的值。`runBlocking` 能解决延迟但不支持结构化并发，`advanceTimeBy` 看文档能用但不知道怎么注入。

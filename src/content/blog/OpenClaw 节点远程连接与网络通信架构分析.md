@@ -1,4 +1,6 @@
 ---
+slug: openclaw-node-remote-connection-network-architecture
+translationKey: openclaw-node-remote-connection-network-architecture
 title: OpenClaw 节点远程连接与网络通信架构分析
 excerpt: 本文基于一段 OpenClaw 对话记录，拆解 Gateway、Node 与 Tailnet 的连接路径，解释远程节点如何在安全边界内完成命令与工具调用。
 publishDate: 2026-03-06

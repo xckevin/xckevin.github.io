@@ -1,19 +1,20 @@
 ---
-title: "Android 16 Predictive Back: Migration, Dispatchers, and Gesture-Driven Animation"
+title: 'Android 16 Predictive Back: Migration, Dispatchers, and Gesture-Driven Animation'
 lang: en
 translationKey: android-predictive-back
 slug: android-predictive-back
-excerpt: "A practical Android 16 Predictive Back migration guide covering OnBackInvokedDispatcher registration, OnBackAnimationCallback frame-driven animation, Fragment support, Compose PredictiveBackHandler, and a migration checklist."
+excerpt: A practical Android 16 Predictive Back migration guide covering OnBackInvokedDispatcher registration, OnBackAnimationCallback frame-driven animation, Fragment support, Compose
+  PredictiveBackHandler, and a migration checklist.
 publishDate: '2026-04-21'
 tags:
-- "Android"
-- "Jetpack Compose"
-- "Performance"
-- "Architecture"
-- "Animation"
+- Android
+- Jetpack Compose
+- Performance
+- Architecture
+- Animation
 seo:
-  title: "Android 16 Predictive Back: Dispatcher, Animation, Fragment, and Compose Migration"
-  description: "Migrate to Android 16 Predictive Back with OnBackInvokedDispatcher, animation callbacks, Fragment support, Compose handlers, and checks."
+  title: 'Android 16 Predictive Back: Animation and Compose Migration'
+  description: Migrate to Android 16 Predictive Back with OnBackInvokedDispatcher, animation callbacks, Fragment support, Compose handlers, and checks.
   pageType: article
 ---
 

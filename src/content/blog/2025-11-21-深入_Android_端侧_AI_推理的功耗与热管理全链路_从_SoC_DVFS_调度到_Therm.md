@@ -1,4 +1,6 @@
 ---
+slug: android-on-device-ai-power-thermal-management
+translationKey: android-on-device-ai-power-thermal-management
 title: 深入 Android 端侧 AI 推理的功耗与热管理全链路：从 SoC DVFS 调度到 Thermal Throttling 的性能稳定性工程实践
 excerpt: 本文从端侧 LLM 持续推理的性能退化问题出发，剖析 GPU 功耗画像、DVFS 调度与 Thermal Throttling 机制，提出双层温控感知的负载调度方案，将长时间推理的 P99 延迟从 890ms 压至 380ms。
 publishDate: '2025-11-21'
@@ -9,8 +11,9 @@ tags:
 - 功耗管理
 - Thermal Throttling
 seo:
-  title: 深入 Android 端侧 AI 推理的功耗与热管理全链路：从 SoC DVFS 调度到 Thermal Throttling 的性能稳定性工程实践
+  title: Android 端侧 AI 功耗热管理：DVFS 调度与 Thermal Throttling
   description: 端侧 AI 推理持续几分钟后延迟暴涨？本文剖析 SoC DVFS 调度与 Thermal Throttling 机制，从功耗画像到双层温控感知负载调度，分享将 P99 延迟从 890ms 优化到 380ms 的工程实践。
+  pageType: article
 ---
 
 去年做一个端侧 LLM 实时翻译应用时，遇到了一个很头疼的问题：前 3 分钟推理延迟稳定在 120ms，之后开始跳到 300ms、500ms，甚至偶发 2 秒以上的卡顿。Logcat 里 ThermalService 频繁报 `CPU Mitigation`，设备表面温度早就过了 45°C。

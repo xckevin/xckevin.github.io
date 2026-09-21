@@ -1,4 +1,6 @@
 ---
+slug: android-art-dex2oat-pipeline
+translationKey: android-art-dex2oat-pipeline
 title: 深入 Android ART dex2oat 编译管线：从 DEX 字节码到 OAT 机器码的 AOT/JIT 混合编译
 excerpt: 系统梳理 dex2oat 编译管线的完整流程，解析 Compiler Filter 各档位取舍、JIT 与 AOT 的协同机制，以及如何用 Baseline Profile 精准引导编译来压缩 App 冷启动耗时。
 publishDate: '2026-02-20'
@@ -9,8 +11,9 @@ tags:
 - 性能优化
 - AOT/JIT
 seo:
-  title: 深入 Android ART dex2oat 编译管线：从 DEX 字节码到 OAT 机器码的 AOT/JIT 混合编译
+  title: Android ART dex2oat 编译：DEX 字节码到 OAT 机器码 AOT/JIT
   description: 详解 dex2oat 编译管线、Compiler Filter 各档策略、JIT 与 AOT 混合编译协同机制及 Baseline Profile 实践，助你有效压缩 Android App 冷启动耗时。
+  pageType: article
 ---
 
 做性能优化时，有个数据让我困惑了很久：同一个 APK，Play Store 下载安装的冷启动比 adb install 快了近 40%。排查后发现，差异就出在 dex2oat 的编译策略上。

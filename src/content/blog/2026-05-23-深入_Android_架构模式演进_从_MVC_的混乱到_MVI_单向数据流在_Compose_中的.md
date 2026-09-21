@@ -1,4 +1,6 @@
 ---
+slug: android-architecture-mvi-compose
+translationKey: android-architecture-mvi-compose
 title: 深入 Android 架构模式演进：从 MVC 的混乱到 MVI 单向数据流在 Compose 中的声明式架构实践
 excerpt: 本文梳理 Android 架构模式从 MVC、MVP、MVVM 到 MVI 的演进，剖析各阶段核心痛点，分享 Compose 下 MVI 单向数据流的落地实践与避坑经验。
 publishDate: '2026-05-23'
@@ -9,8 +11,9 @@ tags:
 - 架构设计
 - Kotlin
 seo:
-  title: 深入 Android 架构模式演进：从 MVC 的混乱到 MVI 单向数据流在 Compose 中的声明式架构实践
+  title: Android 架构模式演进：MVC 到 MVI 单向数据流与 Compose
   description: Android 架构从 MVC 到 MVI 的演进全解析：剖析 MVC 职责混乱、MVP 接口膨胀、MVVM 事件处理困境，详解 Compose 下 MVI 单向数据流的声明式架构实践与三大避坑指南。
+  pageType: article
 ---
 
 三年前接手过一个电商项目，Activity 里塞了 2000 多行代码，业务逻辑、网络请求、UI 更新全搅在一起。改一个按钮状态要找遍四五个方法。不是 MVC 错了，是我们从来没用对过。

@@ -1,4 +1,6 @@
 ---
+slug: android-gradle-build-speed-configuration-cache-ksp
+translationKey: android-gradle-build-speed-configuration-cache-ksp
 title: Android Gradle 构建提速全链路：从 Configuration Cache 到 KSP 替换 KAPT 的工程化实践
 excerpt: 系统拆解 Android Gradle 构建的三段耗时——配置阶段、注解处理与任务执行，通过启用 Configuration Cache、将 KAPT 迁移至 KSP、修复增量编译隐患等手段，实现增量构建时间大幅压缩的工程化实践。
 publishDate: '2026-05-06'
@@ -9,8 +11,9 @@ tags:
 - KSP
 - 构建优化
 seo:
-  title: "Android Gradle 构建提速：Configuration Cache、KSP 与任务治理"
-  description: "系统整理 Android Gradle 构建提速方法，覆盖 Configuration Cache、KSP、任务配置、缓存命中和大型项目构建治理。"
+  title: Android Gradle 构建提速：Configuration Cache 与 KSP 优化
+  description: 系统整理 Android Gradle 构建提速方法，覆盖 Configuration Cache、KSP、任务配置、缓存命中和大型项目构建治理。
+  pageType: article
 ---
 
 一个中型项目，30 个模块，clean build 跑 4 分钟，增量构建也要 1 分 20 秒。这类数字在稍具规模的团队里并不少见，但多数人的应对方式是"加机器内存"或者"升级 Gradle 版本祈祷变快"。
@@ -198,6 +201,6 @@ Configuration Cache 的收益依赖项目规模，模块越多、配置越复杂
 ## 延伸阅读
 
 - [返回对应专题：移动端工程化](/android-engineering/)
-- [Android 测试工程实践：JUnit、集成测试、Compose 语义与 CI](/blog/2026-05-10-深入_android_测试全链路工程实践_从_junit_单元测试到_compose_semanti/)
-- [Android CI/CD 实践：Jenkins、GitLab CI、构建发布与质量门禁](/blog/jenkins与gitlab-ci实现android持续集成与交付从构建到发布的完整指南/)
+- [Android 测试工程实践：JUnit、集成测试、Compose 语义与 CI](/blog/android-testing-junit-compose/)
+- [Android CI/CD 实践：Jenkins、GitLab CI、构建发布与质量门禁](/blog/jenkins-gitlab-ci-android-cicd-complete-guide/)
 <!-- /seo-internal-links -->

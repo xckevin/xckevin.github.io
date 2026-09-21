@@ -1,4 +1,6 @@
 ---
+slug: git-storage-internals-snapshots-checkout
+translationKey: git-storage-internals-snapshots-checkout
 title: Git 存储原理解析：从快照到 checkout 的底层实现
 excerpt: 本文从 Git 的对象数据库模型出发，解释 blob、tree、commit 的关系，并拆解 git log 与 git checkout 的执行逻辑，帮助你建立可验证的 Git 底层心智模型。
 publishDate: 2026-03-03

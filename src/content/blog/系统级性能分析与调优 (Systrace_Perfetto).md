@@ -1,4 +1,6 @@
 ---
+slug: android-system-performance-systrace-perfetto
+translationKey: android-system-performance-systrace-perfetto
 title: 系统级性能分析与调优 (Systrace/Perfetto)
 excerpt: 当 Android 应用出现性能问题时——例如 UI 卡顿（Jank）、启动缓慢、功耗过高或整体响应迟钝——仅依赖应用级性能分析工具（如 Android Studio 的 CPU 或 Memory Profiler）往往难以定位根因。这些工具虽能帮助发现应用内部的代码瓶颈或内存泄漏，但许多复杂的性能问题源于应用与 Android 系统服务、Linux 内核、硬件之间的交互，或是多进程、多线程...
 publishDate: 2025-07-02
@@ -375,8 +377,8 @@ Systrace/Perfetto 是 Android 平台上进行系统级性能分析与调优无�
 ## 延伸阅读
 
 - [返回对应专题：Android 性能优化](/android-performance/)
-- [Android 启动优化：从 Zygote fork 到首帧上屏的 Perfetto 实战](/blog/2026-04-19-android_冷启动全链路优化工程实践_从_zygote_fork_到首帧上屏的_systrace/)
-- [Android App 启动优化专项：指标、链路、工具与治理方案](/blog/app启动优化专项/)
-- [RecyclerView 缓存机制详解：四级缓存、复用与 Prefetch](/blog/2026-04-14-深入_android_recyclerview_缓存机制_从四级缓存到_prefetch_的性能设计/)
-- [Android Bitmap 内存模型：Java 堆、Native 堆与 Hardware Bitmap](/blog/2026-04-14-深入_android_bitmap_内存模型_从_java_堆分配到_hardware_bitmap/)
+- [Android 启动优化：从 Zygote fork 到首帧上屏的 Perfetto 实战](/blog/android-cold-start-zygote-systrace/)
+- [Android App 启动优化专项：指标、链路、工具与治理方案](/blog/app-startup-optimization/)
+- [RecyclerView 缓存机制详解：四级缓存、复用与 Prefetch](/blog/android-recyclerview-cache-prefetch-deep-dive/)
+- [Android Bitmap 内存模型：Java 堆、Native 堆与 Hardware Bitmap](/blog/android-bitmap-memory-model-hardware-bitmap/)
 <!-- /seo-internal-links -->

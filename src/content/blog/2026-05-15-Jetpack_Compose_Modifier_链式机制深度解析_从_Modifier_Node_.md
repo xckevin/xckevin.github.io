@@ -1,4 +1,6 @@
 ---
+slug: jetpack-compose-modifier-node
+translationKey: jetpack-compose-modifier-node
 title: Jetpack Compose Modifier 链式机制深度解析：从 Modifier.Node 到组合修饰符的声明式管道
 excerpt: 深入剖析 Jetpack Compose Modifier 链式调用的底层机制，对比 composed 与 Modifier.Node 架构差异，解析声明式管道的构建过程、性能优化与迁移策略。
 publishDate: '2026-05-15'
@@ -258,8 +260,8 @@ Modifier 是 Compose 里最容易被"以为懂了"的 topic。链式调用的语
 ## 延伸阅读
 
 - [返回对应专题：Jetpack Compose](/jetpack-compose/)
-- [Jetpack Compose 重组性能优化：Stability、derivedStateOf 与跳过重组](/blog/2026-05-07-jetpack_compose_重组性能全链路调优_从_stability_推断到_deriveds/)
-- [Jetpack Compose 原理与高级应用：状态、布局、重组与性能实践](/blog/jetpack-compose-高级应用与原理/)
-- [Jetpack Compose 手势系统：PointerInput 事件管道与嵌套滚动](/blog/2026-05-16-jetpack_compose_手势系统深度解析_从_pointerinput_事件管道到_modi/)
-- [Jetpack Compose 动画系统：AnimationSpec、弹簧模型与 Transition](/blog/2026-05-09-jetpack_compose_动画系统深度解析_从_animationspec_物理弹簧模型到_t/)
+- [Jetpack Compose 重组性能优化：Stability、derivedStateOf 与跳过重组](/blog/jetpack-compose-recomposition-performance/)
+- [Jetpack Compose 原理与高级应用：状态、布局、重组与性能实践](/blog/jetpack-compose-advanced-applications-internals/)
+- [Jetpack Compose 手势系统：PointerInput 事件管道与嵌套滚动](/blog/jetpack-compose-gestures/)
+- [Jetpack Compose 动画系统：AnimationSpec、弹簧模型与 Transition](/blog/jetpack-compose-animation/)
 <!-- /seo-internal-links -->

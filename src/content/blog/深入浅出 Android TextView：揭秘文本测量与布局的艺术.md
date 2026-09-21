@@ -1,4 +1,6 @@
 ---
+slug: android-textview-measure-layout
+translationKey: android-textview-measure-layout
 title: 深入浅出 Android TextView：揭秘文本测量与布局的艺术
 excerpt: 在 Android 应用开发中，TextView 是最基础也是最常用的控件之一。我们每天都在用它来显示各种文本信息，从简单的按钮标签到复杂的富文本段落。但你是否曾好奇：TextView 是如何在有限的空间内，将一串字符精确地转换成屏幕上可见的、排列整齐的文字？这背后涉及一套复杂而精密的测量（Measure）与布局（Layout）机制。
 publishDate: 2025-05-18
@@ -436,7 +438,7 @@ TextView 会将 gravity 转换成对应的 `Layout.Alignment` 传递给 Layout �
 - **bottom**：基线（baseline）到字体所能绘制的**最低**可能像素的距离（为**正值**，且 bottom ≥ descent）。它包含了所有可能低于基线的标记或字形；
 - **leading**：行间距，即上一行的 descent 和下一行的 ascent 之间的建议额外空间。这个值很多时候是 0。
 
-![](../../assets/深入浅出-android-textview揭秘文本测量与布局的艺术-1.webp)
+![字体度量示意图：基线、上升部、下降部、行高、x-height 与字符前进宽度](../../assets/深入浅出-android-textview揭秘文本测量与布局的艺术-1.webp)
 
 *图示说明*：一条水平线表示 baseline。从 baseline 向上标记 ascent 和 top（负值），向下标记 descent 和 bottom（正值）。用字母 'jEh' 演示：'h' 的顶部接近 ascent，'j' 的底部接近 descent。可能有一个带很高重音符号的字母触及 top，一个带很低标记的字母触及 bottom。leading 显示在两行文本之间。
 
@@ -548,7 +550,7 @@ Android 对 RTL 语言（如阿拉伯语、希伯来语）提供了完善的支�
 - **BiDi 算法**：当文本混合了 LTR 和 RTL 字符时（例如，英文中嵌入阿拉伯语），系统会应用 Unicode 双向算法（BiDi Algorithm）来确定每个字符片段的正确显示顺序和方向。StaticLayout 和 DynamicLayout 内部实现了 BiDi 处理；
 - **android:textDirection**：你可以显式控制 TextView 的基础文本方向（通常设为 locale、ltr、rtl、inherit 等）。对于 Layout，这会影响 `Alignment.ALIGN_NORMAL` 和 `Alignment.ALIGN_OPPOSITE` 的具体行为（例如，ALIGN_NORMAL 在 RTL 上下文中是右对齐）。
 
-![](../../assets/深入浅出-android-textview揭秘文本测量与布局的艺术-2.webp)
+![英文句子中嵌入阿拉伯语的双向文本排版示例](../../assets/深入浅出-android-textview揭秘文本测量与布局的艺术-2.webp)
 
 *图示说明*：显示一个 TextView，包含英文和阿拉伯文混合的文本，例如 "This is an example with العربية text."。图中文字应按正确的 BiDi 规则显示：英文从左到右，阿拉伯文从右到左，但整体语序符合逻辑。
 

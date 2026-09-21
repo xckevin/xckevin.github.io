@@ -1,4 +1,6 @@
 ---
+slug: android-large-ipc-asharedmemory
+translationKey: android-large-ipc-asharedmemory
 title: 深入 Android 跨进程大数据传输全链路：从 Binder 1MB 限制到 ASharedMemory 零拷贝的进程间数据通道设计
 excerpt: 深入分析 Android Binder 1MB 限制的技术根源，对比 MemoryFile、ASharedMemory 零拷贝、Surface 图形流及 ContentProvider 四种跨进程大数据传输方案，结合 Camera 帧传输实战给出工程选型决策指南。
 publishDate: '2026-01-09'
@@ -9,8 +11,9 @@ tags:
 - 零拷贝
 - 性能优化
 seo:
-  title: 深入 Android 跨进程大数据传输全链路：从 Binder 1MB 限制到 ASharedMemory 零拷贝的进程间数据通道设计
+  title: Android 跨进程大数据传输：Binder 1MB 限制与 ASharedMemory 零拷贝
   description: Android Binder 单次事务限制 1MB，Camera 帧等大数据传输如何突破？深入剖析 MemoryFile、ASharedMemory 零拷贝、Surface 图形流及 ContentProvider 四种方案，附全链路工程选型实战指南。
+  pageType: article
 ---
 
 去年做 Camera 预览流跨进程传输时，我碰到一个问题：从 CameraService 出来的 YUV 帧大约 8MB，通过 Binder 回传给 App 进程时直接崩了。日志里就一行：`!!! FAILED BINDER TRANSACTION !!!`。

@@ -1,4 +1,6 @@
 ---
+slug: android-animation-principles-practice-part8
+translationKey: android-animation-principles-practice-part8
 title: "Android动画深度解析：从原理到实践（8）：E. MotionLayout"
 excerpt: "「Android动画深度解析：从原理到实践」系列第 8/9 篇：E. MotionLayout"
 publishDate: 2024-03-20

@@ -1,4 +1,6 @@
 ---
+slug: android-overlay-window-permissions
+translationKey: android-overlay-window-permissions
 title: 深入 Android 悬浮窗全链路：从 SYSTEM_ALERT_WINDOW 权限模型演进到 WindowManager 叠加层渲染的工程实践
 excerpt: 本文梳理了 Android 6.0 至 14 悬浮窗权限模型的四次关键变化，深入分析 TYPE_APPLICATION_OVERLAY 窗口类型选择、触摸事件穿透与拦截机制，并给出跨版本兼容及 MIUI、ColorOS 等 ROM 适配的工程实践方案。
 publishDate: '2026-07-10'
@@ -9,8 +11,9 @@ tags:
 - 权限适配
 - 触摸事件
 seo:
-  title: 深入 Android 悬浮窗全链路：从 SYSTEM_ALERT_WINDOW 权限模型演进到 WindowManager 叠加层渲染的工程实践
+  title: Android 悬浮窗：SYSTEM_ALERT_WINDOW 权限与 WindowManager 叠加层
   description: 梳理 Android 6.0 至 14 悬浮窗权限模型演进，深入分析 TYPE_APPLICATION_OVERLAY 窗口类型、触摸事件穿透机制及 MIUI/ColorOS 等 ROM 适配的工程实践。
+  pageType: article
 ---
 
 做悬浮窗 SDK 时踩过一个坑：同一套代码在 Android 10 上正常弹窗，到了 Android 12 直接闪退，日志里只有一句 `BadTokenException`。排查后发现，Android 12 对 `TYPE_APPLICATION_OVERLAY` 的权限校验逻辑变了——不是权限没拿到，而是拿到的时机窗口比之前版本更窄。

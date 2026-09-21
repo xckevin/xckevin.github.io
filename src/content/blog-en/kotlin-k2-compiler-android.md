@@ -191,5 +191,5 @@ K2 is the largest Kotlin compiler architecture refactor in a decade. Years of te
 - [Back to the Kotlin and Coroutines topic](/en/kotlin-coroutines/)
 - [Kotlin `suspend` internals: CPS, Continuation, and state-machine bytecode](/en/blog/kotlin-suspend-state-machine/)
 - [Kotlin Flow engineering: cold flows, StateFlow, and SharedFlow](/en/blog/kotlin-flow-stateflow-sharedflow/)
-- [Advanced Kotlin Coroutines and Flow usage](/blog/kotlin-coroutines-与-flow-的高级应用与原理/)
+- [Advanced Kotlin Coroutines and Flow usage](/blog/kotlin-coroutines-flow-advanced-applications-internals/)
 <!-- /seo-internal-links -->

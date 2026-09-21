@@ -1,4 +1,6 @@
 ---
+slug: android-on-device-ai-benchmark
+translationKey: android-on-device-ai-benchmark
 title: 深入 Android 端侧 AI 推理 Benchmark 评测体系：从延迟/吞吐/功耗三维度量到热影响下的性能退化分析
 excerpt: 本文介绍 Android 端侧 AI 推理的 Benchmark 评测体系，从延迟、吞吐、功耗三维度出发，深入分析热影响下的性能退化问题，并提供自动化评测框架。
 publishDate: '2026-04-17'
@@ -9,8 +11,9 @@ tags:
 - 性能优化
 - 功耗优化
 seo:
-  title: 深入 Android 端侧 AI 推理 Benchmark 评测体系：从延迟/吞吐/功耗三维度量到热影响下的性能退化分析
+  title: Android 端侧 AI Benchmark：延迟吞吐功耗度量与热影响退化
   description: 深度解析 Android 端侧 AI 推理 Benchmark 评测方法论，涵盖延迟/吞吐/功耗三维度量、温控降频对性能的影响分析，以及自动化评测框架的设计与实现。
+  pageType: article
 ---
 
 去年做端侧 LLM 推理优化时，同一个模型、同一台设备，上午和下午跑出的延迟差了近 40%。查了一圈，后台进程没问题——原因出在设备温度上，从 32°C 升到 45°C，SoC 自动降频了。

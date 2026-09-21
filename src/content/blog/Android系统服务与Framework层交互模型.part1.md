@@ -1,4 +1,6 @@
 ---
+slug: android-system-services-framework-interaction-part1
+translationKey: android-system-services-framework-interaction-part1
 title: "Android 系统服务与 Framework 层交互模型（1）：引言：驱动 Android 世界的引擎"
 excerpt: "「Android 系统服务与 Framework 层交互模型」系列第 1/3 篇：引言：驱动 Android 世界的引擎"
 publishDate: 2024-05-27

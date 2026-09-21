@@ -1,4 +1,6 @@
 ---
+slug: android-i18n-configuration-resource-system
+translationKey: android-i18n-configuration-resource-system
 title: Android 多语言国际化动态化工程实践：从 Configuration 资源系统到 Android 13 App Locale API 的全链路架构解析
 excerpt: 深入解析 Android 多语言国际化的全链路方案，涵盖 Configuration 资源系统、ContextWrapper 隔离与 Android 13 Per-App Locale API，并给出 Crowdin 翻译流水线工程实践。
 publishDate: '2025-05-13'
@@ -9,8 +11,9 @@ tags:
 - 资源管理
 - 架构设计
 seo:
-  title: Android 多语言国际化动态化工程实践：从 Configuration 资源系统到 Android 13 App Locale API 的全链路架构解析
+  title: Android 多语言国际化：Configuration 资源系统与 Android 13 App Locale API
   description: 深入解析 Android 多语言国际化全链路方案：从 Configuration 资源系统、ContextWrapper 隔离到 Android 13 Per-App Locale API，结合 Crowdin 翻译流水线给出最佳工程实践。
+  pageType: article
 ---
 
 接手一个出海 App 时，产品提了需求：用户在 App 内切语言后立刻生效，不用杀进程。当时觉得不就是改个 Locale 么？踩进去才意识到，这背后牵涉了 Android 资源加载机制的一整条链路——从 Configuration 的全局副作用，到 ContextWrapper 拦截方案，再到 Android 13 的系统级 API，每个环节都有坑。

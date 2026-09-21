@@ -1,16 +1,19 @@
 ---
-title: "深入 Android Bitmap 内存模型：从 Java 堆分配到 Hardware Bitmap 的演进与优化"
-excerpt: "梳理 Android Bitmap 像素数据从 Native 堆到 Java 堆再回到 Native 堆的三次内存分配策略变迁，以及 Hardware Bitmap 将像素数据存入 GPU 显存的优化原理与使用限制。"
+slug: android-bitmap-memory-model-hardware-bitmap
+translationKey: android-bitmap-memory-model-hardware-bitmap
+title: 深入 Android Bitmap 内存模型：从 Java 堆分配到 Hardware Bitmap 的演进与优化
+excerpt: 梳理 Android Bitmap 像素数据从 Native 堆到 Java 堆再回到 Native 堆的三次内存分配策略变迁，以及 Hardware Bitmap 将像素数据存入 GPU 显存的优化原理与使用限制。
 publishDate: 2026-04-14
 tags:
-  - Android
-  - Bitmap
-  - 内存优化
-  - 性能优化
-  - GPU
+- Android
+- Bitmap
+- 内存优化
+- 性能优化
+- GPU
 seo:
-  title: "Android Bitmap 内存模型：Java 堆、Native 堆与 Hardware Bitmap"
-  description: "解析 Android Bitmap 在不同系统版本中的内存分配模型，覆盖 Java 堆、Native 堆、硬件位图、OOM 风险与优化策略。"
+  title: Android Bitmap 内存模型：Java 堆、Native 堆与 Hardware Bitmap
+  description: 解析 Android Bitmap 在不同系统版本中的内存分配模型，覆盖 Java 堆、Native 堆、硬件位图、OOM 风险与优化策略。
+  pageType: article
 ---
 
 做过 Android 性能优化的人多少都碰到过这种情况：Java 堆内存明明没到上限，应用却因为 Bitmap OOM 崩了；又或者在 MAT 里翻半天，Bitmap 对象只占几十字节，真正的像素数据不知道躲哪去了。问题出在 Android 的 Bitmap 内存分配策略上——过去十几年里它经历了三次大的变迁，搞清楚这条演进线，很多诡异的内存问题就能对上号了。
@@ -138,8 +141,8 @@ Hardware Bitmap 的使用策略也不复杂：图片展示场景（ImageView、�
 ## 延伸阅读
 
 - [返回对应专题：Android 性能优化](/android-performance/)
-- [Android 启动优化：从 Zygote fork 到首帧上屏的 Perfetto 实战](/blog/2026-04-19-android_冷启动全链路优化工程实践_从_zygote_fork_到首帧上屏的_systrace/)
-- [Android App 启动优化专项：指标、链路、工具与治理方案](/blog/app启动优化专项/)
-- [RecyclerView 缓存机制详解：四级缓存、复用与 Prefetch](/blog/2026-04-14-深入_android_recyclerview_缓存机制_从四级缓存到_prefetch_的性能设计/)
-- [Android RenderThread 与 HWUI：渲染管线、DisplayList 与掉帧分析](/blog/2026-04-20-android_renderthread_与_hwui_渲染管线深度解析_从_displaylist/)
+- [Android 启动优化：从 Zygote fork 到首帧上屏的 Perfetto 实战](/blog/android-cold-start-zygote-systrace/)
+- [Android App 启动优化专项：指标、链路、工具与治理方案](/blog/app-startup-optimization/)
+- [RecyclerView 缓存机制详解：四级缓存、复用与 Prefetch](/blog/android-recyclerview-cache-prefetch-deep-dive/)
+- [Android RenderThread 与 HWUI：渲染管线、DisplayList 与掉帧分析](/blog/android-renderthread-hwui/)
 <!-- /seo-internal-links -->

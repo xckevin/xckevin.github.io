@@ -1,4 +1,6 @@
 ---
+slug: android-compose-screenshot-testing-paparazzi
+translationKey: android-compose-screenshot-testing-paparazzi
 title: 深入 Android Compose 无设备截图测试全链路：从 Paparazzi JVM 渲染到 Roborazzi 像素级 Golden Test 的视觉回归工程实践
 excerpt: 本文深入对比 Paparazzi 与 Roborazzi 两种 Compose 无设备截图测试方案，从渲染原理、字体阴影差异到 CI 自动化防劣化门禁，构建两套互补的视觉回归体系。
 publishDate: '2025-07-01'
@@ -9,8 +11,9 @@ tags:
 - 视觉回归
 - CI/CD
 seo:
-  title: 深入 Android Compose 无设备截图测试全链路：从 Paparazzi JVM 渲染到 Roborazzi 像素级 Golden Test 的视觉回归工程实践
+  title: Compose 无设备截图测试：Paparazzi JVM 渲染与 Roborazzi Golden Test
   description: 深入对比 Paparazzi JVM 渲染与 Roborazzi 真机 Golden Test 两种方案，从 LayoutLib 渲染差异到 CI 自动化防劣化门禁，构建 Compose 组件库的视觉回归测试体系。
+  pageType: article
 ---
 
 去年做 Compose 组件库建设时，设计团队提了一个让我头皮发麻的需求：每次发版前，需要对 40+ 个核心组件做视觉回归验证，确保 UI 没有意外劣化。传统做法是连真机跑 Espresso 截图然后人工比对——一轮下来至少 2 小时。

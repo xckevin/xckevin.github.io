@@ -1,4 +1,6 @@
 ---
+slug: binder-ipc-beyond-aidl-part6
+translationKey: binder-ipc-beyond-aidl-part6
 title: "Binder IPC 机制深度解析（Beyond AIDL）（6）：死亡通知（DeathRecipient）：远端死亡的哨兵"
 excerpt: "「Binder IPC 机制深度解析（Beyond AIDL）」系列第 6/7 篇：死亡通知（DeathRecipient）：远端死亡的哨兵"
 publishDate: 2024-04-21

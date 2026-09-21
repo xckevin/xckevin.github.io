@@ -1,4 +1,6 @@
 ---
+slug: android-textview-measure-layout-part1
+translationKey: android-textview-measure-layout-part1
 title: "深入浅出 Android TextView：揭秘文本测量与布局的艺术（1）：开篇：文字的旅程 —— 从字符到像素"
 excerpt: "「深入浅出 Android TextView：揭秘文本测量与布局的艺术」系列第 1/4 篇：开篇：文字的旅程 —— 从字符到像素"
 publishDate: 2024-05-18

@@ -1,6 +1,8 @@
 ---
-title: 深入 Android NNAPI 全链路：从 HAL 硬件抽象到 Qualcomm/MTK NPU 厂商驱动的端侧 AI 推理加速架构
-excerpt: 深入剖析 Android NNAPI 的全链路架构，从 HAL 硬件抽象层到 QNN/Neuron 厂商驱动，结合图分区、算子回退与真实踩坑经验，系统讲解端侧 AI 推理的加速原理、性能调优与选型决策。
+slug: android-nnapi-hal-npu
+translationKey: android-nnapi-hal-npu
+title: Android NNAPI：HAL、NPU 架构与弃用后的迁移方向
+excerpt: 解析 Android NNAPI 的 HAL 与 NPU 推理架构，并说明 Android 15 起的弃用状态。供存量应用维护、硬件加速排障与迁移选型参考。
 publishDate: '2025-08-07'
 tags:
 - Android
@@ -9,9 +11,13 @@ tags:
 - 性能优化
 - 硬件加速
 seo:
-  title: 深入 Android NNAPI 全链路：从 HAL 硬件抽象到 Qualcomm/MTK NPU 厂商驱动的端侧 AI 推理加速架构
-  description: 深入剖析 Android NNAPI 全链路架构，从 HAL 硬件抽象到 QNN/Neuron 厂商驱动，详解图分区、算子回退与端侧 AI 推理性能调优实践。
+  title: Android NNAPI：HAL、NPU 架构与弃用后的迁移方向
+  description: 解析 Android NNAPI 的 HAL 与 NPU 推理架构，并说明 Android 15 起的弃用状态。供存量应用维护、硬件加速排障与迁移选型参考。
+  pageType: article
+updatedDate: '2026-09-21'
 ---
+
+> **状态更新（2026-09-21）**：NNAPI 已在 Android 15 中弃用。下文的 HAL、设备枚举与执行机制主要用于理解和维护存量实现，不应据此将 NNAPI 视为新项目默认加速路径。Google 官方提示未来多数设备预计使用 CPU 后端；性能敏感项目应评估迁移，例如 TensorFlow Lite GPU runtime，并以目标设备实测结果判断收益。 [官方文档](https://developer.android.com/ndk/guides/neuralnetworks)
 
 ## 一个 10 倍的性能差距
 

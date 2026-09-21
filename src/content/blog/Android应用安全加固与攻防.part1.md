@@ -1,4 +1,6 @@
 ---
+slug: android-app-security-hardening-attack-defense-part1
+translationKey: android-app-security-hardening-attack-defense-part1
 title: "Android应用安全加固与攻防（1）：引言：开放生态下的安全博弈"
 excerpt: "「Android应用安全加固与攻防」系列第 1/3 篇：引言：开放生态下的安全博弈"
 publishDate: 2024-12-13

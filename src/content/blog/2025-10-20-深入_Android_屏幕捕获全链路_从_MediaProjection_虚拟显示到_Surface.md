@@ -1,4 +1,6 @@
 ---
+slug: android-screen-capture-mediaprojection
+translationKey: android-screen-capture-mediaprojection
 title: Android 屏幕录制深度解析：从 MediaProjection 权限模型到 MediaCodec 编码的完整链路
 excerpt: 本文深入拆解 Android 屏幕录制的完整链路，涵盖 MediaProjection 权限模型、VirtualDisplay 虚拟屏幕机制、ImageReader 与 MediaCodec 两条消费路径的选型实践，以及 BufferQueue 跨进程传输底层原理，并给出了帧率骤降问题的定位思路。
 publishDate: '2025-10-20'
@@ -9,8 +11,9 @@ tags:
 - Surface
 - 性能优化
 seo:
-  title: Android 屏幕录制深度解析：从 MediaProjection 权限模型到 MediaCodec 编码的完整链路
+  title: Android 屏幕录制：MediaProjection 权限模型与 MediaCodec 编码
   description: 深入拆解 Android 屏幕录制完整链路：MediaProjection 权限约束、VirtualDisplay 机制、ImageReader 截图与 MediaCodec 录屏两条消费路径，以及 BufferQueue 跨进程传输原理与帧率优化实践。
+  pageType: article
 ---
 
 去年做游戏录屏 SDK 时遇到一个诡异问题：录制视频的帧率从 60fps 骤降到 15fps，但 GPU 和 CPU 占用都不高。排查了一天定位到根因——瓶颈不在 MediaCodec 编码，而在 Surface 缓冲区管理：消费端跟不上 VirtualDisplay 的生产速度，BufferQueue 频繁丢帧。

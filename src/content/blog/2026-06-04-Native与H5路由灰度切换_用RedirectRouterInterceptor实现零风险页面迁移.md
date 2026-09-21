@@ -1,4 +1,6 @@
 ---
+slug: native-h5-routing-gray-release-redirect-router-interceptor
+translationKey: native-h5-routing-gray-release-redirect-router-interceptor
 title: Native/H5 路由灰度切换：用 RedirectRouterInterceptor 实现零风险页面迁移
 excerpt: 同一入口存在 Native 和 H5 两种实现时，如何在路由层安全地灰度切换？本文介绍 RedirectRouterInterceptor 的通用设计，通过远程配置控制落点，配合稳定散列、参数映射、兜底策略和结构化监控，让 Native 新页面平滑上线，异常时快速回滚。
 publishDate: '2026-06-04'
@@ -9,8 +11,9 @@ tags:
 - H5
 - 架构设计
 seo:
-  title: Native/H5 路由灰度切换：用 RedirectRouterInterceptor 实现零风险页面迁移
+  title: Native/H5 路由灰度切换：RedirectRouterInterceptor 页面迁移
   description: 在路由层使用 RedirectRouterInterceptor 实现 Native/H5 灰度切换，通过远程配置控制落点，配合稳定散列、参数映射、兜底策略和结构化监控，让页面迁移平滑且可回滚。
+  pageType: article
 ---
 
 移动端页面通常会经历多个实现阶段。早期验证需求时，H5 可以快速上线；当页面访问量变大、交互复杂或需要更多端能力时，Native 改造能提供更好的性能。但 Native 和 H5 往往不会一次性完成切换，而是需要长期共存。一个活动入口可能先由 H5 承接，后续逐步迁移到 Native；一个新 Native 页面上线后，也需要先放少量用户灰度，观察崩溃率、加载耗时、转化指标，再逐步扩大范围。

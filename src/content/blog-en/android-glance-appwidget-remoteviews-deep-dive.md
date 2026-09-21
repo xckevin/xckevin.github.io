@@ -215,8 +215,8 @@ A widget is essentially a remote view window from your app onto the home screen.
 ## Further reading
 
 - [Back to topic: Jetpack Compose](/en/jetpack-compose/)
-- [Jetpack Compose recomposition performance: Stability, derivedStateOf, and skipped recomposition](/blog/jetpack-compose-recomposition-performance/)
-- [Jetpack Compose principles and advanced usage: state, layout, recomposition, and performance](/blog/jetpack-compose-advanced-applications-internals/)
-- [Jetpack Compose Modifier internals: chained nodes, layout, drawing, and events](/blog/jetpack-compose-modifier-node/)
-- [Jetpack Compose gestures: PointerInput event pipeline and nested scrolling](/blog/jetpack-compose-gestures/)
+- [Jetpack Compose recomposition performance: Stability, derivedStateOf, and skipped recomposition](/en/blog/jetpack-compose-recomposition-performance/)
+- [Jetpack Compose principles and advanced usage: state, layout, recomposition, and performance](/en/blog/jetpack-compose-advanced-applications-internals/)
+- [Jetpack Compose Modifier internals: chained nodes, layout, drawing, and events](/en/blog/jetpack-compose-modifier-node/)
+- [Jetpack Compose gestures: PointerInput event pipeline and nested scrolling](/en/blog/jetpack-compose-gestures/)
 <!-- /seo-internal-links -->

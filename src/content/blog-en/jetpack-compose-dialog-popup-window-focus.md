@@ -15,6 +15,7 @@ seo:
   title: "Compose Dialog, Popup, and Window Focus Explained"
   description: "Why Dialog and Popup handle focus and the soft keyboard differently in Jetpack Compose, and how Window-level flags drive that behavior."
   pageType: article
+updatedDate: '2026-09-21'
 ---
 
 While working on a Compose project, a colleague asked: “Why does a TextField inside a Dialog push the entire UI up when the keyboard opens, but the same TextField inside a BottomSheet doesn't?” At first the question seemed trivial to me—until I dug into the source code and realized Compose's overlay mechanism is far more complex than intuition suggests. A Dialog is not a simple View stacked on top; behind it is an independent Window instance with its own focus chain and IME interaction strategy. This article breaks that chain open.
@@ -43,7 +44,7 @@ fun Popup(
 }
 ```
 
-`PopupLayout` internally holds a `PopupWindow`, and `PopupWindow` is essentially a wrapper around `WindowManager.addView()`. Dialog goes further—it directly creates an independent `Window` and attaches it above the Activity's Window hierarchy:
+In the [AndroidX implementation](https://github.com/androidx/androidx/blob/androidx-main/compose/ui/ui/src/androidMain/kotlin/androidx/compose/ui/window/AndroidPopup.android.kt), `PopupLayout` extends `AbstractComposeView` and attaches itself through `WindowManager.addView(this, params)`. It does not wrap an Android `PopupWindow`. Dialog goes further—it directly creates an independent `Window` and attaches it above the Activity's Window hierarchy:
 
 ```kotlin
 // AndroidDialog 的核心链路（简化）

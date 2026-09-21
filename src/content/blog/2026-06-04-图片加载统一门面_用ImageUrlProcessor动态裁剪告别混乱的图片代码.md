@@ -1,4 +1,6 @@
 ---
+slug: image-loading-facade-imageurlprocessor-dynamic-resizing
+translationKey: image-loading-facade-imageurlprocessor-dynamic-resizing
 title: 图片加载统一门面：用 ImageUrlProcessor 动态裁剪与门面模式告别混乱的图片代码
 excerpt: 图片加载是移动端体验的基础能力，但如果每个页面都直接调用底层库，URL 拼接规则、尺寸参数、预加载逻辑就会散落全项目。本文介绍一种图片加载统一门面设计，通过 ImageUrlProcessor 集中处理动态裁剪，配合门面接口、预加载调度和监控，让业务只关心展示意图。
 publishDate: '2026-06-04'

@@ -1,4 +1,6 @@
 ---
+slug: android-typography-font-architecture-part14
+translationKey: android-typography-font-architecture-part14
 title: "从像素到灵魂：深入解析字体排印与 Android 字体架构（14）：现代 UI 的字体之道：Jetpack Compose 中的实践"
 excerpt: "「从像素到灵魂：深入解析字体排印与 Android 字体架构」系列第 14/15 篇：现代 UI 的字体之道：Jetpack Compose 中的实践"
 publishDate: 2026-01-12

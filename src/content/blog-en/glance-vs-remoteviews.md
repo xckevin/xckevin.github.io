@@ -71,6 +71,6 @@ The safest technical conclusion is this: Glance improves the AppWidget developme
 ## Further reading
 
 - [Back to the Jetpack Compose topic](/en/jetpack-compose/)
-- [Android Glance AppWidget internals: RemoteViews, updates, and Compose widgets](/blog/2026-05-28-深入_android_glance_appwidget_全链路_从_remoteviews_渲染桥接/)
-- [Jetpack Compose principles and advanced usage: State, layout, recomposition, and performance practice](/blog/jetpack-compose-高级应用与原理/)
+- [Android Glance AppWidget internals: RemoteViews, updates, and Compose widgets](/blog/android-glance-appwidget-remoteviews-deep-dive/)
+- [Jetpack Compose principles and advanced usage: State, layout, recomposition, and performance practice](/blog/jetpack-compose-advanced-applications-internals/)
 <!-- /seo-internal-links -->

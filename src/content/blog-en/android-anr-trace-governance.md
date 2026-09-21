@@ -1,19 +1,19 @@
 ---
-title: "Android ANR Governance: From Main-Thread Stalls to ANR Trace Analysis"
+title: 'Android ANR Governance: From Main-Thread Stalls to ANR Trace Analysis'
 lang: en
 translationKey: android-anr-trace-governance
 slug: android-anr-trace-governance
-excerpt: "A practical ANR analysis workflow covering signal-triggered traces, MessageQueue backlog, Binder timeouts, lock contention, Perfetto alignment, and production monitoring."
+excerpt: A practical ANR analysis workflow covering signal-triggered traces, MessageQueue backlog, Binder timeouts, lock contention, Perfetto alignment, and production monitoring.
 publishDate: '2026-04-19'
 tags:
-- "Android"
-- "ANR"
-- "Performance Optimization"
-- "Perfetto"
-- "Binder"
+- Android
+- ANR
+- Performance Optimization
+- Perfetto
+- Binder
 seo:
-  title: "Android ANR Governance: Main-Thread Stalls, traces.txt, Binder, and Perfetto"
-  description: "Analyze Android ANRs with traces.txt, MessageQueue backlog, Binder waits, lock contention, Perfetto timelines, and production monitoring."
+  title: 'Android ANR Debugging: Main-Thread Stalls, Binder, and Perfetto'
+  description: Analyze Android ANRs with traces.txt, MessageQueue backlog, Binder waits, lock contention, Perfetto timelines, and production monitoring.
   pageType: article
 ---
 

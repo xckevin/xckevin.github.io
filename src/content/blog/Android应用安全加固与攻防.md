@@ -1,4 +1,6 @@
 ---
+slug: android-app-security-hardening-attack-defense
+translationKey: android-app-security-hardening-attack-defense
 title: Android应用安全加固与攻防
 excerpt: Android 作为开放的移动操作系统，为开发者提供了巨大的自由度和创新空间，但同时也使应用程序暴露在各种安全威胁之下。逆向工程、代码篡改、数据窃取、动态调试与注入、网络中间人攻击等手段层出不穷，对应用的知识产权、商业逻辑、用户数据安全以及整体生态构成了严峻挑战。
 publishDate: 2024-12-13

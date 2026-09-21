@@ -1,4 +1,6 @@
 ---
+slug: git-complete-guide-from-basics-to-mastery
+translationKey: git-complete-guide-from-basics-to-mastery
 title: Git 基础功能全面指南：从入门到精通
 excerpt: Git 是现代软件开发的事实标准版本控制系统。本文按‘从入门到精通’的结构，系统梳理核心概念（提交、分支、合并、变基），并覆盖 fixup+autosquash、rerere、sparse-checkout、range-diff、pickaxe、bisect、worktree、子模块/子树 等进阶技巧与端到端使用案例、排错清单与别名配置，帮助建立清晰、可回溯、面向协作的提交历史。
 publishDate: 2026-03-16

@@ -1,4 +1,6 @@
 ---
+slug: android-on-device-llm-context-window
+translationKey: android-on-device-llm-context-window
 title: 深入 Android 端侧 LLM 的上下文窗口工程：从 Prompt 压缩到对话状态机的全链路实践
 excerpt: 本文系统梳理了 Android 端侧大模型长对话上下文管理的完整方案，涵盖分层 Prompt 压缩、摘要缓存、对话状态机及 token 预算分配等工程实践，有效突破端侧 4K 窗口限制。
 publishDate: '2025-12-17'
@@ -9,8 +11,9 @@ tags:
 - 性能优化
 - 上下文管理
 seo:
-  title: 深入 Android 端侧 LLM 的上下文窗口工程：从 Prompt 压缩到对话状态机的全链路实践
+  title: Android 端侧 LLM 上下文窗口：Prompt 压缩与对话状态机
   description: Android 端侧 LLM 长对话上下文管理全链路实践：分层 Prompt 压缩、摘要缓存与对话状态机，突破 4K token 窗口限制，实现 25-30 轮有效对话。
+  pageType: article
 ---
 
 做端侧推理时，第一个让你头疼的问题往往不是模型精度，而是上下文窗口。服务端 GPT-4 已经开到 128K 了，但手机上跑的 LiteRT/MediaPipe 模型，4K token 就算不错了。用户多聊几轮，历史消息直接把窗口塞满，模型开始忘掉最早的指令——你给它的 system prompt 都没了。

@@ -1,4 +1,6 @@
 ---
+slug: large-app-architecture-modularization-part3
+translationKey: large-app-architecture-modularization-part3
 title: "大型 App 架构演进与模块化、组件化实践（3）：组件化：模块化的延伸与独立运行"
 excerpt: "「大型 App 架构演进与模块化、组件化实践」系列第 3/3 篇：组件化：模块化的延伸与独立运行"
 publishDate: 2025-10-11

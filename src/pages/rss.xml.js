@@ -11,11 +11,12 @@ export async function GET(context) {
         title: siteConfig.title,
         description: siteConfig.description,
         site: context.site,
+        customData: '<language>zh-CN</language>',
         items: posts.map((item) => ({
             title: item.data.title,
             description: item.data.excerpt,
             link: `/blog/${item.data.slug ?? item.id}/`,
-            pubDate: item.data.publishDate.setUTCHours(0)
+            pubDate: item.data.publishDate
         }))
     });
 }

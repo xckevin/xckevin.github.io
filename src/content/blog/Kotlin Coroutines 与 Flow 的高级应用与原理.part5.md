@@ -1,4 +1,6 @@
 ---
+slug: kotlin-coroutines-flow-advanced-applications-internals-part5
+translationKey: kotlin-coroutines-flow-advanced-applications-internals-part5
 title: "Kotlin Coroutines 与 Flow 的高级应用与原理（5）：取消机制：优雅地停止"
 excerpt: "「Kotlin Coroutines 与 Flow 的高级应用与原理」系列第 5/5 篇：取消机制：优雅地停止"
 publishDate: 2025-03-30

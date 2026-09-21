@@ -1,4 +1,6 @@
 ---
+slug: android-on-device-ai-system-health
+translationKey: android-on-device-ai-system-health
 title: 端侧 AI 推理稳不住？温度、电量、内存三维协同降级策略
 excerpt: 本文提出端侧AI推理的温度、电量、内存三维协同降级策略，通过归一化评分与木桶原理实现多维度仲裁，配合模型预加载与状态迁移，确保推理在资源受限设备上稳定运行。
 publishDate: '2026-04-27'

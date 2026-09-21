@@ -1,4 +1,6 @@
 ---
+slug: android-rendering-graphics-stack-part1
+translationKey: android-rendering-graphics-stack-part1
 title: "Android 渲染机制与图形栈深入理解（1）：引言：打造流畅体验的基石"
 excerpt: "「Android 渲染机制与图形栈深入理解」系列第 1/4 篇：引言：打造流畅体验的基石"
 publishDate: 2025-06-19

@@ -11,8 +11,9 @@ tags:
 - 隐藏API
 - ART
 seo:
-  title: 深入 Android 反射黑科技全链路：从隐藏 API 灰名单绕过到运行时动态代理的元编程工程实践
+  title: Android 反射：隐藏 API 灰名单绕过与运行时动态代理
   description: 深入剖析 Android 反射机制与隐藏 API 限制原理，详解灰名单三种绕过方案及动态代理工程落地实践，探讨元编程的工程边界与维护成本。
+  pageType: article
 ---
 
 ## 一个崩溃引发的深挖

@@ -11,8 +11,9 @@ tags:
 - 底层原理
 - 架构设计
 seo:
-  title: 深入 Android SystemProperties 属性系统全链路：从 init 进程属性服务到跨进程通知的系统级配置架构
+  title: Android SystemProperties：init 属性服务与跨进程通知
   description: 一文讲透 Android SystemProperties 全链路：属性文件物理存储、init 进程属性服务、共享内存零拷贝读取、SELinux 精准卡控，以及跨进程通知机制，附带实战排查思路。
+  pageType: article
 ---
 
 做 Android 系统开发的人几乎每天都会跟 `adb shell getprop` 打交道，但 `SystemProperties.get("ro.build.version.sdk")` 为什么能在任意进程里调用、属性到底存在哪里、跨进程同步怎么实现、SELinux 在哪一层卡控——这些问题的答案，不翻源码很难串起来。

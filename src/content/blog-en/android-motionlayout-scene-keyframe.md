@@ -1,19 +1,19 @@
 ---
-title: "Android MotionLayout Deep Dive: From Scene Constraints to KeyFrame Interpolation"
+title: 'Android MotionLayout Deep Dive: From Scene Constraints to KeyFrame Interpolation'
 lang: en
 translationKey: android-motionlayout-scene-constraint-keyframe
 slug: android-motionlayout-scene-keyframe
-excerpt: "A deep dive into MotionLayout as an animation state machine, covering ConstraintSet states, KeyFrame interpolation paths, MotionScene structure, and debugging practices."
+excerpt: A deep dive into MotionLayout as an animation state machine, covering ConstraintSet states, KeyFrame interpolation paths, MotionScene structure, and debugging practices.
 publishDate: '2026-05-06'
 tags:
-- "Android"
-- "MotionLayout"
-- "Animation"
-- "ConstraintSet"
-- "Architecture"
+- Android
+- MotionLayout
+- Animation
+- ConstraintSet
+- Architecture
 seo:
-  title: "Android MotionLayout: Scene Constraints, KeyFrame Interpolation, and State Machines"
-  description: "Learn MotionLayout state-machine modeling with ConstraintSet states, KeyFrame interpolation paths, MotionScene structure, and debugging practices."
+  title: 'Android MotionLayout: Scenes, KeyFrames, and State Machines'
+  description: Learn MotionLayout state-machine modeling with ConstraintSet states, KeyFrame interpolation paths, MotionScene structure, and debugging practices.
   pageType: article
 ---
 

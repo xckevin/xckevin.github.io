@@ -1,4 +1,6 @@
 ---
+slug: android-app-security-hardening-attack-defense-part3
+translationKey: android-app-security-hardening-attack-defense-part3
 title: "Android应用安全加固与攻防（3）：网络安全强化"
 excerpt: "「Android应用安全加固与攻防」系列第 3/3 篇：网络安全强化"
 publishDate: 2024-12-13

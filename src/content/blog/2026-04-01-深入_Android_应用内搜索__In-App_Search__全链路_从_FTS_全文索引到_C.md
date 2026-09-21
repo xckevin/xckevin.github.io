@@ -1,4 +1,6 @@
 ---
+slug: android-in-app-search-fts
+translationKey: android-in-app-search-fts
 title: 深入 Android 应用内搜索全链路：从 FTS 全文索引到 Compose SearchView 的搜索体验架构
 excerpt: 本文从 SQLite FTS5 全文索引出发，结合 Room 集成实战与 Compose 防抖搜索架构，完整还原 Android 应用内搜索从 1.8 秒到 15ms 的优化全链路。
 publishDate: '2026-04-01'
@@ -9,8 +11,9 @@ tags:
 - FTS5
 - 全文搜索
 seo:
-  title: 深入 Android 应用内搜索全链路：从 FTS 全文索引到 Compose SearchView 的搜索体验架构
+  title: Android 应用内搜索：FTS 全文索引与 Compose SearchView
   description: 详解 Android 应用内搜索全链路优化：从 SQLite FTS5 倒排索引原理、Room 集成实战，到 Compose 端防抖和高亮交互，实现搜索响应从 1800ms 降至 15ms。
+  pageType: article
 ---
 
 去年接手一个本地笔记应用的优化需求，用户反馈搜索太慢——2000 条笔记，输入关键词后等 2-3 秒才有结果。数据库里就是简单的 `LIKE '%keyword%'` 查询，数据量上去后直接不可用。

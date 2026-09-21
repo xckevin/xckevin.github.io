@@ -1,4 +1,6 @@
 ---
+slug: android-task-stack-launch-modes
+translationKey: android-task-stack-launch-modes
 title: 深入 Android Task Stack 与 Activity 启动模式全链路
 excerpt: 系统梳理 Android Task 返回栈的核心模型，逐一解析 standard、singleTop、singleTask、singleInstance 四种启动模式的行为差异，结合 Intent Flag 与 taskAffinity，给出推送通知跳转、主页复用等实战场景的可靠方案。
 publishDate: '2026-03-18'

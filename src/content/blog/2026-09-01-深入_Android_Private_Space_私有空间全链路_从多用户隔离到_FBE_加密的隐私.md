@@ -11,8 +11,9 @@ tags:
 - FBE加密
 - 架构设计
 seo:
-  title: 深入 Android Private Space 私有空间全链路：从多用户隔离到 FBE 加密的隐私容器架构
+  title: Android Private Space：多用户隔离与 FBE 加密隐私容器
   description: 拆解 Android 私有空间的安全实现：多用户 UID 隔离、FBE 凭据加密的密钥驱逐，以及系统服务如何让锁定应用彻底隐藏。
+  pageType: article
 ---
 
 前几天给一台 Android 15 设备做安全测试，发现私有空间（Private Space）锁上之后，进程列表、最近任务、通知栏里的那些应用像从未存在过。这个「消失」不是隐藏图标那么简单，背后是多用户隔离和 FBE 加密一起生效。这条链路拆开看。

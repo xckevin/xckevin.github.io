@@ -9,8 +9,9 @@ tags:
 - A/B实验
 - 工程架构
 seo:
-  title: 深入 Android 端侧 AI 推理的远程配置与动态实验体系：从推理参数热更新到 A/B 分流的工程架构
+  title: Android 端侧 AI 远程配置：推理参数热更新与 A/B 分流
   description: 介绍 Android 端侧 AI 推理的远程配置与 A/B 实验体系设计，涵盖推理参数热更新、端侧分流算法、跨端哈希一致性及多层安全兜底等工程实践。
+  pageType: article
 slug: android-on-device-ai-remote-config-ab-testing
 translationKey: android-on-device-ai-remote-config-ab-testing
 ---

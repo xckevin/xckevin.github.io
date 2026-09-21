@@ -1,4 +1,6 @@
 ---
+slug: android-ble-gatt-scanning-long-connection
+translationKey: android-ble-gatt-scanning-long-connection
 title: 深入 Android BLE 蓝牙低功耗全链路：从 GATT 协议栈到扫描策略与长连接保活的工程实践
 excerpt: 本文从实战踩坑出发，系统梳理 Android BLE 开发的 GATT 协议分层与数据交互模式、扫描策略在功耗与发现率之间的平衡技巧，以及对抗 Doze、断线重连、多设备管理等长连接保活的工程实践。
 publishDate: '2025-06-10'
@@ -9,8 +11,9 @@ tags:
 - 性能优化
 - 长连接保活
 seo:
-  title: 深入 Android BLE 蓝牙低功耗全链路：从 GATT 协议栈到扫描策略与长连接保活的工程实践
+  title: Android BLE 低功耗蓝牙：GATT 协议栈、扫描策略与长连接保活
   description: 系统讲解 Android BLE 开发全链路：GATT 协议分层、扫描功耗控制、断线重连与 Doze 对抗策略，附 Java/Kotlin 代码示例及多机型兼容性实践经验。
+  pageType: article
 ---
 
 去年做智能穿戴设备时，遇到过一个问题：App 在后台跑了 20 分钟，BLE 连接就断了，设备端还在正常广播，但手机端怎么也重连不上。折腾了两天才定位到——扫描策略和保活机制各缺了一环。

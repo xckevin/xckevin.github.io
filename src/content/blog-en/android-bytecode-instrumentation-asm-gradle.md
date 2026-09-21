@@ -1,19 +1,20 @@
 ---
-title: "Android Bytecode Instrumentation with ASM and Gradle Plugins"
+title: Android Bytecode Instrumentation with ASM and Gradle Plugins
 lang: en
 translationKey: android-bytecode-instrumentation-asm-gradle
 slug: android-bytecode-instrumentation-asm-gradle
-excerpt: "A full walkthrough of Android compile-time bytecode instrumentation, from Gradle Plugin entry points and ASM visitors to page monitoring, privacy logs, and method timing."
+excerpt: A full walkthrough of Android compile-time bytecode instrumentation, from Gradle Plugin entry points and ASM visitors to page monitoring, privacy logs, and method timing.
 publishDate: '2026-05-17'
 tags:
-- "Android"
-- "ASM"
-- "Gradle"
-- "Bytecode Instrumentation"
-- "AOP"
+- Android
+- ASM
+- Gradle
+- Bytecode Instrumentation
+- AOP
 seo:
-  title: "Android Bytecode Instrumentation: ASM ClassVisitor, Gradle Plugin, and Compile-Time AOP"
-  description: "Learn Android compile-time bytecode instrumentation with Gradle Plugins and ASM visitors for page monitoring, privacy logging, method timing, and pitfalls."
+  title: Android Bytecode Instrumentation with ASM and Gradle
+  description: Learn Android compile-time bytecode instrumentation with Gradle Plugins and ASM visitors for page monitoring, privacy logging, method timing, and pitfalls.
+  pageType: article
 ---
 
 While building an APM SDK, I ran into a difficult requirement: measure the `onCreate` duration for every page without asking product teams to add manual tracking in every `Activity`. Runtime Hook approaches were heavily constrained by Hidden API restrictions on Android 9 and later, so the only practical option was compile-time bytecode instrumentation.

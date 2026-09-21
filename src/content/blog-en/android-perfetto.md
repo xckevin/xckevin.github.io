@@ -80,7 +80,7 @@ The third mistake is treating the trace as the conclusion. A trace tells you wha
 ## Further reading
 
 - [Back to topic: Android Performance Optimization](/en/android-performance/)
-- [Android Perfetto and Systrace: system-level performance analysis and tuning](/blog/系统级性能分析与调优-systrace_perfetto/)
-- [Android Perfetto tracing: ftrace, TrackEvent, and production-grade performance monitoring](/blog/2026-05-09-android_perfetto_追踪全链路深度解析_从内核_ftrace_数据源到_sdk_自定义_trackevent_的生产级性能监控体系/)
+- [Android Perfetto and Systrace: system-level performance analysis and tuning](/blog/android-system-performance-systrace-perfetto/)
+- [Android Perfetto tracing: ftrace, TrackEvent, and production-grade performance monitoring](/blog/android-perfetto-ftrace-trackevent/)
 - [Android app startup metrics: cold start, first frame, TTID, and Perfetto analysis](/en/blog/android-startup-metrics/)
 <!-- /seo-internal-links -->

@@ -1,25 +1,28 @@
 ---
-title: "Kotlin Context Receivers: Type-Safe Implicit Contexts"
+title: 'Kotlin Context Receivers: Legacy Syntax and Context Parameters'
 lang: en
 translationKey: kotlin-context-receivers
 slug: kotlin-context-receivers
-excerpt: "How Kotlin Context Receivers provide type-safe implicit context injection, avoid Multiple Receivers ambiguity, and fit Android ViewModel and Compose architecture."
+excerpt: Understand legacy Kotlin context receivers and their replacement, context parameters. Use the examples to read old code and plan migration.
 publishDate: '2026-01-16'
 tags:
-- "Kotlin"
-- "Context Receivers"
-- "Android"
-- "Architecture"
-- "Dependency Injection"
+- Kotlin
+- Context Receivers
+- Android
+- Architecture
+- Dependency Injection
 seo:
-  title: "Kotlin Context Receivers: Type-Safe Implicit Contexts for Android Architecture"
-  description: "Explains Kotlin Context Receivers, implicit context injection, Multiple Receivers ambiguity, and Android architecture tradeoffs."
+  title: 'Kotlin Context Receivers: Legacy Syntax and Context Parameters'
+  description: Understand legacy Kotlin context receivers and their replacement, context parameters. Use the examples to read old code and plan migration.
   pageType: article
+updatedDate: '2026-09-21'
 ---
+
+> **Status update (2026-09-21):** This article describes the older experimental context receivers feature. Current Kotlin documentation replaces it with context parameters, which name dependencies using context(name: Type). The context(Type) examples below are retained for reading legacy code. Use the current context parameters documentation and your compiler version when planning new code or migration; context receivers did not become a stable feature. [Official documentation](https://kotlinlang.org/docs/context-parameters.html)
 
 During an Android architecture refactor, I kept running into the same problem: functions across several layers needed shared dependency context, such as `Logger`, `AnalyticsTracker`, and `CoroutineScope`. Passing these dependencies through every function was verbose, and the type constraints were easy to lose along the way. Traditional Multiple Receivers could remove the parameters, but the implicit scope rules made code review painful. Someone always asked: "Where does this receiver actually come from?"
 
-**Context Receivers**, introduced in Kotlin 1.6.20, were designed to solve this class of problem: type-safe implicit context. They became more stable in Kotlin 2.0 and provide a compile-time, type-driven form of dependency injection.
+**Context Receivers**, introduced in Kotlin 1.6.20, were designed to solve this class of problem: type-safe implicit context. They explored compile-time, type-driven dependency injection, but remained experimental and were superseded by context parameters.
 
 ## The Real Problem with Multiple Receivers
 

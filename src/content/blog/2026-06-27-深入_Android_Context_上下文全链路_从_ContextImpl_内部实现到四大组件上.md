@@ -1,4 +1,6 @@
 ---
+slug: android-context-internals
+translationKey: android-context-internals
 title: 深入 Android Context 上下文全链路：从 ContextImpl 内部实现到三大组件上下文差异的运行时环境解析
 excerpt: 深入解析 Android Context 内部实现，拆解 Application、Activity、Service 三大组件 Context 在主题、资源加载和窗口管理上的关键差异，提供避免内存泄漏与 BadTokenException 的实践指南。
 publishDate: '2026-06-27'
@@ -9,8 +11,9 @@ tags:
 - 内存管理
 - 架构设计
 seo:
-  title: 深入 Android Context 上下文全链路：从 ContextImpl 内部实现到三大组件上下文差异的运行时环境解析
+  title: Android Context：ContextImpl 实现与组件上下文差异
   description: 深度解析 Android Context 上下文机制：从 ContextImpl 内部实现到 Application、Activity、Service 三大组件的上下文差异，涵盖主题访问、资源加载、窗口管理等核心区别，附实战避坑指南。
+  pageType: article
 ---
 
 一个很常见的崩溃：在 Service 里用 `AlertDialog.Builder(context)`，传入的是 `applicationContext`，抛了 `BadTokenException`。换成 `Activity` 的 Context 就正常。反过来，用 `Activity` 的 Context 去持有单例、启动 Service，又埋下内存泄漏的隐患。

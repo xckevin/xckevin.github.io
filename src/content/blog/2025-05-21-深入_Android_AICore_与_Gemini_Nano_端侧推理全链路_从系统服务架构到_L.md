@@ -1,4 +1,6 @@
 ---
+slug: android-aicore-gemini-nano
+translationKey: android-aicore-gemini-nano
 title: 深入 Android AICore 与 Gemini Nano 端侧推理全链路：从系统服务架构到 LoRA 微调适配的 Google AI 生态工程实践
 excerpt: 深入剖析 Google AICore 的系统服务架构，涵盖 APEX 分发机制、权限隔离、安全过滤、LoRA 热插拔适配等关键技术，为 Android 端侧大模型工程实践提供完整参考。
 publishDate: '2025-05-21'

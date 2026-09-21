@@ -11,8 +11,9 @@ tags:
 - 性能优化
 - 并发
 seo:
-  title: 深入 Android SQLite 底层全链路：从连接池复用到 WAL 日志与事务隔离的原生存储引擎解析
+  title: Android SQLite：连接池复用、WAL 日志与事务隔离
   description: 深入分析 Android SQLite 底层存储全链路，涵盖连接池复用、WAL 日志与事务隔离机制，并给出多线程写入崩溃的排查与优化方案。
+  pageType: article
 ---
 
 排查过一次多线程写入崩溃：日志反复出现 `android.database.sqlite.SQLiteDatabaseLockedException: database is locked (code 5)`。第一反应是找 Android 公开 API 里的 busy timeout 设置方法——翻了一圈才发现**`SQLiteDatabase` 并没有 `setBusyTimeout()` 这个方法**，这是一个常见的认知误区（很可能是从原生 SQLite C API 的 `sqlite3_busy_timeout()` 或其他语言绑定联想过来的）。Android 层面处理锁等待超时的机制在 `SQLiteConnection`/`SQLiteConnectionPool` 内部，普通开发者拿不到这层直接调用的入口，只能通过调整连接池行为、事务模式、WAL 等方式间接缓解。顺着调用栈往下挖，根因不在超时设置，而在连接池复用、WAL 配置、Android 事务默认值三件事叠加。

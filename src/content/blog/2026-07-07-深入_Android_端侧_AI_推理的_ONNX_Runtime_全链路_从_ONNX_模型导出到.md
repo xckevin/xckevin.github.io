@@ -1,4 +1,6 @@
 ---
+slug: android-onnx-runtime-android-inference
+translationKey: android-onnx-runtime-android-inference
 title: 深入 Android 端侧 AI 推理的 ONNX Runtime 全链路：从 ONNX 模型导出到移动端推理引擎实战
 excerpt: 本文梳理 ONNX Runtime 在 Android 端侧 AI 推理的完整链路，涵盖模型导出、集成配置、INT8 量化加速与算子兼容性踩坑实践。
 publishDate: '2026-07-07'
@@ -9,8 +11,9 @@ tags:
 - 模型量化
 - 推理优化
 seo:
-  title: 深入 Android 端侧 AI 推理的 ONNX Runtime 全链路：从 ONNX 模型导出到移动端推理引擎实战
+  title: Android 端侧 ONNX Runtime：ONNX 模型导出与移动端推理
   description: 深入 Android 端侧 AI 推理全链路：从 ONNX 模型导出、Android 集成、INT8 动态量化到 XNNPACK 加速，详解 ONNX Runtime 在移动端的实战经验与踩坑记录。
+  pageType: article
 ---
 
 半年前在做端侧图像分类，模型组给的是一份 PyTorch 导出的 `.pt` 文件。Android 端能直接跑吗？不能。当时的方案是上 PyTorch Mobile，但很快另一个场景的检测模型换成了 TensorFlow 训练的。

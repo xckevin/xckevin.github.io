@@ -1,4 +1,6 @@
 ---
+slug: android-typography-font-architecture-part4
+translationKey: android-typography-font-architecture-part4
 title: "从像素到灵魂：深入解析字体排印与 Android 字体架构（4）：从曲线到像素——字体渲染管线揭秘"
 excerpt: "「从像素到灵魂：深入解析字体排印与 Android 字体架构」系列第 4/15 篇：从曲线到像素——字体渲染管线揭秘"
 publishDate: 2026-01-12

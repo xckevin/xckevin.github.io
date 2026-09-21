@@ -1,4 +1,6 @@
 ---
+slug: android-typography-font-architecture-part9
+translationKey: android-typography-font-architecture-part9
 title: "从像素到灵魂：深入解析字体排印与 Android 字体架构（9）：分总结与展望"
 excerpt: "「从像素到灵魂：深入解析字体排印与 Android 字体架构」系列第 9/15 篇：分总结与展望"
 publishDate: 2026-01-12

@@ -16,12 +16,12 @@ The focus is practical: how to use AI tools without losing code quality, review 
 ## Core Articles
 
 - [How to use OpenAI Codex in real development workflows](/blog/openai-如何使用-codex/)
-- [Prompt engineering: from core principles to modern practice](/blog/提示词工程从核心原则到前沿实践/)
+- [Prompt engineering: from core principles to modern practice](/blog/prompt-engineering-core-principles/)
 - [Ollama on Apple Silicon: moving toward MLX-backed local inference](/blog/ollama-在-apple-silicon-上全面转向-mlx-驱动预览版/)
-- [Android Studio Gemini code assistant: context-aware completion and multi-file refactoring](/blog/2026-03-12-深入_android_studio_gemini_代码助手_从上下文感知补全到多文件重构的_ai_辅/)
-- [OpenClaw architecture: Node, Tool, and Skill as executable AI systems](/blog/openclaw-架构拆解nodetoolskill-如何把-ai-变成可执行系统/)
-- [OpenClaw agents: runtime communication and multi-agent engineering](/blog/openclaw-agent-体系深度解析运行时通信与多-agent-工程实践/)
-- [OpenClaw memory design: file-based memory and extensible retrieval](/blog/openclaw-memory-设计解析从文件化记忆到可扩展检索架构/)
+- [Android Studio Gemini code assistant: context-aware completion and multi-file refactoring](/blog/android-studio-gemini-ai-assistant/)
+- [OpenClaw architecture: Node, Tool, and Skill as executable AI systems](/blog/openclaw-architecture-node-tool-skill-executable-ai-system/)
+- [OpenClaw agents: runtime communication and multi-agent engineering](/blog/openclaw-agent-runtime-communication-multi-agent-engineering/)
+- [OpenClaw memory design: file-based memory and extensible retrieval](/blog/openclaw-memory-file-based-memory-scalable-retrieval/)
 
 ## What Matters in Practice
 

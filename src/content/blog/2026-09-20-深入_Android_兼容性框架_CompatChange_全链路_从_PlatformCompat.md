@@ -11,8 +11,9 @@ tags:
 - 兼容性框架
 - 系统适配
 seo:
-  title: 深入 Android 兼容性框架 CompatChange 全链路：从 PlatformCompat 行为开关到 targetSdk 版本治理的系统级适配工程
+  title: Android CompatChange：PlatformCompat 行为开关与 targetSdk 治理
   description: 从 CompatChange 行为开关到 PlatformCompat 判定链路，结合 adb 调试与厂商 overlay 排查，系统讲解 Android targetSdk 升级的适配工程方法论。
+  pageType: article
 ---
 
 ## 一次 targetSdk 升级引发的"灵异事件"

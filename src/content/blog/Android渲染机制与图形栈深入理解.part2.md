@@ -1,4 +1,6 @@
 ---
+slug: android-rendering-graphics-stack-part2
+translationKey: android-rendering-graphics-stack-part2
 title: "Android 渲染机制与图形栈深入理解（2）：View 树遍历：performTraversals() 的三大乐章"
 excerpt: "「Android 渲染机制与图形栈深入理解」系列第 2/4 篇：View 树遍历：performTraversals() 的三大乐章"
 publishDate: 2025-06-19

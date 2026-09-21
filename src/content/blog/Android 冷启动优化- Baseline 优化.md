@@ -1,4 +1,6 @@
 ---
+slug: android-cold-start-baseline-optimization
+translationKey: android-cold-start-baseline-optimization
 title: Android 冷启动优化：Baseline 优化方案
 excerpt: Android 应用的首次启动时间对用户留存率至关重要。谷歌在 Google I/O 2022 上向开发者推荐了 Baseline Profiles 方案进行优化，该方案通用性极高，几乎所有 Android 应用都可以采用。
 publishDate: 2025-11-18

@@ -1,16 +1,19 @@
 ---
-title: "深入 Android 16 强制 Edge-to-Edge：WindowInsets 分发机制重构与系统栏适配的全链路工程实践"
-excerpt: "Android 16 将强制 edge-to-edge 列为破坏性变更，targetSdk ≥ 36 的应用必须自行处理 WindowInsets。本文系统梳理 WindowInsets 分发链路，并给出 View 体系与 Compose 体系的完整适配方案。"
+slug: android-16-edge-to-edge-windowinsets
+translationKey: android-16-edge-to-edge-windowinsets
+title: 深入 Android 16 强制 Edge-to-Edge：WindowInsets 分发机制重构与系统栏适配的全链路工程实践
+excerpt: Android 16 将强制 edge-to-edge 列为破坏性变更，targetSdk ≥ 36 的应用必须自行处理 WindowInsets。本文系统梳理 WindowInsets 分发链路，并给出 View 体系与 Compose 体系的完整适配方案。
 publishDate: 2026-04-17
 tags:
-  - Android
-  - WindowInsets
-  - Edge-to-Edge
-  - 性能优化
-  - 系统适配
+- Android
+- WindowInsets
+- Edge-to-Edge
+- 性能优化
+- 系统适配
 seo:
-  title: "深入 Android 16 强制 Edge-to-Edge：WindowInsets 分发机制重构与系统栏适配的全链路工程实践"
-  description: "Android 16 强制 edge-to-edge 破坏性变更详解：系统梳理 WindowInsets 分发链路，提供 View 体系与 Compose 体系针对状态栏、导航栏、IME 的完整适配方案。"
+  title: Android 16 Edge-to-Edge：WindowInsets 分发与系统栏适配
+  description: Android 16 强制 edge-to-edge 破坏性变更详解：系统梳理 WindowInsets 分发链路，提供 View 体系与 Compose 体系针对状态栏、导航栏、IME 的完整适配方案。
+  pageType: article
 ---
 
 升级 targetSdk 36 之后，测试同学反馈了一批截图：底部 TabBar 被导航栏遮住了一半，状态栏和通知图标叠在了 Toolbar 上。这不是个别 App 的问题——Android 16 Beta 3 把强制 edge-to-edge 列为破坏性变更，凡是 targetSdk ≥ 36 的应用，系统会直接忽略 `Window.setStatusBarColor()`、`setNavigationBarColor()` 的颜色设置，并强制让内容延伸到系统栏后面。

@@ -1,15 +1,17 @@
 ---
-title: "DataStore 和 SharedPreferences 应该怎么选？"
+translationKey: datastore-vs-sharedpreferences
+title: DataStore 和 SharedPreferences 应该怎么选？
 slug: datastore-vs-sharedpreferences
-excerpt: "对比 SharedPreferences、Preferences DataStore 和 Proto DataStore 的适用场景、线程模型、类型安全和迁移策略。"
+excerpt: 对比 SharedPreferences、Preferences DataStore 和 Proto DataStore 的适用场景、线程模型、类型安全和迁移策略。
 publishDate: '2026-06-01'
 tags:
-- "Android"
-- "DataStore"
-- "SharedPreferences"
+- Android
+- DataStore
+- SharedPreferences
 seo:
-  title: "DataStore 和 SharedPreferences 怎么选？Android 本地配置存储对比"
-  description: "对比 Android SharedPreferences、Preferences DataStore 和 Proto DataStore，解释线程安全、ANR 风险、类型安全和迁移策略。"
+  title: Android DataStore 与 SharedPreferences 对比与选型
+  description: 对比 Android SharedPreferences、Preferences DataStore 和 Proto DataStore，解释线程安全、ANR 风险、类型安全和迁移策略。
+  pageType: article
 ---
 
 新项目里，本地配置优先考虑 DataStore；已有项目中，SharedPreferences 不一定立刻重写，但主线程访问、高频读写和跨进程依赖需要治理。
@@ -72,6 +74,6 @@ DataStore 的价值不只是“新”，而是把本地配置从同步读写模�
 ## 深入阅读
 
 - [返回对应专题：Kotlin 协程与 Flow](/kotlin-coroutines/)
-- [Android SharedPreferences 到 DataStore 深度演进：从同步 ANR 到响应式存储](/blog/2026-04-23-android_sharedpreferences_到_datastore_深度演进_从同步_anr/)
+- [Android SharedPreferences 到 DataStore 深度演进：从同步 ANR 到响应式存储](/blog/android-sharedpreferences-datastore-deep-dive/)
 - [Room Flow 为什么能自动更新？](/blog/room-flow-auto-update/)
 <!-- /seo-internal-links -->

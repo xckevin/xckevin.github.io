@@ -18,36 +18,36 @@ seo:
 
 ## 平台与能力入口
 
-- [深入 Android AICore 与 Gemini Nano 端侧推理全链路：从系统服务架构到 LoRA 微调适配的 Google AI 生态工程实践](/blog/2025-05-21-深入_android_aicore_与_gemini_nano_端侧推理全链路_从系统服务架构到_l/)
-- [深入 Android ML Kit 全链路实战：从视觉检测 Pipeline 到 CameraX 集成的端侧智能工程落地](/blog/2025-08-01-深入_android_ml_kit_全链路实战_从视觉检测_pipeline_到_camerax_集/)
-- [深入 Android NNAPI 全链路：从 HAL 硬件抽象到 Qualcomm/MTK NPU 厂商驱动的端侧 AI 推理加速架构](/blog/2025-08-07-深入_android_nnapi_全链路_从_hal_硬件抽象到_qualcomm_mtk_npu_/)
-- [Android 16 App Functions 深度解析：从语义索引到意图路由的端侧 AI 实践](/blog/2026-02-17-深入_android_16_app_functions_全链路_从语义索引构建到跨应用智能操作的_a/)
+- [深入 Android AICore 与 Gemini Nano 端侧推理全链路：从系统服务架构到 LoRA 微调适配的 Google AI 生态工程实践](/blog/android-aicore-gemini-nano/)
+- [深入 Android ML Kit 全链路实战：从视觉检测 Pipeline 到 CameraX 集成的端侧智能工程落地](/blog/android-ml-kit-vision-camerax/)
+- [深入 Android NNAPI 全链路：从 HAL 硬件抽象到 Qualcomm/MTK NPU 厂商驱动的端侧 AI 推理加速架构](/blog/android-nnapi-hal-npu/)
+- [Android 16 App Functions 深度解析：从语义索引到意图路由的端侧 AI 实践](/blog/android-16-app-functions-semantic-index/)
 
 ## 推理性能与系统资源
 
-- [深入 Android 端侧 AI 推理 Benchmark 评测体系：从延迟/吞吐/功耗三维度量到热影响下的性能退化分析](/blog/2026-04-17-深入_android_端侧_ai_推理_benchmark_评测体系_从延迟_吞吐_功耗三维度量到热/)
-- [深入 Android 端侧 AI 推理性能剖析：用 Perfetto 追踪 NPU 调度与内存带宽瓶颈](/blog/2025-11-17-深入_android_端侧_ai_推理性能剖析_用_perfetto_追踪_npu_调度与内存带宽瓶/)
-- [深入 Android 端侧 AI 推理的内存带宽优化：从 GPU 共享内存到 NPU 零拷贝的异构数据传输架构](/blog/2025-11-20-深入_android_端侧_ai_推理的内存带宽优化_从_gpu_共享内存到_npu_零拷贝的异构数/)
-- [深入 Android 端侧 AI 推理的功耗与热管理全链路：从 SoC DVFS 调度到 Thermal Throttling 的性能稳定性工程实践](/blog/2025-11-21-深入_android_端侧_ai_推理的功耗与热管理全链路_从_soc_dvfs_调度到_therm/)
-- [端侧 AI 推理稳不住？温度、电量、内存三维协同降级策略](/blog/2026-04-27-深入_android_端侧_ai_推理与系统健康度的协同优化_基于设备温度_电量和内存压力的动态推理/)
-- [深入 Android 端侧 AI 推理的内存管理策略：从模型加载的内存峰值优化到 KV Cache 的动态回收机制](/blog/2026-05-04-深入_android_端侧_ai_推理的内存管理策略_从模型加载的内存峰值优化到_kv_cache_/)
+- [深入 Android 端侧 AI 推理 Benchmark 评测体系：从延迟/吞吐/功耗三维度量到热影响下的性能退化分析](/blog/android-on-device-ai-benchmark/)
+- [深入 Android 端侧 AI 推理性能剖析：用 Perfetto 追踪 NPU 调度与内存带宽瓶颈](/blog/android-on-device-ai-perfetto-npu-profiling/)
+- [深入 Android 端侧 AI 推理的内存带宽优化：从 GPU 共享内存到 NPU 零拷贝的异构数据传输架构](/blog/android-on-device-ai-memory-bandwidth/)
+- [深入 Android 端侧 AI 推理的功耗与热管理全链路：从 SoC DVFS 调度到 Thermal Throttling 的性能稳定性工程实践](/blog/android-on-device-ai-power-thermal-management/)
+- [端侧 AI 推理稳不住？温度、电量、内存三维协同降级策略](/blog/android-on-device-ai-system-health/)
+- [深入 Android 端侧 AI 推理的内存管理策略：从模型加载的内存峰值优化到 KV Cache 的动态回收机制](/blog/android-on-device-ai-memory-kv-cache/)
 
 ## LLM、RAG 与交互架构
 
-- [深入 Android 端侧 LLM 推理的流式输出全链路：从 Token 生成到 Compose UI 增量渲染的实时交互架构](/blog/2025-12-16-深入_android_端侧_llm_推理的流式输出全链路_从_token_生成到_compose_u/)
-- [深入 Android 端侧 LLM 的上下文窗口工程：从 Prompt 压缩到对话状态机的全链路实践](/blog/2025-12-17-深入_android_端侧_llm_的上下文窗口工程_从_prompt_压缩到对话状态机的全链路实践/)
-- [深入 Android 端侧 RAG 检索增强生成实战：从本地向量数据库到 LLM 推理的知识增强全链路](/blog/2025-12-18-深入_android_端侧_rag_检索增强生成实战_从本地向量数据库到_llm_推理的知识增强全链/)
-- [深入 Android 端侧 AI 推理的 Prompt 工程实战](/blog/2026-04-28-深入_android_端侧_ai_推理的_prompt_工程实战_从_token_预算控制到少样本模/)
-- [Android 端侧 AI 聊天的 Compose UI 架构：流式渲染与多轮对话的声明式工程实践](/blog/2026-02-10-android_端侧_ai_聊天的_compose_ui_架构_流式渲染与多轮对话的声明式工程实践/)
+- [深入 Android 端侧 LLM 推理的流式输出全链路：从 Token 生成到 Compose UI 增量渲染的实时交互架构](/blog/android-on-device-llm-streaming-output/)
+- [深入 Android 端侧 LLM 的上下文窗口工程：从 Prompt 压缩到对话状态机的全链路实践](/blog/android-on-device-llm-context-window/)
+- [深入 Android 端侧 RAG 检索增强生成实战：从本地向量数据库到 LLM 推理的知识增强全链路](/blog/android-on-device-rag-vector-database/)
+- [深入 Android 端侧 AI 推理的 Prompt 工程实战](/blog/android-on-device-ai-prompt-engineering/)
+- [Android 端侧 AI 聊天的 Compose UI 架构：流式渲染与多轮对话的声明式工程实践](/blog/android-on-device-ai-chat-compose-ui/)
 
 ## 生产化治理
 
-- [深入 Android 端云协同 AI 推理架构：从模型路由策略到离线降级的混合智能调度全链路](/blog/2025-11-13-深入_android_端云协同_ai_推理架构_从模型路由策略到离线降级的混合智能调度全链路/)
-- [深入 Android 端侧 AI 模型动态下发与版本管理全链路](/blog/2025-12-08-深入_android_端侧_ai_模型动态下发与版本管理全链路_从_app_bundle_条件分发到/)
-- [端侧大模型推理调度层设计：优先级队列与背压控制实战](/blog/2026-05-07-深入_android_端侧_ai_推理的并发调度与流控架构_从单例引擎到多请求优先级队列的背压治理/)
-- [深入 Android 端侧 AI 模型安全防护全链路：从模型加密存储到 TEE 推理的 IP 保护架构](/blog/2026-05-08-深入_android_端侧_ai_模型安全防护全链路_从模型加密存储到_tee_推理的_ip_保护架/)
-- [深入 Android 端侧 AI 推理的实时视频流处理全链路](/blog/2026-05-06-深入_android_端侧_ai_推理的实时视频流处理全链路_从_camerax_帧回调到_gpu_/)
-- [深入 Android 端侧多模态 AI 推理全链路：从 Gemini Nano Multimodality 到 Compose 实时交互的工程实践](/blog/2026-05-11-深入_android_端侧多模态_ai_推理全链路_从_gemini_nano_multimodal/)
+- [深入 Android 端云协同 AI 推理架构：从模型路由策略到离线降级的混合智能调度全链路](/blog/android-hybrid-ai-routing-offline-fallback/)
+- [深入 Android 端侧 AI 模型动态下发与版本管理全链路](/blog/android-on-device-ai-model-delivery-versioning/)
+- [端侧大模型推理调度层设计：优先级队列与背压控制实战](/blog/android-on-device-ai-concurrency-backpressure/)
+- [深入 Android 端侧 AI 模型安全防护全链路：从模型加密存储到 TEE 推理的 IP 保护架构](/blog/android-on-device-ai-model-security-tee/)
+- [深入 Android 端侧 AI 推理的实时视频流处理全链路](/blog/android-on-device-ai-realtime-video/)
+- [深入 Android 端侧多模态 AI 推理全链路：从 Gemini Nano Multimodality 到 Compose 实时交互的工程实践](/blog/android-multimodal-on-device-ai/)
 
 ## 下一步
 

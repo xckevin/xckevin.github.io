@@ -1,4 +1,6 @@
 ---
+slug: kotlin-k2-compiler-android
+translationKey: kotlin-k2-compiler-android
 title: Kotlin K2 编译器深度解析：统一前端架构、类型推断重写与 Android 工程迁移实践
 excerpt: 深入解析 Kotlin K2 编译器的 FIR 统一前端架构与类型推断重写机制，结合 30 万行 Android 工程的实测数据，系统梳理 kapt 迁移 KSP、编译器插件 API 升级及类型推断差异的迁移实践。
 publishDate: '2026-04-23'
@@ -185,7 +187,7 @@ K2 是 Kotlin 编译器十年来最大的一次架构重构，多年积累的技
 ## 延伸阅读
 
 - [返回对应专题：Kotlin 与协程](/kotlin-coroutines/)
-- [Kotlin suspend 原理：CPS 变换、Continuation 与状态机字节码](/blog/2026-04-23-kotlin_suspend_的编译器黑盒_从_cps_变换到状态机字节码的完整推演/)
-- [Kotlin Flow 原理与工程实践：冷流、StateFlow、SharedFlow 对比](/blog/2026-04-23-kotlin_flow_工程化全景_从冷流惰性求值到_stateflow_sharedflow_热流/)
-- [Kotlin Coroutines 与 Flow：协程调度、结构化并发和响应式数据流](/blog/kotlin-coroutines-与-flow-的高级应用与原理/)
+- [Kotlin suspend 原理：CPS 变换、Continuation 与状态机字节码](/blog/kotlin-suspend-state-machine/)
+- [Kotlin Flow 原理与工程实践：冷流、StateFlow、SharedFlow 对比](/blog/kotlin-flow-stateflow-sharedflow/)
+- [Kotlin Coroutines 与 Flow：协程调度、结构化并发和响应式数据流](/blog/kotlin-coroutines-flow-advanced-applications-internals/)
 <!-- /seo-internal-links -->

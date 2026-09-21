@@ -60,7 +60,7 @@ HTTP is built on top of TCP. In early versions, each request had to establish a 
 2. **Pipeline:** pipelining, which allows multiple requests to be sent before responses are received
 3. **Chunked:** chunked transfer encoding, which supports streaming response bodies
 
-![](../../assets/%E4%BB%8E%E6%80%A7%E8%83%BD%E8%A7%86%E8%A7%92%E7%9C%8Bhttp%E5%8D%8F%E8%AE%AE%E7%9A%84%E6%BC%94%E8%BF%9B-1.png)
+![Client-server timing comparison of short-lived HTTP connections, persistent connections, and pipelining](../../assets/%E4%BB%8E%E6%80%A7%E8%83%BD%E8%A7%86%E8%A7%92%E7%9C%8Bhttp%E5%8D%8F%E8%AE%AE%E7%9A%84%E6%BC%94%E8%BF%9B-1.png)
 
 ### Domain sharding
 

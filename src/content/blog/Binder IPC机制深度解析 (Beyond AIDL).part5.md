@@ -1,4 +1,6 @@
 ---
+slug: binder-ipc-beyond-aidl-part5
+translationKey: binder-ipc-beyond-aidl-part5
 title: "Binder IPC 机制深度解析（Beyond AIDL）（5）：基本 AIDL 实现示例"
 excerpt: "「Binder IPC 机制深度解析（Beyond AIDL）」系列第 5/7 篇：基本 AIDL 实现示例"
 publishDate: 2024-04-21

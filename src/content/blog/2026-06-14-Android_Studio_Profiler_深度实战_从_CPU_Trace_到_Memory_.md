@@ -11,8 +11,9 @@ tags:
 - Memory Profiler
 - Systrace
 seo:
-  title: Android Studio Profiler 深度实战：从 CPU Trace 到 Memory Allocation 的性能诊断工具链
+  title: Android Studio Profiler：CPU Trace 与 Memory Allocation 诊断
   description: 深入讲解 Android Studio Profiler 性能诊断工具链，从 CPU 采样、火焰图分析、内存泄漏排查到 Systrace/Perfetto 分层定位，配合帧率掉帧实战案例，构建完整的性能问题排查思路。
+  pageType: article
 ---
 
 上周排查一个线上 ANR，堆栈指向主线程的 `onBindViewHolder`。代码逻辑没问题，Trace 文件里却有一大段绿色被 `RVFling` 占满了。团队里有人用 Perfetto、有人习惯 Systrace、还有人只看 Profiler 火焰图，结论对不上，沟通成本很高。

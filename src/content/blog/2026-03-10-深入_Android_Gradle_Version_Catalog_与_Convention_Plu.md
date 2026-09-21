@@ -1,4 +1,6 @@
 ---
+slug: android-gradle-version-catalog-convention-plugins
+translationKey: android-gradle-version-catalog-convention-plugins
 title: 深入 Android Gradle Version Catalog 与 Convention Plugins 全链路：从 buildSrc 单体到声明式依赖治理的模块化构建架构演进
 excerpt: 介绍 Android 30+ 模块项目从 buildSrc 向 Version Catalog + Convention Plugins 迁移的实践经验，涵盖声明式依赖治理、预编译脚本分发及踩坑总结。
 publishDate: '2026-03-10'
@@ -9,8 +11,9 @@ tags:
 - 模块化
 - 依赖管理
 seo:
-  title: 深入 Android Gradle Version Catalog 与 Convention Plugins 全链路：从 buildSrc 单体到声明式依赖治理的模块化构建架构演进
+  title: Android Gradle Version Catalog 与 Convention Plugins 依赖治理
   description: Android 多模块项目从 buildSrc 迁移到 Version Catalog + Convention Plugins 的完整实践指南，包含性能对比、命名规则、协同方案与避坑经验。
+  pageType: article
 ---
 
 去年接手一个 30+ 模块的 Android 项目时，`build.gradle.kts` 里的依赖声明让我头疼了好一阵子。同一个 `androidx-core-ktx` 的版本在三个模块里各写了一个数，gradle sync 倒是能过，但实际构建出来的类路径版本取决于解析顺序——这种不确定性问题，排查起来很要命。

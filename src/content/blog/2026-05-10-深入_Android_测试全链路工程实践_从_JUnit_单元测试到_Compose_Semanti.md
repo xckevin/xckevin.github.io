@@ -1,4 +1,6 @@
 ---
+slug: android-testing-junit-compose
+translationKey: android-testing-junit-compose
 title: 深入 Android 测试全链路工程实践：从 JUnit 单元测试到 Compose Semantics UI 测试的生产级质量保障体系
 excerpt: 系统梳理 Android 测试全链路体系：从 ViewModel 单元测试、Repository 集成测试到 Compose UI 语义树测试，再到 CI 质量门禁的 flaky test 治理，构建可落地的生产级质量保障方案。
 publishDate: '2026-05-10'
@@ -198,6 +200,6 @@ Compose 测试在 CI 上偶尔会因为动画时序问题 flaky，直接 block m
 ## 延伸阅读
 
 - [返回对应专题：移动端工程化](/android-engineering/)
-- [Android Gradle 构建提速：Configuration Cache、KSP 与任务治理](/blog/2026-05-06-android_gradle_构建提速全链路_从_configuration_cache_到_ksp/)
-- [Android CI/CD 实践：Jenkins、GitLab CI、构建发布与质量门禁](/blog/jenkins与gitlab-ci实现android持续集成与交付从构建到发布的完整指南/)
+- [Android Gradle 构建提速：Configuration Cache、KSP 与任务治理](/blog/android-gradle-build-speed-configuration-cache-ksp/)
+- [Android CI/CD 实践：Jenkins、GitLab CI、构建发布与质量门禁](/blog/jenkins-gitlab-ci-android-cicd-complete-guide/)
 <!-- /seo-internal-links -->

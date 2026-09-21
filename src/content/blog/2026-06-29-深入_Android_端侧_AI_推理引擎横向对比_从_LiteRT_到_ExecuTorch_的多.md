@@ -1,4 +1,6 @@
 ---
+slug: android-on-device-ai-inference-engine-selection
+translationKey: android-on-device-ai-inference-engine-selection
 title: 深入 Android 端侧 AI 推理引擎横向对比：从 LiteRT 到 ExecuTorch 的多引擎选型决策框架
 excerpt: 横向对比 LiteRT、MediaPipe、ExecuTorch、ONNX Runtime 和 llama.cpp 五大端侧推理引擎，从算子覆盖、硬件加速、性能基准到选型矩阵，提供可落地的决策框架。
 publishDate: '2026-06-29'
@@ -9,8 +11,9 @@ tags:
 - 性能优化
 - 模型部署
 seo:
-  title: 深入 Android 端侧 AI 推理引擎横向对比：从 LiteRT 到 ExecuTorch 的多引擎选型决策框架
+  title: Android 端侧推理引擎对比：LiteRT 与 ExecuTorch 选型
   description: 横向对比 Android 端侧五大 AI 推理引擎：LiteRT、MediaPipe、ExecuTorch、ONNX Runtime、llama.cpp，从算子覆盖、硬件加速到性能实测，提供四维选型决策框架。
+  pageType: article
 ---
 
 上个月在做端侧多模态模型集成时，团队在引擎选型上僵住了。有人说 LiteRT 最稳，有人坚持 ExecuTorch 是未来，还有人提议干脆上 llama.cpp 跑 LLM。最后我们在同一台设备上把五个引擎全测了一遍，结论比预期复杂得多。

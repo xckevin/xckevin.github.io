@@ -1,4 +1,6 @@
 ---
+slug: android-anr-trace-governance
+translationKey: android-anr-trace-governance
 title: Android ANR 深度治理：从主线程卡顿根因到 ANR Trace 全链路分析方法论
 excerpt: 从信号触发机制出发，系统拆解 ANR 三类根因——MessageQueue 积压、Binder 调用超时与锁竞争，结合 traces.txt 与 Perfetto 双维度分析方法，给出可落地的线上监控与归因闭环方案。
 publishDate: '2026-04-19'

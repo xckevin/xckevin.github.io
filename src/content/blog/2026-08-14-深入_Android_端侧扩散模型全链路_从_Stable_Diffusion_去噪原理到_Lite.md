@@ -11,8 +11,9 @@ tags:
 - 性能优化
 - 移动端部署
 seo:
-  title: 深入 Android 端侧扩散模型全链路：从 Stable Diffusion 去噪原理到 LiteRT 移动端图像生成的工程实践
+  title: Android 端侧扩散模型：Stable Diffusion 去噪与 LiteRT 图像生成
   description: 从潜在扩散模型去噪原理到 LiteRT 移动端部署，拆解 Stable Diffusion 端侧优化全链路：FP16 量化、GPU Delegate、LCM 蒸馏与内存策略，将 Pixel 8 单图生成从 40 秒压到 3 秒。
+  pageType: article
 ---
 
 在 Pixel 8 上第一次跑通 Stable Diffusion 1.5 时，一张 512×512 图花了 40 秒，内存峰值 2.1GB。能跑，但离"可用"还有距离。优化过程中我逐渐摸到一个规律：如果不理解去噪循环里每一步在算什么，就很难分清哪些耗时是算法固有的、哪些是工程浪费。顺着「原理 → 部署 → 调优」的顺序，把这条链路拆开。

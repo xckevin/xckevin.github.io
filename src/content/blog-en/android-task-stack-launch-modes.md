@@ -1,19 +1,19 @@
 ---
-title: "Android Task Stack and Activity Launch Modes: A Full-Path Guide"
+title: 'Android Task Stack and Activity Launch Modes: A Full-Path Guide'
 lang: en
 translationKey: android-task-stack-launch-modes
 slug: android-task-stack-launch-modes
-excerpt: "A practical guide to Android Tasks, the back stack, standard, singleTop, singleTask, and singleInstance, with Intent flags and taskAffinity tradeoffs."
+excerpt: A practical guide to Android Tasks, the back stack, standard, singleTop, singleTask, and singleInstance, with Intent flags and taskAffinity tradeoffs.
 publishDate: '2026-03-18'
 tags:
-- "Android"
-- "Activity"
-- "Task Stack"
-- "Launch Modes"
-- "Architecture"
+- Android
+- Activity
+- Task Stack
+- Launch Modes
+- Architecture
 seo:
-  title: "Android Task Stack and Activity Launch Modes: standard, singleTop, singleTask"
-  description: "Understand Android Tasks, launchMode behavior, Intent flags, taskAffinity, notification navigation, home reuse, and common singleTask traps."
+  title: Android Activity Launch Modes and Task Stack Behavior
+  description: Understand Android Tasks, launchMode behavior, Intent flags, taskAffinity, notification navigation, home reuse, and common singleTask traps.
   pageType: article
 ---
 

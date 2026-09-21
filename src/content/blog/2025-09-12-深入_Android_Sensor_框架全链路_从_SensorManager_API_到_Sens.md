@@ -1,4 +1,6 @@
 ---
+slug: android-sensor-framework-sensormanager
+translationKey: android-sensor-framework-sensormanager
 title: 深入 Android Sensor 框架全链路：从 SensorManager API 到 Sensor HAL
 excerpt: 从SensorManager API到Sensor HAL，深入解析Android传感器框架全链路，涵盖SensorService调度机制、BitTube数据通道、虚拟传感器融合算法、批处理策略与功耗优化，结合实战经验提供排查调优指导。
 publishDate: '2025-09-12'
@@ -8,8 +10,9 @@ tags:
 - 系统框架
 - 性能优化
 seo:
-  title: 深入 Android Sensor 框架全链路：从 SensorManager API 到 Sensor HAL
+  title: Android Sensor 框架：SensorManager API 与 Sensor HAL
   description: 深入剖析Android Sensor框架全链路：从SensorManager到SensorService再到HAL层，详解BitTube数据通道、虚拟传感器融合（EKF）、批处理策略与功耗优化实战。
+  pageType: article
 ---
 
 做计步器 SDK 时遇到过一个棘手的问题：步数传感器在前台工作正常，App 切入后台 5 分钟后数据就停了。排查发现有两个系统服务在抢同一个物理传感器，而我们对 Android Sensor 框架的理解只停留在 `registerListener` 那一层。

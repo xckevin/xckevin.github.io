@@ -11,8 +11,9 @@ tags:
 - 性能优化
 - 动画
 seo:
-  title: 深入 Jetpack Compose 列表动画引擎：从 animateItemPlacement 到 LazyColumn 声明式动画编排全链路
+  title: Compose 列表动画：animateItemPlacement 与 LazyColumn 编排
   description: 深入分析 Jetpack Compose 中 animateItemPlacement 的内部机制与 LazyColumn 声明式动画编排原理，涵盖 key 稳定性、帧率优化及日常排查策略，解决列表排序、消息置顶等场景的动画掉帧问题。
+  pageType: article
 ---
 
 去年做聊天列表排序功能，用户新增消息置顶，旧消息下移。测试反馈"动画掉帧严重，滑动时更是卡成 PPT"。排查发现我们没加 `key` 参数，Compose 把每条消息当作新 Composable 重建，动画引擎直接罢工。

@@ -1,19 +1,19 @@
 ---
-title: "Android PackageManager End to End: APK Parsing, PMS Registration, and Permissions"
+title: 'Android PackageManager End to End: APK Parsing, PMS Registration, and Permissions'
 lang: en
 translationKey: android-packagemanager-pms-apk-parsing
 slug: android-packagemanager-pms-apk-parsing
-excerpt: "A deep dive into Android PackageManager, from APK parsing and component registration to Intent matching, permission checks, signing, and real-world PMS pitfalls."
+excerpt: A deep dive into Android PackageManager, from APK parsing and component registration to Intent matching, permission checks, signing, and real-world PMS pitfalls.
 publishDate: '2025-08-15'
 tags:
-- "Android"
-- "PackageManager"
-- "Permission Checks"
-- "Intent Matching"
-- "APK Parsing"
+- Android
+- PackageManager
+- Permission Checks
+- Intent Matching
+- APK Parsing
 seo:
-  title: "Android PackageManager: APK Parsing, PMS Registration, and Permission Checks"
-  description: "Understand Android PMS from APK structure and Manifest parsing to component indexes, Intent matching, permission checks, signatures, and multidex pitfalls."
+  title: 'Android PackageManager: APK Parsing and Permission Checks'
+  description: Understand Android PMS from APK structure and Manifest parsing to component indexes, Intent matching, permission checks, signatures, and multidex pitfalls.
   pageType: article
 ---
 

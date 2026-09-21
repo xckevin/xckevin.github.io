@@ -1,4 +1,6 @@
 ---
+slug: kotlin-coroutines-flow-advanced-applications-internals-part4
+translationKey: kotlin-coroutines-flow-advanced-applications-internals-part4
 title: "Kotlin Coroutines 与 Flow 的高级应用与原理（4）：StateFlow & SharedFlow：热流状态与事件总线"
 excerpt: "「Kotlin Coroutines 与 Flow 的高级应用与原理」系列第 4/5 篇：StateFlow & SharedFlow：热流状态与事件总线"
 publishDate: 2025-03-30

@@ -1,4 +1,6 @@
 ---
+slug: android-animation-principles-practice-part2
+translationKey: android-animation-principles-practice-part2
 title: "Android动画深度解析：从原理到实践（2）：核心动画概念（Core Animation Concepts）"
 excerpt: "「Android动画深度解析：从原理到实践」系列第 2/9 篇：核心动画概念（Core Animation Concepts）"
 publishDate: 2024-03-20

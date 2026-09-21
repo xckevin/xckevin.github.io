@@ -1,4 +1,6 @@
 ---
+slug: android-on-device-ai-first-token-latency
+translationKey: android-on-device-ai-first-token-latency
 title: 深入 Android 端侧 AI 推理的延迟拆解与优化：从用户点击到首 Token 上屏
 excerpt: 本文系统拆解了 Android 端侧大模型推理从用户点击到首 Token 上屏的完整链路，涵盖预处理、模型加载、Prefill、Decode 等六个阶段，并提供实测优化方案与性能数据。
 publishDate: '2026-07-04'

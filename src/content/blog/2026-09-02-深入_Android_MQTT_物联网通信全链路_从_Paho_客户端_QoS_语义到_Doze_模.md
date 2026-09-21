@@ -11,8 +11,9 @@ tags:
 - 物联网
 - 长连接保活
 seo:
-  title: 深入 Android MQTT 物联网通信全链路：从 Paho 客户端 QoS 语义到 Doze 模式长连接保活的工程实践
+  title: Android MQTT：Paho 客户端 QoS 与 Doze 长连接保活
   description: 解析 Android MQTT 通信全链路：QoS 1 消息语义、Paho 持久化重传、Doze 模式断连根因，以及前台服务、WakeLock 与电池白名单的长连接保活方案。
+  pageType: article
 ---
 
 做智能硬件 App 时，我遇到过一个诡异现象：设备在线、网络正常，手机锁屏十分钟后，云端下发指令要等十几分钟才到 App。排查链路时我先怀疑 broker，又怀疑 Paho 丢消息，最后定位到 Android 的 Doze 模式把长连接掐了。这轮排查让我重新梳理了 MQTT 在 Android 端的完整链路：QoS 保证消息语义，Paho 负责确认与重传，保活决定连接能不能活下来。

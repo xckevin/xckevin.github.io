@@ -1,4 +1,6 @@
 ---
+slug: android-cold-start-baseline-optimization-part2
+translationKey: android-cold-start-baseline-optimization-part2
 title: "Android 冷启动优化：Baseline 优化方案（2）：生成基准文件"
 excerpt: "「Android 冷启动优化：Baseline 优化方案」系列第 2/3 篇：生成基准文件"
 publishDate: 2025-11-18

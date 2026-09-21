@@ -1,4 +1,6 @@
 ---
+slug: android-on-device-ai-perfetto-npu-profiling
+translationKey: android-on-device-ai-perfetto-npu-profiling
 title: 深入 Android 端侧 AI 推理性能剖析：用 Perfetto 追踪 NPU 调度与内存带宽瓶颈
 excerpt: 基于 Perfetto 追踪端侧 AI 推理的 NPU 调度与内存带宽瓶颈，通过权重常驻、推理渲染隔离和算子融合将 token 生成速度从 18 提升至 35 token/s。
 publishDate: '2025-11-17'
@@ -9,8 +11,9 @@ tags:
 - 性能优化
 - NPU
 seo:
-  title: 深入 Android 端侧 AI 推理性能剖析：用 Perfetto 追踪 NPU 调度与内存带宽瓶颈
+  title: Android 端侧 AI 性能剖析：Perfetto 追踪 NPU 调度与内存带宽
   description: 用 Perfetto 系统性追踪 Android 端侧 AI 推理性能，从 NPU 调度延迟到内存带宽瓶颈，将 token 生成速度提升近一倍——本文分享一套可复用的分析方法论。
+  pageType: article
 ---
 
 去年做端侧 Stable Diffusion 推理优化时，碰到一个让人头疼的问题：同一张图片、同一个模型，推理延迟在 200ms 到 800ms 之间剧烈抖动。GPU 占用率显示才 60%，延迟就是降不下去。折腾了好几天才发现——端侧 AI 推理的瓶颈不在算力，在调度和带宽。

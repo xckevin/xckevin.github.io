@@ -1,4 +1,6 @@
 ---
+slug: android-arcore-slam-light-estimation
+translationKey: android-arcore-slam-light-estimation
 title: 深入 Android ARCore 增强现实全链路：从 SLAM 空间定位到 Light Estimation 光照估计的虚实融合架构
 excerpt: 深入剖析 ARCore 运动追踪、环境理解与光照估计三条核心链路的技术原理，结合 Compose 集成与性能优化实践，构建稳定的虚实融合 AR 应用。
 publishDate: '2026-07-13'
@@ -9,8 +11,9 @@ tags:
 - SLAM
 - 性能优化
 seo:
-  title: 深入 Android ARCore 增强现实全链路：从 SLAM 空间定位到 Light Estimation 光照估计的虚实融合架构
+  title: Android ARCore：SLAM 空间定位与 Light Estimation 光照估计
   description: 本文深入 Android ARCore 增强现实全链路，从 SLAM 运动追踪的状态机与坐标系，到平面检测与 Depth API 的像素级遮挡，再到光照估计从单值到方向光的演进，完整解析虚实融合渲染架构与 Compose 集成实践。
+  pageType: article
 ---
 
 在做一个 AR 试戴项目时，我遇到了一个让人头疼的 bug：虚拟眼镜在用户转头时会轻微漂移，像是悬浮在脸上而不是戴在脸上。排查后发现，问题出在对 ARCore 三套子系统之间耦合关系的理解不够——运动追踪提供了位姿，但光照估计和深度遮挡的更新频率截然不同，直接用 Camera 回调的 pose 去驱动渲染，在帧间会引入微小的相位差。

@@ -1,4 +1,6 @@
 ---
+slug: android-renderthread-hwui
+translationKey: android-renderthread-hwui
 title: Android RenderThread 与 HWUI 渲染管线深度解析：从 DisplayList 录制到 GPU 光栅化的帧生产全链路
 excerpt: 深入剖析 Android HWUI 渲染架构中主线程与 RenderThread 的分工协作机制，从 DisplayList 录制、RenderNode 树同步到 Skia/Vulkan 光栅化全链路，并揭示 Compose 如何复用这套底层渲染体系实现高效动画。
 publishDate: '2026-04-20'
@@ -9,8 +11,9 @@ tags:
 - Compose
 - Vulkan
 seo:
-  title: "Android RenderThread 与 HWUI：渲染管线、DisplayList 与掉帧分析"
-  description: "系统拆解 Android HWUI 渲染管线、RenderThread、DisplayList、GPU 合成与掉帧定位方法，适合渲染性能排查。"
+  title: Android RenderThread 与 HWUI：DisplayList 渲染与掉帧分析
+  description: 系统拆解 Android HWUI 渲染管线、RenderThread、DisplayList、GPU 合成与掉帧定位方法，适合渲染性能排查。
+  pageType: article
 ---
 
 性能优化时我经常遇到一个让人困惑的现象：Systrace 里 `RenderThread` 的耗时远大于主线程的 `draw`，但代码里看不出有什么复杂绘制。深入 HWUI 源码后才明白——主线程只是"导演"，真正的渲染工作在另一条流水线上静默运行。
@@ -154,8 +157,8 @@ RenderThread：
 ## 延伸阅读
 
 - [返回对应专题：Android 性能优化](/android-performance/)
-- [Android 启动优化：从 Zygote fork 到首帧上屏的 Perfetto 实战](/blog/2026-04-19-android_冷启动全链路优化工程实践_从_zygote_fork_到首帧上屏的_systrace/)
-- [Android App 启动优化专项：指标、链路、工具与治理方案](/blog/app启动优化专项/)
-- [RecyclerView 缓存机制详解：四级缓存、复用与 Prefetch](/blog/2026-04-14-深入_android_recyclerview_缓存机制_从四级缓存到_prefetch_的性能设计/)
-- [Android Bitmap 内存模型：Java 堆、Native 堆与 Hardware Bitmap](/blog/2026-04-14-深入_android_bitmap_内存模型_从_java_堆分配到_hardware_bitmap/)
+- [Android 启动优化：从 Zygote fork 到首帧上屏的 Perfetto 实战](/blog/android-cold-start-zygote-systrace/)
+- [Android App 启动优化专项：指标、链路、工具与治理方案](/blog/app-startup-optimization/)
+- [RecyclerView 缓存机制详解：四级缓存、复用与 Prefetch](/blog/android-recyclerview-cache-prefetch-deep-dive/)
+- [Android Bitmap 内存模型：Java 堆、Native 堆与 Hardware Bitmap](/blog/android-bitmap-memory-model-hardware-bitmap/)
 <!-- /seo-internal-links -->

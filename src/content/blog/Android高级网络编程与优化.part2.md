@@ -1,4 +1,6 @@
 ---
+slug: android-advanced-network-programming-optimization-part2
+translationKey: android-advanced-network-programming-optimization-part2
 title: "Android 高级网络编程与优化（2）：OkHttp 深度解析：网络请求的瑞士军刀"
 excerpt: "「Android 高级网络编程与优化」系列第 2/3 篇：OkHttp 深度解析：网络请求的瑞士军刀"
 publishDate: 2025-03-17

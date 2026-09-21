@@ -1,4 +1,6 @@
 ---
+slug: android-textview-measure-layout-part4
+translationKey: android-textview-measure-layout-part4
 title: "深入浅出 Android TextView：揭秘文本测量与布局的艺术（4）：复杂场景处理"
 excerpt: "「深入浅出 Android TextView：揭秘文本测量与布局的艺术」系列第 4/4 篇：复杂场景处理"
 publishDate: 2025-05-18
@@ -30,7 +32,7 @@ Android 对 RTL 语言（如阿拉伯语、希伯来语）提供了完善的支�
 - **BiDi 算法**：当文本混合了 LTR 和 RTL 字符时（例如，英文中嵌入阿拉伯语），系统会应用 Unicode 双向算法（BiDi Algorithm）来确定每个字符片段的正确显示顺序和方向。StaticLayout 和 DynamicLayout 内部实现了 BiDi 处理；
 - **android:textDirection**：你可以显式控制 TextView 的基础文本方向（通常设为 locale、ltr、rtl、inherit 等）。对于 Layout，这会影响 `Alignment.ALIGN_NORMAL` 和 `Alignment.ALIGN_OPPOSITE` 的具体行为（例如，ALIGN_NORMAL 在 RTL 上下文中是右对齐）。
 
-![](../../assets/深入浅出-android-textview揭秘文本测量与布局的艺术-2.webp)
+![英文句子中嵌入阿拉伯语的双向文本排版示例](../../assets/深入浅出-android-textview揭秘文本测量与布局的艺术-2.webp)
 
 *图示说明*：显示一个 TextView，包含英文和阿拉伯文混合的文本，例如 "This is an example with العربية text."。图中文字应按正确的 BiDi 规则显示：英文从左到右，阿拉伯文从右到左，但整体语序符合逻辑。
 

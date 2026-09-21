@@ -1,4 +1,6 @@
 ---
+slug: android-tts-texttospeech-engine
+translationKey: android-tts-texttospeech-engine
 title: 深入 Android TTS 语音合成全链路：从 API 桥接到端侧声码器
 excerpt: 剖析 Android TTS 全链路：从跨进程引擎绑定、合成回调机制，到端侧 HiFi-GAN 声码器部署与流式合成优化，涵盖首字延迟压降的工程实践。
 publishDate: '2025-09-23'

@@ -1,4 +1,6 @@
 ---
+slug: android-configuration-changes-viewmodel
+translationKey: android-configuration-changes-viewmodel
 title: 深入 Android 配置变更全链路解析：从 Activity 销毁重建到 ViewModel 跨旋转存活的技术内幕
 excerpt: 从 ActivityThread 源码出发，深入解析 Android 配置变更引发的 Activity 销毁重建全链路，揭示 ViewModel 跨旋转存活的 NonConfigurationInstances 保留机制及其与 SavedStateHandle 的本质区别。
 publishDate: '2026-05-22'
@@ -9,8 +11,9 @@ tags:
 - Activity生命周期
 - 源码分析
 seo:
-  title: 深入 Android 配置变更全链路解析：从 Activity 销毁重建到 ViewModel 跨旋转存活的技术内幕
+  title: Android 配置变更：Activity 销毁重建与 ViewModel 跨旋转存活
   description: 深入剖析 Android 配置变更的完整链路：从 ActivityThread.handleRelaunchActivity 入口到 NonConfigurationInstances 保留 ViewModel，再到 ViewModel 与 SavedStateHandle 的边界划分，结合实战案例详解技术内幕。
+  pageType: article
 ---
 
 做组件化改造时遇到过一个诡异现象：横屏状态下进入某个二级页面，竖屏退出后返回首页，ViewModel 里的数据全丢了。排查一圈发现，不是 ViewModel 的问题，而是我对配置变更（Configuration Change）的重建链路理解有盲区。

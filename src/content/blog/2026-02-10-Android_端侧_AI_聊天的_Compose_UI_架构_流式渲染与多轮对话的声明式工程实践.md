@@ -1,4 +1,6 @@
 ---
+slug: android-on-device-ai-chat-compose-ui
+translationKey: android-on-device-ai-chat-compose-ui
 title: Android 端侧 AI 聊天的 Compose UI 架构：流式渲染与多轮对话的声明式工程实践
 excerpt: 本文分享端侧 LLM 聊天应用中 Compose UI 的流式渲染实践，通过 Token 缓冲、状态隔离和统一数据源等策略，在高频流式输出下保持流畅体验。
 publishDate: '2026-02-10'
@@ -9,8 +11,9 @@ tags:
 - 性能优化
 - 架构设计
 seo:
-  title: Android 端侧 AI 聊天的 Compose UI 架构：流式渲染与多轮对话的声明式工程实践
+  title: Android 端侧 AI 聊天 Compose UI：流式渲染与多轮对话
   description: 深入探讨端侧 LLM 聊天应用的 Compose 声明式 UI 架构，包括 Token 缓冲策略、流式状态管理、多轮对话一致性及推理状态建模，解决高频流式输出下的渲染性能瓶颈。
+  pageType: article
 ---
 
 在做端侧 LLM 聊天应用时，我撞上一个看似简单的问题：模型每吐出一个 token，UI 就得刷一次。如果每个 token 到达都触发一次 `recomposition`，200 个 token 的回复会在 2 秒内拉满 200 次重组，界面直接卡死。

@@ -1,4 +1,6 @@
 ---
+slug: android-on-device-ai-observability
+translationKey: android-on-device-ai-observability
 title: 深入 Android 端侧 AI 推理的可观测性全链路：从推理链路追踪到线上性能退化监控的工程实践
 excerpt: 本文介绍了一套端侧 AI 推理可观测性方案，通过 Trace 结构化记录推理全链路、构建多维性能画像，并基于画像漂移的三层递进规则引擎实现线上性能退化自动发现，解决了设备碎片化场景下模型推理劣化难以感知和定位的工程难题。
 publishDate: '2026-07-13'
@@ -9,8 +11,9 @@ tags:
 - 性能优化
 - TFLite
 seo:
-  title: 深入 Android 端侧 AI 推理的可观测性全链路：从推理链路追踪到线上性能退化监控的工程实践
+  title: Android 端侧 AI 可观测性：链路追踪与性能退化监控
   description: 基于 Trace 埋点、性能画像与三层退化检测规则引擎，构建端侧 AI 推理的可观测性体系，在设备碎片化场景下实现性能劣化的自动发现与精准定位。
+  pageType: article
 ---
 
 去年 Q3，我们 App 的端侧图像分割模型在某品牌中端机上出现了 3 倍以上的推理延迟退化。尴尬的是：崩溃率没变、ANR 没涨、用户也没反馈——直到对比了同一机型两个版本的埋点数据，才发现劣化已经持续了 6 周。

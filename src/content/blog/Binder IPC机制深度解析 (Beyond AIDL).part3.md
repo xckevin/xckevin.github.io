@@ -1,4 +1,6 @@
 ---
+slug: binder-ipc-beyond-aidl-part3
+translationKey: binder-ipc-beyond-aidl-part3
 title: "Binder IPC 机制深度解析（Beyond AIDL）（3）：内存模型与数据传输：一次拷贝的奥秘"
 excerpt: "「Binder IPC 机制深度解析（Beyond AIDL）」系列第 3/7 篇：内存模型与数据传输：一次拷贝的奥秘"
 publishDate: 2024-04-21

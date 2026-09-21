@@ -9,8 +9,9 @@ tags:
 - 帧率管理
 - Choreographer
 seo:
-  title: 深入 Android 屏幕刷新率动态切换与 LTPO 适配全链路：从 DisplayManager 帧率策略到 Choreographer VSYNC 自适应调度
+  title: Android 刷新率切换与 LTPO：DisplayManager 帧率与 VSYNC 调度
   description: 深入剖析 Android 屏幕刷新率动态切换全链路机制，从 DisplayModeDirector 投票仲裁到 LTPO 面板 DDIC 影子调度，详解 Choreographer VSYNC 自适应策略及实战帧率管理方案。
+  pageType: article
 slug: android-adaptive-refresh-rate-ltpo-choreographer
 translationKey: android-adaptive-refresh-rate-ltpo-choreographer
 ---

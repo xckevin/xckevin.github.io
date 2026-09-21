@@ -1,17 +1,18 @@
 ---
-title: "Which Metrics Should Android Startup Optimization Track First?"
+title: Which Metrics Should Android Startup Optimization Track First?
 lang: en
 translationKey: android-startup-metrics
 slug: android-startup-metrics
-excerpt: "A practical guide to Android startup metrics, phase breakdowns, Perfetto trace signals, and production governance priorities."
+excerpt: A practical guide to Android startup metrics, phase breakdowns, Perfetto trace signals, and production governance priorities.
 publishDate: '2026-06-01'
 tags:
-- "Android"
-- "Startup Optimization"
-- "Perfetto"
+- Android
+- Startup Optimization
+- Perfetto
 seo:
-  title: "Android App Startup Metrics: Cold Start, First Frame, TTID, and Perfetto Analysis"
-  description: "Learn which Android startup metrics to track, including cold start, first frame, TTID, main-thread blocking, Binder calls, and Perfetto trace signals."
+  title: 'Android Startup Metrics: Cold Start, TTID, and Perfetto'
+  description: Learn which Android startup metrics to track, including cold start, first frame, TTID, main-thread blocking, Binder calls, and Perfetto trace signals.
+  pageType: article
 ---
 
 Do not start startup optimization by changing code. Start by defining the metrics. Otherwise it is easy to move time from one phase to another, make the report look faster, and still leave the user's first screen unchanged.
@@ -66,7 +67,7 @@ A practical release gate is to record startup p95, first-frame p95, `Application
 ## Further reading
 
 - [Back to topic: Android Performance Optimization](/en/android-performance/)
-- [Android startup optimization: from Zygote fork to first frame with Perfetto](/blog/2026-04-19-android_冷启动全链路优化工程实践_从_zygote_fork_到首帧上屏的_systrace/)
-- [Android app startup optimization program: metrics, flow, tools, and governance](/blog/app启动优化专项/)
+- [Android startup optimization: from Zygote fork to first frame with Perfetto](/blog/android-cold-start-zygote-systrace/)
+- [Android app startup optimization program: metrics, flow, tools, and governance](/blog/app-startup-optimization/)
 - [Android Perfetto: trace capture, track analysis, and performance debugging](/en/blog/android-perfetto/)
 <!-- /seo-internal-links -->

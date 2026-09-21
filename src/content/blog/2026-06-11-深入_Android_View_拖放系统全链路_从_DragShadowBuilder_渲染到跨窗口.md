@@ -11,8 +11,9 @@ tags:
 - ClipData
 - WindowManager
 seo:
-  title: 深入 Android View 拖放系统全链路：从 DragShadowBuilder 渲染到跨窗口 ClipData 传输
+  title: Android View 拖放：DragShadowBuilder 渲染与跨窗口 ClipData
   description: 深入分析 Android 拖放系统底层实现，涵盖 DragShadowBuilder 独立渲染层、DragEvent 分发路径、跨窗口 ClipData 传输机制，以及与 RecyclerView 和 Compose 的衔接实践。
+  pageType: article
 ---
 
 在做跨窗口拖放图片时，遇到了一个诡异现象：同 Activity 内拖放一切正常，手指拖到另一个窗口上方后 DragShadow 直接消失，ClipData 也拿不到了。查了半天发现是目标窗口的 WindowManager flags 没设对。顺着这个问题翻了一遍源码，把拖放系统的全链路摸清楚了。

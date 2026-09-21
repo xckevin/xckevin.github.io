@@ -1,4 +1,5 @@
 ---
+translationKey: android-binder
 title: "Android Binder 是什么？一篇看懂 Binder 通信模型"
 slug: android-binder
 excerpt: "用问题驱动的方式解释 Android Binder 是什么、为什么系统服务依赖 Binder、一次跨进程调用会经过哪些角色。"
@@ -64,7 +65,7 @@ Binder 调用并不一定慢，真正危险的是在主线程做同步 Binder �
 ## 深入阅读
 
 - [返回对应专题：Android Framework](/android-framework/)
-- [Android Binder 原理：从驱动通信到 AIDL 调用链路](/blog/binder-ipc机制深度解析-beyond-aidl/)
-- [Android Framework 系统服务：AMS、WMS 与应用进程交互模型](/blog/android系统服务与framework层交互模型/)
+- [Android Binder 原理：从驱动通信到 AIDL 调用链路](/blog/binder-ipc-beyond-aidl/)
+- [Android Framework 系统服务：AMS、WMS 与应用进程交互模型](/blog/android-system-services-framework-interaction/)
 - [Android Perfetto 入门：Trace 抓取、轨道分析与性能定位](/blog/android-perfetto/)
 <!-- /seo-internal-links -->

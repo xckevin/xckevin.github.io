@@ -1,4 +1,6 @@
 ---
+slug: android-typography-font-architecture-part2
+translationKey: android-typography-font-architecture-part2
 title: "从像素到灵魂：深入解析字体排印与 Android 字体架构（2）：初识门径：字体的基本分类"
 excerpt: "「从像素到灵魂：深入解析字体排印与 Android 字体架构」系列第 2/15 篇：初识门径：字体的基本分类"
 publishDate: 2026-01-12

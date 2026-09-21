@@ -1,4 +1,6 @@
 ---
+slug: jenkins-gitlab-ci-android-cicd-complete-guide-part2
+translationKey: jenkins-gitlab-ci-android-cicd-complete-guide-part2
 title: "Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南（2）：基础构建配置"
 excerpt: "「Jenkins与GitLab CI实现Android持续集成与交付：从构建到发布的完整指南」系列第 2/8 篇：基础构建配置"
 publishDate: 2025-09-06

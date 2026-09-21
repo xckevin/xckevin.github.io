@@ -1,4 +1,6 @@
 ---
+slug: jetpack-compose-gestures
+translationKey: jetpack-compose-gestures
 title: Compose 手势系统：PointerInput 事件管道与嵌套滚动冲突解决
 excerpt: 深入解析Compose手势系统的三层事件管道架构与View体系的根本差异，结合PointerInputFilter源码，给出嵌套滚动冲突的方向锁定、事件消费时机等实用解决方案。
 publishDate: '2026-05-16'
@@ -224,8 +226,8 @@ onGesture = { centroid, pan, zoom, rotation ->
 ## 延伸阅读
 
 - [返回对应专题：Jetpack Compose](/jetpack-compose/)
-- [Jetpack Compose 重组性能优化：Stability、derivedStateOf 与跳过重组](/blog/2026-05-07-jetpack_compose_重组性能全链路调优_从_stability_推断到_deriveds/)
-- [Jetpack Compose 原理与高级应用：状态、布局、重组与性能实践](/blog/jetpack-compose-高级应用与原理/)
-- [Jetpack Compose Modifier 原理：链式节点、布局绘制与事件处理](/blog/2026-05-15-jetpack_compose_modifier_链式机制深度解析_从_modifier_node_/)
-- [Jetpack Compose 动画系统：AnimationSpec、弹簧模型与 Transition](/blog/2026-05-09-jetpack_compose_动画系统深度解析_从_animationspec_物理弹簧模型到_t/)
+- [Jetpack Compose 重组性能优化：Stability、derivedStateOf 与跳过重组](/blog/jetpack-compose-recomposition-performance/)
+- [Jetpack Compose 原理与高级应用：状态、布局、重组与性能实践](/blog/jetpack-compose-advanced-applications-internals/)
+- [Jetpack Compose Modifier 原理：链式节点、布局绘制与事件处理](/blog/jetpack-compose-modifier-node/)
+- [Jetpack Compose 动画系统：AnimationSpec、弹簧模型与 Transition](/blog/jetpack-compose-animation/)
 <!-- /seo-internal-links -->

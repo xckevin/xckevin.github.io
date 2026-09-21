@@ -11,8 +11,9 @@ tags:
 - 构建优化
 - 渠道打包
 seo:
-  title: 深入 Android 多渠道打包全链路：从 Gradle Flavor 构建到 Walle V2 签名注入的渠道管理工程实践
+  title: Android 多渠道打包：Gradle Flavor 与 Walle V2 签名注入
   description: 详解 Android 多渠道打包从 Gradle Flavor 到 Walle V2 签名注入的完整链路，涵盖 APK Signing Block 原理、百渠道秒级构建策略及生产环境踩坑经验。
+  pageType: article
 ---
 
 当你的应用需要同时发布到 20 个应用市场，每个渠道包还要打上不同的渠道 ID 用于数据统计时，打包时间从 2 分钟变成 40 分钟——这不是夸张，是 Gradle Flavor 方案的真实表现。

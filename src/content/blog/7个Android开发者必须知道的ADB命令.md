@@ -1,4 +1,6 @@
 ---
+slug: seven-adb-commands-android-developers
+translationKey: seven-adb-commands-android-developers
 title: 7 个 Android 开发者必须知道的 ADB 命令
 excerpt: ADB（Android Debug Bridge）是 Android 开发中不可或缺的调试工具。本文将介绍 7 个实用且高效的 ADB 命令，它们虽不常被提及，却能显著提升开发效率，让安装应用、捕获日志、推送文件等操作变得轻松自如。
 publishDate: 2024-07-29

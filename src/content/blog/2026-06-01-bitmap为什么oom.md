@@ -1,4 +1,5 @@
 ---
+translationKey: android-bitmap-oom
 title: "Bitmap 为什么容易导致 OOM？Android 图片内存模型入门"
 slug: android-bitmap-oom
 excerpt: "解释 Bitmap 内存占用、Java 堆与 Native 堆差异、Hardware Bitmap、采样压缩和图片加载优化。"
@@ -73,6 +74,6 @@ RecyclerView 图片优化要同时看两条线：滑动帧率和内存曲线。�
 ## 深入阅读
 
 - [返回对应专题：Android 性能优化](/android-performance/)
-- [Android Bitmap 内存模型：Java 堆、Native 堆与 Hardware Bitmap](/blog/2026-04-14-深入_android_bitmap_内存模型_从_java_堆分配到_hardware_bitmap/)
+- [Android Bitmap 内存模型：Java 堆、Native 堆与 Hardware Bitmap](/blog/android-bitmap-memory-model-hardware-bitmap/)
 - [RecyclerView 四级缓存是哪四级？从复用链路理解列表性能](/blog/recyclerview-cache-levels/)
 <!-- /seo-internal-links -->

@@ -1,4 +1,6 @@
 ---
+slug: android-scoped-storage-media-store
+translationKey: android-scoped-storage-media-store
 title: 深入 Android 分区存储全链路：从 Scoped Storage 沙箱隔离到 MediaStore 数据库映射
 excerpt: 本文从 FUSE 文件系统拦截、MediaStore 数据库映射到三层权限模型，完整解析 Android Scoped Storage 的架构原理，并给出从临时豁免到彻底迁移的实战适配策略。
 publishDate: '2026-05-18'
@@ -9,8 +11,9 @@ tags:
 - MediaStore
 - 文件系统
 seo:
-  title: 深入 Android 分区存储全链路：从 Scoped Storage 沙箱隔离到 MediaStore 数据库映射
+  title: Android 分区存储：Scoped Storage 沙箱与 MediaStore 映射
   description: 全面解析 Android Scoped Storage 架构：FUSE 内核拦截机制、MediaStore 数据库映射原理、三层权限模型及 SAF 兼容迁移路径，附实战适配经验。
+  pageType: article
 ---
 
 做 Android 10 适配时，团队遇到了一个典型问题：以前能正常读取相册图片的代码，targetSdkVersion 升到 29 后直接返回了空列表。翻文档才发现，Android 引入了分区存储（Scoped Storage），整个文件访问模型被重构了。

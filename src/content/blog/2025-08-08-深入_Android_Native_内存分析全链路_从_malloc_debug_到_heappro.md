@@ -1,4 +1,6 @@
 ---
+slug: android-native-memory-malloc-heapprofd
+translationKey: android-native-memory-malloc-heapprofd
 title: 深入 Android Native 内存分析全链路：从 malloc_debug 到 heapprofd 的 Native 堆内存泄漏排查实战
 excerpt: 本文系统讲解 Android Native 层内存泄漏的排查方法论，从轻量级 malloc_debug 快速锁定泄漏模块，到 Perfetto heapprofd 的火焰图与采样机制定位具体代码行，并给出完整实战流程与工具对比。
 publishDate: '2025-08-08'
@@ -9,8 +11,9 @@ tags:
 - 性能优化
 - Perfetto
 seo:
-  title: 深入 Android Native 内存分析全链路：从 malloc_debug 到 heapprofd 的 Native 堆内存泄漏排查实战
+  title: Android Native 内存分析：malloc_debug 与 heapprofd 堆泄漏排查
   description: Android Native 内存泄漏排查全链路指南：malloc_debug 快速定位模块，heapprofd 采样火焰图精准锁定代码行，附实战流程、参数调优与低版本兜底方案。
+  pageType: article
 ---
 
 去年接手一个视频 SDK 的内存问题，Java 堆看起来一切正常，但进程的 PSS 每周稳定涨 30MB，一个月后必崩。LeakCanary 捞不出任何东西——问题出在 Native 层。

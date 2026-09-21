@@ -1,4 +1,6 @@
 ---
+slug: large-app-architecture-modularization-part2
+translationKey: large-app-architecture-modularization-part2
 title: "大型 App 架构演进与模块化、组件化实践（2）：模块化策略：大卸八块的艺术"
 excerpt: "「大型 App 架构演进与模块化、组件化实践」系列第 2/3 篇：模块化策略：大卸八块的艺术"
 publishDate: 2025-10-11

@@ -11,8 +11,9 @@ tags:
 - Leanback
 - 交互设计
 seo:
-  title: 深入 Android TV 与 Google TV 应用开发全链路：从 Leanback 导航架构到遥控器焦点管理的客厅大屏工程实践
+  title: Android TV 开发：Leanback 导航架构与遥控器焦点管理
   description: 深入解析Android TV与Google TV应用开发全链路，涵盖D-Pad交互模型、Leanback导航架构、焦点管理三大核心问题及遥控器按键拦截等实战技巧。
+  pageType: article
 ---
 
 三年前接手一个 TV 端视频应用时，我打开 Android Studio 新建了一个 Empty Activity，在模拟器里跑起来——遥控器按了半天，界面上什么都没发生。那个瞬间我才意识到：手机端那套 `onClick` 监听在 TV 上完全失效了。

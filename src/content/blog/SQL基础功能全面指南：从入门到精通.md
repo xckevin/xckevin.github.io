@@ -1,4 +1,6 @@
 ---
+slug: sql-complete-guide-from-basics-to-mastery
+translationKey: sql-complete-guide-from-basics-to-mastery
 title: SQL基础功能全面指南：从入门到精通
 excerpt: SQL（结构化查询语言）是与数据库交互的标准语言。无论是数据分析师、后端开发人员还是 Android 开发者，掌握 SQL 都是必备技能。本文将系统介绍 SQL 的核心功能，从基础查询到高级操作，帮助您构建完整的 SQL 知识体系。
 publishDate: 2024-07-02

@@ -1,4 +1,6 @@
 ---
+slug: android-alarmmanager-scheduling
+translationKey: android-alarmmanager-scheduling
 title: 深入 Android AlarmManager 定时调度全链路：从 AlarmManagerService Binder 调用到 Doze 模式下的精确唤醒架构解析
 excerpt: 从 AlarmManagerService Binder 调用到内核 RTC 硬件唤醒，逐层拆解 Android 定时调度全链路，涵盖 Doze 模式限行策略、批量对齐机制与实战排查方法。
 publishDate: '2025-05-29'
@@ -9,8 +11,9 @@ tags:
 - 定时调度
 - 性能优化
 seo:
-  title: 深入 Android AlarmManager 定时调度全链路：从 AlarmManagerService Binder 调用到 Doze 模式下的精确唤醒架构解析
+  title: Android AlarmManager 定时调度：AlarmManagerService Binder 与 Doze 精确唤醒
   description: 深入剖析 Android AlarmManager 从 Binder 跨进程调用到内核 RTC_WAKEUP 硬件唤醒的完整调度链路，详解 Doze 模式下闹钟延迟根因、批量对齐省电策略与 dumpsys 实战排查方法。
+  pageType: article
 ---
 
 项目中有一个消息轮询模块，每隔 5 分钟用 `AlarmManager.setRepeating()` 拉取服务端消息。测试反馈说：设备息屏半小时后轮询就停了，亮屏立刻恢复。日志里没看到崩溃，但定时任务确实没触发。

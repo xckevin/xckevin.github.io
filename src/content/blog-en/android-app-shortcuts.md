@@ -1,31 +1,33 @@
 ---
-title: "Android App Shortcuts: ShortcutManager, Pinned Shortcuts, and Compose Adaptation"
+title: 'Android App Shortcuts: ShortcutManager, Pinned Shortcuts, and Compose Adaptation'
 lang: en
 translationKey: android-app-shortcuts
 slug: android-app-shortcuts
-excerpt: "A full-chain guide to Android App Shortcuts, covering ShortcutManager limits, static and dynamic shortcut configuration, Intent routing, pinned shortcuts, and Compose icon and navigation adaptation."
+excerpt: A full-chain guide to Android App Shortcuts, covering ShortcutManager limits, static and dynamic shortcut configuration, Intent routing, pinned shortcuts, and Compose icon and
+  navigation adaptation.
 publishDate: '2026-02-24'
 tags:
-- "Android"
-- "App Shortcuts"
-- "ShortcutManager"
-- "Jetpack Compose"
-- "Startup Optimization"
+- Android
+- App Shortcuts
+- ShortcutManager
+- Jetpack Compose
+- Startup Optimization
 seo:
-  title: "Android App Shortcuts: ShortcutManager, Pinned Shortcuts, and Compose"
-  description: "Debug Android App Shortcuts through ShortcutManager limits, static and dynamic entries, Intent routing, pinned shortcuts, and Compose adaptation."
+  title: 'Android App Shortcuts: ShortcutManager, Pinned Shortcuts, and Compose'
+  description: Debug Android App Shortcuts through ShortcutManager limits, static and dynamic entries, Intent routing, pinned shortcuts, and Compose adaptation.
   pageType: article
+  canonicalPath: /en/blog/android-app-shortcuts-shortcutmanager-deep-dive/
+displayInBlog: false
+updatedDate: '2026-09-21'
 ---
 
-During startup optimization, I found a strange issue: on a test device, the shortcut menu shown after long-pressing the app icon appeared only sometimes. Logcat had one line sitting there: "Shortcut exceeds max count." After investigation, the cause was clear. We had registered 6 dynamic shortcuts plus 4 static shortcuts, for a total of 10, while the system limit was 5. But the issue reproduced only on Android 8.0; newer versions looked fine.
-
-That bug pushed me to map the full App Shortcuts path: registration, dispatch, and pinning.
+When shortcuts are missing from a launcher menu, first distinguish a publication quota error from the launcher’s display limit. These occur at different stages. This article traces registration, dispatch, and pinning.
 
 ## ShortcutManager's two channels: limits and priority
 
-The shortcut count limit depends on API level. `ShortcutManager.getMaxShortcutCountPerActivity()` returns 5 on Android 8.0 (API 26), and static plus dynamic shortcuts share that quota. Starting with Android 9, the limit increases to 15, but Launcher long-press menus directly show only the first 5 and put the rest behind a "More" entry.
+Static and dynamic shortcuts share a per-activity quota. Read it on the target device with `ShortcutManager.getMaxShortcutCountPerActivity()`; do not assume Android 9 always permits 15. See the [ShortcutManager API](https://developer.android.com/reference/android/content/pm/ShortcutManager).
 
-That was the root cause of the bug. Android 8.0 had only 5 total slots, so the system truncated by `rank` and dropped lower-priority shortcuts. Newer versions have a 15-item buffer, which is more forgiving, but some customized ROMs, such as Huawei EMUI and Xiaomi MIUI, may render only 4. In one sentence: how many shortcuts actually appear is decided by the Launcher, not by ShortcutManager.
+Exceeding that quota with `setDynamicShortcuts` or `addDynamicShortcuts` can throw `IllegalArgumentException`; do not expect automatic rank-based truncation. Launcher presentation and pinned shortcuts have separate rules. See [shortcut management](https://developer.android.com/develop/ui/compose/system/shortcuts/managing-shortcuts).
 
 Static shortcuts are declared in XML:
 

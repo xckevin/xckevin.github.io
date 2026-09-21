@@ -11,8 +11,9 @@ tags:
 - OkHttp
 - 协程
 seo:
-  title: 深入 Android Retrofit 网络层全链路：从 JDK 动态代理到 CallAdapter 协程桥接的声明式 HTTP 架构解析
+  title: Android Retrofit：JDK 动态代理与 CallAdapter 协程桥接
   description: 从 JDK 动态代理、注解解析、OkHttp 桥接到 CallAdapter 协程适配，逐层拆解 Retrofit 的声明式 HTTP 架构与全链路执行流程。
+  pageType: article
 ---
 
 在排查一次线上内存泄漏时，我盯着一个 `ApiService` 接口看了很久——明明只写了 `@GET` 注解和抽象方法，运行时却返回了真实的用户对象。接口没有实现类，Retrofit 到底在背后做了什么？

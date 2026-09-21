@@ -22,22 +22,22 @@ The point is to treat Android work as an engineering system, not only as feature
 
 ## Core Articles
 
-- [Android Gradle build optimization: configuration cache, KSP, and task governance](/blog/2026-05-06-android_gradle_构建提速全链路_从_configuration_cache_到_ksp/)
-- [Android testing practice: from JUnit unit tests to Compose semantics](/blog/2026-05-10-深入_android_测试全链路工程实践_从_junit_单元测试到_compose_semanti/)
-- [Android CI/CD with Jenkins and GitLab CI: from build to release](/blog/jenkins与gitlab-ci实现android持续集成与交付从构建到发布的完整指南/)
+- [Android Gradle build optimization: configuration cache, KSP, and task governance](/blog/android-gradle-build-speed-configuration-cache-ksp/)
+- [Android testing practice: from JUnit unit tests to Compose semantics](/blog/android-testing-junit-compose/)
+- [Android CI/CD with Jenkins and GitLab CI: from build to release](/blog/jenkins-gitlab-ci-android-cicd-complete-guide/)
 
 ## Build, Gates, and Release Quality
 
-- [Android Gradle Version Catalog and Convention Plugins](/blog/2026-03-10-深入_android_gradle_version_catalog_与_convention_plu/)
-- [Custom Android lint rules: from UAST to detector implementation](/blog/2025-12-26-深入_android_自定义_lint_规则全链路_从_uast_语法树到_detector_检测器/)
-- [Android CI/CD delivery: static checks, automated tests, and Firebase App Distribution](/blog/2025-06-23-深入_android_ci_cd_持续交付全链路_从静态代码检查到自动化测试与_firebase_a/)
-- [Android API compatibility engineering: from minSdk checks to runtime degradation](/blog/2026-01-28-android_api_版本兼容性工程体系_从_minsdk_编译期检查到运行时特性降级的全链路适配/)
-- [Automated deobfuscation for Android crash stacks: mapping file governance and online recovery](/blog/2026-02-06-android_混淆崩溃堆栈的自动化反混淆还原系统_从_mapping_txt_版本管理到线上实时符/)
-- [Android production stability monitoring: exception SDKs, APM dashboards, and quality systems](/blog/2025-12-23-深入_android_线上稳定性监控体系全链路_从异常采集_sdk_设计到_apm_性能看板的工程质/)
-- [Feature flags and progressive rollout: remote config and experiment splitting](/blog/2025-05-30-深入_android_app_特性开关与灰度发布全链路_从远程配置架构到实验分流引擎的工程实践/)
-- [Google Play In-App Updates: update flow, policy, and user experience](/blog/2025-07-30-深入_android_google_play_in-app_update_全链路_从_play_co/)
-- [Android plugin architecture: ClassLoader loading and Shadow-style zero-reflection design](/blog/2025-10-28-深入_android_插件化架构全链路_从_classloader_动态加载到_shadow_零反射/)
-- [Android user data backup and restore: Auto Backup and key-value transport](/blog/2026-04-03-深入_android_用户数据备份恢复全链路_从_auto_backup_传输机制到_key_val/)
+- [Android Gradle Version Catalog and Convention Plugins](/blog/android-gradle-version-catalog-convention-plugins/)
+- [Custom Android lint rules: from UAST to detector implementation](/blog/android-custom-lint-uast-detector/)
+- [Android CI/CD delivery: static checks, automated tests, and Firebase App Distribution](/blog/android-ci-cd-ktlint-detekt-firebase-pipeline/)
+- [Android API compatibility engineering: from minSdk checks to runtime degradation](/blog/android-api-compatibility-minsdk-runtime-fallback/)
+- [Automated deobfuscation for Android crash stacks: mapping file governance and online recovery](/blog/android-crash-stack-deobfuscation-mapping/)
+- [Android production stability monitoring: exception SDKs, APM dashboards, and quality systems](/blog/android-stability-monitoring-apm/)
+- [Feature flags and progressive rollout: remote config and experiment splitting](/blog/android-feature-flags-gradual-rollout/)
+- [Google Play In-App Updates: update flow, policy, and user experience](/blog/android-google-play-in-app-update/)
+- [Android plugin architecture: ClassLoader loading and Shadow-style zero-reflection design](/blog/android-plugin-architecture-classloader-shadow/)
+- [Android user data backup and restore: Auto Backup and key-value transport](/blog/android-user-data-backup-restore/)
 
 ## Metrics Worth Tracking
 

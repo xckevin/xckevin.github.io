@@ -1,4 +1,6 @@
 ---
+slug: jetpack-compose-phases-composition-layout-draw
+translationKey: jetpack-compose-phases-composition-layout-draw
 title: 深入 Jetpack Compose Phases 三阶段模型：从 Composition 到 Drawing 的声明式像素生产全链路
 excerpt: 深入解析 Jetpack Compose 三阶段（Composition、Layout、Drawing）管线的工作原理，从状态读取的边界效应到阶段跳过机制，帮助开发者写出高性能声明式 UI。
 publishDate: '2026-01-15'
@@ -9,8 +11,9 @@ tags:
 - 状态管理
 - Kotlin
 seo:
-  title: 深入 Jetpack Compose Phases 三阶段模型：从 Composition 到 Drawing 的声明式像素生产全链路
+  title: Jetpack Compose Phases：Composition 到 Drawing 三阶段模型
   description: 深入解析 Jetpack Compose 的 Composition、Layout、Drawing 三阶段模型，理解状态读取如何决定重组边界，掌握阶段跳过机制与性能优化实战技巧。
+  pageType: article
 ---
 
 Compose 写久了，总会遇到一个让人愣住的 bug：明明改了 `mutableStateOf` 的值，UI 却纹丝不动。排查半天发现，**状态的读取位置**决定了哪一阶段会重新执行——读在 `Modifier` 里和读在 `Canvas` 里完全是两码事。

@@ -1,4 +1,6 @@
 ---
+slug: app-startup-phased-initialization-starttype
+translationKey: app-startup-phased-initialization-starttype
 title: 启动框架分阶段初始化：background/activity 两类 StartType 的设计与实践
 excerpt: App 启动阶段承载大量初始化逻辑，如果全部堆在 Application 中，冷启动耗时不可控。本文介绍一种分阶段初始化框架，将任务按 background 和 activity 两类 StartType 拆分，配合依赖声明、线程调度、异常降级和耗时监控，让初始化在正确时间完成必要工作。
 publishDate: '2026-06-04'
@@ -9,8 +11,9 @@ tags:
 - 架构设计
 - App Startup
 seo:
-  title: 启动框架分阶段初始化：background/activity 两类 StartType 的设计与实践
+  title: Android 启动框架分阶段初始化：background/activity StartType
   description: Android 启动框架分阶段初始化设计，将任务按 background 和 activity 两类 StartType 拆分，配合依赖声明、线程调度、异常降级和耗时监控优化冷启动体验。
+  pageType: article
 ---
 
 Android 应用启动通常经历进程创建、Application 初始化、首个 Activity 创建、首帧绘制、首屏数据加载等阶段。早期工程常见做法是在 Application 的 `onCreate` 中直接调用一串初始化方法，业务增长后问题逐渐暴露：任务顺序靠人工维护，耗时难以统计，依赖关系不透明，主线程和后台任务混在一起。某个 SDK 初始化耗时增加，可能直接影响冷启动；某个业务模块新增初始化，也可能无意中提前拉起大量类和资源。

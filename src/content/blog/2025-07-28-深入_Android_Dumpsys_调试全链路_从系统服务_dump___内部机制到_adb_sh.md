@@ -1,4 +1,6 @@
 ---
+slug: android-dumpsys-system-service-debugging
+translationKey: android-dumpsys-system-service-debugging
 title: 深入 Android Dumpsys 调试全链路：从系统服务 dump() 内部机制到 adb shell 诊断工具的线上排障实战
 excerpt: 深入分析 Android dumpsys 的跨进程通信机制、权限门控和缓冲区设计，结合实战脚本构建内存泄漏、ANR 现场保存和 Binder 风暴溯源等线上诊断工具链。
 publishDate: '2025-07-28'
@@ -9,8 +11,9 @@ tags:
 - Binder
 - 系统调试
 seo:
-  title: 深入 Android Dumpsys 调试全链路：从系统服务 dump() 内部机制到 adb shell 诊断工具的线上排障实战
+  title: Android Dumpsys 调试：系统服务 dump() 机制与 adb shell 排障
   description: 从 Binder 调用链到 AMS 内部机制，全面解析 dumpsys 跨进程通信原理，并提供内存泄漏定位、ANR 现场保存、Binder 风暴溯源等实战诊断脚本。
+  pageType: article
 ---
 
 做线上问题排查时，我最常用的命令不是 `top`，不是 `logcat`，而是 `dumpsys`。它能瞬间掏出系统的"内脏"——内存分布、Activity 栈、Binder 调用统计——信息密度远超其他工具。但用得多了就会发现：同样的 `dumpsys meminfo`，在不同 Android 版本上输出结构完全不同；加了 `--local` 参数后的行为更是反直觉。

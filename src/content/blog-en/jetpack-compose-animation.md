@@ -119,7 +119,7 @@ Compose animations feel easy to use because the physics engine, frame synchroniz
 
 - [Back to the Jetpack Compose topic](/en/jetpack-compose/)
 - [Jetpack Compose recomposition performance: Stability, derivedStateOf, and skipping](/en/blog/jetpack-compose-recomposition-performance/)
-- [Jetpack Compose principles and advanced usage: State, layout, recomposition, and performance practice](/blog/jetpack-compose-高级应用与原理/)
+- [Jetpack Compose principles and advanced usage: State, layout, recomposition, and performance practice](/blog/jetpack-compose-advanced-applications-internals/)
 - [Jetpack Compose Modifier internals: Modifier.Node, layout, drawing, and event handling](/en/blog/jetpack-compose-modifier-node/)
 - [Jetpack Compose gestures: PointerInput event pipeline and nested scrolling](/en/blog/jetpack-compose-gestures/)
 <!-- /seo-internal-links -->

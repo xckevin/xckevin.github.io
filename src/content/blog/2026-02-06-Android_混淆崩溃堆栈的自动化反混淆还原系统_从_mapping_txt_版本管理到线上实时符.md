@@ -1,4 +1,6 @@
 ---
+slug: android-crash-stack-deobfuscation-mapping
+translationKey: android-crash-stack-deobfuscation-mapping
 title: Android 混淆崩溃堆栈的自动化反混淆还原系统：从 mapping.txt 版本管理到线上实时符号化的工程实践
 excerpt: 本文介绍了一套Android混淆崩溃堆栈的自动化反混淆还原系统，从mapping.txt文件的版本管理、对象存储设计到线上实时符号化服务的完整工程实践。
 publishDate: '2026-02-06'
@@ -9,8 +11,9 @@ tags:
 - CI/CD
 - 工程实践
 seo:
-  title: Android 混淆崩溃堆栈的自动化反混淆还原系统：从 mapping.txt 版本管理到线上实时符号化的工程实践
+  title: Android 混淆堆栈反混淆：mapping.txt 版本管理与实时符号化
   description: 从mapping.txt版本管理到线上实时符号化：详解Android混淆崩溃堆栈的自动化反混淆还原系统设计，包括构建维度标识、对象存储、Retrace集成和实时符号化服务搭建。
+  pageType: article
 ---
 
 线上崩溃后台收到一条堆栈，点开一看全是 `a.b.c.d()` 这样的混淆名。你翻出本地 `mapping.txt` 跑一遍 Retrace，发现版本对不上——那个崩溃来自一周前的 release 包，而 mapping 文件早就被 CI 机清理了。

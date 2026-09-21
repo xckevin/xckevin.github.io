@@ -1,4 +1,6 @@
 ---
+slug: android-app-standby-buckets
+translationKey: android-app-standby-buckets
 title: 深入 Android App Standby Buckets 全链路：从应用待机分组算法到后台资源限制梯度的省电调度机制
 excerpt: 深入解析 Android App Standby Buckets 分桶机制，涵盖加权时间衰减分桶算法、JobScheduler/AlarmManager/网络的三维资源限制梯度，以及开发者降级适配策略。
 publishDate: '2026-06-26'
@@ -9,8 +11,9 @@ tags:
 - 省电优化
 - JobScheduler
 seo:
-  title: 深入 Android App Standby Buckets 全链路：从应用待机分组算法到后台资源限制梯度的省电调度机制
+  title: Android App Standby Buckets：待机分组与后台资源限制
   description: 详解 Android App Standby Buckets 从分桶算法到后台资源限制的完整链路，帮助开发者理解省电调度机制并制定降级适配策略。
+  pageType: article
 ---
 
 ## 一个"幽灵般"的后台任务延迟

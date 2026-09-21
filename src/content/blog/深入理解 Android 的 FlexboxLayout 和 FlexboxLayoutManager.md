@@ -1,15 +1,18 @@
 ---
+slug: android-flexboxlayout-flexboxlayoutmanager
+translationKey: android-flexboxlayout-flexboxlayoutmanager
 title: 深入理解 Android 的 FlexboxLayout 和 FlexboxLayoutManager
 excerpt: 在 Android 开发中，布局的灵活性与响应性是构建现代应用的关键。FlexboxLayout 和 FlexboxLayoutManager 借鉴了 CSS Flexbox 的布局思想，为开发者提供了一种更加灵活的视图排列方式，尤其适用于动态内容展示和复杂网格布局场景。
 publishDate: 2024-03-13
 tags:
-  - Android
-  - UI
-  - 布局
-  - FlexboxLayout
+- Android
+- UI
+- 布局
+- FlexboxLayout
 seo:
-  title: 深入理解 Android 的 FlexboxLayout 和 FlexboxLayoutManager
+  title: Android FlexboxLayout 与 FlexboxLayoutManager 布局使用
   description: 在 Android 开发中，布局的灵活性与响应性是构建现代应用的关键。FlexboxLayout 和 FlexboxLayoutManager 借鉴了 CSS Flexbox 的布局思想，为开发者提供了一种更加灵活的视图排列方式，尤其适用于动态内容展示和复杂网格布局场景。
+  pageType: article
 ---
 在 Android 开发中，布局的灵活性与响应性是构建现代应用的关键。`FlexboxLayout` 和 `FlexboxLayoutManager` 借鉴了 CSS Flexbox 的布局思想，为开发者提供了一种更加灵活的视图排列方式，尤其适用于动态内容展示和复杂网格布局场景。
 

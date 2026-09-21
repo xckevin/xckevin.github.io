@@ -1,4 +1,6 @@
 ---
+slug: jetpack-compose-compositionlocal
+translationKey: jetpack-compose-compositionlocal
 title: 深入 Jetpack Compose CompositionLocal 全链路：从隐式数据传递到组合作用域的内部机制与工程实践
 excerpt: 本文深入剖析 Compose CompositionLocal 的工作机制，从漏斗式传参困境出发，详解 compositionLocalOf 与 staticCompositionLocalOf 的差异、Slot Table 内部实现，以及隐式与显式参数的工程选型准则。
 publishDate: '2026-05-14'
@@ -9,8 +11,9 @@ tags:
 - 架构设计
 - UI框架
 seo:
-  title: 深入 Jetpack Compose CompositionLocal 全链路：从隐式数据传递到组合作用域的内部机制与工程实践
+  title: Compose CompositionLocal：隐式数据传递与组合作用域
   description: 深入剖析 Compose CompositionLocal 的核心机制与内部实现，涵盖两种 Provider 策略对比、常见踩坑场景、Slot Table 原理及工程选型最佳实践。
+  pageType: article
 ---
 
 最近在一个大型 Compose 项目中做重构，发现 MaterialTheme 的 colors 和 typography 能在任意深度的 Composable 中直接访问，不需要层层传参。这种"全局可用但又不是真正全局"的机制就是 CompositionLocal——这套机制比表面上看起来要精巧得多。

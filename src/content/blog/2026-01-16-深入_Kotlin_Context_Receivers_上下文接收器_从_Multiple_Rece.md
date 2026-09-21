@@ -1,6 +1,8 @@
 ---
-title: 深入 Kotlin Context Receivers 上下文接收器
-excerpt: 介绍Kotlin Context Receivers如何通过编译期类型检查实现类型安全的隐式上下文注入，解决传统Multiple Receivers的隐式歧义与作用域污染问题，并探讨其在Android ViewModel、Jetpack Compose等架构层中的工程实践与设计取舍。
+slug: kotlin-context-receivers
+translationKey: kotlin-context-receivers
+title: Kotlin Context Receivers：旧实验语法与 Context Parameters 迁移
+excerpt: 解析 Kotlin 旧版 Context Receivers 的隐式上下文设计，并说明其已由 Context Parameters 替代；示例供阅读旧代码与评估迁移使用。
 publishDate: '2026-01-16'
 tags:
 - Kotlin
@@ -9,13 +11,17 @@ tags:
 - 架构设计
 - 依赖注入
 seo:
-  title: 深入 Kotlin Context Receivers 上下文接收器
-  description: Kotlin Context Receivers通过编译期类型检查实现隐式上下文注入，解决Multiple Receivers的歧义问题，深入探讨其在Android架构中的工程实践与设计取舍。
+  title: Kotlin Context Receivers：旧实验语法与 Context Parameters 迁移
+  description: 解析 Kotlin 旧版 Context Receivers 的隐式上下文设计，并说明其已由 Context Parameters 替代；示例供阅读旧代码与评估迁移使用。
+  pageType: article
+updatedDate: '2026-09-21'
 ---
+
+> **状态更新（2026-09-21）**：本文分析的是旧实验特性 Context Receivers。Kotlin 当前文档以 Context Parameters 替代它，采用 context(name: Type) 形式显式命名依赖。下文 context(Type) 代码保留为旧代码阅读材料；新项目与升级工作请以 Context Parameters 官方文档和所用编译器版本为准，不应把 Context Receivers 视为已稳定特性。 [官方文档](https://kotlinlang.org/docs/context-parameters.html)
 
 做 Android 项目架构重构时，我反复碰到同一个问题：多个层级的函数需要共享依赖上下文——Logger、AnalyticsTracker、CoroutineScope——但参数层层透传不仅冗长，类型约束也容易在传递中丢失。用传统 Multiple Receivers 能省掉参数，可隐式作用域规则让 Code Review 时总有人追问："这个 receiver 到底从哪来的？"
 
-Kotlin 1.6.20 引入的 **Context Receivers（上下文接收器）** 要解决的就是这类"类型安全的隐式上下文"问题。它在 Kotlin 2.0 中进一步稳定，提供了一套编译期类型驱动的依赖注入方案。
+Kotlin 1.6.20 引入的 **Context Receivers（上下文接收器）** 要解决的就是这类"类型安全的隐式上下文"问题。它探索了编译期类型驱动的依赖注入方案，但始终是实验特性，后来由 Context Parameters 替代。
 
 ## Multiple Receivers 的真实困境
 

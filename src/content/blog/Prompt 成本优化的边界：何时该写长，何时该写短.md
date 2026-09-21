@@ -1,4 +1,6 @@
 ---
+slug: prompt-cost-optimization-when-long-or-short
+translationKey: prompt-cost-optimization-when-long-or-short
 title: Prompt 成本优化的边界：何时该写长，何时该写短
 excerpt: 详细 prompt 并不总是更省钱。本文从 token 定价、上下文衰减和人力成本三个维度，给出可量化的判断方法，帮助团队决定何时该写长 prompt、何时该写短 prompt。
 publishDate: 2026-03-04

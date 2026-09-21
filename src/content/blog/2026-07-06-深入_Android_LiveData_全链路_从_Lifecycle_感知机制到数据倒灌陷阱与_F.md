@@ -1,4 +1,6 @@
 ---
+slug: android-livedata-lifecycle-flow-migration
+translationKey: android-livedata-lifecycle-flow-migration
 title: 深入 Android LiveData 全链路：从 Lifecycle 感知机制到数据倒灌陷阱与 Flow 迁移策略的源码级解析
 excerpt: 深入解析 LiveData 生命周期感知机制与数据倒灌根因，对比 SingleLiveEvent、Event Wrapper 等补丁方案，提供从 LiveData 到 StateFlow/SharedFlow 的渐进式迁移策略。
 publishDate: '2026-07-06'
@@ -9,8 +11,9 @@ tags:
 - StateFlow
 - 架构设计
 seo:
-  title: 深入 Android LiveData 全链路：从 Lifecycle 感知机制到数据倒灌陷阱与 Flow 迁移策略的源码级解析
+  title: Android LiveData：Lifecycle 感知与数据倒灌、Flow 迁移
   description: 深入解析 Android LiveData 生命周期感知机制、数据倒灌的三层根因及常见补丁方案，提供从 LiveData 到 StateFlow/SharedFlow 的渐进式迁移策略与决策框架。
+  pageType: article
 ---
 
 去年接手一个电商项目的维护工作，QA 提了个让人摸不着头脑的 bug：从商品详情页返回列表页后，列表自动刷新并跳到了顶部。排查下来发现，列表页通过 LiveData 观察了一个全局 Repository 里的数据，每次 Fragment 从回退栈恢复，LiveData 都重新把上次的数据推给观察者。

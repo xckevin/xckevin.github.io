@@ -1,4 +1,6 @@
 ---
+slug: jetpack-compose-animation
+translationKey: jetpack-compose-animation
 title: Jetpack Compose 动画系统深度解析：从 AnimationSpec 物理弹簧模型到 Transition 多属性状态机的声明式帧驱动全链路
 excerpt: 深入解析 Compose 动画系统的物理引擎本质——基于阻尼谐振子模型的动画规范、从 Choreographer 到 Snapshot 的帧驱动管道，以及 Transition 如何实现多属性同步动画。
 publishDate: '2026-05-09'
@@ -8,8 +10,9 @@ tags:
 - 动画
 - Kotlin
 seo:
-  title: "Jetpack Compose 动画系统：AnimationSpec、弹簧模型与 Transition"
-  description: "讲解 Compose 动画系统的 AnimationSpec、Spring、Transition、状态驱动动画和性能优化策略。"
+  title: Jetpack Compose 动画：AnimationSpec、弹簧模型与 Transition
+  description: 讲解 Compose 动画系统的 AnimationSpec、Spring、Transition、状态驱动动画和性能优化策略。
+  pageType: article
 ---
 
 第一次用 `animateDpAsState`，三行代码就让按钮有了弹性缩放。后来尝试在同一个组件里同时驱动位置、透明度和颜色，动画却变得卡顿且不同步。翻源码才搞清楚——Compose 的动画系统不是属性插值器，它本质是一个物理引擎。
@@ -115,8 +118,8 @@ Compose 的动画系统用起来顺手，是因为物理引擎、帧同步、状
 ## 延伸阅读
 
 - [返回对应专题：Jetpack Compose](/jetpack-compose/)
-- [Jetpack Compose 重组性能优化：Stability、derivedStateOf 与跳过重组](/blog/2026-05-07-jetpack_compose_重组性能全链路调优_从_stability_推断到_deriveds/)
-- [Jetpack Compose 原理与高级应用：状态、布局、重组与性能实践](/blog/jetpack-compose-高级应用与原理/)
-- [Jetpack Compose Modifier 原理：链式节点、布局绘制与事件处理](/blog/2026-05-15-jetpack_compose_modifier_链式机制深度解析_从_modifier_node_/)
-- [Jetpack Compose 手势系统：PointerInput 事件管道与嵌套滚动](/blog/2026-05-16-jetpack_compose_手势系统深度解析_从_pointerinput_事件管道到_modi/)
+- [Jetpack Compose 重组性能优化：Stability、derivedStateOf 与跳过重组](/blog/jetpack-compose-recomposition-performance/)
+- [Jetpack Compose 原理与高级应用：状态、布局、重组与性能实践](/blog/jetpack-compose-advanced-applications-internals/)
+- [Jetpack Compose Modifier 原理：链式节点、布局绘制与事件处理](/blog/jetpack-compose-modifier-node/)
+- [Jetpack Compose 手势系统：PointerInput 事件管道与嵌套滚动](/blog/jetpack-compose-gestures/)
 <!-- /seo-internal-links -->

@@ -1,4 +1,6 @@
 ---
+slug: android-app-security-hardening-attack-defense-part2
+translationKey: android-app-security-hardening-attack-defense-part2
 title: "Android应用安全加固与攻防（2）：代码保护：提升逆向工程门槛"
 excerpt: "「Android应用安全加固与攻防」系列第 2/3 篇：代码保护：提升逆向工程门槛"
 publishDate: 2024-12-13

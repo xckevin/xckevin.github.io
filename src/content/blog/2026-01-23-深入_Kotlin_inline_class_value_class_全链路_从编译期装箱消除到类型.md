@@ -1,4 +1,6 @@
 ---
+slug: kotlin-value-class-inline-class
+translationKey: kotlin-value-class-inline-class
 title: 深入 Kotlin inline class/value class 全链路：从编译期消除装箱到类型安全的零开销抽象
 excerpt: 深入 Kotlin inline class 编译期装箱消除与字节码实现，涵盖类型安全零开销抽象、Android 高频场景实战与序列化兼容指南。
 publishDate: '2026-01-23'
@@ -9,8 +11,9 @@ tags:
 - 编译原理
 - 内存优化
 seo:
-  title: 深入 Kotlin inline class/value class 全链路：从编译期消除装箱到类型安全的零开销抽象
+  title: Kotlin value class：编译期消除装箱与零开销抽象
   description: 从编译期字节码变换到 JVM 方法签名混淆，深入解析 Kotlin inline class/value class 的装箱消除原理，以及在 Android Compose、序列化等场景的性能优化实战。
+  pageType: article
 ---
 
 上个月排查一个内存问题，Android Profiler 里 `UserId` 类型的实例占了 3MB 堆内存。代码里 `UserId` 只是一个 `String` 包装，但在频繁创建场景下，每个包装对象都实实在在占着 16 字节对象头。把 `class` 改成 `value class`，内存直接降了 80%。这个改动太轻量了，以至于我怀疑大部分团队根本没意识到它能带来什么。

@@ -1,4 +1,6 @@
 ---
+slug: experiment-design-aabb-testing
+translationKey: experiment-design-aabb-testing
 title: 如何设计实验？AABB实验简析
 excerpt: AABB 实验是一种基于 A/B 测试理念的实验设计方法，用于比较多个版本（通常是两个基准版本和两个实验版本）之间的差异与效果。作为 A/B 测试的扩展形式，它通过同时测试多个版本，能够更全面地评估不同设计方案或功能改进对用户行为和业务指标的影响。
 publishDate: 2025-04-13

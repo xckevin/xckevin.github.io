@@ -430,8 +430,8 @@ Deep command of the process and thread model is not only a technical safeguard a
 ## Further Reading
 
 - [Back to topic: Android Framework](/android-framework/)
-- [Android Binder: From Driver Communication to the AIDL Call Chain](/blog/android-binder/)
-- [Android Framework System Services: AMS, WMS, and App Process Interaction](/blog/android-watchdog-systemserver/)
-- [Android ContentProvider: URI Routing, Cross-Process Access, and Permission Control](/blog/android-contentprovider-ipc/)
-- [Android Permission System: Runtime Permissions, Interception Chain, and Security Boundaries](/blog/android-permission-system-evolution/)
+- [Android Binder: From Driver Communication to the AIDL Call Chain](/en/blog/android-binder/)
+- [Android Framework System Services: AMS, WMS, and App Process Interaction](/en/blog/android-watchdog-systemserver/)
+- [Android ContentProvider: URI Routing, Cross-Process Access, and Permission Control](/en/blog/android-contentprovider-ipc/)
+- [Android Permission System: Runtime Permissions, Interception Chain, and Security Boundaries](/en/blog/android-permission-system-evolution/)
 <!-- /seo-internal-links -->

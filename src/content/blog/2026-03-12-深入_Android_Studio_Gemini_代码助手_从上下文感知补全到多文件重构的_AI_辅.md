@@ -1,4 +1,6 @@
 ---
+slug: android-studio-gemini-ai-assistant
+translationKey: android-studio-gemini-ai-assistant
 title: 深入 Android Studio Gemini 代码助手：从上下文感知补全到多文件重构的 AI 辅助开发全链路
 excerpt: 深度解析 Android Studio Gemini 代码助手的上下文窗口机制、Prompt 工程技巧与多文件重构策略，提供从单文件补全到项目级重构的工程落地建议。
 publishDate: '2026-03-12'
@@ -9,8 +11,9 @@ tags:
 - 代码重构
 - 开发工具
 seo:
-  title: 深入 Android Studio Gemini 代码助手：从上下文感知补全到多文件重构的 AI 辅助开发全链路
+  title: Android Studio Gemini：上下文感知补全与多文件重构
   description: 深度解析 Android Studio Gemini 代码助手的上下文窗口机制、Prompt 工程技巧与多文件重构策略，从项目语义索引到 .geminiignore 配置的完整实践指南。
+  pageType: article
 ---
 
 上周在重构一个 Compose 页面的状态管理时，我把 ViewModel 里的 `MutableState` 全部切成了 `StateFlow`。光标移到 Composable 函数里，Gemini 直接补全了整段 `collectAsStateWithLifecycle()` 调用链，连 import 都自动加好了。更让我意外的是，它生成的 API 匹配了项目里的 lifecycle 2.8.x，没塞进来一个已废弃的旧签名。

@@ -1,4 +1,6 @@
 ---
+slug: openclaw-agent-runtime-communication-multi-agent-engineering
+translationKey: openclaw-agent-runtime-communication-multi-agent-engineering
 title: OpenClaw Agent 深度解析：从 Prompt 容器到可调度执行体
 excerpt: 这篇文章聚焦 OpenClaw Agent 本体，系统拆解 Agent 对象模型、运行状态机、Session 树、调度与预算、Tool 权限边界和失败恢复机制，给出可直接落地的工程方案。
 publishDate: 2026-03-11

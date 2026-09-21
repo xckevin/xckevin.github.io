@@ -379,8 +379,8 @@ The ability to perform system-level trace analysis is one of the strongest signa
 ## Further Reading
 
 - [Back to the Android Performance topic](/android-performance/)
-- [Android Startup Optimization: Perfetto Practice from Zygote Fork to First Frame](/blog/2026-04-19-android_%E5%86%B7%E5%90%AF%E5%8A%A8%E5%85%A8%E9%93%BE%E8%B7%AF%E4%BC%98%E5%8C%96%E5%B7%A5%E7%A8%8B%E5%AE%9E%E8%B7%B5_%E4%BB%8E_zygote_fork_%E5%88%B0%E9%A6%96%E5%B8%A7%E4%B8%8A%E5%B1%8F%E7%9A%84_systrace/)
-- [Android App Startup Optimization: Metrics, Flow, Tools, and Governance](/blog/app%E5%90%AF%E5%8A%A8%E4%BC%98%E5%8C%96%E4%B8%93%E9%A1%B9/)
-- [RecyclerView Cache Internals: Four-Level Cache, Reuse, and Prefetch](/blog/2026-04-14-%E6%B7%B1%E5%85%A5_android_recyclerview_%E7%BC%93%E5%AD%98%E6%9C%BA%E5%88%B6_%E4%BB%8E%E5%9B%9B%E7%BA%A7%E7%BC%93%E5%AD%98%E5%88%B0_prefetch_%E7%9A%84%E6%80%A7%E8%83%BD%E8%AE%BE%E8%AE%A1/)
-- [Android Bitmap Memory Model: Java Heap, Native Heap, and Hardware Bitmap](/blog/2026-04-14-%E6%B7%B1%E5%85%A5_android_bitmap_%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B_%E4%BB%8E_java_%E5%A0%86%E5%88%86%E9%85%8D%E5%88%B0_hardware_bitmap/)
+- [Android Startup Optimization: Perfetto Practice from Zygote Fork to First Frame](/blog/android-cold-start-zygote-systrace/)
+- [Android App Startup Optimization: Metrics, Flow, Tools, and Governance](/blog/app-startup-optimization/)
+- [RecyclerView Cache Internals: Four-Level Cache, Reuse, and Prefetch](/blog/android-recyclerview-cache-prefetch-deep-dive/)
+- [Android Bitmap Memory Model: Java Heap, Native Heap, and Hardware Bitmap](/blog/android-bitmap-memory-model-hardware-bitmap/)
 <!-- /seo-internal-links -->

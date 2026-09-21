@@ -1,16 +1,19 @@
 ---
-title: "Android 官方 Skills 深度解析：用 AI Agent 重新定义 Android 开发工作流"
-excerpt: "深入解析 Google 官方 android/skills 仓库，这套面向 AI Agent 的结构化指令集涵盖 Compose 迁移、Navigation 3、R8 优化等六大核心场景，重新定义 AI 辅助 Android 开发工作流。"
+slug: android-official-skills-ai-agent
+translationKey: android-official-skills-ai-agent
+title: Android 官方 Skills 深度解析：用 AI Agent 重新定义 Android 开发工作流
+excerpt: 深入解析 Google 官方 android/skills 仓库，这套面向 AI Agent 的结构化指令集涵盖 Compose 迁移、Navigation 3、R8 优化等六大核心场景，重新定义 AI 辅助 Android 开发工作流。
 publishDate: 2026-04-15
 tags:
-  - Android
-  - AI Agent
-  - Jetpack Compose
-  - 性能优化
-  - 开发工具
+- Android
+- AI Agent
+- Jetpack Compose
+- 性能优化
+- 开发工具
 seo:
-  title: "Android 官方 Skills 深度解析：用 AI Agent 重新定义 Android 开发工作流"
-  description: "深入解析 Google 官方 android/skills 仓库，面向 AI Agent 的结构化技能指令集，覆盖 Compose 迁移、Navigation 3、R8 分析、Billing Library 升级等核心 Android 开发迁移场景。"
+  title: Android 官方 Skills：AI Agent 驱动的开发工作流
+  description: 深入解析 Google 官方 android/skills 仓库，面向 AI Agent 的结构化技能指令集，覆盖 Compose 迁移、Navigation 3、R8 分析、Billing Library 升级等核心 Android 开发迁移场景。
+  pageType: article
 ---
 
 最近在逛 GitHub 时发现了一个有点意思的仓库——`android/skills`，3 月份上线，不到一个月已经拿到近 700 Star。看名字以为是某个新的示例项目，点进去才意识到这是完全不同的东西：它不是给人类工程师看的文档，而是给 AI Agent 看的「技能说明书」。

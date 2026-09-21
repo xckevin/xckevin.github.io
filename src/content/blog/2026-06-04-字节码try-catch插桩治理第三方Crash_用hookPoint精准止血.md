@@ -1,4 +1,6 @@
 ---
+slug: bytecode-try-catch-instrumentation-third-party-crash-hookpoint
+translationKey: bytecode-try-catch-instrumentation-third-party-crash-hookpoint
 title: 字节码 try-catch 插桩治理第三方 Crash：用 hookPoint 精准止血
 excerpt: 第三方 SDK 的 crash 无法通过源码修复时，字节码 try-catch 插桩是一种工程止血手段。本文介绍 hookPoint 配置驱动的通用方案：如何在编译阶段精确命中目标方法，包裹保护逻辑，捕获非致命异常并上报，同时避免掩盖真实问题。
 publishDate: '2026-06-04'

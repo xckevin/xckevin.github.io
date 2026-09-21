@@ -1,4 +1,6 @@
 ---
+slug: android-animation-principles-practice-part9
+translationKey: android-animation-principles-practice-part9
 title: "Android动画深度解析：从原理到实践（9）：分：如何选型"
 excerpt: "「Android动画深度解析：从原理到实践」系列第 9/9 篇：分：如何选型"
 publishDate: 2024-03-20

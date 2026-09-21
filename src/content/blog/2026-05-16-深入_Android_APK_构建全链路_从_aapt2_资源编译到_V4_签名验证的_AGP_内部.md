@@ -1,4 +1,6 @@
 ---
+slug: android-apk-build-aapt2-signing
+translationKey: android-apk-build-aapt2-signing
 title: 深入 Android APK 构建全链路：从 aapt2 资源编译到 V4 签名验证的 AGP 内部机制解析
 excerpt: 深入解析 Android APK 构建全链路，涵盖 aapt2 资源编译、d8/R8 DEX 生成、签名演进及包优化，助你精准定位构建问题。
 publishDate: '2026-05-16'
@@ -9,8 +11,9 @@ tags:
 - 签名机制
 - 构建优化
 seo:
-  title: 深入 Android APK 构建全链路：从 aapt2 资源编译到 V4 签名验证的 AGP 内部机制解析
+  title: Android APK 构建：aapt2 资源编译与 V4 签名验证
   description: 本文深入解析 Android APK 构建全链路：从 aapt2 资源编译的两阶段模式、d8/R8 DEX 生成与优化，到 V1-V4 四代签名协议演进及 ZIP 对齐机制，帮助开发者在构建失败或包体积异常时精准定位问题。
+  pageType: article
 ---
 
 CI 流水线突然报出 `No resource found that matches the given name`，本地编译却一切正常。日志指向 AGP 的资源链接阶段——不是代码问题，是构建工具链某个环节引入了非预期行为。这个排查过程让我把 AGP 的完整构建管线重新捋了一遍。

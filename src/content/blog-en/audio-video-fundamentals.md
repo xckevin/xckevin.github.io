@@ -1,18 +1,18 @@
 ---
-title: "Audio and Video Fundamentals"
+title: Audio and Video Fundamentals
 lang: en
 translationKey: audio-video-fundamentals
 slug: audio-video-fundamentals
-excerpt: "A beginner-friendly explanation of how audio, images, video frames, bitrate, codecs, containers, and playback workflows fit together."
+excerpt: A beginner-friendly explanation of how audio, images, video frames, bitrate, codecs, containers, and playback workflows fit together.
 publishDate: '2025-05-04'
 tags:
-- "Audio and Video"
-- "Multimedia"
-- "Codecs"
-- "Fundamentals"
+- Audio and Video
+- Multimedia
+- Codecs
+- Fundamentals
 seo:
-  title: "Audio and Video Fundamentals: Sampling, Pixels, Bitrate, Codecs, and Containers"
-  description: "Understand audio sampling, image pixels, RGB and YUV, frame rate, bitrate, codecs, containers, compression, and playback workflows."
+  title: 'Audio and Video Basics: Sampling, Bitrate, Codecs, and Containers'
+  description: Understand audio sampling, image pixels, RGB and YUV, frame rate, bitrate, codecs, containers, compression, and playback workflows.
   pageType: article
 ---
 Usually, a video is made of a sequence of images played continuously together with sound. To understand how video is built, we first need to understand the basics of sound and images.

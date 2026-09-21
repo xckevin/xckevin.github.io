@@ -1,19 +1,20 @@
 ---
-title: "Inside the Android APK Build Pipeline: aapt2, DEX, R8, and Signing"
+title: 'Inside the Android APK Build Pipeline: aapt2, DEX, R8, and Signing'
 lang: en
 translationKey: android-apk-build-aapt2-signing
 slug: android-apk-build-aapt2-signing
-excerpt: "A deep dive into Android APK builds, from aapt2 resource compilation and d8/R8 DEX generation to signing evolution, zip alignment, and package optimization."
+excerpt: A deep dive into Android APK builds, from aapt2 resource compilation and d8/R8 DEX generation to signing evolution, zip alignment, and package optimization.
 publishDate: '2026-05-16'
 tags:
-- "Android"
-- "AGP"
-- "APK Build"
-- "Signing"
-- "Build Optimization"
+- Android
+- AGP
+- APK Build
+- Signing
+- Build Optimization
 seo:
-  title: "Android APK Build Pipeline: aapt2 Resources, d8/R8, Zipalign, and V1-V4 Signing"
-  description: "Understand Android APK builds from aapt2 compile/link and d8/R8 DEX generation to V1-V4 signing, zipalign, resource shrinking, and debugging."
+  title: 'Android APK Builds: aapt2, D8/R8, Zipalign, and Signing'
+  description: Understand Android APK builds from aapt2 compile/link and d8/R8 DEX generation to V1-V4 signing, zipalign, resource shrinking, and debugging.
+  pageType: article
 ---
 
 The CI pipeline suddenly failed with `No resource found that matches the given name`, while local builds still passed. The log pointed to AGP's resource link phase. It was not an application-code issue; some part of the build toolchain had introduced unexpected behavior. That debugging session pushed me to revisit the full AGP build pipeline.

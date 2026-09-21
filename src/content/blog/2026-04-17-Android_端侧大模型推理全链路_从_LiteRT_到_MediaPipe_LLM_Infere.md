@@ -1,4 +1,6 @@
 ---
+slug: android-local-llm-litert-mediapipe
+translationKey: android-local-llm-litert-mediapipe
 title: Android 端侧大模型推理全链路：从 LiteRT 到 MediaPipe LLM Inference API 的引擎选型与工程化实践
 excerpt: 深入探讨 Android 端侧 LLM 推理的引擎选型（LiteRT、ONNX Runtime、MediaPipe LLM Inference API）、INT4 量化策略、GPU Delegate 调度优化与机型降级方案，提供可落地的工程化实践参考。
 publishDate: '2026-04-17'
@@ -9,8 +11,9 @@ tags:
 - 性能优化
 - MediaPipe
 seo:
-  title: Android 端侧大模型推理全链路：从 LiteRT 到 MediaPipe LLM Inference API 的引擎选型与工程化实践
+  title: Android 端侧大模型推理：LiteRT 与 MediaPipe LLM Inference API
   description: 深入解析 Android 端侧 LLM 推理的引擎选型、INT4 量化策略、GPU Delegate 初始化优化、KV Cache 内存管理与多机型降级方案，助力工程落地。
+  pageType: article
 ---
 
 去年底在做一个本地 AI 助手功能时，我们遇到了一个让人头疼的问题：同一个 Gemma 2B 模型，在 Pixel 8 上首 token 延迟 3.2 秒，在中端 Snapdragon 778G 机器上直接 OOM。当时摆在面前的有三条路：LiteRT（原 TFLite）、ONNX Runtime Mobile、MediaPipe LLM Inference API。最终我们在不同场景下选了不同方案，这篇文章是对这段经历的系统梳理。

@@ -142,8 +142,8 @@ One last point is easy to miss: `Bitmap.Config.RGB_565` halves memory usage comp
 ## Further Reading
 
 - [Back to the topic: Android Performance Optimization](/android-performance/)
-- [Android Startup Optimization: From Zygote Fork to First Frame with Perfetto](/blog/2026-04-19-android_冷启动全链路优化工程实践_从_zygote_fork_到首帧上屏的_systrace/)
-- [Android App Startup Optimization: Metrics, Pipeline, Tools, and Governance](/blog/app启动优化专项/)
-- [RecyclerView Cache Mechanism: Four-Level Cache, Reuse, and Prefetch](/blog/2026-04-14-深入_android_recyclerview_缓存机制_从四级缓存到_prefetch_的性能设计/)
-- [Android RenderThread and HWUI: Rendering Pipeline, DisplayList, and Dropped-Frame Analysis](/blog/2026-04-20-android_renderthread_与_hwui_渲染管线深度解析_从_displaylist/)
+- [Android Startup Optimization: From Zygote Fork to First Frame with Perfetto](/blog/android-cold-start-zygote-systrace/)
+- [Android App Startup Optimization: Metrics, Pipeline, Tools, and Governance](/blog/app-startup-optimization/)
+- [RecyclerView Cache Mechanism: Four-Level Cache, Reuse, and Prefetch](/blog/android-recyclerview-cache-prefetch-deep-dive/)
+- [Android RenderThread and HWUI: Rendering Pipeline, DisplayList, and Dropped-Frame Analysis](/blog/android-renderthread-hwui/)
 <!-- /seo-internal-links -->

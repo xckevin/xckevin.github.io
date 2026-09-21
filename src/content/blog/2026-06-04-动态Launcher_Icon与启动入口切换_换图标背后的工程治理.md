@@ -1,4 +1,6 @@
 ---
+slug: dynamic-launcher-icon-entry-switching
+translationKey: dynamic-launcher-icon-entry-switching
 title: 动态 Launcher Icon 与启动入口切换：换图标背后的工程治理
 excerpt: 动态 Launcher icon 看似只调用一次 PackageManager，实际却涉及 Manifest 声明、状态机、回退策略、桌面兼容和灰度控制。本文介绍一种通用的动态启动入口切换方案，讲清楚为什么"换图标"的能力需要完整的入口状态管理设计。
 publishDate: '2026-06-04'

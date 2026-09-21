@@ -1,4 +1,6 @@
 ---
+slug: android-process-thread-model-deep-dive-part2
+translationKey: android-process-thread-model-deep-dive-part2
 title: "Android 进程与线程模型深度剖析（2）：Android 主线程（UI 线程）：心脏与瓶颈"
 excerpt: "「Android 进程与线程模型深度剖析」系列第 2/3 篇：Android 主线程（UI 线程）：心脏与瓶颈"
 publishDate: 2025-07-04

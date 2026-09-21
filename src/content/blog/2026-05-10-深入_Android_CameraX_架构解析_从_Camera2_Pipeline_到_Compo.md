@@ -1,4 +1,6 @@
 ---
+slug: android-camerax-camera2-pipeline
+translationKey: android-camerax-camera2-pipeline
 title: 深入 Android CameraX 架构解析：从 Camera2 Pipeline 到 Compose 声明式相机的全链路实践
 excerpt: 从 Camera2 的痛点出发，深入解析 CameraX 的四层管线抽象（HAL→Camera2→UseCase→业务层）、生命周期自动绑定机制及 Compose 声明式相机集成，并总结生产环境中的对焦坐标、分辨率匹配、内存泄漏等典型踩坑经验。
 publishDate: '2026-05-10'
@@ -9,8 +11,9 @@ tags:
 - Camera2
 - 架构设计
 seo:
-  title: 深入 Android CameraX 架构解析：从 Camera2 Pipeline 到 Compose 声明式相机的全链路实践
+  title: Android CameraX：Camera2 Pipeline 与 Compose 声明式相机
   description: 深度解析 CameraX 四层架构设计、生命周期绑定与 Compose 集成，覆盖 HAL 到业务层的完整管线及生产环境踩坑经验。
+  pageType: article
 ---
 
 去年在一个视频社交应用中做相机模块重构，团队接手的是一个基于 Camera2 API 的手写方案。打开代码的瞬间我就意识到一件事：光 `CameraCaptureSession` 的状态机就占了 200 行，而且每次横竖屏切换都会随机触发几个 ANR。

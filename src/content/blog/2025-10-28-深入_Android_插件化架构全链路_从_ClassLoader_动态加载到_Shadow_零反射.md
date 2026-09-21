@@ -1,4 +1,6 @@
 ---
+slug: android-plugin-architecture-classloader-shadow
+translationKey: android-plugin-architecture-classloader-shadow
 title: 深入 Android 插件化架构全链路：从 ClassLoader 动态加载到 Shadow 零反射框架的演进与实践
 excerpt: 本文深入 Android 插件化架构全链路，从 DexClassLoader 动态加载、四大组件代理到 Shadow 零反射框架的演进，并探讨工程实践中的方案选择。
 publishDate: '2025-10-28'
@@ -9,8 +11,9 @@ tags:
 - VirtualAPK
 - Shadow
 seo:
-  title: 深入 Android 插件化架构全链路：从 ClassLoader 动态加载到 Shadow 零反射框架的演进与实践
+  title: Android 插件化架构：ClassLoader 动态加载与 Shadow 零反射框架
   description: 详解 Android 插件化全链路：ClassLoader 动态加载原理、VirtualAPK 占坑代理机制、资源分区与 SO 隔离方案，以及从反射方案向 Shadow 零反射框架的演进历程与工程实践。
+  pageType: article
 ---
 
 2018 年，我接手了一个电商 App 的插件化改造项目。App 体积已经突破 80MB，发版周期从两周拉长到一个月，业务团队苦不堪言。我们最先上了 VirtualAPK，跑了大半年，踩了一圈坑之后切到了 Shadow。插件化真正的难点不在类加载——在跟 Android 框架层博弈。

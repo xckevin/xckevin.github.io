@@ -11,8 +11,9 @@ tags:
 - 性能优化
 - 帧率优化
 seo:
-  title: 深入 Android 动态性能框架 ADPF 全链路：从 Thermal API 到 Performance Hint 的自适应性能调度
+  title: Android ADPF：Thermal API 与 Performance Hint 自适应调度
   description: 深入 Android ADPF 全链路实践：通过 Thermal API 感知热余量、Performance Hint 对齐帧预算、Game Mode 设定性能基线，实现过热降频前的自适应性能调度。
+  pageType: article
 ---
 
 我在一个 3D 游戏里把帧率锁在 60，渲染线程的帧间隔仍会从 16ms 突然拉到 30-40ms。查 Trace 看到 CPU 频率断崖式下跌，代码里没有任何逻辑变化。这就是热降频：芯片温度突破阈值后，调度器先降频再恢复，整个过程里应用层只能"挨打"。

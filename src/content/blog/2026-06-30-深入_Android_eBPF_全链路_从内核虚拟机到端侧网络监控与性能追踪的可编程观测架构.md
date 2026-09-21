@@ -1,4 +1,6 @@
 ---
+slug: android-ebpf-observability
+translationKey: android-ebpf-observability
 title: 深入 Android eBPF 全链路：从内核虚拟机到端侧网络监控与性能追踪的可编程观测架构
 excerpt: 深入解析 Android 端 eBPF 架构：从 BPF 程序编译验证到 BpfNetMaps 网络流量统计，再延伸到 perfetto 性能追踪，揭示端侧可编程观测的内核级实现原理与工程取舍。
 publishDate: '2026-06-30'
@@ -9,8 +11,9 @@ tags:
 - 性能优化
 - Linux 内核
 seo:
-  title: 深入 Android eBPF 全链路：从内核虚拟机到端侧网络监控与性能追踪的可编程观测架构
+  title: Android eBPF：内核虚拟机与端侧网络性能观测
   description: 本文深入解析 Android eBPF 全链路架构，涵盖 BPF 程序生命周期、BpfNetMaps 网络流量统计、perfetto 性能追踪，以及工程实践中的约束与取舍。
+  pageType: article
 ---
 
 做 Android 网络优化时，我遇到了一个棘手的问题：线上用户反馈耗电异常，但常规的 `TrafficStats` API 只能拿到进程级流量总和——看不到实时速率，也关联不到具体网络请求。团队试过 `tcpdump` 加后处理，性能开销大到不敢推全量。这个需求让我开始关注 Android 内核里一个低调但极为关键的能力——eBPF。

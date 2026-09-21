@@ -1,4 +1,6 @@
 ---
+slug: jetpack-compose-custom-layout-measurepolicy
+translationKey: jetpack-compose-custom-layout-measurepolicy
 title: Compose 自定义 Layout：MeasurePolicy、固有尺寸与瀑布流实战
 excerpt: 深入解析 Jetpack Compose 自定义布局核心机制：从 MeasurePolicy 单次测量模型、固有尺寸协商，到 SubcomposeLayout 按需组合，并通过自适应网格与瀑布流实战演示完整实现思路与调试技巧。
 publishDate: '2026-05-13'

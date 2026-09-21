@@ -1,4 +1,6 @@
 ---
+slug: android-databinding-two-way-binding
+translationKey: android-databinding-two-way-binding
 title: 深入 Android DataBinding 双向绑定机制：从 ObservableField 到 StateFlow 的架构演进
 excerpt: 深入剖析 Android DataBinding 双向绑定的编译期代码生成原理与 Invalidation 循环陷阱，梳理从 ObservableField、LiveData 到 StateFlow 和 Jetpack Compose 的声明式 UI 架构演进路径，并给出实际项目中的技术选型建议。
 publishDate: '2025-07-18'
@@ -9,8 +11,9 @@ tags:
 - Jetpack Compose
 - 架构设计
 seo:
-  title: 深入 Android DataBinding 双向绑定机制：从 ObservableField 到 StateFlow 的架构演进
+  title: Android DataBinding 双向绑定：ObservableField 到 StateFlow
   description: 剖析 DataBinding 双向绑定的代码生成原理、Invalidation 循环问题，以及从 ObservableField、LiveData 到 StateFlow 和 Compose 的架构演进，含实际项目选型建议。
+  pageType: article
 ---
 
 做组件化改造时，我在一个老模块里看到了这样的代码：

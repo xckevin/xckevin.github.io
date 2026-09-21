@@ -1,4 +1,6 @@
 ---
+slug: android-strictmode-blockguard
+translationKey: android-strictmode-blockguard
 title: StrictMode 从开发辅助到 CI 质量门禁的实践
 excerpt: 分享将 StrictMode 从调试工具升级为 CI 质量门禁的实践，涵盖 BlockGuard 拦截机制、JSON 结构化输出与线上软拦截方案。
 publishDate: '2026-05-20'

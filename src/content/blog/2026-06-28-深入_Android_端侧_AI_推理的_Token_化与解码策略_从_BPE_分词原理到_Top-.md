@@ -1,4 +1,6 @@
 ---
+slug: android-on-device-ai-tokenization-decoding
+translationKey: android-on-device-ai-tokenization-decoding
 title: 深入 Android 端侧 AI 推理的 Token 化与解码策略：从 BPE 分词原理到 Top-P/Top-K 采样的生成质量调控
 excerpt: 深入分析端侧AI推理中解码策略对生成质量的影响，涵盖BPE分词原理、Top-K/Top-P采样机制及端侧小模型的参数调优实践。
 publishDate: '2026-06-28'
@@ -9,8 +11,9 @@ tags:
 - 解码策略
 - Tokenization
 seo:
-  title: 深入 Android 端侧 AI 推理的 Token 化与解码策略：从 BPE 分词原理到 Top-P/Top-K 采样的生成质量调控
+  title: Android 端侧 AI Token 化与解码：BPE 分词与 Top-P/Top-K 采样
   description: 深入剖析Android端侧AI推理的Token化与解码策略：从BPE分词原理到Top-P/Top-K采样，提供端侧小模型（Gemma 2B、Phi-2）的实战调参配置与选型建议。
+  pageType: article
 ---
 
 ## 一个端侧推理的质量问题

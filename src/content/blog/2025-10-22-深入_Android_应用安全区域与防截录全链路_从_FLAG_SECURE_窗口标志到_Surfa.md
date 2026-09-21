@@ -1,4 +1,6 @@
 ---
+slug: android-flag-secure-surface-security
+translationKey: android-flag-secure-surface-security
 title: 深入 Android 应用安全区域与防截录全链路
 excerpt: Android 端侧内容安全需要多层纵深防御：FLAG_SECURE 标记、SurfaceFlinger 硬件 Overlay、Widevine DRM 管线，层层叠加抵御截屏录屏攻击。本文解析各层机制、覆盖盲区与 Compose 适配陷阱。
 publishDate: '2025-10-22'

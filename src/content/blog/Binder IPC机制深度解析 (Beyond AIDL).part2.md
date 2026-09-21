@@ -1,4 +1,6 @@
 ---
+slug: binder-ipc-beyond-aidl-part2
+translationKey: binder-ipc-beyond-aidl-part2
 title: "Binder IPC 机制深度解析（Beyond AIDL）（2）：深入 Binder 驱动：内核中的魔法师"
 excerpt: "「Binder IPC 机制深度解析（Beyond AIDL）」系列第 2/7 篇：深入 Binder 驱动：内核中的魔法师"
 publishDate: 2024-04-21

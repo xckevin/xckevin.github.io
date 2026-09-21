@@ -1,4 +1,6 @@
 ---
+slug: android-apk-decompile-recompile
+translationKey: android-apk-decompile-recompile
 title: 深入解析 APK 反编译与重新编译：从基础到进阶实战
 excerpt: Android 应用的反编译与重新编译是应用开发和逆向工程中的重要技能。无论是修改现有应用，还是对问题进行调试与修复，掌握 APK 的完整工作流程都至关重要。本教程将从基础知识入手，详细讲解 APK 反编译与重新编译的核心技术，并逐步深入到 AAR 依赖的整合及 APK 签名等高级操作。
 publishDate: 2025-02-14

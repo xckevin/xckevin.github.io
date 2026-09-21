@@ -1,4 +1,6 @@
 ---
+slug: android-splash-screen-api
+translationKey: android-splash-screen-api
 title: 深入 Android Splash Screen API 全链路：从 Android 12 系统级闪屏到 Compose 自定义启动画面的启动体验工程实践
 excerpt: 深入解析 Android 12 SplashScreen API 的系统级窗口机制与冷启动全链路，涵盖 Compose 适配、迁移踩坑及实践建议。
 publishDate: '2025-09-22'
@@ -8,8 +10,9 @@ tags:
 - 启动优化
 - Jetpack Compose
 seo:
-  title: 深入 Android Splash Screen API 全链路：从 Android 12 系统级闪屏到 Compose 自定义启动画面的启动体验工程实践
+  title: Android Splash Screen API：Android 12 系统闪屏与 Compose 启动画面
   description: Android 12 SplashScreen API 全链路解析：从系统级窗口机制、冷启动时间线到 Compose 接入与迁移实践，帮助开发者用系统闪屏消除启动白屏间隙。
+  pageType: article
 ---
 
 去年底给一个大型 App 做启动优化，撞上了兼容性难题。团队用自定义 `SplashActivity` 画闪屏跑了三年，升到 targetSdkVersion 34 后 Google Play 审核直接拒了——Android 12 强制要求使用系统级 `SplashScreen API`，老方案在 Android 12+ 上会出双闪屏。

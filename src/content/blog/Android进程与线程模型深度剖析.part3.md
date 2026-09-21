@@ -1,4 +1,6 @@
 ---
+slug: android-process-thread-model-deep-dive-part3
+translationKey: android-process-thread-model-deep-dive-part3
 title: "Android 进程与线程模型深度剖析（3）：高级同步与线程安全"
 excerpt: "「Android 进程与线程模型深度剖析」系列第 3/3 篇：高级同步与线程安全"
 publishDate: 2025-07-04

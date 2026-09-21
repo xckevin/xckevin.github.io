@@ -1,4 +1,6 @@
 ---
+slug: motion-spec-design-to-code-collaboration
+translationKey: motion-spec-design-to-code-collaboration
 title: 三端动效协作实战：用 Motion Spec 打通设计到代码
 excerpt: 当设计动效超出 Lottie 能力时，团队常在“还原度”与“可实现性”之间拉扯。本文给出一套三端可执行的协作框架，用 Motion Spec 作为中间语言，统一设计、开发与 AI 代码生成。
 publishDate: 2026-03-03

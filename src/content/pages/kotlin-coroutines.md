@@ -16,21 +16,21 @@ seo:
 
 ## 核心文章
 
-- [Kotlin suspend 原理：CPS 变换、Continuation 与状态机字节码](/blog/2026-04-23-kotlin_suspend_的编译器黑盒_从_cps_变换到状态机字节码的完整推演/)
-- [Kotlin Flow 原理与工程实践：冷流、StateFlow、SharedFlow 对比](/blog/2026-04-23-kotlin_flow_工程化全景_从冷流惰性求值到_stateflow_sharedflow_热流/)
-- [Kotlin Coroutines 与 Flow：协程调度、结构化并发和响应式数据流](/blog/kotlin-coroutines-与-flow-的高级应用与原理/)
-- [Kotlin K2 编译器解析：统一前端、类型推断与 Android 构建影响](/blog/2026-04-23-kotlin_k2_编译器深度解析_从统一前端架构到智能类型推断重写的编译革新与_android_工/)
+- [Kotlin suspend 原理：CPS 变换、Continuation 与状态机字节码](/blog/kotlin-suspend-state-machine/)
+- [Kotlin Flow 原理与工程实践：冷流、StateFlow、SharedFlow 对比](/blog/kotlin-flow-stateflow-sharedflow/)
+- [Kotlin Coroutines 与 Flow：协程调度、结构化并发和响应式数据流](/blog/kotlin-coroutines-flow-advanced-applications-internals/)
+- [Kotlin K2 编译器解析：统一前端、类型推断与 Android 构建影响](/blog/kotlin-k2-compiler-android/)
 
 ## 类型系统、编译期能力与测试
 
-- [深入 Kotlin Coroutines 测试全链路：从 TestDispatcher 调度控制到 Turbine Flow 断言的协程单元测试工程实践](/blog/2026-05-15-深入_kotlin_coroutines_测试全链路_从_testdispatcher_调度控制到_/)
-- [深入 Kotlin Context Receivers 上下文接收器](/blog/2026-01-16-深入_kotlin_context_receivers_上下文接收器_从_multiple_rece/)
-- [深入 Kotlin Contracts 契约编程：从 SmartCast 失效到 callsInPlace 的编译器协作机制](/blog/2026-01-20-深入_kotlin_contracts_契约编程_从_smartcast_类型推断到_callsin/)
-- [深入 Kotlin Sealed Class/Interface 密封类层次：从编译期穷举检查到 Compose UI 状态建模的类型安全实践](/blog/2026-01-21-深入_kotlin_sealed_class_interface_密封类层次_从编译期穷举检查到_c/)
-- [深入 KSP 全链路：从注解扫描到代码生成的编译期元编程](/blog/2026-01-22-深入_kotlin_symbol_processing__ksp__全链路解析_从_symbolpr/)
-- [深入 Kotlin inline class/value class 全链路：从编译期消除装箱到类型安全的零开销抽象](/blog/2026-01-23-深入_kotlin_inline_class_value_class_全链路_从编译期装箱消除到类型/)
-- [深入 Kotlin 内联函数全链路解析：从 inline 字节码内联到 reified 泛型特化的编译期优化黑魔法](/blog/2026-01-26-深入_kotlin_内联函数全链路解析_从_inline_字节码内联到_reified_泛型特化的编/)
-- [深入 Kotlin 类型安全构建器与 DSL 设计全链路](/blog/2026-05-27-深入_kotlin_类型安全构建器与_dsl_设计全链路_从__dslmarker_隐式作用域到_c/)
+- [深入 Kotlin Coroutines 测试全链路：从 TestDispatcher 调度控制到 Turbine Flow 断言的协程单元测试工程实践](/blog/kotlin-coroutines-testing/)
+- [深入 Kotlin Context Receivers 上下文接收器](/blog/kotlin-context-receivers/)
+- [深入 Kotlin Contracts 契约编程：从 SmartCast 失效到 callsInPlace 的编译器协作机制](/blog/kotlin-contracts-smartcast/)
+- [深入 Kotlin Sealed Class/Interface 密封类层次：从编译期穷举检查到 Compose UI 状态建模的类型安全实践](/blog/kotlin-sealed-class-interface/)
+- [深入 KSP 全链路：从注解扫描到代码生成的编译期元编程](/blog/kotlin-symbol-processing-ksp/)
+- [深入 Kotlin inline class/value class 全链路：从编译期消除装箱到类型安全的零开销抽象](/blog/kotlin-value-class-inline-class/)
+- [深入 Kotlin 内联函数全链路解析：从 inline 字节码内联到 reified 泛型特化的编译期优化黑魔法](/blog/kotlin-inline-functions-reified/)
+- [深入 Kotlin 类型安全构建器与 DSL 设计全链路](/blog/kotlin-type-safe-builders-dsl/)
 
 ## 工程判断
 

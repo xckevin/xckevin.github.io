@@ -1,4 +1,6 @@
 ---
+slug: custom-cache-strategy-firstcache-firstnet-onlynet-timeout
+translationKey: custom-cache-strategy-firstcache-firstnet-onlynet-timeout
 title: 自研缓存策略体系：用 FirstCache/FirstNet/OnlyNet/Timeout 终结混乱的缓存代码
 excerpt: 缓存策略看起来只是"先读缓存还是先请求网络"的选择，实际落地却会影响页面速度、弱网体验、数据一致性和代码复杂度。本文介绍一种自研缓存策略体系，用统一策略枚举、CacheManager 读写和 Flow 数据流封装，让页面只订阅状态，不拼装缓存细节。
 publishDate: '2026-06-04'

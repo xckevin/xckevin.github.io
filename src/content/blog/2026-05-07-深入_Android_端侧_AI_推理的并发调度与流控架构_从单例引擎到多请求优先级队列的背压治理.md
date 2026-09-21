@@ -1,4 +1,6 @@
 ---
+slug: android-on-device-ai-concurrency-backpressure
+translationKey: android-on-device-ai-concurrency-backpressure
 title: 端侧大模型推理调度层设计：优先级队列与背压控制实战
 excerpt: 本文介绍如何在端侧推理引擎之上构建调度中间层，通过优先级队列、抢占机制和背压控制，解决多请求并发导致的内存溢出、延迟不可控和结果乱序问题。
 publishDate: '2026-05-07'
@@ -13,7 +15,6 @@ seo:
   description: 端侧大模型推理如何避免 OOM？本文详解 InferenceScheduler 的优先级队列、抢占打断、背压拒绝和去重合并设计，200 行核心代码实现稳定调度。
 ---
 
-同系列还有： [博客自动发布工作流文章](https://xckevin.github.io/blog/2026/05/30/auto-blog-pipeline)
 
 ---
 

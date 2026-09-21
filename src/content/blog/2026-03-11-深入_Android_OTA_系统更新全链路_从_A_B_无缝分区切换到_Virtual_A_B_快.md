@@ -1,4 +1,6 @@
 ---
+slug: android-ota-ab-virtual-ab
+translationKey: android-ota-ab-virtual-ab
 title: 深入 Android OTA 系统更新全链路：从 A/B 分区到 Virtual A/B 快照
 excerpt: 深入剖析 Android OTA 系统更新全链路，涵盖 A/B 无缝更新、update_engine 增量差分机制、回滚保护、动态分区及 Virtual A/B 快照技术，并结合实战命令梳理排查思路。
 publishDate: '2026-03-11'
@@ -9,8 +11,9 @@ tags:
 - Virtual A/B
 - A/B无缝更新
 seo:
-  title: 深入 Android OTA 系统更新全链路：从 A/B 分区到 Virtual A/B 快照
+  title: Android OTA 更新：A/B 分区与 Virtual A/B 快照
   description: 从 A/B 分区、update_engine 增量差分到 Virtual A/B 快照，全面解析 Android OTA 系统更新架构演进与实战排查方法。
+  pageType: article
 ---
 
 ## A/B 无缝更新的设计初衷

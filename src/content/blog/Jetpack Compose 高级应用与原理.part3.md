@@ -1,4 +1,6 @@
 ---
+slug: jetpack-compose-advanced-applications-internals-part3
+translationKey: jetpack-compose-advanced-applications-internals-part3
 title: "Jetpack Compose 高级应用与原理（3）：Compose 布局模型：声明式的测量与放置"
 excerpt: "「Jetpack Compose 高级应用与原理」系列第 3/3 篇：Compose 布局模型：声明式的测量与放置"
 publishDate: 2025-01-27

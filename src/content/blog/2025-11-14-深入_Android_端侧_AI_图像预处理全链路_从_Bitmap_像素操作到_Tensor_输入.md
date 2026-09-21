@@ -1,4 +1,6 @@
 ---
+slug: android-on-device-ai-image-preprocessing
+translationKey: android-on-device-ai-image-preprocessing
 title: 深入 Android 端侧 AI 图像预处理全链路：从 Bitmap 像素操作到 Tensor 输入的高性能数据管道
 excerpt: 端侧 AI 推理中，数据预处理常占 30%-50% 耗时。本文梳理从 Bitmap 像素到 Tensor 输入的完整链路，涵盖内存模型、像素格式转换、Resize 策略、标准化及零拷贝优化，帮助开发者将预处理延迟压到毫秒级。
 publishDate: '2025-11-14'
@@ -9,8 +11,9 @@ tags:
 - 性能优化
 - 图像预处理
 seo:
-  title: 深入 Android 端侧 AI 图像预处理全链路：从 Bitmap 像素操作到 Tensor 输入的高性能数据管道
+  title: Android 端侧 AI 图像预处理：Bitmap 像素操作与 Tensor 输入管道
   description: 详解 Android 端侧 AI 图像预处理全链路优化：从 Hardware Bitmap 内存模型到 NV21 转 RGB、Resize 选型、Tensor 标准化，再到零拷贝策略，把端到端延迟从 3 倍差距压到毫秒级。
+  pageType: article
 ---
 
 在做端侧图像分类模型落地时，我遇到过一个反直觉的问题：同一张图、同一个 TFLite 模型，Java 层的推理耗时比 Native 层慢了近 3 倍。排查下来，80% 的时间没有花在推理上，而是花在了 Bitmap 到 Tensor 的格式转换里。

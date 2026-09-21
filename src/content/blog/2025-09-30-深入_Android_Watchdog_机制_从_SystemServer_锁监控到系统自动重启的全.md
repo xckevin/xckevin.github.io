@@ -1,4 +1,6 @@
 ---
+slug: android-watchdog-systemserver
+translationKey: android-watchdog-systemserver
 title: 深入 Android Watchdog 机制：从 SystemServer 锁监控到系统自动重启的全链路解析
 excerpt: 深入解析 Android Watchdog 机制的监控模型、死锁检测流程与 system_server 重启链路，并结合常见触发场景和堆栈定位方法。
 publishDate: '2025-09-30'
@@ -9,8 +11,9 @@ tags:
 - 死锁检测
 - 系统稳定性
 seo:
-  title: 深入 Android Watchdog 机制：从 SystemServer 锁监控到系统自动重启的全链路解析
+  title: Android Watchdog：SystemServer 锁监控与系统自动重启
   description: 深入解析 Android Watchdog 死锁检测机制，涵盖 HandlerChecker 调度模型、60 秒超时判定流程、system_server 重启链路，以及 Binder 死锁、IO 阻塞等常见触发场景的堆栈定位方法。
+  pageType: article
 ---
 
 ANR 谁都见过——主线程卡 5 秒，弹个框。但有一种情况更狠：没有弹框，手机直接黑屏重启，logcat 只剩一行 `WATCHDOG KILLING SYSTEM PROCESS`。

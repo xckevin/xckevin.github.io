@@ -32,9 +32,9 @@ The goal is to make build speed and build reliability measurable engineering con
 
 - [Mobile Engineering](/en/android-engineering/)
 - [How to analyze slow Android Gradle builds: from configuration time to task execution](/blog/android-gradle-build-slow/)
-- [Android Gradle build optimization: Configuration Cache, KSP, and task governance](/blog/2026-05-06-android_gradle_构建提速全链路_从_configuration_cache_到_ksp/)
-- [Android Gradle Version Catalog and Convention Plugins](/blog/2026-03-10-深入_android_gradle_version_catalog_与_convention_plu/)
-- [Android APK build pipeline: aapt2, V4 signatures, and AGP internals](/blog/2026-05-16-深入_android_apk_构建全链路_从_aapt2_资源编译到_v4_签名验证的_agp_内部/)
+- [Android Gradle build optimization: Configuration Cache, KSP, and task governance](/blog/android-gradle-build-speed-configuration-cache-ksp/)
+- [Android Gradle Version Catalog and Convention Plugins](/blog/android-gradle-version-catalog-convention-plugins/)
+- [Android APK build pipeline: aapt2, V4 signatures, and AGP internals](/blog/android-apk-build-aapt2-signing/)
 - [What should Android CI/CD quality gates include?](/blog/android-ci-cd-quality-gates/)
 
 ## Debugging Route

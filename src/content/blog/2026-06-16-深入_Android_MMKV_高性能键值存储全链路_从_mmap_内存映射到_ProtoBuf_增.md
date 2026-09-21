@@ -11,8 +11,9 @@ tags:
 - mmap
 - ProtoBuf
 seo:
-  title: 深入 Android MMKV 高性能键值存储全链路：从 mmap 内存映射到 ProtoBuf 增量更新的微信级工程实践
+  title: Android MMKV：mmap 内存映射与 ProtoBuf 增量更新
   description: 深入解析 MMKV 高性能键值存储原理，从 mmap 内存映射、ProtoBuf 增量更新到多进程安全，对比 SharedPreferences 与 DataStore 优劣，给出工程实践选型指南。
+  pageType: article
 ---
 
 做客户端开发，大概率都经历过这个场景：用户反馈应用启动白屏，排查到最后发现是 `SharedPreferences` 的 `getSharedPreferences` 在主线程加载文件，把 Activity 启动卡了 2 秒。于是我把 `apply()` 全换成了 `commit()`——ANR 率不降反升。

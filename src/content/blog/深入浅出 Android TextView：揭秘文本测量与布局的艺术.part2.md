@@ -1,4 +1,6 @@
 ---
+slug: android-textview-measure-layout-part2
+translationKey: android-textview-measure-layout-part2
 title: "深入浅出 Android TextView：揭秘文本测量与布局的艺术（2）：三大 Layout 实现详解"
 excerpt: "「深入浅出 Android TextView：揭秘文本测量与布局的艺术」系列第 2/4 篇：三大 Layout 实现详解"
 publishDate: 2025-05-18

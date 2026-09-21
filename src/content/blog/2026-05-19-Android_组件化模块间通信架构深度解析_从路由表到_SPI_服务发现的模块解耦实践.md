@@ -1,4 +1,6 @@
 ---
+slug: android-modular-communication
+translationKey: android-modular-communication
 title: Android 组件化模块间通信：从路由表到 SPI 服务发现
 excerpt: 深入分析 Android 组件化模块间通信的两种方案：路由表与接口下沉（SPI 服务发现），涵盖实现原理、实战决策与选型指南。
 publishDate: '2026-05-19'

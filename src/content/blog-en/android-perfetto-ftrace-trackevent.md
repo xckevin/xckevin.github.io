@@ -131,8 +131,8 @@ Android 16 pushes Perfetto into the system-capability layer. Android Studio Meer
 ## Further reading
 
 - [Back to topic: Android performance optimization](/en/android-performance/)
-- [Android cold-start optimization: Perfetto practice from Zygote fork to first frame](/blog/android-cold-start-zygote-systrace/)
-- [Android app startup optimization: metrics, pipeline, tools, and governance](/blog/app-startup-optimization/)
-- [RecyclerView caching internals: four-level cache, reuse, and prefetch](/blog/android-recyclerview-four-level-cache/)
-- [Android Bitmap memory model: Java heap, native heap, and Hardware Bitmap](/blog/android-bitmap-oom/)
+- [Android cold-start optimization: Perfetto practice from Zygote fork to first frame](/en/blog/android-cold-start-zygote-systrace/)
+- [Android app startup optimization: metrics, pipeline, tools, and governance](/en/blog/app-startup-optimization/)
+- [RecyclerView caching internals: four-level cache, reuse, and prefetch](/en/blog/android-recyclerview-four-level-cache/)
+- [Android Bitmap memory model: Java heap, native heap, and Hardware Bitmap](/en/blog/android-bitmap-oom/)
 <!-- /seo-internal-links -->

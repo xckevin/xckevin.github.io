@@ -1,4 +1,6 @@
 ---
+slug: kotlin-inline-functions-reified
+translationKey: kotlin-inline-functions-reified
 title: 深入 Kotlin 内联函数全链路解析：从 inline 字节码内联到 reified 泛型特化的编译期优化黑魔法
 excerpt: 从字节码层面深入解析 Kotlin inline 内联机制，结合 noinline、crossinline、reified 底层原理，剖析 Compose 中的编译期优化实战策略。
 publishDate: '2026-01-26'
@@ -9,8 +11,9 @@ tags:
 - 字节码
 - 泛型
 seo:
-  title: 深入 Kotlin 内联函数全链路解析：从 inline 字节码内联到 reified 泛型特化的编译期优化黑魔法
+  title: Kotlin 内联函数：inline 字节码内联与 reified 泛型特化
   description: 深入解析 Kotlin inline 内联函数在字节码层面的工作原理，涵盖 noinline、crossinline、reified 泛型特化机制，并结合 Jetpack Compose 场景分析编译期优化策略。
+  pageType: article
 ---
 
 Kotlin 里每传一个 lambda，编译器都会生成匿名内部类对象。Compose 的 `@Composable` 函数在密集重组时性能不崩，核心原因就是编译器把函数体直接"搬"到了调用处——inline 的工作方式。

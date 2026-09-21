@@ -11,8 +11,9 @@ tags:
 - 协程
 - 内存管理
 seo:
-  title: 深入 Android 端侧 AI 推理的协程化生命周期管理：从结构化并发到 GPU 推理任务的安全编排
+  title: Android 端侧 AI 协程化生命周期：结构化并发与 GPU 任务编排
   description: 本文探讨如何利用 Kotlin 协程的结构化并发，管理 Android 端侧 AI 推理的三层资源模型，涵盖 GPU 释放顺序、Actor 串行化及异常传播，防止 native 内存泄漏。
+  pageType: article
 ---
 
 上个月排查一个线上 Crash，调用栈指向 `AHardwareBuffer` 的 native 层释放，触发点在用户快速切换页面时。翻代码发现，MediaPipe 推理任务跑在一个手动创建的线程池里，页面销毁时只调了 `future.cancel(true)`，GPU 资源根本没回收干净。

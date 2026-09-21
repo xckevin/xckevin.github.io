@@ -1,4 +1,6 @@
 ---
+slug: jetpack-compose-canvas-drawscope
+translationKey: android-compose-canvas-drawscope-declarative-charts
 title: 深入 Android Compose Canvas 自定义绘制全链路：从 DrawScope 绘图模型到声明式数据可视化图表的架构设计与实战
 excerpt: 深入拆解 Compose Canvas 的 DrawScope 绘图模型与坐标映射机制，并给出声明式图表组件的图层化架构设计。
 publishDate: '2026-02-25'
@@ -9,8 +11,9 @@ tags:
 - 数据可视化
 - 自定义绘制
 seo:
-  title: 深入 Android Compose Canvas 自定义绘制全链路：从 DrawScope 绘图模型到声明式数据可视化图表的架构设计与实战
+  title: Compose Canvas 绘制：DrawScope 绘图模型与数据可视化图表
   description: 深入拆解 Compose Canvas 的 DrawScope 绘图模型、坐标映射、路径绘制与文本排印机制，并给出声明式图表组件的图层化架构设计。
+  pageType: article
 ---
 
 在项目里需要做一个雷达图组件时，我遇到了一个尴尬的场景：Compose 提供了 Canvas，但官方示例只画了几条线和圆。当你需要做一个真正可用的数据可视化图表——带坐标轴、刻度标签、数据点标记——Canvas 的 API 模型和声明式 UI 之间就开始打架了。

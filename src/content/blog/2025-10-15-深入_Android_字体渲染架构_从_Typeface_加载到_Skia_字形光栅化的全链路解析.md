@@ -1,4 +1,6 @@
 ---
+slug: android-font-rendering-typeface-skia
+translationKey: android-font-rendering-typeface-skia
 title: 深入 Android 字体渲染架构：从 Typeface 加载到 Skia 字形光栅化的全链路解析
 excerpt: 本文深入剖析 Android 字体渲染全链路：从 Typeface 加载机制、Minikin 字体调度，到 Skia 字形光栅化与缓存策略，并结合实际性能数据给出可落地的优化方案。
 publishDate: '2025-10-15'
@@ -9,8 +11,9 @@ tags:
 - Skia
 - Typeface
 seo:
-  title: 深入 Android 字体渲染架构：从 Typeface 加载到 Skia 字形光栅化的全链路解析
+  title: Android 字体渲染：Typeface 加载与 Skia 字形光栅化
   description: 从 Typeface 加载、Minikin 字体回退、可下载字体到 Skia 字形光栅化与缓存，拆解 Android 字体渲染全链路，并结合 Systrace 实测数据给出四种可落地的优化策略。
+  pageType: article
 ---
 
 去年做国际化适配时，同一个 App 切换阿拉伯语后首帧渲染慢了近 300ms。排查下来，问题不在布局，不在网络，而是字体加载和字形光栅化整条链路出现了瓶颈。当时我对字体渲染的认知基本停留在 `Typeface.create()`，踩完坑才把这条路走通。

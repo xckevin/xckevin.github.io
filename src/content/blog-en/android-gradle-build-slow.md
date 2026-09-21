@@ -1,17 +1,18 @@
 ---
-title: "How to Analyze a Slow Android Gradle Build"
+title: How to Analyze a Slow Android Gradle Build
 lang: en
 translationKey: android-gradle-build-slow
 slug: android-gradle-build-slow
-excerpt: "A practical path for analyzing slow Android Gradle builds, including Build Scan, Configuration Cache, KSP, task dependencies, and cache hits."
+excerpt: A practical path for analyzing slow Android Gradle builds, including Build Scan, Configuration Cache, KSP, task dependencies, and cache hits.
 publishDate: '2026-06-01'
 tags:
-- "Android"
-- "Gradle"
-- "Mobile Engineering"
+- Android
+- Gradle
+- Mobile Engineering
 seo:
-  title: "How to Analyze Slow Android Gradle Builds: Configuration Cache and Task Hygiene"
-  description: "Learn how to diagnose slow Android Gradle builds across Build Scan, Configuration Cache, KSP, task dependencies, cache hits, and CI optimization."
+  title: 'Slow Android Gradle Builds: Configuration Cache and Task Analysis'
+  description: Learn how to diagnose slow Android Gradle builds across Build Scan, Configuration Cache, KSP, task dependencies, cache hits, and CI optimization.
+  pageType: article
 ---
 
 When an Android build feels slow, do not start by swapping plugins or buying bigger machines. Build time is the combined result of configuration, task execution, compilers, cache hits, and the CI environment. If you do not separate those layers, your optimization work will probably land in the wrong place.
@@ -103,6 +104,6 @@ The benefit of this order is that each step has a data loop. Build optimization 
 ## Further reading
 
 - [Back to topic: Mobile Engineering](/en/android-engineering/)
-- [Android Gradle build acceleration: Configuration Cache, KSP, and task governance](/blog/2026-05-06-android_gradle_构建提速全链路_从_configuration_cache_到_ksp/)
+- [Android Gradle build acceleration: Configuration Cache, KSP, and task governance](/blog/android-gradle-build-speed-configuration-cache-ksp/)
 - [Android CI/CD quality gates: build, test, lint, performance, and release checks](/en/blog/android-ci-cd-quality-gates/)
 <!-- /seo-internal-links -->

@@ -17,7 +17,6 @@ seo:
   pageType: article
 ---
 
-Also in this series: [blog auto-publishing workflow article](https://xckevin.github.io/blog/2026/05/30/auto-blog-pipeline)
 
 ---
 

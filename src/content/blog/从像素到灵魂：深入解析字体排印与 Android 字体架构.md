@@ -1,4 +1,6 @@
 ---
+slug: android-typography-font-architecture
+translationKey: android-typography-font-architecture
 title: 从像素到灵魂：深入解析字体排印与 Android 字体架构
 excerpt: 在数字浪潮席卷一切的今天，我们每天都沉浸在信息的海洋中。智能手机、平板电脑、智能手表、电脑屏幕……无处不在的显示设备成为了我们获取信息、进行交互的主要窗口。而在这些冰冷的屏幕上，承载着信息传递核心使命的，正是我们既熟悉又陌生的——文字。
 publishDate: 2026-01-12

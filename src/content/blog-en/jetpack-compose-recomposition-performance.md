@@ -263,7 +263,7 @@ With the toolchain in place, optimization moves from "guessing from experience" 
 ## Further reading
 
 - [Back to the Jetpack Compose topic](/en/jetpack-compose/)
-- [Jetpack Compose principles and advanced usage: State, layout, recomposition, and performance practice](/blog/jetpack-compose-高级应用与原理/)
+- [Jetpack Compose principles and advanced usage: State, layout, recomposition, and performance practice](/blog/jetpack-compose-advanced-applications-internals/)
 - [Jetpack Compose Modifier internals: Modifier.Node, layout, drawing, and event handling](/en/blog/jetpack-compose-modifier-node/)
 - [Jetpack Compose gestures: PointerInput event pipeline and nested scrolling](/en/blog/jetpack-compose-gestures/)
 - [Jetpack Compose animations: AnimationSpec, springs, and Transition](/en/blog/jetpack-compose-animation/)

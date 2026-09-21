@@ -9,10 +9,12 @@ tags:
 - 浮层架构
 - 焦点管理
 seo:
-  title: 深入 Jetpack Compose Dialog 与 Popup 浮层架构：从独立 Window 创建到焦点管理的声明式浮层全链路
+  title: Compose Dialog 与 Popup：独立 Window 创建与焦点管理
   description: 深入解析 Jetpack Compose 中 Dialog 与 Popup 的浮层架构：不是简单 View 叠加，而是独立 Window 实例。从 Window 创建、软键盘模式、焦点抢占到工程化实践，一文讲透声明式浮层的底层原理。
+  pageType: article
 slug: jetpack-compose-dialog-popup-window-focus
 translationKey: jetpack-compose-dialog-popup-window-focus
+updatedDate: '2026-09-21'
 ---
 
 在做 Compose 项目时，一个同事提了个问题：「为什么 Dialog 里的 TextField 弹键盘会把整个界面顶上去，但 BottomSheet 里的就不会？」这个问题我一开始也觉得理所当然——直到翻了源码才发现，Compose 的浮层机制远比直觉复杂。Dialog 不是简单的 View 叠加，它背后是独立的 Window 实例，享有自己的焦点链和输入法交互策略。这篇文章把这条链路拆开来看。
@@ -41,7 +43,7 @@ fun Popup(
 }
 ```
 
-`PopupLayout` 内部持有一个 `PopupWindow`，而 `PopupWindow` 本质上是 `WindowManager.addView()` 的一个封装。Dialog 则更彻底——它直接创建一个独立的 `Window`，挂到 Activity 的 Window 层级之上：
+[AndroidX 实现](https://github.com/androidx/androidx/blob/androidx-main/compose/ui/ui/src/androidMain/kotlin/androidx/compose/ui/window/AndroidPopup.android.kt) 中的 `PopupLayout` 继承 `AbstractComposeView`，通过 `WindowManager.addView(this, params)` 将自身添加到窗口。这里直接使用 `WindowManager`，并未包装 Android 的 `PopupWindow`。Dialog 则更彻底——它直接创建一个独立的 `Window`，挂到 Activity 的 Window 层级之上：
 
 ```kotlin
 // AndroidDialog 的核心链路（简化）

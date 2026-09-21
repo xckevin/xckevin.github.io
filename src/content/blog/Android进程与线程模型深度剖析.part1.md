@@ -1,4 +1,6 @@
 ---
+slug: android-process-thread-model-deep-dive-part1
+translationKey: android-process-thread-model-deep-dive-part1
 title: "Android 进程与线程模型深度剖析（1）：引言：并发执行的基石与挑战"
 excerpt: "「Android 进程与线程模型深度剖析」系列第 1/3 篇：引言：并发执行的基石与挑战"
 publishDate: 2025-07-04

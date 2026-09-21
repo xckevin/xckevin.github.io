@@ -1,4 +1,6 @@
 ---
+slug: android-modular-scroll-container-section-engine
+translationKey: android-modular-scroll-container-section-engine
 title: Android 模块化滚动容器架构：从多 ViewType 到 Section 化页面引擎
 excerpt: 电商类 App 的首页、购物车等复杂页面往往由多个业务模块拼接而成，传统的单 Adapter 多 ViewType 方案在模块增长后逐渐暴露出耦合严重、分页混乱、难以复用等问题。本文提出一套 Section 化的页面容器架构，结合 ConcatAdapter 和模块懒加载策略，实现真正的模块级解耦与可插拔。
 publishDate: 2025-03-22

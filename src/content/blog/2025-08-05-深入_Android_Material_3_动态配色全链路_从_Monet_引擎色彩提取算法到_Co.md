@@ -1,4 +1,6 @@
 ---
+slug: android-material3-dynamic-color-monet
+translationKey: android-material3-dynamic-color-monet
 title: 深入 Android Material 3 动态配色全链路：从 Monet 引擎色彩提取算法到 Compose MaterialTheme 的声明式主题架构
 excerpt: 从 Monet 引擎的加权 K-Means 取色算法到 HCT 色彩空间的色调调色板生成，再到 Compose MaterialTheme 的声明式消费，完整解析 Material You 动态配色的全链路实现原理。
 publishDate: '2025-08-05'
@@ -9,8 +11,9 @@ tags:
 - 动态配色
 - HCT 色彩空间
 seo:
-  title: 深入 Android Material 3 动态配色全链路：从 Monet 引擎色彩提取算法到 Compose MaterialTheme 的声明式主题架构
+  title: Material 3 动态配色：Monet 色彩提取与 Compose MaterialTheme
   description: 完整解析 Material You 动态配色全链路：从 WallpaperManager 取色入口、Monet 引擎的加权 K-Means 量化算法、HCT 色彩空间色调调色板生成，到 Compose MaterialTheme 声明式消费与暗色模式映射策略。
+  pageType: article
 ---
 
 Android 12 引入 Material You 那天，我做了一件同行都会做的事——盯着换壁纸时系统界面颜色的渐变过程看了十几遍。几秒内，锁屏、通知栏、设置页的色调全部跟着壁纸变化，过渡流畅。后来我开始好奇：壁纸里哪几个像素决定了最终的色板？为什么某些壁纸能生成和谐的配色，另一些翻车严重？

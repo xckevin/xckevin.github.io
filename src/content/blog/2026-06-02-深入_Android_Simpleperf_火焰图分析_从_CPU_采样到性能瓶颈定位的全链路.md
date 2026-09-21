@@ -1,4 +1,6 @@
 ---
+slug: android-simpleperf-flamegraph-cpu-profiling
+translationKey: android-simpleperf-flamegraph-cpu-profiling
 title: 深入 Android Simpleperf 火焰图分析：从 CPU 采样到性能瓶颈定位的全链路
 excerpt: 本文深入解析 Android Simpleperf 工具的原理与实战，从火焰图生成、调用栈分析到冷启动优化、多线程 CPU 分配，并结合 Systrace 构建互补的性能定位方法论。
 publishDate: '2026-06-02'
@@ -9,8 +11,9 @@ tags:
 - 火焰图
 - CPU采样
 seo:
-  title: 深入 Android Simpleperf 火焰图分析：从 CPU 采样到性能瓶颈定位的全链路
+  title: Android Simpleperf 火焰图：CPU 采样与性能瓶颈定位
   description: 深入讲解 Android Simpleperf 性能分析工具，涵盖火焰图生成与解读、冷启动热点定位、RenderThread 渲染分析、多线程 CPU 分配，以及与 Systrace 互补的定位方法论。
+  pageType: article
 ---
 
 在做冷启动优化时，我遇到过一个问题：Systrace 显示主线程有 200ms 的空闲间隙，但 CPU 使用率却居高不下。Systrace 告诉你"什么时候发生了什么"，但当问题出在纯计算密集逻辑时，它完全无能为力。这时候就需要 Simpleperf——Android 平台的 CPU 性能剖析工具。

@@ -1,19 +1,20 @@
 ---
-title: "Compose LazyColumn Scroll Performance: From Recomposition Tracing to Stable Frame Rates"
+title: 'Compose LazyColumn Scroll Performance: From Recomposition Tracing to Stable Frame Rates'
 lang: en
 translationKey: android-compose-lazycolumn-scroll-performance
 slug: jetpack-compose-lazycolumn-performance
-excerpt: "A practical LazyColumn performance guide covering recomposition spread, stability annotations, lambda stabilization, image loading isolation, compiler metrics, and Baseline Profiles."
+excerpt: A practical LazyColumn performance guide covering recomposition spread, stability annotations, lambda stabilization, image loading isolation, compiler metrics, and Baseline
+  Profiles.
 publishDate: '2026-02-26'
 tags:
-- "Android"
-- "Jetpack Compose"
-- "LazyColumn"
-- "Performance"
-- "Recomposition"
+- Android
+- Jetpack Compose
+- LazyColumn
+- Performance
+- Recomposition
 seo:
-  title: "Compose LazyColumn Scroll Performance: Recomposition, Stability, and Baseline Profiles"
-  description: "Optimize LazyColumn scrolling by diagnosing recomposition spread, stabilizing models and lambdas, isolating image loading, and using Baseline Profiles."
+  title: 'Compose LazyColumn Performance: Stability and Baseline Profiles'
+  description: Optimize LazyColumn scrolling by diagnosing recomposition spread, stabilizing models and lambdas, isolating image loading, and using Baseline Profiles.
   pageType: article
 ---
 

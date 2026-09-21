@@ -11,8 +11,9 @@ tags:
 - 编译器
 - 性能优化
 seo:
-  title: 深入 Android Compose Compiler 插件原理：从 @Composable 注解到 Composer 参数生成的编译器黑盒
+  title: Compose Compiler 插件：@Composable 注解与 Composer 参数生成
   description: 拆解 Compose Compiler Plugin 编译器插件原理，从 @Composable 注解到合成参数生成、重组跳过逻辑、状态标记与稳定性推断，掌握 Compose 性能优化的黑盒规则。
+  pageType: article
 ---
 
 上周排查一个 Compose 页面的重组问题，我盯着反编译代码看了很久——源码里明明只写了一个简单的 `@Composable` 函数，编译后却多出了 `$composer`、`$changed`、`$default` 这些参数，内部还塞满了 `startRestartGroup`、`endRestartGroup` 调用。这些变换都发生在编译期，幕后推手是 Compose Compiler Plugin。

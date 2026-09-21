@@ -1,4 +1,6 @@
 ---
+slug: android-constraintlayout-cassowary-engine
+translationKey: android-constraintlayout-cassowary-engine
 title: 深入 Android ConstraintLayout 布局引擎全链路：从 Cassowary 约束求解算法到 Compose 声明式约束的布局范式演进
 excerpt: 深入分析 ConstraintLayout 底层 Cassowary 约束求解算法的 O(n³) 性能瓶颈，对比 Compose 声明式约束的 O(n) 布局范式，提供 View 系统和 Compose 中的优化实践建议。
 publishDate: '2025-07-15'
@@ -9,8 +11,9 @@ tags:
 - Jetpack Compose
 - Cassowary
 seo:
-  title: 深入 Android ConstraintLayout 布局引擎全链路：从 Cassowary 约束求解算法到 Compose 声明式约束的布局范式演进
+  title: Android ConstraintLayout 布局引擎：Cassowary 约束求解与 Compose 约束布局
   description: 深度解析 ConstraintLayout 的 Cassowary 约束求解算法原理与性能瓶颈，对比 Compose 声明式约束布局的架构差异，提供从 View 到 Compose 的性能优化最佳实践。
+  pageType: article
 ---
 
 一个复杂布局页面，测量阶段耗时 12ms，ConstraintLayout 的 `onMeasure` 占了 8ms。当这个布局出现在 RecyclerView 的 item 里反复触发时，帧率直接掉到 40 以下。同一套布局用嵌套 LinearLayout 反而更快——ConstraintLayout 不是号称「扁平化优化」吗？

@@ -1,18 +1,18 @@
 ---
-title: "APK Decompilation and Recompilation: From Basics to Practical Workflows"
+title: 'APK Decompilation and Recompilation: From Basics to Practical Workflows'
 lang: en
 translationKey: android-apk-decompile-recompile
 slug: android-apk-decompile-recompile
-excerpt: "A practical guide to Android APK decompilation, modification, recompilation, AAR dependency integration, and APK signing with apktool and related tools."
+excerpt: A practical guide to Android APK decompilation, modification, recompilation, AAR dependency integration, and APK signing with apktool and related tools.
 publishDate: '2025-02-14'
 tags:
-- "Android"
-- "Reverse Engineering"
-- "APK"
-- "Security"
+- Android
+- Reverse Engineering
+- APK
+- Security
 seo:
-  title: "Android APK Decompilation and Recompilation: apktool, Smali, AARs, and Signing"
-  description: "Learn the APK reverse engineering workflow: decompile with apktool, modify resources and smali, integrate AARs, rebuild, sign, and verify."
+  title: 'Android APK Decompilation: apktool, Smali, and Re-signing'
+  description: 'Learn the APK reverse engineering workflow: decompile with apktool, modify resources and smali, integrate AARs, rebuild, sign, and verify.'
   pageType: article
 ---
 Android app decompilation and recompilation are important skills in app development and reverse engineering. Whether you are modifying an existing app or debugging and fixing a specific issue, understanding the complete APK workflow is essential. This tutorial starts with the basics, explains the core techniques behind APK decompilation and recompilation, and then moves into more advanced tasks such as integrating AAR dependencies and signing rebuilt APKs.

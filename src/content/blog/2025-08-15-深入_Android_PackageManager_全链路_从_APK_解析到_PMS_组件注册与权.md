@@ -1,4 +1,6 @@
 ---
+slug: android-packagemanager-pms-apk-parsing
+translationKey: android-packagemanager-pms-apk-parsing
 title: 深入 Android PackageManager 全链路：从 APK 解析到 PMS 组件注册与权限校验
 excerpt: 深入解析 Android PackageManager 从 APK 解析、组件注册到 Intent 匹配与权限校验的全链路机制，并结合 Dex 分包、Manifest Merger 等实战踩坑经验。
 publishDate: '2025-08-15'
@@ -9,8 +11,9 @@ tags:
 - Intent匹配
 - APK解析
 seo:
-  title: 深入 Android PackageManager 全链路：从 APK 解析到 PMS 组件注册与权限校验
+  title: Android PackageManager：APK 解析、PMS 组件注册与权限校验
   description: 深入解析 Android PMS 全链路：APK 结构、PackageParser 解析 Manifest、四大组件索引注册、Intent 匹配的三层过滤、权限与签名校验，以及 Dex 分包、Manifest Merger 等实战踩坑经验。
+  pageType: article
 ---
 
 几年前排查一个线上 crash，堆栈显示 `ClassNotFoundException`，指向一个在 `AndroidManifest.xml` 里声明过的 Activity。日志里 PMS 的 `mPackages` 明明有这条记录，`startActivity` 却找不到对应类。最终定位到分包方案中 Manifest 被篡改——组件注册了，但 dex 里根本没那个类文件。

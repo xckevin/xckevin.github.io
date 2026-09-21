@@ -440,7 +440,7 @@ Text is not only laid out horizontally. Vertical spacing matters just as much. U
 - **bottom**: the distance from the baseline to the **lowest** pixel the font might draw, **positive**, and `bottom >= descent`. It includes all marks or glyphs that may extend below the baseline.
 - **leading**: the suggested extra space between the previous line's descent and the next line's ascent. This value is often 0.
 
-![](../../assets/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA-android-textview%E6%8F%AD%E7%A7%98%E6%96%87%E6%9C%AC%E6%B5%8B%E9%87%8F%E4%B8%8E%E5%B8%83%E5%B1%80%E7%9A%84%E8%89%BA%E6%9C%AF-1.webp)
+![Font metrics showing the baseline, ascent, descent, line height, x-height, and glyph advance](../../assets/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA-android-textview%E6%8F%AD%E7%A7%98%E6%96%87%E6%9C%AC%E6%B5%8B%E9%87%8F%E4%B8%8E%E5%B8%83%E5%B1%80%E7%9A%84%E8%89%BA%E6%9C%AF-1.webp)
 
 *Illustration*: a horizontal line represents the baseline. Above the baseline are ascent and top, both negative. Below it are descent and bottom, both positive. The letters `jEh` demonstrate that the top of `h` is close to ascent and the bottom of `j` is close to descent. A very tall accented glyph may reach top, and a very low mark may reach bottom. Leading appears between two lines of text.
 
@@ -552,7 +552,7 @@ Android provides robust support for RTL languages such as Arabic and Hebrew.
 - **BiDi algorithm**: when text mixes LTR and RTL characters, such as Arabic embedded inside English, the system applies the Unicode bidirectional algorithm to determine the correct visual order and direction of each text run. `StaticLayout` and `DynamicLayout` implement BiDi handling internally.
 - **android:textDirection**: you can explicitly control the base text direction of a TextView, commonly with values such as `locale`, `ltr`, `rtl`, and `inherit`. For Layout, this affects how `Alignment.ALIGN_NORMAL` and `Alignment.ALIGN_OPPOSITE` behave. For example, `ALIGN_NORMAL` is right-aligned in an RTL context.
 
-![](../../assets/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA-android-textview%E6%8F%AD%E7%A7%98%E6%96%87%E6%9C%AC%E6%B5%8B%E9%87%8F%E4%B8%8E%E5%B8%83%E5%B1%80%E7%9A%84%E8%89%BA%E6%9C%AF-2.webp)
+![Bidirectional text example with Arabic embedded in an English sentence](../../assets/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA-android-textview%E6%8F%AD%E7%A7%98%E6%96%87%E6%9C%AC%E6%B5%8B%E9%87%8F%E4%B8%8E%E5%B8%83%E5%B1%80%E7%9A%84%E8%89%BA%E6%9C%AF-2.webp)
 
 *Illustration*: a TextView contains mixed English and Arabic text, for example `"This is an example with العربية text."` The English runs should display left to right, the Arabic run should display right to left, and the overall sentence should follow the correct BiDi ordering.
 

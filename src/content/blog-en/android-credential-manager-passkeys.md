@@ -17,7 +17,6 @@ seo:
   pageType: article
 ---
 
-# Android Credential Manager: FIDO2, Passkeys, and Device-Side Security
 
 When we were rebuilding a login module, the product requirement was: "one-tap login, no password entry." My first thought was WebAuthn, but Android-side APIs used to be fragmented. FIDO2 API and One Tap API covered different halves of the problem, and whichever one you picked left gaps to fill.
 

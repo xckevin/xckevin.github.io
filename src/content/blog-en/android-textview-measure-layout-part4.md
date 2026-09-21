@@ -29,7 +29,7 @@ Android provides strong support for RTL languages such as Arabic and Hebrew.
 - **BiDi algorithm**: When text mixes LTR and RTL characters, for example Arabic embedded in English, the system applies the Unicode Bidirectional Algorithm to determine the correct display order and direction for each text run. `StaticLayout` and `DynamicLayout` implement BiDi handling internally.
 - **android:textDirection**: You can explicitly control the base text direction of a `TextView`, commonly with values such as `locale`, `ltr`, `rtl`, or `inherit`. For `Layout`, this affects how `Alignment.ALIGN_NORMAL` and `Alignment.ALIGN_OPPOSITE` behave. For example, `ALIGN_NORMAL` means right alignment in an RTL context.
 
-![](../../assets/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA-android-textview%E6%8F%AD%E7%A7%98%E6%96%87%E6%9C%AC%E6%B5%8B%E9%87%8F%E4%B8%8E%E5%B8%83%E5%B1%80%E7%9A%84%E8%89%BA%E6%9C%AF-2.webp)
+![Bidirectional text example with Arabic embedded in an English sentence](../../assets/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BA-android-textview%E6%8F%AD%E7%A7%98%E6%96%87%E6%9C%AC%E6%B5%8B%E9%87%8F%E4%B8%8E%E5%B8%83%E5%B1%80%E7%9A%84%E8%89%BA%E6%9C%AF-2.webp)
 
 *Figure*: A `TextView` containing mixed English and Arabic text, such as "This is an example with Arabic text." The text should be displayed according to correct BiDi rules: English runs left to right, Arabic runs right to left, while the overall logical order remains correct.
 

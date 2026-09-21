@@ -1,4 +1,6 @@
 ---
+slug: android-process-thread-model-deep-dive
+translationKey: android-process-thread-model-deep-dive
 title: Android 进程与线程模型深度剖析
 excerpt: 在 Android 系统中，所有应用程序代码都运行在特定的进程和线程上下文中。进程提供资源隔离和独立运行的环境，线程则是 CPU 调度的基本单位，负责执行具体的代码指令。理解 Android 如何创建、管理、调度进程（包括其生命周期、优先级和终止机制），以及如何在进程内有效地组织和管理线程（主线程、Binder 线程、后台线程），包括它们之间的同步与通信，对于构建稳定、流畅、响应迅速的应用至...
 publishDate: 2025-07-04
@@ -426,8 +428,8 @@ Android 专家必须超越基础的线程使用，深刻理解进程优先级与
 ## 延伸阅读
 
 - [返回对应专题：Android Framework](/android-framework/)
-- [Android Binder 原理：从驱动通信到 AIDL 调用链路](/blog/binder-ipc机制深度解析-beyond-aidl/)/)
-- [Android Framework 系统服务：AMS、WMS 与应用进程交互模型](/blog/android系统服务与framework层交互模型/)
-- [Android ContentProvider 原理：URI 路由、跨进程访问与权限控制](/blog/2026-05-15-深入_android_contentprovider_跨进程数据共享_从_uri_路由到_conte/)
-- [Android 权限系统原理：运行时权限、拦截链路与安全边界](/blog/2026-05-17-android_权限系统演进全链路_从_activitythread_权限拦截到_android_1/)
+- [Android Binder 原理：从驱动通信到 AIDL 调用链路](/blog/binder-ipc-beyond-aidl/)/)
+- [Android Framework 系统服务：AMS、WMS 与应用进程交互模型](/blog/android-system-services-framework-interaction/)
+- [Android ContentProvider 原理：URI 路由、跨进程访问与权限控制](/blog/android-contentprovider-ipc/)
+- [Android 权限系统原理：运行时权限、拦截链路与安全边界](/blog/android-permission-system-evolution/)
 <!-- /seo-internal-links -->

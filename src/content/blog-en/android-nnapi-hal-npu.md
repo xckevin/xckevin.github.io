@@ -1,21 +1,24 @@
 ---
-title: "Android NNAPI End to End: From HAL Abstraction to Qualcomm and MTK NPUs"
+title: 'Android NNAPI: HAL Architecture, Deprecation, and Migration'
 lang: en
 translationKey: android-nnapi-hal-npu
 slug: android-nnapi-hal-npu
-excerpt: "A practical deep dive into Android NNAPI, covering the HAL layer, vendor drivers, graph partitioning, operator fallback, and on-device AI inference tuning."
+excerpt: Understand NNAPI HAL and NPU architecture, its Android 15 deprecation, and migration options for existing on-device inference workloads.
 publishDate: '2025-08-07'
 tags:
-- "Android"
-- "NNAPI"
-- "On-Device AI Inference"
-- "Performance Optimization"
-- "Hardware Acceleration"
+- Android
+- NNAPI
+- On-Device AI Inference
+- Performance Optimization
+- Hardware Acceleration
 seo:
-  title: "Android NNAPI End to End: HAL, Vendor Drivers, and NPU Acceleration"
-  description: "A practical guide to Android NNAPI, from HAL abstraction and QNN or Neuron drivers to graph partitioning, operator fallback, and inference tuning."
+  title: 'Android NNAPI: HAL Architecture, Deprecation, and Migration'
+  description: Understand NNAPI HAL and NPU architecture, its Android 15 deprecation, and migration options for existing on-device inference workloads.
   pageType: article
+updatedDate: '2026-09-21'
 ---
+
+> **Status update (2026-09-21):** NNAPI was deprecated in Android 15. The HAL, device enumeration, and execution details below are useful for maintaining existing integrations. Google expects most future devices to use the CPU backend and recommends alternatives such as the TensorFlow Lite GPU runtime for performance-critical workloads. Benchmark migration options on the actual target devices. [Official documentation](https://developer.android.com/ndk/guides/neuralnetworks)
 
 ## A 10x performance gap
 

@@ -1,4 +1,6 @@
 ---
+slug: android-mediacodec-mediaextractor
+translationKey: android-mediacodec-mediaextractor
 title: 深入 Android MediaCodec 视频编解码全链路：从 MediaExtractor 解封装到异步模式输入输出缓冲区的硬件加速编码实战
 excerpt: 深入剖析 Android MediaCodec 视频编解码全链路，涵盖解封装、状态机、异步缓冲区管理、硬解码兼容性处理及 MediaMuxer 封装，分享实际项目中的避坑经验与取舍策略。
 publishDate: '2026-05-18'
@@ -9,8 +11,9 @@ tags:
 - 硬解码
 - 性能优化
 seo:
-  title: 深入 Android MediaCodec 视频编解码全链路：从 MediaExtractor 解封装到异步模式输入输出缓冲区的硬件加速编码实战
+  title: Android MediaCodec 编解码：MediaExtractor 解封装与异步缓冲
   description: 深入剖析 Android MediaCodec 视频编解码全链路：从 MediaExtractor 解封装、Codec 状态机与异步模式陷阱，到缓冲区管理与硬件兼容性处理，附完整 Kotlin 实战代码与避坑指南。
+  pageType: article
 ---
 
 在做视频转码工具时，我遇到了一个诡异的问题：同一段 H.264 视频，同步模式编解码一切正常，切换到异步模式后频繁丢帧，输出画面出现绿条花屏。排查了两天才定位到根因——**没有正确处理 MediaCodec 输入缓冲区的 IllegalStateException**。这篇文章把排查过程和梳理的 Codec 全链路知识串起来讲一遍。

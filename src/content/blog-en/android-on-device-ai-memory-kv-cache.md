@@ -1,19 +1,20 @@
 ---
-title: "Android On-device AI Memory Management: Model Loading Peaks, Tensor Lifetimes, and KV Cache Reclaim"
+title: 'Android On-device AI Memory Management: Model Loading Peaks, Tensor Lifetimes, and KV Cache Reclaim'
 lang: en
 translationKey: android-on-device-ai-memory-kv-cache
 slug: android-on-device-ai-memory-kv-cache
-excerpt: "A practical memory-management path for Android on-device LLM deployment, covering mmap model loading, tensor lifecycle reclamation, sliding-window KV cache, layer-wise decay, and LMK survival."
+excerpt: A practical memory-management path for Android on-device LLM deployment, covering mmap model loading, tensor lifecycle reclamation, sliding-window KV cache, layer-wise decay,
+  and LMK survival.
 publishDate: '2026-05-04'
 tags:
-- "Android"
-- "On-device AI"
-- "Memory Optimization"
-- "KV Cache"
-- "LLM Inference"
+- Android
+- On-device AI
+- Memory Optimization
+- KV Cache
+- LLM Inference
 seo:
-  title: "Android On-device AI Memory Management from mmap Loading to KV Cache Reclaim"
-  description: "Deploy larger Android on-device LLMs with mmap loading, tensor lifecycle tracking, sliding-window KV cache, layer-wise decay, and LMK handling."
+  title: 'Android AI Memory: mmap Model Loading and KV Cache Management'
+  description: Deploy larger Android on-device LLMs with mmap loading, tensor lifecycle tracking, sliding-window KV cache, layer-wise decay, and LMK handling.
   pageType: article
 ---
 

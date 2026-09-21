@@ -1,4 +1,6 @@
 ---
+slug: android-rendering-graphics-stack-part4
+translationKey: android-rendering-graphics-stack-part4
 title: "Android 渲染机制与图形栈深入理解（4）：特殊视图辨析：SurfaceView vs TextureView vs SurfaceControlViewHost"
 excerpt: "「Android 渲染机制与图形栈深入理解」系列第 4/4 篇：特殊视图辨析：SurfaceView vs TextureView vs SurfaceControlViewHost"
 publishDate: 2025-06-19

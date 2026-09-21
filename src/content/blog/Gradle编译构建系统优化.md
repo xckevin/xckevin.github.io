@@ -1,4 +1,6 @@
 ---
+slug: gradle-build-system-optimization
+translationKey: gradle-build-system-optimization
 title: Gradle 编译构建系统优化
 excerpt: 对于 Android 开发者而言，尤其是身处大型、多模块项目的团队中，Gradle 构建时长往往是日常开发中最主要的痛点之一。每一次等待编译、打包的过程，都是对耐心和生产力的消耗。缓慢的构建不仅降低了开发迭代速度，影响了编码心流，甚至可能成为团队扩张和项目复杂度增加的严重障碍。
 publishDate: 2025-09-29

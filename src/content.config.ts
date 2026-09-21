@@ -12,6 +12,8 @@ const seoSchema = (image: ImageFunction) =>
         title: z.string().min(5).max(120).optional(),
         description: z.string().min(15).max(160).optional(),
         image: imageSchema(image).optional(),
+        noindex: z.boolean().optional(),
+        canonicalPath: z.string().regex(/^\/(?!\/)/).optional(),
         pageType: z.enum(['website', 'article']).default('website')
     });
 

@@ -1,4 +1,6 @@
 ---
+slug: jetpack-compose-advanced-applications-internals-part2
+translationKey: jetpack-compose-advanced-applications-internals-part2
 title: "Jetpack Compose 高级应用与原理（2）：高级状态管理：超越 remember { mutableStateOf(...) }"
 excerpt: "「Jetpack Compose 高级应用与原理」系列第 2/3 篇：高级状态管理：超越 remember { mutableStateOf(...) }"
 publishDate: 2025-07-24

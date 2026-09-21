@@ -9,8 +9,9 @@ tags:
 - 性能优化
 - CI/CD
 seo:
-  title: 深入 Android 端侧 AI 推理的自动化质量门禁：从确定性输出验证到 Golden Test 的推理回归测试体系
+  title: Android 端侧 AI 质量门禁：确定性输出与 Golden Test 回归
   description: 端侧AI推理存在非确定性输出问题。本文详解基于MD5哈希快照的确定性验证与P95性能基线回归检测的CI质量门禁体系，将端侧推理波动关进可控边界内。
+  pageType: article
 slug: android-on-device-ai-golden-tests
 translationKey: android-on-device-ai-golden-tests
 ---

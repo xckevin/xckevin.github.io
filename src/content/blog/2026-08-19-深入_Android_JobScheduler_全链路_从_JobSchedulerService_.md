@@ -10,8 +10,9 @@ tags:
 - WorkManager
 - 任务调度
 seo:
-  title: 深入 Android JobScheduler 全链路：从 JobSchedulerService Binder 调度到 Doze/AppStandby 约束的延迟任务执行引擎
+  title: Android JobScheduler：Binder 调度与 Doze/AppStandby 约束
   description: 深入剖析 Android JobScheduler 全链路：从 WorkManager 的 JobInfo 映射、Binder 调度、JobStore 持久化，到 StateController 约束链与 Doze/AppStandby 拦截，附 dumpsys 调试技巧。
+  pageType: article
 ---
 
 排查一个后台任务不执行的问题时，我在 WorkManager 日志里看到它最终调用了 `JobScheduler.schedule()`。继续往系统层追，发现 WorkManager 到 JobSchedulerService 之间的这一段在多数文章里是空白：约束怎么触发、Job 何时真正启动、Doze 与 App Standby 如何拦截，只能靠猜。

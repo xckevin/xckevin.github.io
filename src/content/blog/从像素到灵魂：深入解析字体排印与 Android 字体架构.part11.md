@@ -1,4 +1,6 @@
 ---
+slug: android-typography-font-architecture-part11
+translationKey: android-typography-font-architecture-part11
 title: "从像素到灵魂：深入解析字体排印与 Android 字体架构（11）：未雨绸缪：字体预加载 (Font Preloading)"
 excerpt: "「从像素到灵魂：深入解析字体排印与 Android 字体架构」系列第 11/15 篇：未雨绸缪：字体预加载 (Font Preloading)"
 publishDate: 2026-01-12

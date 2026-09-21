@@ -1,4 +1,6 @@
 ---
+slug: kotlin-sealed-class-interface
+translationKey: kotlin-sealed-class-interface
 title: 深入 Kotlin Sealed Class/Interface 密封类层次：从编译期穷举检查到 Compose UI 状态建模的类型安全实践
 excerpt: 本文深入探讨 Kotlin 密封类与密封接口的设计理念，从编译期穷举检查机制出发，结合 Compose UI 状态建模、MVI 架构、Flow 异步处理和 Navigation 路由等实战场景，展示如何用类型系统消除非法状态组合，提升代码健壮性。
 publishDate: '2026-01-21'
@@ -9,8 +11,9 @@ tags:
 - 架构设计
 - 类型安全
 seo:
-  title: 深入 Kotlin Sealed Class/Interface 密封类层次：从编译期穷举检查到 Compose UI 状态建模的类型安全实践
+  title: Kotlin Sealed Class：编译期穷举检查与 Compose UI 状态建模
   description: 从 Boolean 散装状态到 sealed interface 类型安全建模，本文详解 Kotlin 密封类的编译期穷举机制及其在 Compose MVI、Flow 异步、Navigation 路由中的实战应用，附踩坑经验与取舍建议。
+  pageType: article
 ---
 
 去年接手一个 Compose 项目，打开代码发现 UI 状态用了 6 个 Boolean 变量控制加载、空数据、错误、成功、刷新中、网络异常。一个界面要维护十几行 when 分支，还经常漏掉某个组合状态导致白屏。花了一个下午把所有 Boolean 收拢成 sealed interface，切换完 bug 数量直接降了 40%。

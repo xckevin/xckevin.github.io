@@ -1,4 +1,6 @@
 ---
+slug: android-system-services-framework-interaction-part2
+translationKey: android-system-services-framework-interaction-part2
 title: "Android 系统服务与 Framework 层交互模型（2）：服务注册：让世界发现我——ServiceManager"
 excerpt: "「Android 系统服务与 Framework 层交互模型」系列第 2/3 篇：服务注册：让世界发现我——ServiceManager"
 publishDate: 2024-05-27

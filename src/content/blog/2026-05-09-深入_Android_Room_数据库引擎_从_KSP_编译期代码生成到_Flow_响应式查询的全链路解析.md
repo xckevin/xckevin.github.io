@@ -1,4 +1,6 @@
 ---
+slug: android-room-ksp-flow
+translationKey: android-room-ksp-flow
 title: 深入 Android Room 数据库引擎：从 KSP 编译期代码生成到 Flow 响应式查询的全链路解析
 excerpt: 从 KSP 注解处理器的编译期代码生成逻辑讲起，覆盖 DAO 方法实现、数据库迁移测试策略、Flow 响应式查询的底层回调机制，带你理清 Room 的全链路工作机制。
 publishDate: '2026-05-09'
@@ -9,6 +11,10 @@ tags:
 - Kotlin
 - 数据库
 - Jetpack
+seo:
+  title: Android Room：KSP 代码生成、数据库迁移与 Flow 查询
+  pageType: article
+  description: 解析 Room 的 KSP 编译期代码生成、DAO 实现、数据库迁移测试与 Flow 变更通知，理解 SQLite 持久化到响应式查询的工作机制。
 ---
 
 

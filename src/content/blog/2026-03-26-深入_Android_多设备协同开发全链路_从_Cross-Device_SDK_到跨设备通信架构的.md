@@ -1,4 +1,6 @@
 ---
+slug: android-cross-device-sdk-collaboration
+translationKey: android-cross-device-sdk-collaboration
 title: 深入 Android 多设备协同开发全链路：从 Cross-Device SDK 到跨设备通信架构的生态工程实践
 excerpt: 从 Nearby Connections 到 Cross-Device SDK 的实战踩坑记录：通过 Session 抽象和 Resource 模型解决多设备协同中的连接稳定性、消息可靠性和状态管理问题。
 publishDate: '2026-03-26'
@@ -9,8 +11,9 @@ tags:
 - Nearby Connections
 - 架构设计
 seo:
-  title: 深入 Android 多设备协同开发全链路：从 Cross-Device SDK 到跨设备通信架构的生态工程实践
+  title: Android 多设备协同：Cross-Device SDK 与跨设备通信
   description: 本文记录从 Nearby Connections 到 Cross-Device SDK 的多设备协同开发实践，涵盖 Session 会话管理、Resource 消息模型、断线重连策略与设备发现调优等工程要点。
+  pageType: article
 ---
 
 去年接手一个车载娱乐项目，需求是让后排平板实时控制前排中控的导航和音乐。厂商 Demo 用 Nearby Connections 跑通了，但压力测试一上就崩了——连接断开不自动恢复、多设备并发时数据包乱序、设备休眠心跳超时。

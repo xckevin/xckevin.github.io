@@ -1,19 +1,19 @@
 ---
-title: "Android Clipboard Internals: ClipboardManager, ClipData, and Privacy Controls"
+title: 'Android Clipboard Internals: ClipboardManager, ClipData, and Privacy Controls'
 lang: en
 translationKey: android-clipboardmanager-coordinator
 slug: android-clipboardmanager-coordinator
-excerpt: "A full-path look at Android's clipboard stack, from ClipboardService and ClipData MIME handling to background access limits, Compose APIs, and privacy practices."
+excerpt: A full-path look at Android's clipboard stack, from ClipboardService and ClipData MIME handling to background access limits, Compose APIs, and privacy practices.
 publishDate: '2025-10-13'
 tags:
-- "Android"
-- "Jetpack Compose"
-- "Clipboard"
-- "IPC"
-- "Privacy and Security"
+- Android
+- Jetpack Compose
+- Clipboard
+- IPC
+- Privacy and Security
 seo:
-  title: "Android Clipboard Internals: ClipboardManager, ClipData, and Privacy Controls"
-  description: "Explore Android clipboard internals, including ClipboardService, ClipData MIME types, Android 10 background limits, Compose APIs, and privacy guardrails."
+  title: 'Android Clipboard: ClipboardManager, ClipData, and Privacy'
+  description: Explore Android clipboard internals, including ClipboardService, ClipData MIME types, Android 10 background limits, Compose APIs, and privacy guardrails.
   pageType: article
 ---
 

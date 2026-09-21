@@ -1,4 +1,6 @@
 ---
+slug: android-clipboardmanager-coordinator
+translationKey: android-clipboardmanager-coordinator
 title: 深入 Android 剪贴板框架全链路
 excerpt: 从 ClipboardService 架构、ClipData MIME 体系到 Compose 声明式 API，详解 Android 剪贴板的全链路实现、后台访问限制与隐私治理实践。
 publishDate: '2025-10-13'

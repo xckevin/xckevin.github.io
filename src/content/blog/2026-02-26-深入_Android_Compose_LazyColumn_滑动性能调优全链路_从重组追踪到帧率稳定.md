@@ -1,4 +1,6 @@
 ---
+slug: jetpack-compose-lazycolumn-performance
+translationKey: android-compose-lazycolumn-scroll-performance
 title: 深入 Android Compose LazyColumn 滑动性能调优全链路
 excerpt: 从 LazyColumn 重组模型与 RecyclerView 的差异出发，系统梳理状态上提、Lambda 引用不稳定、图片加载扩散等高频性能陷阱，并结合 Compose Compiler Metrics 诊断与 Baseline Profile 兜底，提供一套可落地的滑动性能优化方案。
 publishDate: '2026-02-26'

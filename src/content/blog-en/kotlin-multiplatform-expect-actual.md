@@ -1,19 +1,19 @@
 ---
-title: "Kotlin Multiplatform Engineering: expect/actual and Cross-Platform Architecture"
+title: 'Kotlin Multiplatform Engineering: expect/actual and Cross-Platform Architecture'
 lang: en
 translationKey: kotlin-multiplatform-expect-actual
 slug: kotlin-multiplatform-expect-actual
-excerpt: "A production-focused guide to Kotlin Multiplatform, covering expect/actual boundaries, three-layer architecture, XCFramework configuration, and Compose Multiplatform collaboration."
+excerpt: A production-focused guide to Kotlin Multiplatform, covering expect/actual boundaries, three-layer architecture, XCFramework configuration, and Compose Multiplatform collaboration.
 publishDate: '2026-04-18'
 tags:
-- "Kotlin Multiplatform"
-- "Android"
-- "iOS"
-- "Cross-Platform Architecture"
-- "Compose Multiplatform"
+- Kotlin Multiplatform
+- Android
+- iOS
+- Cross-Platform Architecture
+- Compose Multiplatform
 seo:
-  title: "Kotlin Multiplatform Engineering: expect/actual and Cross-Platform Architecture"
-  description: "A practical KMP guide covering expect/actual boundaries, shared architecture, XCFramework setup, Compose Multiplatform, and Kotlin/Native debugging."
+  title: 'Kotlin Multiplatform: expect/actual and Shared Architecture'
+  description: A practical KMP guide covering expect/actual boundaries, shared architecture, XCFramework setup, Compose Multiplatform, and Kotlin/Native debugging.
   pageType: article
 ---
 

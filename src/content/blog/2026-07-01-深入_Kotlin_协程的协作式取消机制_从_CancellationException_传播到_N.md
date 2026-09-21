@@ -1,4 +1,6 @@
 ---
+slug: kotlin-coroutine-cooperative-cancellation
+translationKey: kotlin-coroutine-cooperative-cancellation
 title: 深入 Kotlin 协程的协作式取消机制：从 CancellationException 传播到 NonCancellable 的安全退出全链路
 excerpt: 深入剖析 Kotlin 协程的协作式取消模型，详解 CancellationException 的传播规则与 NonCancellable 的安全退出机制，并结合实际案例总结结构化并发下的最佳取消策略与常见踩坑点。
 publishDate: '2026-07-01'
@@ -9,8 +11,9 @@ tags:
 - NonCancellable
 - 结构化并发
 seo:
-  title: 深入 Kotlin 协程的协作式取消机制：从 CancellationException 传播到 NonCancellable 的安全退出全链路
+  title: Kotlin 协程取消：CancellationException 传播与 NonCancellable
   description: 从线上协程未正常取消的问题出发，深入讲解 Kotlin 协作式取消机制：CancellationException 的传播规则、NonCancellable 安全清理、结构化并发取消策略及常见踩坑点。
+  pageType: article
 ---
 
 上周排查一个线上问题：用户退出页面后，网络请求的协程没有按预期取消，继续占着连接池资源。代码里明明调了 `job.cancel()`，日志却显示协程体还在跑。

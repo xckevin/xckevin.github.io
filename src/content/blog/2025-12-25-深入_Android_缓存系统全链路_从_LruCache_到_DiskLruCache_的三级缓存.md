@@ -1,4 +1,6 @@
 ---
+slug: android-cache-system-lrucache-disklrucache
+translationKey: android-cache-system-lrucache-disklrucache
 title: 深入 Android 缓存系统全链路：从 LruCache 到 DiskLruCache 的三级缓存架构与离线优先工程实践
 excerpt: 深入剖析 Android LruCache 与 DiskLruCache 的内部机制，详解三级缓存架构的联动设计、一致性问题及离线优先工程实践。
 publishDate: '2025-12-25'
@@ -9,8 +11,9 @@ tags:
 - 缓存架构
 - 性能优化
 seo:
-  title: 深入 Android 缓存系统全链路：从 LruCache 到 DiskLruCache 的三级缓存架构与离线优先工程实践
+  title: Android 缓存系统：LruCache 与 DiskLruCache 三级缓存
   description: 深入 Android 缓存体系：从 LruCache 内部机制到 DiskLruCache 日志驱动设计，详解三级缓存联动、离线优先策略、内存压力降级等工程实践。
+  pageType: article
 ---
 
 做图片加载库的性能优化时，我遇到过一个诡异的问题：RecyclerView 快速滑动时，已经加载过的图片居然重新走了一遍网络请求。排查后发现，内存缓存设得太小，Bitmap 频繁被回收，降级到磁盘缓存时 I/O 又顶不住滑动速度。三级缓存缺了任何一环，性能都会断崖式下跌。

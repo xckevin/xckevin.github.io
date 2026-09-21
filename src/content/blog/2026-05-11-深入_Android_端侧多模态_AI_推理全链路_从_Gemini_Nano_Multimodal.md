@@ -1,4 +1,6 @@
 ---
+slug: android-multimodal-on-device-ai
+translationKey: android-multimodal-on-device-ai
 title: 深入 Android 端侧多模态 AI 推理全链路：从 Gemini Nano Multimodality 到 Compose 实时交互的工程实践
 excerpt: 本文记录 Android 端侧 Gemini Nano 多模态 AI 推理的完整工程实践，从模型加载、图像编码到 Compose 流式渲染，并深入剖析内存碎片、温控降频等关键挑战的解决策略。
 publishDate: '2026-05-11'
@@ -9,8 +11,9 @@ tags:
 - Compose
 - 端侧推理
 seo:
-  title: 深入 Android 端侧多模态 AI 推理全链路：从 Gemini Nano Multimodality 到 Compose 实时交互的工程实践
+  title: Android 端侧多模态 AI：Gemini Nano Multimodality 与 Compose 交互
   description: 详解 Android 端侧 Gemini Nano 多模态推理全链路：AICore 模型加载、ViT 图像编码、流式推理与 Compose 集成，以及内存碎片、温控降频、Token 超长等工程实战经验。
+  pageType: article
 ---
 
 上个月做本地相册智能搜索，遇到一个实际问题：用户拍了张植物照片，想直接在手机上识别并问"这盆绿植多久浇一次水"。传统做法是端侧物体检测配云端 LLM，但图片上传对隐私敏感场景是硬伤，离线环境直接不可用。

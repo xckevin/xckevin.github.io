@@ -1,4 +1,6 @@
 ---
+slug: compose-multiplatform-desktop-jvm-window-platform-interop
+translationKey: compose-multiplatform-desktop-jvm-window-platform-interop
 title: 深入 Compose Multiplatform 桌面端实战：从 JVM 窗口管理到平台互操作的跨桌面 UI 工程全链路
 excerpt: 从 Electron 迁移到 Compose Desktop 的实战复盘，覆盖 JVM 窗口系统、菜单栏、拖拽、系统托盘、平台互操作及打包分发全链路，启动速度提升 60%，内存降低 70%，适合 Android/Kotlin 团队构建桌面工具。
 publishDate: '2026-06-04'
@@ -9,8 +11,9 @@ tags:
 - 跨平台
 - 性能优化
 seo:
-  title: 深入 Compose Multiplatform 桌面端实战：从 JVM 窗口管理到平台互操作的跨桌面 UI 工程全链路
+  title: Compose Multiplatform 桌面端：JVM 窗口管理与平台互操作
   description: 从 Electron 到 Compose Desktop 的迁移实战，详解 JVM 窗口系统、菜单栏、拖拽、系统托盘、平台互操作与打包分发，启动从 4s 降至 1.5s，内存从 400MB 降至 120MB。
+  pageType: article
 ---
 
 去年我把一个内部工具从 Electron 重写为 Compose Desktop，初衷很简单：团队都是 Android/Kotlin 背景，不想再维护一套前端技术栈。迁移过程中最大的挑战不是 UI 绘制，而是桌面端特有的能力——窗口生命周期、系统托盘、菜单栏、拖拽，这些在 Android 上根本没概念。

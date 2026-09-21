@@ -11,8 +11,9 @@ tags:
 - 隐私沙箱
 - 架构设计
 seo:
-  title: 深入 Android Photo Picker 全链路：隐私沙箱架构与 Compose 声明式集成
+  title: Android Photo Picker：隐私沙箱架构与 Compose 集成
   description: 深度解析 Android Photo Picker 隐私沙箱架构与 Compose 集成全链路，涵盖跨进程 URI 传递、临时授权机制、多选数据传输及 ROM 兼容性实战。
+  pageType: article
 ---
 
 去年做一个社交 App 的图片选择功能，产品经理要求在选图页展示相册分类、支持多选预览。我第一反应是调 `READ_EXTERNAL_STORAGE` 权限自己写一个，但 Android 13 的隐私沙箱策略让这个方案变得很尴尬——用户看到"允许访问照片和视频"的权限弹窗时，30% 的人选择了拒绝。

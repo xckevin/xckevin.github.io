@@ -1,4 +1,6 @@
 ---
+slug: android-bytecode-instrumentation-asm-gradle
+translationKey: android-bytecode-instrumentation-asm-gradle
 title: 深入 Android 字节码插桩全链路：从 ASM ClassVisitor 到 Gradle Plugin 的编译期 AOP 工程实践
 excerpt: 系统梳理 Android 编译期字节码插桩的完整链路，从 Gradle Plugin 入口到 ASM Visitor 模式，涵盖页面性能监控、隐私合规日志注入和方法耗时统计三大落地场景及工程化踩坑经验。
 publishDate: '2026-05-17'
@@ -9,8 +11,9 @@ tags:
 - 字节码插桩
 - AOP
 seo:
-  title: 深入 Android 字节码插桩全链路：从 ASM ClassVisitor 到 Gradle Plugin 的编译期 AOP 工程实践
+  title: Android 字节码插桩：ASM ClassVisitor 与 Gradle Plugin AOP
   description: 从 Gradle Plugin 到 ASM Visitor 模式，系统讲解 Android 编译期字节码插桩全链路，覆盖页面监控、隐私合规、方法耗时三大实战场景及工程化踩坑记录。
+  pageType: article
 ---
 
 做 APM SDK 时碰到过一个棘手问题：需要无侵入地统计每个页面 onCreate 的耗时，但业务方不愿意在每个 Activity 里手动埋点。运行时 Hook 的方案在 Android 9+ 上被 Hidden API 限制卡得死死的，最后只能把目光转向编译期字节码插桩。

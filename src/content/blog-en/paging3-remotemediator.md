@@ -76,6 +76,6 @@ RemoteMediator is not just a pagination tool. It is a cache-consistency tool. On
 ## Further reading
 
 - [Back to topic: Android performance optimization](/en/android-performance/)
-- [Android Paging 3 deep dive: PagingSource, RemoteMediator, and pagination cache](/blog/2026-04-24-android_paging3_深度解析_从_pagingsource_分页引擎到_remoteme/)
-- [Why can Room Flow update automatically?](/blog/room-flow-auto-update/)
+- [Android Paging 3 deep dive: PagingSource, RemoteMediator, and pagination cache](/blog/android-paging3-pagingsource-remotemediator/)
+- [Why can Room Flow update automatically?](/en/blog/room-flow-auto-update/)
 <!-- /seo-internal-links -->

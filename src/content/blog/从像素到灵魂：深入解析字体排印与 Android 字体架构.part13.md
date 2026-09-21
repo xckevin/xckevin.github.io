@@ -1,4 +1,6 @@
 ---
+slug: android-typography-font-architecture-part13
+translationKey: android-typography-font-architecture-part13
 title: "从像素到灵魂：深入解析字体排印与 Android 字体架构（13）：千挑万选：为你的 App 选择合适的字体"
 excerpt: "「从像素到灵魂：深入解析字体排印与 Android 字体架构」系列第 13/15 篇：千挑万选：为你的 App 选择合适的字体"
 publishDate: 2026-01-12

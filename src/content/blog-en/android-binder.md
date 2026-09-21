@@ -67,7 +67,7 @@ A few practical rules help in day-to-day development: avoid dense system service
 ## Further reading
 
 - [Back to topic: Android Framework](/en/android-framework/)
-- [Android Binder internals: from driver communication to the AIDL call chain](/blog/binder-ipc机制深度解析-beyond-aidl/)
-- [Android Framework system services: how AMS, WMS, and app processes interact](/blog/android系统服务与framework层交互模型/)
-- [Getting started with Android Perfetto: capture traces, read tracks, and diagnose performance](/blog/android-perfetto/)
+- [Android Binder internals: from driver communication to the AIDL call chain](/blog/binder-ipc-beyond-aidl/)
+- [Android Framework system services: how AMS, WMS, and app processes interact](/blog/android-system-services-framework-interaction/)
+- [Getting started with Android Perfetto: capture traces, read tracks, and diagnose performance](/en/blog/android-perfetto/)
 <!-- /seo-internal-links -->

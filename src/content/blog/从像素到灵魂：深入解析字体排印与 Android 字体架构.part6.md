@@ -1,4 +1,6 @@
 ---
+slug: android-typography-font-architecture-part6
+translationKey: android-typography-font-architecture-part6
 title: "从像素到灵魂：深入解析字体排印与 Android 字体架构（6）：Android 的原生字体生态：Roboto、Noto 与字体回退"
 excerpt: "「从像素到灵魂：深入解析字体排印与 Android 字体架构」系列第 6/15 篇：Android 的原生字体生态：Roboto、Noto 与字体回退"
 publishDate: 2026-01-12

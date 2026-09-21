@@ -1,4 +1,6 @@
 ---
+slug: android-dex-bytecode-multidex
+translationKey: android-dex-bytecode-multidex
 title: 深入 Android DEX 字节码格式与 MultiDex 加载全链路解析
 excerpt: 从 DEX 指令集 16 位编码的硬限制溯源 65536 方法数天花板，逐层拆解 MultiDex 分包机制与 PathClassLoader 加载链路，剖析 Element 数组合并优先级及多进程、ANR 等实战陷阱。
 publishDate: '2025-05-08'

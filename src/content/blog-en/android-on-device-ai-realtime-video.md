@@ -1,19 +1,20 @@
 ---
-title: "Android On-device AI Real-time Video: CameraX Frames, GPU Preprocessing, and LiteRT Inference"
+title: 'Android On-device AI Real-time Video: CameraX Frames, GPU Preprocessing, and LiteRT Inference'
 lang: en
 translationKey: android-on-device-ai-realtime-video
 slug: android-on-device-ai-realtime-video
-excerpt: "A practical end-to-end Android real-time video AI pipeline, covering CameraX head-of-line blocking, GPU YUV preprocessing, LiteRT inference jitter, async staging, and frame-expiration control."
+excerpt: A practical end-to-end Android real-time video AI pipeline, covering CameraX head-of-line blocking, GPU YUV preprocessing, LiteRT inference jitter, async staging, and frame-expiration
+  control.
 publishDate: '2026-05-06'
 tags:
-- "Android"
-- "On-device AI"
-- "Performance Optimization"
-- "CameraX"
-- "LiteRT"
+- Android
+- On-device AI
+- Performance Optimization
+- CameraX
+- LiteRT
 seo:
-  title: "Android Real-time On-device AI Video with CameraX, GPU Preprocessing, and LiteRT"
-  description: "Fix CameraX frame congestion, GPU preprocessing copies, and LiteRT inference jitter to build a 1080p 30fps Android on-device AI video pipeline."
+  title: 'Android Real-Time AI Video: CameraX, GPU, and LiteRT'
+  description: Fix CameraX frame congestion, GPU preprocessing copies, and LiteRT inference jitter to build a 1080p 30fps Android on-device AI video pipeline.
   pageType: article
 ---
 

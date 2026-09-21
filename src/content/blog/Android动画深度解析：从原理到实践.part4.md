@@ -1,4 +1,6 @@
 ---
+slug: android-animation-principles-practice-part4
+translationKey: android-animation-principles-practice-part4
 title: "Android动画深度解析：从原理到实践（4）：核心组件解析（Core Component Analysis）"
 excerpt: "「Android动画深度解析：从原理到实践」系列第 4/9 篇：核心组件解析（Core Component Analysis）"
 publishDate: 2024-03-20

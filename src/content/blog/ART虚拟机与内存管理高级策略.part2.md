@@ -1,4 +1,6 @@
 ---
+slug: art-vm-advanced-memory-management-part2
+translationKey: art-vm-advanced-memory-management-part2
 title: "ART 虚拟机与内存管理高级策略（2）：ART 垃圾回收（GC）深度剖析"
 excerpt: "「ART 虚拟机与内存管理高级策略」系列第 2/4 篇：ART 垃圾回收（GC）深度剖析"
 publishDate: 2024-05-05

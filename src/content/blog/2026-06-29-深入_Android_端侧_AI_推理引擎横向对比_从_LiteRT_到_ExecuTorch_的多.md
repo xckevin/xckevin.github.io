@@ -1,7 +1,5 @@
 ---
 title: 深入 Android 端侧 AI 推理引擎横向对比：从 LiteRT 到 ExecuTorch 的多引擎选型决策框架
-slug: android-on-device-ai-inference-engine-selection
-translationKey: android-on-device-ai-inference-engine-selection
 excerpt: 横向对比 LiteRT、MediaPipe、ExecuTorch、ONNX Runtime 和 llama.cpp 五大端侧推理引擎，从算子覆盖、硬件加速、性能基准到选型矩阵，提供可落地的决策框架。
 publishDate: '2026-06-29'
 tags:
@@ -21,7 +19,7 @@ seo:
 
 **LiteRT**（前身 TensorFlow Lite）是 Google 在移动端推理投入最久的产品。核心架构分三层：Converter 负责模型转换与量化，Runtime 提供解释器执行，Delegate 机制将计算卸载到硬件加速器。它的 delegate 体系覆盖了 GPU（OpenGL ES/OpenCL）、NNAPI、XNNPACK 和 Hexagon DSP，关键设计是 **fallback**——算子不被硬件支持时自动回退 CPU，不报错。
 
-**MediaPipe** 严格来说不是推理引擎，而是流式多媒体处理框架。它基于计算图组织处理节点，每个节点可以是一个 LiteRT 推理器或图像预处理步骤。优势在于开箱即用的任务方案（人脸、手势、姿态），劣势是定制化成本高——自己搭管道的复杂度不低。
+**MediaPipe** 严格来说不是与 LiteRT、ExecuTorch 同一层面的推理引擎，而是更高层的任务级处理框架——它基于计算图组织处理节点，底层的实际模型推理邀靠 LiteRT 完成，自己并不实现独立的推理后端。也就是说，MediaPipe 更像是“LiteRT + 预处理/后处理流水线”的封装层，而不是一个独立的引擎实体。它的优势在于开箱即用的任务方案（人脸、手势、姿态），劣势是定制化成本高——自己搭管道的复杂度不低。
 
 **ExecuTorch** 是 Meta 2023 年推出的移动端推理方案，定位是 PyTorch 生态的出口。核心思路是 **ahead-of-time compilation**：导出阶段完成算子选择和内存规划，运行时只做最小化执行。好处是二进制体积可控、启动延迟低，代价是模型必须经过 `torch.export` 导出，动态控制流支持有限。
 
@@ -55,19 +53,19 @@ NPU 是高端设备推理加速的关键，但各引擎支持都不算成熟。L
 
 ## 性能基准：同一设备上的实测
 
-以下数据在骁龙 8 Gen 3 设备上测试，模型为 MobileNetV3-Small（分类）和 Gemma 2B（LLM）。
+以下数据来自我在骁龙 8 Gen 3 单台设备上的一次性实测，测试条件（模型量化方式、线程数、系统负载）未做严格对照实验控制，仅供参考量级，不代表各引擎的官方基准，实际数值会因设备、系统版本、模型量化配置差异很大：
 
 | 引擎 | MobileNetV3 (CPU) | MobileNetV3 (GPU) | Gemma 2B (CPU) |
 |------|-------------------|-------------------|----------------|
-| LiteRT | 4.2ms | 2.1ms | 不支持 |
-| ExecuTorch | 5.8ms | 3.4ms | 2.3s/token |
-| ONNX Runtime | 4.5ms | 3.0ms | 不支持 |
-| MediaPipe | 4.3ms | 2.2ms | 不支持 |
-| llama.cpp | 不适用 | 不适用 | 1.8s/token |
+| LiteRT | 约 4ms 量级 | 约 2ms 量级 | 不支持 |
+| ExecuTorch | 略高于 LiteRT | 略高于 LiteRT | 秒级/token |
+| ONNX Runtime | 与 LiteRT 接近 | 略高于 LiteRT | 不支持 |
+| MediaPipe | 与 LiteRT 接近（底层即 LiteRT） | 与 LiteRT 接近 | 不支持 |
+| llama.cpp | 不适用 | 不适用 | 秒级/token，略优于 ExecuTorch |
 
-小模型分类任务上，LiteRT 和 MediaPipe 的 GPU 延迟最低，差距在毫秒级。已在 TensorFlow 生态的团队不需要换。
+小模型分类任务上，LiteRT 的 GPU 延迟表现较好，MediaPipe 因底层复用 LiteRT，表现相近。已在 TensorFlow 生态的团队不需要换。
 
-LLM 推理上，llama.cpp 比 ExecuTorch 快约 20%。原因在于它对 Transformer 解码做了针对性优化——KV cache 的内存布局、attention 的 SIMD 实现，通用引擎不会做这些。
+LLM 推理上，llama.cpp 在本次实测中略快于 ExecuTorch。可能的原因在于它对 Transformer 解码做了针对性优化——KV cache 的内存布局、attention 的 SIMD 实现，通用引擎不一定做这些优化，但具体差距需要在目标设备和模型量化配置下重新实测确认。
 
 实际项目中还有一个常被忽略的指标：**模型加载时间**。ExecuTorch 的 AOT 编译让加载几乎零延迟，而 LiteRT 首次加载需初始化 delegate，大模型可能花费 200-500ms。频繁切换模型的场景下，这 200ms 是真实的体验问题。
 
@@ -89,6 +87,6 @@ LLM 推理上，llama.cpp 比 ExecuTorch 快约 20%。原因在于它对 Transfo
 
 最终我在项目中采用了**双引擎策略**：常规视觉任务用 LiteRT（成熟稳定），LLM 部分用 llama.cpp（性能最优）。额外带了约 15MB 的二进制体积，但换来了每个场景下的最优性能。
 
-如果只允许选一个引擎，我会选 ExecuTorch。不是单项指标最好，而是团队迭代速度最快，PyTorch 生态的趋势也最明确。2024 年它的算子覆盖和 GPU 稳定性提升显著，按这个速度，2025 年底应该能覆盖 90% 的移动端推理需求。
+如果只允许选一个引擎，我会选 ExecuTorch。不是单项指标最好，而是团队迭代速度最快，PyTorch 生态的趋势也最明确。ExecuTorch 的算子覆盖和 GPU 稳定性在持续提升，但具体能覆盖多大比例的移动端推理需求，还需要看后续版本的实际进展，这里不做预测性的数字承诺。
 
 没有完美的引擎，只有适合当前场景的引擎。**模型格式、算子覆盖、硬件加速、团队熟悉度**——这四个维度能帮你做出 80% 的正确决策，剩下的 20% 靠实测。

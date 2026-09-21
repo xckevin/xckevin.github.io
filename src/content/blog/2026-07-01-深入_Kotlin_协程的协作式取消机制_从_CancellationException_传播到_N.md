@@ -1,7 +1,5 @@
 ---
 title: 深入 Kotlin 协程的协作式取消机制：从 CancellationException 传播到 NonCancellable 的安全退出全链路
-slug: kotlin-coroutine-cooperative-cancellation
-translationKey: kotlin-coroutine-cooperative-cancellation
 excerpt: 深入剖析 Kotlin 协程的协作式取消模型，详解 CancellationException 的传播规则与 NonCancellable 的安全退出机制，并结合实际案例总结结构化并发下的最佳取消策略与常见踩坑点。
 publishDate: '2026-07-01'
 tags:

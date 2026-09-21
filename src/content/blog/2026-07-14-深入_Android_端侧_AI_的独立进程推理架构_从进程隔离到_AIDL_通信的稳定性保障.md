@@ -1,7 +1,5 @@
 ---
 title: 深入 Android 端侧 AI 的独立进程推理架构：从进程隔离到 AIDL 通信的稳定性保障
-slug: android-on-device-ai-isolated-process-aidl
-translationKey: android-on-device-ai-isolated-process-aidl
 excerpt: 将端侧 LLM 推理迁移到独立进程，通过内存隔离解决 OOM 问题，通过崩溃隔离保护主进程稳定性。本文详细记录了 AIDL 接口设计、跨进程生命周期绑定、Binder 通信陷阱及多模型管理等实战经验。
 publishDate: '2026-07-14'
 tags:

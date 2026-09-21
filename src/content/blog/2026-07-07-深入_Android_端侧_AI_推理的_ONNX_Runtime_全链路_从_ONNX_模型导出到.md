@@ -1,7 +1,5 @@
 ---
 title: 深入 Android 端侧 AI 推理的 ONNX Runtime 全链路：从 ONNX 模型导出到移动端推理引擎实战
-slug: android-onnx-runtime-android-inference
-translationKey: android-onnx-runtime-android-inference
 excerpt: 本文梳理 ONNX Runtime 在 Android 端侧 AI 推理的完整链路，涵盖模型导出、集成配置、INT8 量化加速与算子兼容性踩坑实践。
 publishDate: '2026-07-07'
 tags:
@@ -118,11 +116,14 @@ ONNX Runtime 支持多种计算后端。Android 上主要用 XNNPACK（CPU 优�
 
 ```kotlin
 val options = OrtSession.SessionOptions().apply {
-    addCPU(true) // 启用 XNNPACK，浮点模型有 2~3 倍加速
+    addXnnpack(emptyMap()) // 启用 XNNPACK，浮点模型有 2~3 倍加速
+    addCPU(true) // 兜底的普通 CPU Execution Provider（arena allocator）
     // addNnapi()  // 谨慎开启
 }
 session = env.createSession(modelPath, options)
 ```
+
+`addCPU(true)` 只是把普通 CPU Execution Provider 加进去（参数控制是否用 arena allocator），跟 XNNPACK 没关系，真正启用 XNNPACK 要显式调用 `addXnnpack()`。两者可以同时注册，ONNX Runtime 会按优先级尝试执行。
 
 NNAPI 这里有个坑：启用后部分设备推理结果直接全为零，关掉走 XNNPACK 立刻正常。NNAPI 的算子覆盖度和各厂商的设备兼容性目前还差一口气。线上默认只开 XNNPACK，NNAPI 做成可选项让用户手动开启，更务实。
 
@@ -158,7 +159,7 @@ val options = OrtSession.SessionOptions().apply {
     val cores = Runtime.getRuntime().availableProcessors()
     setIntraOpNumThreads((cores - 1).coerceAtLeast(1))
     setInterOpNumThreads(1)
-    addCPU(true)
+    addXnnpack(emptyMap())
 }
 ```
 
@@ -178,7 +179,7 @@ val options = OrtSession.SessionOptions().apply {
 
 导出用 opset 13。导出后用 Netron 检查计算图，确认没有框架插入的冗余节点，必要时跑一遍 `onnxsim` 简化。这个习惯能省掉推理时很多莫名其妙的问题。
 
-默认开 XNNPACK，NNAPI 做成开关。NNAPI 的覆盖度还不够稳，线上直接开容易在冷门低端机上翻车。等 Google 再迭代几版 NNAPI 适配，情况应该会好转。
+默认开 XNNPACK（记得用 `addXnnpack()` 而不是 `addCPU(true)`），NNAPI 做成开关。NNAPI 的覆盖度还不够稳，线上直接开容易在冷门低端机上翻车。等 Google 再迭代几版 NNAPI 适配，情况应该会好转。
 
 优先做动态 INT8 量化。不需校准集、精度损失可控、体积和速度收益显著——对大多数分类和检测场景，这是成本最低的优化路径。
 

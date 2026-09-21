@@ -39,7 +39,7 @@
 - 配对文章输出包含自身、对应语言和 `x-default` 的双向 hreflang；未配对或不适合索引的文章不声明错误替代页。
 - 所有原始 422 个中文有效地址都已验证存在。变更路径通过 `src/data/blog-redirects.json` 指向规范路径；站内正文链接直接使用规范路径。
 - `android-edge-to-edge-windowinsets` 归并到 `android-16-edge-to-edge-windowinsets`；`android-app-shortcuts` 归并到 `android-app-shortcuts-shortcutmanager-deep-dive`。重复全文保留原地址，canonical 指向主文，并移出列表及 sitemap。
-- GitHub Pages 当前是 Astro 静态输出。旧地址使用 Astro 生成的即时 meta refresh 与 canonical，HTTP 状态仍可能是 200，并非服务器 301；以后迁移到支持服务端重定向的平台时，可复用该映射配置 301。
+- GitHub Pages 使用 Astro 生成的即时 meta refresh 与 canonical 作为旧地址兜底。自定义域名由 Cloudflare Workers 静态资源提供服务；线上复核发现该平台未提供这些静态跳转页，因此构建另外从同一份映射生成 `dist/_redirects`：399 个旧地址的有、无尾斜线形式共 798 条原生 HTTP 301 规则。生成器检查循环、链式跳转、重复规则和平台长度限制，两个平台共用同一份映射。
 
 ## 站点实现
 
@@ -73,6 +73,7 @@ npm run seo:check
 - [Google：多语言页面与 hreflang](https://developers.google.com/search/docs/specialty/international/localized-versions)
 - [Google：canonical 与重复 URL](https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls)
 - [Google：标题链接](https://developers.google.com/search/docs/appearance/title-link)与[搜索摘要](https://developers.google.com/search/docs/appearance/snippet)
+- [Cloudflare：静态资源重定向](https://developers.cloudflare.com/workers/static-assets/redirects/)
 - [Astro：静态重定向](https://docs.astro.build/en/guides/routing/#redirects)
 - [Android：Google Play Instant 状态](https://developer.android.com/topic/google-play-instant/overview)
 - [Android：NNAPI 弃用说明](https://developer.android.com/ndk/guides/neuralnetworks)

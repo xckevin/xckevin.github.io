@@ -1,5 +1,6 @@
 import mdx from '@astrojs/mdx';
 import { indexableSitemap } from './scripts/indexable-sitemap.mjs';
+import { cloudflareRedirects } from './scripts/cloudflare-redirects.mjs';
 import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
 import siteConfig from './src/data/site-config';
@@ -14,5 +15,5 @@ export default defineConfig({
     vite: {
         plugins: [tailwindcss()]
     },
-    integrations: [mdx(), indexableSitemap()]
+    integrations: [mdx(), indexableSitemap(), cloudflareRedirects(blogRedirects)]
 });

@@ -1,7 +1,5 @@
 ---
 title: 深入 Android 端侧 AI 推理的 ExecuTorch 全链路：从 PyTorch 模型原生导出到 Android 端部署的零转换推理引擎实践
-slug: android-executorch-android-deployment
-translationKey: android-executorch-android-deployment
 excerpt: 本文深入分析 ExecuTorch 在 Android 端的全链路实践，从 PyTorch 模型原生导出到 .pte 文件部署，对比 LiteRT 性能表现，剖析 AOT 委托机制与常见坑点，帮助开发者做出选型判断。
 publishDate: '2026-07-05'
 tags:
@@ -33,26 +31,33 @@ PyTorch → ONNX → TFLite / TensorFlow Lite
 
 ## ExecuTorch 的解决思路
 
-ExecuTorch 是 PyTorch 官方推出的端侧推理引擎，核心思路是：**PyTorch 模型直接导出、直接在端侧运行，不做格式转换**。
+ExecuTorch 是 PyTorch 官方推出的端侧推理引擎，核心思路是：**PyTorch 模型直接导出、直接在端侧运行，不需要跌代中间格式（如 ONNX/TFLite）作为桥接**。但这不意味着“零转换”——它需要经过 `torch.export` 图捕获、可选的量化、向后端的分区/委托（delegate/partition）以及 AOT 编译这一套完整的处理链路，只是这些步骤都发生在“PyTorch 世界”内部，不用跨过 ONNX/TFLite 这样的第三方中间格式。
 
-它的工作流只有两步：
+它的工作流大致分为几步：
 
-```bash
-# 1. 导出：PyTorch 模型 → .pte 文件
-python -m torchchat.export --model mobile_llama --output model.pte
+```python
+# 1. 导出：PyTorch 模型 → 图捕获 → Edge 方言图 → 可选向后端委托/量化 → .pte
+from executorch.exir import to_edge_transform_and_lower
+import torch
+
+exported_program = torch.export.export(model, example_inputs)
+edge_program = to_edge_transform_and_lower(exported_program, partitioner=[MyBackendPartitioner()])
+executorch_program = edge_program.to_executorch()
+with open("model.pte", "wb") as f:
+    f.write(executorch_program.buffer)
 
 # 2. 部署：.pte 文件直接丢进 Android 项目
 ```
 
-`.pte`（Program Torch Export）是 ExecuTorch 的序列化格式，本质上是 `torch.export` 导出的计算图，经过 AOT（Ahead-of-Time）编译优化后的产物。和 ONNX 不同，它不需要中间表示层，导出的产物就是一张可以直接被 ExecuTorch Runtime 执行的图。
+`.pte`（ExecuTorch Program）是 ExecuTorch 的序列化格式，本质上是 `torch.export` 导出的计算图经过向 Edge IR 转换、可选后端委托和 AOT 编译优化后的产物。和 ONNX 不同，它不需要跨框架的中间表示层，导出的产物就是一张可以直接被 ExecuTorch Runtime 执行的图。
 
 ### 导出时做了什么
 
-`torch.export` 和传统 `torch.jit.trace` 的核心区别在于：前者是完整的图捕获，会追踪到 Python 控制流内部，而后者只是记录一次前向传播的算子序列。
+`torch.export` 和传统 `torch.jit.trace` 的核心区别在于：前者会对 Python 控制流做静态分析并要求得到一个固定的图，而后者只是记录一次前向传播的算子序列。
 
-这意味着 `torch.export` 导出的图保留了动态分支的可能性——虽然端侧执行时还是静态图，但导出端不需要为了适配而改模型结构。
+但这不意味着 `torch.export` 能任意保留 Python 动态分支。对于**数据依赖的**条件分支（如 `if tensor.sum() > 0: ...`），export 默认会报错或只导出其中一条分支，必须用 `torch.cond(pred, true_fn, false_fn, operands)` 显式改写才能被完整图捕获。对于仅依赖输入 shape/常量的控制流（如 Python 级 `if` 判断静态标志位），`torch.export` 会在导出时将其展开为具体分支对应的静态图，而不是保留分支本身。实际开发中，含数据依赖分支的模型（如动态早退、条件 attention）往往需要专门用 `torch.cond` 重写才能导出成功，这一步常常比预期少一些工作量。
 
-导出管线里还有一个关键角色：**Delegate（委托）**。导出时可以将图中某些子图标记为可委托给特定后端执行，比如 NPU、GPU、Hexagon DSP。标记后的子图会以 `.pte` 里的 `backend_id` 字段区分，运行时由对应的 Delegate 接管。
+导出管线里还有一个关键角色：**Delegate（委托）**。导出时可以将图中某些子图标记为可委托给特定后端执行，比如 NPU、GPU、Hexagon DSP。标记后的子图会在 `.pte` 中包含对应的后端标识信息，运行时由对应的 Delegate 接管。
 
 ## Android 端集成：比想象中轻量
 
@@ -112,23 +117,19 @@ delegated = exported_program.to_backend(TestBackend())
 
 运行时委托（LiteRT 的方式）需要在 `model.load()` 阶段做图匹配——扫描整个计算图，找到 GPU 支持的算子，插入数据传输节点。这个过程的耗时在 50-200ms 之间，对冷启动敏感的场景（如相机实时推理）是额外的开销。
 
-AOT 委托在导出时就把这些工作做了，`.pte` 文件里已经是"分区好的图"，加载即用。实测同一 MobileNetV3 模型，ExecuTorch 的模型加载耗时比 LiteRT + GPU Delegate 快 40% 左右。
+AOT 委托在导出时就把这些工作做了，`.pte` 文件里已经是“分区好的图”，加载即用，运行时不需要重新扫描图做后端匹配。代价是 `.pte` 文件失去了后端无关性——一个针对 Qualcomm HTP 导出的 `.pte`，在 Mali GPU 上跑不了。但这在移动端场景下不是问题，你本来就要按设备分发不同的 ABI。
 
-代价是 `.pte` 文件失去了后端无关性——一个针对 Qualcomm HTP 导出的 `.pte`，在 Mali GPU 上跑不了。但这在移动端场景下不是问题，你本来就要按设备分发不同的 ABI。
+具体能获得多大的加载速度提升，取决于模型图的复杂度、委托的子图比例以及对比的运行时实现，本文不给出笼统的百分比数字，建议在自己的目标设备和模型上实测。
 
 ## 与 LiteRT 的性能对比
 
-我用同一 ResNet-50 模型（PyTorch 导出 vs TFLite 转换），在 Pixel 7（Tensor G2）上做了对比：
+我在同一 ResNet-50 模型（PyTorch 导出 vs TFLite 转换）上对比过 ExecuTorch 和 LiteRT 的表现。具体数字随设备、模型、量化方案及框架版本波动很大，这里不列具体数值，只给定性结论（若需准确数据请在目标机型上自行基准测试）：
 
-| 指标 | ExecuTorch (CPU) | LiteRT (CPU) | LiteRT (GPU) |
-|------|-----------------|--------------|--------------|
-| 模型加载 | 32ms | 85ms | 178ms |
-| 单次推理 | 18.7ms | 18.2ms | 9.3ms |
-| 内存占用 | 48MB | 52MB | 62MB |
+- **CPU 推理**：两边差异不大。LiteRT 依靠 XNNPACK 多年优化，在某些模型上可能略优；ExecuTorch 的 CPU 后端（XNNPACK delegate 或 portable kernels）在常见网络上基本可以打平。
+- **模型加载**：由于 AOT 委托免去了运行时图匹配，ExecuTorch 在启动阶段通常能快于使用运行时委托机制的 LiteRT GPU Delegate，但具体幅度需实测。
+- **内存占用**：两者差异一般不显著，与模型结构、量化方案关系更大。
 
-CPU 推理性能差距不大，LiteRT 略优 2-3%，这主要得益于 XNNPACK 的多年优化。模型加载 ExecuTorch 明显更快，原因前面说了——没有运行时图匹配的开销。
-
-GPU 推理方面，ExecuTorch 目前通过 Vulkan Delegate 支持，但成熟度不如 LiteRT 的 GPU Delegate。Pixel 7 上 GPU 推理延迟约 12ms，比 LiteRT GPU 慢 30%。这跟 Vulkan 实现的算子覆盖度和调优程度有关，ExecuTorch 团队正在补这块，但现阶段如果 GPU 推理是刚需，LiteRT 还是更稳的选择。
+GPU 推理方面，ExecuTorch 目前通过 Vulkan Delegate 支持，但成熟度还不如 LiteRT 的 GPU Delegate，算子覆盖度和调优程度上仍有差距。ExecuTorch 团队正在补这块，但现阶段如果 GPU 推理是刚需，LiteRT 还是更稳的选择。
 
 ## 实践中的几个坑
 

@@ -1,7 +1,5 @@
 ---
 title: 深入 Android APK 签名机制全链路：从 V1 JAR 签名到 V4 流式签名的演进与验证原理
-slug: android-apk-signing-schemes
-translationKey: android-apk-signing-schemes
 excerpt: 梳理 Android APK 签名从 V1 JAR 签名到 V4 流式签名的完整演进链路，深入分析各版本签名结构、验证原理、安全漏洞及实践建议。
 publishDate: '2026-07-03'
 tags:
@@ -25,7 +23,7 @@ APK 签名不是一次性设计出来的，而是随着 Android 系统演进逐�
 
 实现思路很直接：用私钥对内容摘要加密，系统用公钥解密比对。但"对什么内容做摘要"才是各版本签名的核心差异。
 
-V1 对整个 JAR 条目做摘要，V2/V3 对整个 APK 文件做摘要，V4 干脆不构建完整的签名块。方案不同，但验证链路都遵循同一模式：
+V1 对整个 JAR 条目做摘要，V2/V3 对整个 APK 文件做摘要，V4 则基于对 APK 全文件字节计算的 Merkle 树、且必须搭配已有的 V2/V3 签名作为信任根。方案不同，但基本验证思想都类似：
 
 ```
 内容 → 哈希摘要 → 私钥签名 → 嵌入 APK
@@ -53,9 +51,9 @@ Janus 漏洞（CVE-2017-13156）把 V1 的弱点暴露得很彻底：攻击者�
 
 ## V2：把整个 APK 压进一个签名块
 
-V2（APK Signature Scheme v2）不再关心 ZIP 内部有什么文件，它直接对 APK 文件的字节流做哈希。
+V2（APK Signature Scheme v2）不再关心 ZIP 内部有什么文件，它把 APK 当作一个整体做完整性校验。
 
-APK 被划分为三个区段：❶ ZIP 条目内容 → ❷ APK Signing Block → ❸ ZIP 中央目录（Central Directory）+ EOCD。签名块插入在 ❶ 和 ❸ 之间，不破坏 ZIP 结构，旧工具仍能解压 APK。
+APK 被划分为四个区段：❶ ZIP 条目内容 → ❷ APK Signing Block → ❸ ZIP 中央目录（Central Directory） → ❹ ZIP EOCD。签名块插入在 ❶ 和 ❸ 之间，不破坏 ZIP 结构，旧工具仍能解压 APK。
 
 ```binary
 [ZIP Entries (1~n)]
@@ -70,9 +68,9 @@ APK 被划分为三个区段：❶ ZIP 条目内容 → ❷ APK Signing Block �
 [EOCD]
 ```
 
-APK Signing Block 中可以有多个 ID-value 对，V2 的魔数是 `0x7109871a`。这对后面 V3 在同一块里共存很重要。
+APK Signing Block 中可以有多个 ID-value 对，V2 签名数据存储在 ID 为 `0x7109871a` 的 ID-value 对里。这对后面 V3 在同一块里共存很重要。
 
-V2 签名时，将 APK 中区域 ❶、❸ 以及签名块中"V2 签名数据之前的字节"拼接起来做哈希，保证签名块自身也被保护在内。最终数据包含三个部分：
+V2 保护的是区段 ❶（ZIP 条目内容）、❸（Central Directory）、❹（EOCD）的完整性，以及签名块自身内部 `signed data` 部分的完整性。区段 ❶❸❹ 各自按 1 MB 分块计算摘要（每块摘要前缀字节 `0xa5` + 块长度，再对所有块摘要拼接后前缀字节 `0x5a` + 块数做一次顶层摘要，类似两级 Merkle 树），顶层摘要值存入 `signed data` 的 `digests` 字段，再对整个 `signed data` 做签名——这样摘要本身也被签名保护，不会被单独篡改。最终数据结构大致如下：
 
 ```kotlin
 // V2 签名核心结构
@@ -85,7 +83,7 @@ data class V2Signature(
 )
 
 data class SignedData(
-    val digests: List<Digest>,      // 对❶+②+③部分的哈希
+    val digests: List<Digest>,      // 对❶ ZIP条目 + ❸ Central Directory + ❹ EOCD 的分块摘要
     val certificates: List<X509Cert>,
     val attributes: List<Attribute> // 可扩展属性
 )
@@ -99,60 +97,57 @@ V2 把签名块放在 APK 末尾附近，但 ZIP 中央目录之前的区域还�
 
 V3（APK Signature Scheme v3）与 V2 共享同一个 APK Signing Block，但结构上有本质区别。
 
-V3 引入了 **proof-of-rotation** 结构。每个 signer 的 signedData 里可以包含一个 `rotation` 属性，记录签名证书链的变更历史：
+V3 引入了 **proof-of-rotation** 结构。每个 signer 的 signedData 里可以包含一个 proof-of-rotation 属性（ID `0x3ba06f8c`），本质是一个**单链表**：链上每个节点对应一个历史版本的签名证书，节点按版本顺序排列，最旧的证书在链根部。链中每个证书都对下一个证书的 signed data 签名，形成“旧证书为新证书背书”的效果，从而证明新钥匙应得到与旧钥匙同样的信任：
 
 ```kotlin
-data class ProofOfRotation(
-    val minSdkVersion: Int,           // 新证书的最低 SDK
-    val maxSdkVersion: Int,           // 旧证书的最高 SDK（可选）
-    val newSigner: SignerBlock,       // 新密钥签名的 signer
-    val previousProof: ProofOfRotation? // 递归链接的历史记录
+// proof-of-rotation 单链表中的一个节点
+data class ProofOfRotationLevel(
+    val signedData: SignedData?,       // 由上一个证书签名（含本节点证书），根节点为 null
+    val certificate: X509Cert,          // 本节点对应的历史签名证书
+    val flags: Int,                     // 是否设为 self-trusted-old-cert 等标位
+    val signatureAlgorithmId: Int       // 签名下一节点所用的算法
 )
 ```
 
-新旧两个 signer 都对 signedData 签名，系统根据设备 SDK 版本选择对应证书。旧设备不受影响，新设备认新证书。这让同一个包名的应用可以在不丢失身份的前提下完成密钥迁移。
+每个 signer 只能对应一个 min/max SDK 区间，系统根据设备 SDK 版本选择在区间内的那个 signer。旧设备用旧证书对应的 signer，新设备用新证书对应的 signer。这让同一个包名的应用可以在不丢失身份的前提下完成密钥迁移。注意：**V3 版本只支持单个签名钥匙，不支持多签名并存**，Google Play 也不发布包含多个签名证书的 APK。
+
+V3 验证时要求在当前平台版本范围内**恰好找到一个**匹配的 signer并验证成功才能算通过，并需要校验 proof-of-rotation 结构本身的合法性。
 
 V3 的另一个改进是签名块中用 `level` 区分签名类型：V2 的结构里 `level=0` 表示直接签名者，V3 扩展为 `level=1` 表示轮转后的签名、`level=2` 表示更深的轮转层。
 
-支持密钥轮转意味着应用商店的包名归属校验不再只认单一指纹，需要维护一个可信证书链。这个思路在 Android App Bundle 的 Play Signing 中得到了更激进的应用——开发者用自己的 upload key 签名，Google Play 用 release key 重签名。
+支持密钥轮转意味着应用商店的包名归属校验不再只认单一指纹，而是需要沿着 proof-of-rotation 链评估信任关系。这个思路在 Android App Bundle 的 Play Signing 中得到了更激进的应用——开发者用自己的 upload key 签名，Google Play 用 release key 重签名。
 
 ## V4：丢掉签名块，直接从文件系统和 ADB 读
 
 V4（APK Signature Scheme v4）的出发点很明确：**V2/V3 验证仍然需要读取 APK 的多个区段，对于 GB 级别的游戏 APK，I/O 开销不可忽略。**
 
-V4 把签名数据从 APK 内部移出，生成一个独立的 `.idsig` 文件。Android 11+ 设备安装时直接读这个小文件，不需要对 APK 本身做流式计算。
+V4 的签名数据基于对整个 APK 字节计算的 Merkle 树，结构完全对齐 fs-verity 的 hash tree。但**V4 签名不能单独存在，必须搭配一个完整的 V2 或 V3 签名作为前提**：V4 中的 `apk_digest` 字段直接取自 APK 的 V3 签名块（若不存在则取自 V2 块），也就是说 V4 本质上是在 V2/V3 已经完整验证过 APK 的基础上，再提供一层可分块验证、支持流式安装的能力。V4 自己不能独立验证整个 APK 的真实性，主要服务于增量安装场景。
 
-`.idsig` 文件的魔数是 `0x6e6740d4`，内部结构是一个扁平化的 merkle tree：
+Android 11 将 V4 签名存在一个独立的 `.idsig` 文件中，与 APK 并列放置。
 
-```binary
-[.idsig File]
-  magic: 0x6e6740d4
-  [V4 Signature Block]
-    hashingAlgorithm
-    signingAlgorithm
-    signingKeyBlock
-    merkleTree
-    flags
-```
+`.idsig` 文件采用自定义二进制结构（`V4Signature`），包含 `hashing_info`（哈希算法、块大小、salt 以及 Merkle 树根哈希）、`signing_info`（apk_digest、证书、签名等）以及可选的 `merkle_tree`。默认块大小为 4KB（log2_blocksize=12），与 V2/V3 摘要计算用的 1MB 块不同。验证时只需要读取需要校验的块，配合树根哈希即可确认完整性。`adb install --incremental` 需要 `.idsig` 文件与 APK 同名并列于同一目录，若文件缺失或无效会回退到常规安装。
 
-merkle tree 对 APK 文件做分块哈希，每块默认 1 MB。验证时只需要读取需要校验的块，配合树根哈希即可确认完整性。增量安装（如 ADB install 的增量传输）受益最大——只传输变化的块，同时只验证那些块的哈希。
-
-V4 还通过 `flags` 字段引入了 `merkle tree only` 模式。这种模式下不包含传统签名，只提供完整性哈希树。配合 fs-verity 等内核特性，可以在安装后持续保护 APK 不被修改。
+V4 还通过 `additional_data` 字段预留了扩展能力，具体用法实现可以随平台发展变化，本文不展开。V4 的核心价值仍是搭配增量安装（IncFS）提供流式验证能力，而不是取代 V2/V3。
 
 ## 四种方案的验证优先级
 
-Android 系统验证 APK 时，按 V4 → V3 → V2 → V1 的优先级逐个尝试。一个 APK 可以同时包含四种签名的任意组合，但只要找到一种可验证的签名就停止：
+Android 系统验证 APK 时，在 APK Signing Block 内部按 V3 → V2 → V1 的优先级依次尝试：找到 V3 块就验证 V3，找不到则回退验证 V2，再找不到则回退验证 V1。V4 不在这个回退链中：它是一个叠加在这套验证之上的额外机制——当设备支持 V4 且 `.idsig` 存在时，安装过程会优先用 V4 的 Merkle 树做流式/增量验证，但 V4 中的 `apk_digest` 必须与 APK 内 V3（或 V2）块中的摘要匹配——也就是说 V4 验证本质上仍依赖一个完整的 V2/V3 签名作为信任根，不能把它当作与 V3/V2/V1 平行、可互相回退的普通签名。当 `.idsig` 不存在或无效时，安装器会回退到常规安装，走 V3 → V2 → V1 的常规验证链。
 
 ```
-apkVerity(apk):
-    if androidVersion >= 11 AND .idsig exists:
-        verifyV4(apk, idsig) → return true/throw
-    if v3Block exists in Signing Block:
-        verifyV3(apk, v3Block) → return true/throw
-    if v2Block exists in Signing Block:
-        verifyV2(apk, v2Block) → return true/throw
-    // fallback
-    verifyV1(apk, CERT.RSA) → return true/throw
+verifyApk(apk):
+    v3Block, v2Block = locateSigningBlocks(apk)
+    if v3Block exists:
+        ok = verifyV3(apk, v3Block)
+    elif v2Block exists:
+        ok = verifyV2(apk, v2Block)
+    else:
+        ok = verifyV1(apk, CERT.RSA) // fallback
+
+    if not ok: throw
+
+    // 增量安装场景下的叠加流程（与上面的常规验证不是互斥关系）
+    if installMode == INCREMENTAL and idsigExists:
+        verifyV4(apk, idsig) // 需要 apk_digest 与 V3/V2 摘要匹配，才能支持分块流式验证
 ```
 
 ## 实践建议

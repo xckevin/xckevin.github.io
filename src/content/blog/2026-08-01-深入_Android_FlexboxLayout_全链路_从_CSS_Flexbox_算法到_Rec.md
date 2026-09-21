@@ -11,6 +11,8 @@ tags:
 seo:
   title: 深入 Android FlexboxLayout 全链路：从 CSS Flexbox 算法到 RecyclerView 自适应流式布局引擎
   description: 深入学习 Android FlexboxLayout 从 W3C CSS Flexbox 规范到 RecyclerView 流式布局的完整实现链路，包括 flex-grow 分配算法、常见踩坑经验和选型决策框架。
+slug: android-flexboxlayout-recyclerview
+translationKey: android-flexboxlayout-recyclerview
 ---
 
 去年接手一个电商 App 的搜索页改造，需求是在历史搜索下方展示动态标签云。标签数量不固定，宽度各异，需要自动换行排列。第一版用 `GridLayout` 硬算每个 item 的列位置，数据量超过 50 个时滑动手势开始丢帧。

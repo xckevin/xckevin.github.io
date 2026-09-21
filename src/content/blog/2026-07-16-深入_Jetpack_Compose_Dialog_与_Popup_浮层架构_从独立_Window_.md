@@ -11,6 +11,8 @@ tags:
 seo:
   title: 深入 Jetpack Compose Dialog 与 Popup 浮层架构：从独立 Window 创建到焦点管理的声明式浮层全链路
   description: 深入解析 Jetpack Compose 中 Dialog 与 Popup 的浮层架构：不是简单 View 叠加，而是独立 Window 实例。从 Window 创建、软键盘模式、焦点抢占到工程化实践，一文讲透声明式浮层的底层原理。
+slug: jetpack-compose-dialog-popup-window-focus
+translationKey: jetpack-compose-dialog-popup-window-focus
 ---
 
 在做 Compose 项目时，一个同事提了个问题：「为什么 Dialog 里的 TextField 弹键盘会把整个界面顶上去，但 BottomSheet 里的就不会？」这个问题我一开始也觉得理所当然——直到翻了源码才发现，Compose 的浮层机制远比直觉复杂。Dialog 不是简单的 View 叠加，它背后是独立的 Window 实例，享有自己的焦点链和输入法交互策略。这篇文章把这条链路拆开来看。

@@ -11,6 +11,8 @@ tags:
 seo:
   title: 深入 Android 端侧 AI 推理的模型效果漂移监控与自动回滚全链路
   description: 从 PSI 统计量检测到保底模型自动回滚，落地一套完整的端侧 AI 质量保障体系。详解漂移检测算法选型、版本包管理、端云协同上报与恢复策略，实战经验总结。
+slug: android-on-device-ai-model-drift-rollback
+translationKey: android-on-device-ai-model-drift-rollback
 ---
 
 去年我们在一个 OCR 识别项目上栽了跟头：端侧模型在灰度发布后，识别准确率从 96% 掉到 82%，用户反馈铺天盖地，但团队花了两天才定位到是新版模型的问题。事后复盘，根因不是模型本身有 bug，而是新模型对低端机型的图像噪点分布极度敏感——训练集里缺少这类样本。这种问题就叫模型效果漂移（Model Drift）。

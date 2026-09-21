@@ -1,4 +1,6 @@
 ---
+slug: android-sqlite-connection-pool-wal-transactions
+translationKey: android-sqlite-connection-pool-wal-transactions
 title: 深入 Android SQLite 底层全链路：从连接池复用到 WAL 日志与事务隔离的原生存储引擎解析
 excerpt: 从一次 SQLite database is locked 排查入手，剖析连接池复用、WAL 日志与事务隔离的底层机制，并给出读写并发场景下的落地优化清单。
 publishDate: '2026-08-13'

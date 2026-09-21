@@ -11,6 +11,8 @@ tags:
 seo:
   title: 深入 Android 端侧 AI 推理的远程配置与动态实验体系：从推理参数热更新到 A/B 分流的工程架构
   description: 介绍 Android 端侧 AI 推理的远程配置与 A/B 实验体系设计，涵盖推理参数热更新、端侧分流算法、跨端哈希一致性及多层安全兜底等工程实践。
+slug: android-on-device-ai-remote-config-ab-testing
+translationKey: android-on-device-ai-remote-config-ab-testing
 ---
 
 去年在做端侧 AI 推理框架的工程化落地时，团队遇到了一个两难问题：模型已经随 APK 发版部署，但推理参数（阈值、采样策略、Prompt 模板）需要频繁调优。每次改动都要走发版流程，迭代周期被拉长到两周以上。

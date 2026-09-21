@@ -1,4 +1,6 @@
 ---
+slug: android-telephony-ril-call-sms-architecture
+translationKey: android-telephony-ril-call-sms-architecture
 title: 深入 Android Telephony 全链路：从 TelephonyManager 到 RIL 层的通话状态机与短信收发架构解析
 excerpt: 从应用层 TelephonyManager 门面到 Phone 进程通话状态机，再到 RIL 层序列号协议与短信双链路，梳理 Telephony 四层状态同步与问题定位方法。
 publishDate: '2026-08-17'

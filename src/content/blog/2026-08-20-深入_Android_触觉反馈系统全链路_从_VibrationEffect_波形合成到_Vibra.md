@@ -1,4 +1,6 @@
 ---
+slug: android-haptics-vibrationeffect-vibrator-hal
+translationKey: android-haptics-vibrationeffect-vibrator-hal
 title: 深入 Android 触觉反馈系统全链路：从 VibrationEffect 波形合成到 Vibrator HAL 的触感设计工程实践
 excerpt: 从 VibrationEffect 波形合成、VibratorManager 调度到 HAL 驱动，拆解 Android 触觉反馈全链路，并总结省电模式下的触感设计工程实践。
 publishDate: '2026-08-20'

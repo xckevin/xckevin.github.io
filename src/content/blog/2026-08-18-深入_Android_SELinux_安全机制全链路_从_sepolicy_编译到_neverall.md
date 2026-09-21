@@ -1,4 +1,6 @@
 ---
+slug: android-selinux-sepolicy-neverallow
+translationKey: android-selinux-sepolicy-neverallow
 title: 深入 Android SELinux 安全机制全链路：从 sepolicy 编译到 neverallow 审计的系统级访问控制架构
 excerpt: 从一条 avc 拒绝日志切入，系统梳理 Android SELinux 的 sepolicy 编译链路、域转换、contexts 映射与 neverallow 审计，并给出 native 服务排障与落地建议。
 publishDate: '2026-08-18'

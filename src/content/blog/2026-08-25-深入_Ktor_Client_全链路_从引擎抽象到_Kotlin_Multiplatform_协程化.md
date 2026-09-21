@@ -1,4 +1,6 @@
 ---
+slug: ktor-client-kotlin-multiplatform-networking
+translationKey: ktor-client-kotlin-multiplatform-networking
 title: 深入 Ktor Client 全链路：从引擎抽象到 Kotlin Multiplatform 协程化网络层的工程实践
 excerpt: 本文深入 Ktor Client 全链路，解析引擎抽象、拦截器管道与协程化网络层，并覆盖引擎选型、超时语义和 MockEngine 测试等落地实践。
 publishDate: '2026-08-25'

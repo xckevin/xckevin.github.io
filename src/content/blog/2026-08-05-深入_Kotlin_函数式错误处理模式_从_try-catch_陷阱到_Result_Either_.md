@@ -11,6 +11,8 @@ tags:
 seo:
   title: 深入 Kotlin 函数式错误处理模式
   description: 从 try-catch 的结构性缺陷出发，详解 Kotlin Result 与 Arrow Either 的函数式错误处理方案，结合 Railway Oriented Programming 给出实战场景选型指南。
+slug: kotlin-functional-error-handling-result-either
+translationKey: kotlin-functional-error-handling-result-either
 ---
 
 ## 一个线上崩溃引起的反思

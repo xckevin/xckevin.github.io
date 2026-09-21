@@ -1,4 +1,6 @@
 ---
+slug: android-adpf-thermal-performance-hints
+translationKey: android-adpf-thermal-performance-hints
 title: 深入 Android 动态性能框架 ADPF 全链路：从 Thermal API 到 Performance Hint 的自适应性能调度
 excerpt: 本文解析 Android 动态性能框架 ADPF，结合 Thermal 热状态、Performance Hint 调频预算与 Game Mode 策略基线，演示如何在热降频前主动降载并拉平掉帧曲线。
 publishDate: '2026-08-16'

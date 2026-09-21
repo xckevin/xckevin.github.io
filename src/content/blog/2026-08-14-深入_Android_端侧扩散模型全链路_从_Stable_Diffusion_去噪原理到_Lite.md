@@ -1,4 +1,6 @@
 ---
+slug: android-on-device-stable-diffusion-litert
+translationKey: android-on-device-stable-diffusion-litert
 title: 深入 Android 端侧扩散模型全链路：从 Stable Diffusion 去噪原理到 LiteRT 移动端图像生成的工程实践
 excerpt: 从 Stable Diffusion 去噪原理出发，拆解 LiteRT 移动端部署链路，通过 FP16 量化、LCM 蒸馏与按需加载把 Pixel 8 单图生成从 40 秒压到 3 秒以内。
 publishDate: '2026-08-14'

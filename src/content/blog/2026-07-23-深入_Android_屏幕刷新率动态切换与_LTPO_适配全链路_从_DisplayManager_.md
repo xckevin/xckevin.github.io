@@ -11,6 +11,8 @@ tags:
 seo:
   title: 深入 Android 屏幕刷新率动态切换与 LTPO 适配全链路：从 DisplayManager 帧率策略到 Choreographer VSYNC 自适应调度
   description: 深入剖析 Android 屏幕刷新率动态切换全链路机制，从 DisplayModeDirector 投票仲裁到 LTPO 面板 DDIC 影子调度，详解 Choreographer VSYNC 自适应策略及实战帧率管理方案。
+slug: android-adaptive-refresh-rate-ltpo-choreographer
+translationKey: android-adaptive-refresh-rate-ltpo-choreographer
 ---
 
 在做视频播放器的性能优化时，遇到了一个诡异的现象：同一台 120Hz LTPO 设备上，我们的播放器始终锁在 60Hz，但 YouTube 在滑动列表时能流畅跑到 120Hz。当时的第一反应是漏掉了某个 API 调用——结果发现，问题远比想象中复杂。

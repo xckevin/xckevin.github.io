@@ -11,6 +11,8 @@ tags:
 seo:
   title: 深入 Android 端侧 AI 推理的 Compose 声明式集成全链路：从推理状态建模到 UI 响应式渲染的工程化实践
   description: 从推理状态机建模到 Compose UI 响应式渲染，详解端侧 AI 推理在声明式 UI 中的工程化集成方案，包括生命周期管理、流式渲染优化与错误处理策略。
+slug: android-on-device-ai-compose-integration
+translationKey: android-on-device-ai-compose-integration
 ---
 
 去年我们团队在做一个本地图像处理 App 时，用 MediaPipe 跑人像分割，推理部分很快就调通了。真正卡了我们两天的，是把推理引擎的输出——尤其是流式推理结果——丝滑地接到 Compose UI 上。状态乱跳、生命周期泄露、重组风暴，全碰了一遍。

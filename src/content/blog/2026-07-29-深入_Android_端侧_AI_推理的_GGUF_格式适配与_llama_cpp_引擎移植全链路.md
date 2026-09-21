@@ -11,6 +11,8 @@ tags:
 seo:
   title: 深入 Android 端侧 AI 推理的 GGUF 格式适配与 llama.cpp 引擎移植全链路
   description: 深入 Android 端侧 AI 推理的全链路实战：GGUF 量化格式选型与 llama.cpp 引擎移植，涵盖交叉编译、量化等级对比、线程亲和性与 KV Cache 优化。
+slug: android-gguf-llama-cpp-on-device-inference
+translationKey: android-gguf-llama-cpp-on-device-inference
 ---
 
 去年在做一款本地知识库应用时，遇到了一个棘手问题：如何在一台骁龙 8 Gen 2 手机上流畅跑通 7B 模型。当时市面上的方案要么绑死厂商 SDK，要么推理速度慢到不可用。绕了一圈，最终落在了 **GGUF** 格式加 **llama.cpp** 这条技术栈上。

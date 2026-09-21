@@ -1,4 +1,6 @@
 ---
+slug: android-media-router-google-cast
+translationKey: android-media-router-google-cast
 title: 深入 Android 投屏全链路：从 MediaRouter 设备发现到 Google Cast Session 管理
 excerpt: 拆解 Android 投屏全链路，讲清 MediaRouter 设备发现、Cast Session 状态机流转与后台续播的坑，避免 Route 与 Session 生命周期混用。
 publishDate: '2026-08-21'

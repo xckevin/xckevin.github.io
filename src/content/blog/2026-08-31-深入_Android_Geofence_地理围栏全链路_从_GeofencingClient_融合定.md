@@ -1,4 +1,6 @@
 ---
+slug: android-geofence-doze-troubleshooting
+translationKey: android-geofence-doze-troubleshooting
 title: 深入 Android Geofence：从注册链路到 Doze 触发失灵的全链路解析
 excerpt: 梳理 Android 地理围栏从注册到触发的完整链路，解析 PendingIntent 回调与融合定位机制，并重点剖析 Doze 省电策略导致围栏触发失灵的根因及功耗优化实践。
 publishDate: '2026-08-31'

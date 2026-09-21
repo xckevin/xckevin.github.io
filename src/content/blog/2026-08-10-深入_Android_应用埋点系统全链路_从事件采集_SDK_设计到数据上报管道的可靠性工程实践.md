@@ -1,4 +1,6 @@
 ---
+slug: android-analytics-sdk-event-pipeline
+translationKey: android-analytics-sdk-event-pipeline
 title: 深入 Android 应用埋点系统全链路：从事件采集 SDK 设计到数据上报管道的可靠性工程实践
 excerpt: 本文系统梳理 Android 埋点 SDK 的全链路设计，涵盖事件模型、曝光采集与去重、mmap 持久化替代 SQLite、批量压缩与指数退避上报策略，以及隐私合规与线上监控，解决数据丢失与上报可靠性等工程难题。
 publishDate: '2026-08-10'

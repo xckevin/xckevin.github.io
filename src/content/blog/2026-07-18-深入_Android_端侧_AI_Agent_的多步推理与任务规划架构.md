@@ -11,6 +11,8 @@ tags:
 seo:
   title: 深入 Android 端侧 AI Agent 的多步推理与任务规划架构
   description: 剖析 Function Calling 在多步任务中的局限性，提出 ReAct + DAG 分层规划架构，涵盖内存调度、失败回退、规划缓存等端侧落地的工程实践与优化策略。
+slug: android-on-device-ai-agent-task-planning
+translationKey: android-on-device-ai-agent-task-planning
 ---
 
 在做端侧 AI Agent 时，我踩过一个典型的坑：用户说「帮我把昨天拍的那张表格照片转成 Excel，然后发到工作群里」，模型通过 Function Calling 顺利调用了图片搜索和文件转换接口，但发给群的那一步，它传了空路径——因为转换还没完成，文件路径根本没返回。

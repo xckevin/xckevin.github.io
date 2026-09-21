@@ -1,4 +1,6 @@
 ---
+slug: android-reflection-hidden-api-dynamic-proxy
+translationKey: android-reflection-hidden-api-dynamic-proxy
 title: 深入 Android 反射黑科技全链路：从隐藏 API 灰名单绕过到运行时动态代理的元编程工程实践
 excerpt: 本文从一次 NoSuchMethodException 崩溃入手，深入剖析 Android 反射机制在 ART 层的实现原理、隐藏 API 三级灰名单的过滤逻辑，以及元反射替换、setHiddenApiExemptions、JNI 直清标志位三种绕过方案的适用边界，并探讨了动态代理工程落地与元编程的工程化取舍。
 publishDate: '2026-08-11'

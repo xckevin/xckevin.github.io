@@ -1,4 +1,6 @@
 ---
+slug: android-grpc-protobuf-bidirectional-streaming
+translationKey: android-grpc-protobuf-bidirectional-streaming
 title: 深入 Android gRPC 全链路：从 Protobuf 代码生成到双向流式通信的端云协同网络架构
 excerpt: 本文从端云协同语音助手的实际需求出发，剖析 gRPC 在 Android 端的使用：Protobuf 契约生成、双向流式通信实现，以及线程、背压、重连等实践要点。
 publishDate: '2026-09-18'

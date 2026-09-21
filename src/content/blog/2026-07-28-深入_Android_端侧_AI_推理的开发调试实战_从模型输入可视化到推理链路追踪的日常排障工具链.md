@@ -11,6 +11,8 @@ tags:
 seo:
   title: 深入 Android 端侧 AI 推理的开发调试实战：从模型输入可视化到推理链路追踪的日常排障工具链
   description: 介绍一套轻量级 Android 端侧 AI 推理调试工具链，涵盖输入可视化、中间层截获、耗时拆解与内存监控，快速定位预处理污染与性能瓶颈。
+slug: android-on-device-ai-debugging-toolchain
+translationKey: android-on-device-ai-debugging-toolchain
 ---
 
 某天产品反馈：「这个图片识别功能，同一张图在 iOS 上能识别出来，Android 上不行。」

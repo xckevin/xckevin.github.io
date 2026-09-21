@@ -1,4 +1,6 @@
 ---
+slug: android-private-space-fbe-architecture
+translationKey: android-private-space-fbe-architecture
 title: 深入 Android Private Space 私有空间全链路：从多用户隔离到 FBE 加密的隐私容器架构
 excerpt: 私有空间并非简单的图标隐藏，而是由多用户隔离、FBE 文件级加密与系统服务协同构成的隐私容器。文章拆解了从用户沙箱到密钥驱逐的完整链路。
 publishDate: '2026-09-01'

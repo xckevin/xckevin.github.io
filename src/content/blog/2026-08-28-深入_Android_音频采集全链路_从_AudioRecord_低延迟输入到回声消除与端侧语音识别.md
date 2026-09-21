@@ -1,4 +1,6 @@
 ---
+slug: android-audiorecord-aec-on-device-speech
+translationKey: android-audiorecord-aec-on-device-speech
 title: 深入 Android 音频采集全链路：从 AudioRecord 低延迟输入到回声消除与端侧语音识别的协同
 excerpt: 本文完整梳理 Android 音频采集链路：从 AudioRecord 缓冲区权衡到 AAudio 低延迟输入，再到回声消除与端侧 ASR 的数据适配，并给出边播边听场景的可落地参考架构。
 publishDate: '2026-08-28'

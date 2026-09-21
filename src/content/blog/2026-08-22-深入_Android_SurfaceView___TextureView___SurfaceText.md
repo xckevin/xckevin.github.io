@@ -1,4 +1,6 @@
 ---
+slug: android-surfaceview-textureview-surface-texture
+translationKey: android-surfaceview-textureview-surface-texture
 title: 深入 Android SurfaceView / TextureView / SurfaceTexture 全链路：从 BufferQueue 生产端到 Surface 合成路径的渲染桥接架构
 excerpt: 从 BufferQueue 生产-消费模型出发，拆解 SurfaceView、TextureView 与 SurfaceTexture 的桥接关系与合成路径差异，并给出相机与视频渲染的选型建议。
 publishDate: '2026-08-22'

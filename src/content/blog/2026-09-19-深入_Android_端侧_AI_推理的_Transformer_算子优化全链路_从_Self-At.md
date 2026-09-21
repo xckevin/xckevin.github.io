@@ -1,4 +1,6 @@
 ---
+slug: android-transformer-flashattention-mobile-gpu
+translationKey: android-transformer-flashattention-mobile-gpu
 title: 深入 Android 端侧 AI 推理的 Transformer 算子优化全链路：从 Self-Attention 计算瓶颈到移动 GPU 计算着色器的 FlashAttention 加速
 excerpt: 本文记录在 Android 端侧把 FlashAttention 搬进 OpenGL ES Compute Shader 的全过程，通过分块计算与 Online Softmax 将 Attention 访存从 O(n²) 降到 O(n)，实测 Mali-G710 延迟从 120ms 降至 18ms。
 publishDate: '2026-09-19'

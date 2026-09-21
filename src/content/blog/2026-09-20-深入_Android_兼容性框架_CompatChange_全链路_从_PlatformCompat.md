@@ -1,4 +1,6 @@
 ---
+slug: android-compatchange-targetsdk-compatibility
+translationKey: android-compatchange-targetsdk-compatibility
 title: 深入 Android 兼容性框架 CompatChange 全链路：从 PlatformCompat 行为开关到 targetSdk 版本治理的系统级适配工程
 excerpt: 深入解析 Android PlatformCompat 兼容性框架：从 CompatChange 行为开关的判定链路、adb 调试开关到厂商 overlay 的坑，系统讲解 targetSdk 版本治理的适配工程方法论。
 publishDate: '2026-09-20'

@@ -11,6 +11,8 @@ tags:
 seo:
   title: 深入 Android RecyclerView ItemDecoration 全链路
   description: 深入解析 Android RecyclerView ItemDecoration 的完整机制，涵盖 onDraw/onDrawOver 分层绘制、getItemOffsets 布局介入、粘性头部与时间轴工程实现，以及性能优化最佳实践。
+slug: android-recyclerview-itemdecoration
+translationKey: android-recyclerview-itemdecoration
 ---
 
 接手过一个聊天应用的时间轴需求：消息列表左侧要画一条竖线串联时间节点。第一反应是改 Item 布局，结果竖线在快速滑动时断裂闪烁——每个 Item 独立绘制，无法保证线条连续性。换用 ItemDecoration 统一在 Canvas 上绘制后，问题立刻消失。

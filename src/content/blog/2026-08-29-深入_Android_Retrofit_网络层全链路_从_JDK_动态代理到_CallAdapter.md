@@ -1,4 +1,6 @@
 ---
+slug: android-retrofit-dynamic-proxy-calladapter
+translationKey: android-retrofit-dynamic-proxy-calladapter
 title: 深入 Android Retrofit 网络层全链路：从 JDK 动态代理到 CallAdapter 协程桥接的声明式 HTTP 架构解析
 excerpt: 拆解 Retrofit 网络层的完整执行链路：从 JDK 动态代理拦截接口方法，到注解解析生成请求模板，再到 OkHttp 懒执行桥接与 CallAdapter 协程适配，揭示声明式 HTTP 架构背后的插件化设计。
 publishDate: '2026-08-29'

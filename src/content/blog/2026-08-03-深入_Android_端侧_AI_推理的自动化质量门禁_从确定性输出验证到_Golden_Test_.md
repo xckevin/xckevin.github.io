@@ -11,6 +11,8 @@ tags:
 seo:
   title: 深入 Android 端侧 AI 推理的自动化质量门禁：从确定性输出验证到 Golden Test 的推理回归测试体系
   description: 端侧AI推理存在非确定性输出问题。本文详解基于MD5哈希快照的确定性验证与P95性能基线回归检测的CI质量门禁体系，将端侧推理波动关进可控边界内。
+slug: android-on-device-ai-golden-tests
+translationKey: android-on-device-ai-golden-tests
 ---
 
 端侧 AI 推理的测试有一个棘手的问题：**非确定性输出**。同一个模型、同一张输入图，两次推理结果的浮点数末尾几位可能不同。GPU 调度顺序、线程竞争、甚至手机温度都会影响最终数值。传统软件测试中「同一个输入必出同一个输出」的铁律直接失效了。

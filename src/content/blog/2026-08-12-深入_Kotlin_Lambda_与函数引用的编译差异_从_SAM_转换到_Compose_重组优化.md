@@ -1,4 +1,6 @@
 ---
+slug: kotlin-lambda-function-reference-compose-performance
+translationKey: kotlin-lambda-function-reference-compose-performance
 title: 深入 Kotlin Lambda 与函数引用的编译差异：从 SAM 转换到 Compose 重组优化的字节码级性能陷阱
 excerpt: 深入分析 Kotlin 中 `::` 函数引用与 `{}` Lambda 表达式在字节码层面的编译差异，揭示 SAM 转换的对象分配陷阱，并探讨这些差异对 Jetpack Compose 重组稳定性与性能优化的实际影响。
 publishDate: '2026-08-12'

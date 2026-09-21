@@ -1,4 +1,6 @@
 ---
+slug: android-jobscheduler-doze-app-standby
+translationKey: android-jobscheduler-doze-app-standby
 title: 深入 Android JobScheduler 全链路：从 JobSchedulerService Binder 调度到 Doze/AppStandby 约束的延迟任务执行引擎
 excerpt: 从 WorkManager 调度出发，梳理 JobSchedulerService 的 Binder 入口、JobStore 持久化、StateController 约束链，以及 Doze 与 App Standby 的拦截逻辑与调试方法。
 publishDate: '2026-08-19'

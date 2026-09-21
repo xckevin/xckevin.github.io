@@ -11,6 +11,8 @@ tags:
 seo:
   title: 深入 Android Instant Apps 即时应用全链路：从免安装模块构建到 URL 意图路由的零等待分发架构
   description: 详解 Android Instant Apps 免安装应用的全链路实现：App Bundle 动态切片、10MB 约束下的模块拆分策略、沙箱启动三段跳机制以及 URL 意图路由分发器设计，附 CI 调试链优化与架构取舍实战总结。
+slug: android-instant-apps-url-routing
+translationKey: android-instant-apps-url-routing
 ---
 
 > **⁉️ 重要提示**：Google Play Instant （Instant Apps / 即时应用）已于 2025 年 12 月停止服务——Instant App 无法再通过 Google Play 发布，相关的 Google Play services Instant API 也已失效，Play 平台不再以任何方式向用户分发 Instant 体验（官方公告：https://developer.android.com/topic/google-play-instant/overview）。官方现在建议开发者直接用 Deep Link 引导用户到完整安装的 App。本文保留作为当时技术方案的历史记录与架构设计思路参考（App Bundle 切片、沙箱启动、URL 意图路由等思路对现今的动态特征交付仍有参考价值），但不要再基于本文方案做新项目开发。

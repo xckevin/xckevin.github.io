@@ -11,6 +11,8 @@ tags:
 seo:
   title: 深入 Android ADB 架构全链路：从 Client-Server 通信协议到 adbd 守护进程的调试通道架构解析
   description: ADB 采用 Client-Server-Daemon 三层架构，本文深入解析其文本通信协议、端口转发机制、adbd 守护进程内部实现及调试通道完整数据流，附实战排查思路。
+slug: android-adb-client-server-adbd-architecture
+translationKey: android-adb-client-server-adbd-architecture
 ---
 
 某次调试时 `adb devices` 始终显示 `offline`，排查了 USB 线、驱动、开发者选项，折腾半小时后才发现是 adb server 端口被另一个进程悄悄占用了。这次经历让我意识到：ADB 这个每天用的工具，多数人只停留在命令层面，对它的架构设计知之甚少。

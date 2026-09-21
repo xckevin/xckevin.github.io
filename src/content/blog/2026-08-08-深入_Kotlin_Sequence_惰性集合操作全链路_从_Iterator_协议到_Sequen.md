@@ -11,6 +11,8 @@ tags:
 seo:
   title: 深入 Kotlin Sequence 惰性集合操作全链路：从 Iterator 协议到 SequenceScope 挂起转换的链式操作性能优化
   description: 深入解析 Kotlin Sequence 惰性求值原理，从 Iterator 协议到 SequenceScope 挂起转换，结合性能 benchmark 给出 Android 开发中的集合操作选型指南。
+slug: kotlin-sequence-lazy-collection-performance
+translationKey: kotlin-sequence-lazy-collection-performance
 ---
 
 去年在做图片列表页优化时，一个简单的链式操作让帧率掉了 15 帧。代码很干净，逻辑也没问题——问题出在了“干净”本身。

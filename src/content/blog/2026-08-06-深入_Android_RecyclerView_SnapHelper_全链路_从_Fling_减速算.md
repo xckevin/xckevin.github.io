@@ -11,6 +11,8 @@ tags:
 seo:
   title: 深入 Android RecyclerView SnapHelper 全链路：从 Fling 减速算法到自定义吸附策略的滑动定位引擎
   description: 全面解析 RecyclerView SnapHelper 吸附引擎：Fling 事件截获、速度映射算法、自定义对齐策略及生产级注意事项，助你实现任意吸附效果。
+slug: android-recyclerview-snaphelper
+translationKey: android-recyclerview-snaphelper
 ---
 
 做横向卡片滑动，多数人会直奔 ViewPager2。但碰到这种需求就麻烦了：**既要有单页吸附的触感，又要在高速滑动时一次跳过两页**。ViewPager2 写死了 ±1 的偏移逻辑，解药在 SnapHelper——前提是你愿意把它拆开看。

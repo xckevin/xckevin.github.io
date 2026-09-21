@@ -1,4 +1,6 @@
 ---
+slug: android-mqtt-qos-doze-keepalive
+translationKey: android-mqtt-qos-doze-keepalive
 title: 深入 Android MQTT 物联网通信全链路：从 Paho 客户端 QoS 语义到 Doze 模式长连接保活的工程实践
 excerpt: 从 MQTT QoS 语义、Paho 确认重传到 Doze 模式长连接保活，梳理 Android 端物联网通信的完整可靠性链路与工程实践。
 publishDate: '2026-09-02'

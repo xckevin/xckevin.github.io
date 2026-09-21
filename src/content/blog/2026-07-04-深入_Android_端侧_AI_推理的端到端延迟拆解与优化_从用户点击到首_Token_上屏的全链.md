@@ -1,7 +1,5 @@
 ---
 title: 深入 Android 端侧 AI 推理的延迟拆解与优化：从用户点击到首 Token 上屏
-slug: android-on-device-ai-first-token-latency
-translationKey: android-on-device-ai-first-token-latency
 excerpt: 本文系统拆解了 Android 端侧大模型推理从用户点击到首 Token 上屏的完整链路，涵盖预处理、模型加载、Prefill、Decode 等六个阶段，并提供实测优化方案与性能数据。
 publishDate: '2026-07-04'
 tags:
@@ -32,8 +30,8 @@ seo:
 这一步包括 tokenizer 将文本转成 token ids、构建 attention mask、拼接 chat template。
 
 ```kotlin
-// 典型调用链
-val tokenizer = BertTokenizer.fromFile(modelPath)
+// 典型调用链（具体 API 随框架而异，如 HuggingFace Tokenizers 的 Android 绑定、MediaPipe Tasks 的 BertPreprocessor，或 llama.cpp/MLC 等推理框架自带的 tokenizer）
+val tokenizer = TokenizerFactory.loadFromAssets(modelPath) // 仅为示意接口，非固定 API
 val inputs = tokenizer.encode(chatTemplate.format(userMessage))
 // inputs.inputIds → IntArray, inputs.attentionMask → IntArray
 ```
@@ -42,7 +40,7 @@ Tokenizer 本身很快（通常 < 5ms），但有两个坑容易踩。
 
 **坑一：Tokenizer 文件反复加载。** SentencePiece 或 BPE 词表文件动辄几 MB，别每次推理都重新 new Tokenizer。Application 初始化时做一次就够了。
 
-**坑二：长文本的 attention mask 构建。** prompt 超过 4K tokens 时，mask 矩阵构造会突然变慢。根因是内存分配和填充的开销从 O(n) 退化到接近 O(n²)。用 `allocateDirect` 预分配 Buffer 池可以砍掉这部分开销。
+**坑二：长文本的 attention mask 构建。** attention mask 本身的构建是 O(n) 的内存写入，不是 O(n²)。真正拖慢的是多次重分配导致的内存拷贝：prompt 达到某个长度后，若没有预先分配足龟的 Buffer，会触发数组扩容——旧数据拷贝到新内存区域，多次扩容叠加就会交易拖慢。而真正的 O(n²) 复杂度属于后面 attention 计算本身，跟 mask 构建无关。用 `allocateDirect` 预分配 Buffer 池可以绝大部分消除这部分拷贝开销。
 
 MediaTek 9300 上实测，4K prompt 的预处理从 48ms 压到 6ms。
 
@@ -82,7 +80,7 @@ T_prefill ≈ (prompt_tokens × model_FLOPs) / (GPU_FLOPS × 利用率)
 
 **KV Cache 内存分配。** prompt 变长，KV Cache 线性增大。分配量超过 GPU 可用内存时触发 swap 或重分配，systrace 里能看到 100ms+ 的 `vkAllocateMemory` 事件。
 
-**Attention 计算复杂度。** 即使用了 FlashAttention 类算子，prefill 的 attention 复杂度仍是 O(n²)（n = prompt 长度）。4K tokens 对应 16M 次 pairwise 计算，8K 对应 64M。
+**Attention 计算复杂度。** 标准 self-attention 的计算量随序列长度呈 O(n²) 增长（n = prompt 长度），这是对未优化实现而言的。FlashAttention 类算子主要优化的是**内存访问模式**（避免物理存储 n×n 的完整 attention 矩阵，降低显存占用和 IO），但**计算量本质仍是 O(n²)**，并未改变计算复杂度量级。4K tokens 对应 16M 次 pairwise 计算，8K 对应 64M。
 
 ```python
 # Prefill 的 attention 计算量
@@ -142,14 +140,14 @@ val debounced = snapshotFlow { rawTokens.joinToString("") }
 
 | 阶段 | 耗时 | 占比 | 优化后 |
 |------|------|------|--------|
-| 预处理 | 8ms | ~0.5% | 6ms |
-| 模型就绪 | 18ms | ~1% | 15ms |
-| Prefill | 620ms | ~42% | 280ms |
-| 首 Token Decode | 85ms | ~6% | 65ms |
-| 后处理+渲染 | 12ms | ~0.8% | 10ms |
-| **TTFT 合计** | **~1480ms** | | **~680ms** |
+| 预处理 | 8ms | ~1.1% | 6ms |
+| 模型就绪 | 18ms | ~2.4% | 15ms |
+| Prefill | 620ms | ~83.4% | 280ms |
+| 首 Token Decode | 85ms | ~11.4% | 65ms |
+| 后处理+渲染 | 12ms | ~1.6% | 10ms |
+| **TTFT 合计** | **~743ms** | | **~376ms** |
 
-Prefill 占 42%，是绝对大头。优化后的 680ms 主要来自 INT4 量化 + prompt 压缩叠加。
+Prefill 占 83%左右，是绝对大头。优化后的 376ms 主要来自 INT4 量化 + prompt 压缩叠加。
 
 ## 实践中的三个关键决策
 

@@ -1,7 +1,5 @@
 ---
 title: 深入 Android eBPF 全链路：从内核虚拟机到端侧网络监控与性能追踪的可编程观测架构
-slug: android-ebpf-observability
-translationKey: android-ebpf-observability
 excerpt: 深入解析 Android 端 eBPF 架构：从 BPF 程序编译验证到 BpfNetMaps 网络流量统计，再延伸到 perfetto 性能追踪，揭示端侧可编程观测的内核级实现原理与工程取舍。
 publishDate: '2026-06-30'
 tags:
@@ -21,9 +19,9 @@ seo:
 
 eBPF（extended Berkeley Packet Filter）是一个运行在 Linux 内核中的微型沙箱虚拟机。它允许你在不修改内核源码、不加载内核模块的前提下，把自定义代码注入内核事件路径中执行。
 
-Android 从 4.9 内核开始逐步引入 eBPF 支持，到 Android 12 之后，eBPF 已经成为网络监控和性能追踪的底层核心设施。和服务端用 eBPF 做负载均衡或 DDoS 防御不同，Android 端的 eBPF 主要解决两个问题：零开销的网络流量统计，以及内核级性能事件追踪。
+Android 从 4.9 内核开始逐步引入 eBPF 支持，到 Android 12 之后，eBPF 已经成为网络子系统和性能追踪的底层核心设施。Android 端的 eBPF 并不只用于"看"：`netd` 里的 `BpfNetMaps` 既用它做零开销的网络流量统计，也用它实现防火墙式的流量控制——按 UID 匹配 doze/standby/省电模式下的放行或拒绝规则，这部分是真正的"控制"而非单纯观测。本文重点展开的是流量统计和性能追踪这两条链路，但要先说明 eBPF 在 Android 网络栈中的角色不止于观测。
 
-所谓"零开销"，是相对于 `TrafficStats` 这类上层 API 而言的。`TrafficStats` 本质上是读取 `/proc/net/xt_qtaguid/` 记录，数据来自 netfilter 的 hook 点，每条包都要经过 iptables 规则匹配。流量一大，这个开销非常可观。
+所谓"零开销"，是相对于老式统计路径而言的。在 Android 9 之前，`TrafficStats` 的数据来自 `/proc/net/xt_qtaguid/` ，即 netfilter 的 `xt_qtaguid` 内核模块，每条包都要经过 iptables 规则匹配，流量一大开销可观。Android 9 引入 `BpfNetMaps` 之后，`xt_qtaguid` 逐步被替换：现代 Android（AOSP 主线内核已移除 `xt_qtaguid` 模块）的 `TrafficStats` 统计数据来自 eBPF map（如 cookie/uid 打标记的 map），不再依赖 netfilter 规则遍历。
 
 eBPF 的思路完全不同：把观测逻辑下沉到内核事件源，在数据包经过的 hook 点直接执行轻量级计数，然后通过 BPF map——一种内核态与用户态共享的高效数据结构——把汇总结果暴露给用户态。
 
@@ -85,9 +83,9 @@ bpf_map_def SEC("maps") stats_map = {
 };
 ```
 
-每条包的 BPF 处理流程不超过 100 条指令。对比 netfilter 遍历几十条规则链，效率提升了数倍。
+相比 netfilter 需要遍历一条条规则链逐条匹配，BPF 程序在 hook 点直接做一次 map 查找和更新，指令路径要短得多，这是它在高流量场景下开销更低的根本原因（具体节省比例因设备、内核版本和流量模式差异很大，这里不给出没有实测依据的具体数字）。
 
-用户态通过 `NetworkStatsService` 定期调用 `netd` 的 `trafficSwapActiveStatsMap()` 接口，把内核 map 中的数据原子性地读出并清空，喂给上层统计系统。实测在千兆网络满载时，BPF 路径的 CPU 开销不到 0.3%，而 xt_qtaguid 在同等条件下能达到 3-5%。
+用户态通过 `NetworkStatsService` 定期调用 `netd` 的接口，把内核 map 中的数据原子性地读出并清空，喂给上层统计系统。
 
 ## 从网络延伸到性能追踪
 
@@ -114,8 +112,8 @@ int trace_gpu_mem(struct trace_event_raw_gpu_mem *ctx) {
 
 **BPF 程序的指令数有上限。** 早期内核限制 4096 条指令，较新内核放宽到 100 万条，但 Android 通用内核为兼顾兼容性，实际仍然保守。程序逻辑不能太复杂，复杂逻辑拆到用户态处理。
 
-**map 大小是固定的。** `BpfNetMaps` 的 `stats_map` 默认 10000 条记录，对几百个同时运行的应用一般够用。但遇上短连接风暴——大量临时 socket 快速创建销毁——map 可能被填满。Android 14 引入了 LRU 淘汰策略的 map 类型来缓解这个问题。
+**map 大小是固定的。** `stats_map` 的 `max_entries` 在创建时就固定，具体取值随版本和机型而变，这里不给出具体数字。但原理上一定会遇到上限——遇上短连接风暴（大量临时 socket 快速创建销毁），map 可能被填满。较新内核引入了 LRU 淘汰策略的 map 类型（`BPF_MAP_TYPE_LRU_HASH`）来缓解这个问题。
 
-**eBPF 不能阻断数据包。** 这是 Android 和传统网络场景的关键区别。在 Android 安全模型下，BPF 程序的返回值是 `1`（允许）或 `0`（丢弃），但 C 端设备上几乎没有场景需要在内核里丢包。Android 只把 eBPF 用于观测，不用于控制。
+**eBPF 的返回值语义因挂载点而异，不能一概而论。** 对 `cgroup_skb` 类型的程序（如上面统计用的 egress/ingress 挂载点），返回 `1` 表示放行、`0` 表示丢弃，这个约定确实存在；但不同 hook 类型（tracepoint、kprobe 等）的返回值语义完全不同，不能统一说成"1/0"。而且 Android 端的 eBPF 并非只用于观测：`BpfNetMaps` 会依据 UID 所属的省电/流量限制名单，在 `cgroup_skb` 挂载点上直接返回 `0` 来丢弃数据包，这正是防火墙式的流量控制，不是单纯统计。
 
-我的看法是：不要试图用 eBPF 替换所有现有监控方案。它在高频计数和内核事件聚合上的优势是压倒性的，但复杂业务逻辑和长尾数据存储仍然应该在用户态完成。把 eBPF 理解成内核与用户态之间的"智能预聚合层"——场景用对了，效果远超传统手段。
+我的看法是：不要试图用 eBPF 替换所有现有监控方案。它在高频计数和内核事件聚合上的优势是压倒性的，但复杂业务逻辑和长尾数据存储仍然应该在用户态完成。把 eBPF 理解成内核与用户态之间的"智能预聚合层"——它既能做观测统计，也能做控制决策，场景用对了，效果远超传统手段。

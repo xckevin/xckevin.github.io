@@ -6,6 +6,7 @@ import sitemap from '@astrojs/sitemap';
 /** Keep sitemap URLs aligned with the metadata in the rendered static pages. */
 export function indexableSitemap() {
     let outputDirectory;
+    const modifiedDates = new Map();
     const integration = sitemap({
         filter(page) {
             const pathname = decodeURIComponent(new URL(page).pathname);
@@ -19,7 +20,16 @@ export function indexableSitemap() {
             if (canonicalURL.origin !== new URL(page).origin) {
                 throw new Error(`Sitemap origin differs from canonical: ${page} -> ${canonical}`);
             }
+            const modified = head.match(/<meta\b[^>]*property="article:modified_time"[^>]*content="([^"]+)"/i)?.[1];
+            if (modified && Number.isFinite(Date.parse(modified))) {
+                modifiedDates.set(page, new Date(modified).toISOString());
+            }
             return decodeURIComponent(canonicalURL.pathname) === pathname;
+        },
+        serialize(item) {
+            // Article dates describe actual editorial changes, not the build time.
+            const lastmod = modifiedDates.get(item.url);
+            return lastmod ? { ...item, lastmod } : item;
         }
     });
     const configure = integration.hooks['astro:config:done'];

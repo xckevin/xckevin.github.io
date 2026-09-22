@@ -1,0 +1,41 @@
+name: Notify IndexNow of published changes
+on:
+    workflow_dispatch:
+        inputs:
+            urls:
+                description: 'Recently changed canonical https://xckevin.com/ URLs, one per line; verify production content first'
+                required: true
+                type: string
+            submit:
+                description: 'Submit after live-page checks (false validates only)'
+                required: true
+                default: false
+                type: boolean
+permissions:
+    contents: read
+concurrency:
+    group: indexnow-notification
+    cancel-in-progress: false
+jobs:
+    notify:
+        if: github.ref == 'refs/heads/main'
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: Verify notification boundaries
+              run: python3 scripts/test-indexnow.py
+            - name: Check live pages and optionally notify
+              env:
+                  CHANGED_URLS: ${{ inputs.urls }}
+                  SUBMIT_INDEXNOW: ${{ inputs.submit }}
+              run: |
+                  python3 - <<'PY'
+                  import os
+                  from pathlib import Path
+                  import subprocess
+                  Path('/tmp/indexnow-urls.txt').write_text(os.environ['CHANGED_URLS'])
+                  command = ['python3', 'scripts/notify-indexnow.py', '/tmp/indexnow-urls.txt']
+                  if os.environ['SUBMIT_INDEXNOW'] == 'true':
+                      command.append('--submit')
+                  subprocess.run(command, check=True)
+                  PY

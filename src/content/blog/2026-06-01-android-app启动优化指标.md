@@ -4,6 +4,7 @@ title: "Android App 启动优化应该先看哪些指标？"
 slug: android-startup-metrics
 excerpt: "整理 Android 启动优化的关键指标、阶段拆分、Perfetto trace 观察点和线上治理优先级。"
 publishDate: '2026-06-01'
+updatedDate: '2026-09-22'
 tags:
 - "Android"
 - "启动优化"
@@ -13,6 +14,8 @@ seo:
   description: "介绍 Android App 启动优化应关注的冷启动、首帧、TTID、主线程阻塞、Binder 调用和 Perfetto trace 指标。"
 ---
 
+结论先说：TTID 和 TTFD 不是同一个指标，也不能拿“业务首屏内容完成”替代框架指标。TTID 是框架自动报告的首帧显示时间；TTFD 依赖应用在真正完成交互内容后调用 `reportFullyDrawn()`。先把两者与自定义业务里程碑分开，才知道一次优化到底改善了什么。
+
 启动优化不要先改代码，先确定指标。否则很容易把耗时从一个阶段挪到另一个阶段，报告里看起来变快，用户实际看到的首屏没有任何改善。
 
 我更倾向把 Android 启动看成一条链路：进程创建、应用初始化、首个 Activity 创建、首帧绘制、首屏内容可交互。每个阶段都有自己的观测点，不能只盯着一个 `Application.onCreate()`。
@@ -21,14 +24,46 @@ seo:
 
 冷启动是进程不存在时从 Launcher 点击到首屏展示的过程，包含 Zygote fork、应用进程初始化、类加载、资源加载、主 Activity 创建和首帧渲染。温启动通常复用已有进程，热启动甚至只是把已有 Activity 拉回前台。三者混在一起统计，会让优化结论失真。
 
-线上指标里至少拆四类：
+线上指标至少拆成下列口径：
 
 - **Process start**：从点击到应用进程可运行，受系统负载、fork、包体积和冷页加载影响。
 - **Application init**：`attachBaseContext`、`ContentProvider` 初始化、`Application.onCreate()` 的总耗时。
-- **First frame**：Activity 创建后第一次 `Choreographer#doFrame` 完成并提交给渲染管线。
-- **First useful content**：用户真正能看到核心内容的时间，很多业务比系统首帧更关心这个。
+- **TTID（Time to initial display）**：从启动到 UI 第一帧显示。冷启动包含进程初始化；冷/温启动包含 Activity 创建与首帧。系统自动报告，可在 Logcat 的 `Displayed` 观察。
+- **TTFD（Time to full display）**：从启动到应用声明“完整可交互”的时间。它由 `reportFullyDrawn()` 触发，不调用就没有可比较的 TTFD 信号。
+- **业务首屏完成**：例如首屏数据/关键图片已可用，是团队自定义埋点；它不能反推 TTID 或 TTFD。
 
 Google Play Console、Firebase Performance 和自建埋点给出的启动时间口径不完全一样。做专项前先把口径写清楚，后面所有优化和复盘都以同一套口径对齐。
+
+### `reportFullyDrawn()` 的正确时机
+
+只在首屏的关键内容已经可用、页面可操作，并且不再等待决定首屏体验的异步结果时调用一次。不要把它放在 `onCreate()`、首帧回调或一个永远不会完成的后台任务之后；前两者会把 TTFD 伪装成 TTID，后者会把无关工作算进启动。
+
+```kotlin
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+
+class HomeActivity : ComponentActivity() {
+    private var firstContentReported = false
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val reporter = fullyDrawnReporter
+        reporter.addReporter()
+        setContentView(R.layout.activity_home)
+
+        viewModel.homeUiState.observe(this) { state ->
+            render(state)
+            if (state.hasPrimaryContent && !state.isLoading && !firstContentReported) {
+                firstContentReported = true
+                // ComponentActivity schedules reporting through its draw executor.
+                reporter.removeReporter()
+            }
+        }
+    }
+}
+```
+
+`render()` 只修改 view tree，不能证明像素已经绘制。`FullyDrawnReporter` 在所有 reporter lock 释放后，通过 ComponentActivity 的绘制感知执行器安排调用一次 `Activity.reportFullyDrawn()`；布尔值阻止后续状态重复排程。加 lock 前应定义清楚首屏关键内容，并确保每个正常终态都释放它，否则会得到缺失的 TTFD，而不是准确的 TTFD。
 
 ## Perfetto 里应该先看什么
 
@@ -43,6 +78,29 @@ Google Play Console、Firebase Performance 和自建埋点给出的启动时间�
 - `Choreographer#doFrame` 到 `DrawFrame` 是否被布局、图片解码或同步 Binder 调用阻塞。
 
 如果主线程在等待，继续看等待原因：是 Binder transaction 卡在系统服务，还是被 `monitor contention` 锁住，还是 CPU 被后台线程抢满。启动优化最忌只看到主线程“慢”，却不追到底层原因。
+
+## 用 Macrobenchmark 验证，而不是用 Debug 机肉眼计时
+
+Macrobenchmark 的被测 app 应接近 release：必须 **non-debuggable**、`profileable`，并优先开启压缩；benchmark 测试模块本身可以 debuggable。不要把 debug 构建、连接 IDE 的单次启动结果当成发布结论。基准测试应固定启动模式、设备状态和数据，并区分冷/温启动。以下是一个最小的冷启动测量骨架：
+
+```kotlin
+@RunWith(AndroidJUnit4::class)
+class StartupBenchmark {
+    @get:Rule val benchmarkRule = MacrobenchmarkRule()
+
+    @Test fun startup() = benchmarkRule.measureRepeated(
+        packageName = "com.example.app",
+        metrics = listOf(StartupTimingMetric()),
+        iterations = 10,
+        startupMode = StartupMode.COLD
+    ) {
+        pressHome()
+        startActivityAndWait()
+    }
+}
+```
+
+该代码没有在本文环境运行，也没有宣称任何收益。结果要结合设备热状态、安装状态和构建类型解释；测试配置不一致时，不应横向比较数字。
 
 ## 四类最常见的启动瓶颈
 
@@ -69,3 +127,9 @@ Google Play Console、Firebase Performance 和自建埋点给出的启动时间�
 - [Android App 启动优化专项：指标、链路、工具与治理方案](/blog/app-startup-optimization/)
 - [Android Perfetto 入门：Trace 抓取、轨道分析与性能定位](/blog/android-perfetto/)
 <!-- /seo-internal-links -->
+
+## 官方资料
+
+- [App startup time 与 `reportFullyDrawn`](https://developer.android.com/topic/performance/vitals/launch-time)
+- [`FullyDrawnReporter`](https://developer.android.com/reference/androidx/activity/FullyDrawnReporter)
+- [Write a Macrobenchmark](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview)

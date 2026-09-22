@@ -1,9 +1,10 @@
 ---
 slug: android-permission-system-evolution
 translationKey: android-permission-system-evolution
-title: Android 权限系统演进全链路：从 ActivityThread 权限拦截到 Android 14 精细化管控的架构解析
-excerpt: 深入解析 Android 权限三层拦截机制，梳理 Android 10 到 14 的权限管控演进与工程适配建议。
+title: Android 权限：运行时授权、AppOps 与可验证测试
+excerpt: 理解 Android 权限决策、版本边界与 AppOps 的作用范围，并建立按功能申请和可复现的测试流程。
 publishDate: '2026-05-17'
+updatedDate: '2026-09-22'
 tags:
 - Android
 - 权限管理
@@ -11,119 +12,86 @@ tags:
 - Android 14
 - 架构解析
 seo:
-  title: "Android 权限系统原理：运行时权限、拦截链路与安全边界"
-  description: "梳理 Android 权限系统从 Framework 拦截到运行时授权的完整链路，覆盖权限校验、兼容策略与安全工程实践。"
+  title: "Android 权限：运行时授权、AppOps 与测试"
+  description: "用运行时授权、受保护 API、AppOps 边界和 ADB 测试构建可靠的 Android 权限流程。"
+  pageType: article
 ---
 
-一个项目里踩过的坑：`ContextCompat.checkSelfPermission()` 返回 `GRANTED`，相机调用仍然崩，日志里躺着 `SecurityException`。同一台设备上另一个 App 却一切正常。
+`checkSelfPermission()` 返回 `GRANTED` 是必要条件，却不是“后续任何操作都一定成功”的通行证。Android 会在受保护 API 处综合 Manifest 声明、运行时授权、调用身份、设备策略、角色/特权资格，以及该 API 是否使用 AppOps 来决定。正确的工程做法是在用户触发具体功能时申请最小权限，并把 `SecurityException`、取消与授权撤销当作正常分支。
 
-原因很简单：权限检查不止 `checkSelfPermission` 一条路。
+这比把权限系统描述成固定“三层调用链”更准确。不同系统服务会使用不同的权限和 AppOps；有的 API 没有 AppOps 检查，而签名权限或角色限制即使在普通运行时授权通过后仍然不可用。
 
-## 三层拦截：一次权限检查要过的关卡
+## 每一道检查实际说明什么
 
-Android 的权限检查是三层递进式拦截。只查上层，底层照样能把你拦住。
+| 检查或门槛 | 它能回答的问题 | 它不能证明的问题 |
+| --- | --- | --- |
+| Manifest `<uses-permission>` | 应用是否声明需要此能力 | 用户是否已经授权 |
+| `checkSelfPermission()` | 该运行时权限目前是否授予此应用 | 某个具体 API/操作必然允许 |
+| 权限弹窗 / Activity Result | 用户此刻做了什么选择 | 授权未来仍然可用 |
+| 受保护 Framework API | 这次具体调用能否继续 | 业务网络/设备操作一定成功 |
+| AppOps（仅适用时） | 该 UID/package 的操作模式是否允许 | 它能替代所有权限检查 |
 
-**第一层：Context.checkSelfPermission**
+`AppOpsManager` 是许多敏感 API 使用的操作控制与审计层，不是普通应用的权限策略 API。三方应用不应试图修改自己的 AppOps 模式；应调用公开功能 API，处理其失败，并仅在有明确恢复路径时引导用户进入设置页。
 
-最常用的 API。`ContextImpl` 中实现，直接查 `PackageManager` 里记录的授权状态。这层只看 AndroidManifest 声明的权限有没有被用户授予，不关心 AppOps。
+## 按功能申请，而不是首次启动全要
 
-```java
-// ContextImpl.java
-public int checkPermission(String permission, int pid, int uid) {
-    return ActivityManager.getService().checkPermission(permission, pid, uid);
+Activity Result API 将回调与功能绑定，使拒绝分支清晰可测：
+
+```kotlin
+private val requestCamera = registerForActivityResult(
+    ActivityResultContracts.RequestPermission()
+) { granted ->
+    if (granted) startCameraPreview()
+    else showCameraExplanationOrSettingsLink()
+}
+
+fun onScanReceiptClicked() {
+    if (checkSelfPermission(Manifest.permission.CAMERA) ==
+        PackageManager.PERMISSION_GRANTED) {
+        startCameraPreview()
+    } else {
+        requestCamera.launch(Manifest.permission.CAMERA)
+    }
 }
 ```
 
-**第二层：ActivityThread 拦截**
+每次恢复到前台及调用敏感 API 前都应重新检查。用户可能在设置中撤销授权，长期未用应用可能被自动重置敏感权限，Android 11 的一次性授权也会在系统撤销时失效。不要把“已授权”持久化为应用偏好。
 
-应用调用受权限保护的 API 时，Binder 请求到达系统进程后，`ActivityManagerService` 做权限检查。这一步除了查询 PMS，还会过 AppOps 层。
+若公开 API 抛出 `SecurityException`，应将其作为受控失败处理。它可能是声明/授权缺失、AppOps 或策略限制，也可能是 API 自身前置条件未满足。日志只记录 API、系统版本和异常，不记录敏感数据；没有设备证据时不要臆断底层拒绝原因。
 
-**第三层：AppOpsService**
+## 应写进测试的版本边界
 
-Android 4.3 引入的权限管控扩展层。它不改变授权状态，但能实时控制某个应用能否执行特定操作。权限在 PMS 层面显示"已授权"，AppOps 层面却可以是"拒绝"。
+以下是影响普通应用的主要变化，不是权限系统的完整年表：
 
-我那台设备上的问题就出在这里：另一个 App 通过 AppOps 管理器关掉了相机操作，PMS 层依然显示授权。所以 `checkSelfPermission` 查 PMS 拿到 `GRANTED`，实际调用时 AppOps 拒绝，直接抛 `SecurityException`。
+- **Android 10（API 29）：** 分区存储与多项设备/Wi-Fi API 的位置权限要求更严格；文件路径访问要单独迁移。
+- **Android 11（API 30）：** 位置、相机、麦克风可获得一次性授权；target 30+ 的长期未用应用可能自动重置敏感运行时权限；重复拒绝后系统可能不再展示弹窗。
+- **Android 12（API 31）：** 用户可选概略位置。功能确实需要精确位置时，应同时申请 `ACCESS_FINE_LOCATION` 和 `ACCESS_COARSE_LOCATION`，并处理概略位置或明确说明为何不足。
+- **Android 13（API 33）：** `POST_NOTIFICATIONS` 成为非豁免通知的运行时权限；多项 Wi-Fi 操作使用 `NEARBY_WIFI_DEVICES`，扫描仍受位置规则约束；媒体读取按类型拆分。
+- **Android 14（API 34）：** 请求图片/视频媒体权限时，target 34+ 应支持“选择的照片”路径（`READ_MEDIA_VISUAL_USER_SELECTED`），或者在满足需求时使用系统照片选择器。
 
-## Runtime Permission 的全链路
+target SDK 也会改变细节，所以要按实际 OS 与 target SDK 组合测试，不能只用一个 `if (SDK_INT >= …)` 抹平全部规则。
 
-`requestPermissions()` 到 `onRequestPermissionsResult()` 的调用链比看起来长不少。
+## 不猜测，直接复现设备状态
 
-`Activity.requestPermissions()` → `ActivityThread.getPackageManager()` → `PackageManagerService.grantRuntimePermission()` → 系统弹窗 → 用户操作 → `ActivityThread.handleRequestPermissionsResult()`
-
-核心节点在弹窗阶段。`GrantPermissionsActivity` 展示权限请求 UI，用户点"允许"后才真正写入 PMS 数据库。有个容易被漏掉的点：
-
-```java
-// PermissionManagerService.java - grantRuntimePermission 的简化逻辑
-if (AppOpsManager.noteOp(appOpCode, uid, packageName) != MODE_ALLOWED) {
-    // AppOps 层面拒绝，但 PMS 仍可能标记为 GRANTED
-    // 导致 checkSelfPermission 返回 GRANTED，实际调用却失败
-}
-```
-
-**`PermissionChecker` 的价值**：`androidx.core.content.PermissionChecker` 比 `ContextCompat.checkSelfPermission` 多做了一件事——同时检查 AppOps。代码里换成 `PermissionChecker.checkSelfPermission()`，上面那个 bug 就不会出现。
-
-```kotlin
-// ✓ 同时查 PMS 和 AppOps
-PermissionChecker.checkSelfPermission(context, Manifest.permission.CAMERA)
-
-// ✗ 只查 PMS，有遗漏风险
-ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA)
-```
-
-## Android 10 到 14：逐步收紧的权限管控
-
-**Android 10 — 分区存储（Scoped Storage）**
-
-媒体文件读写不再需要 `READ_EXTERNAL_STORAGE`，改用 `MediaStore` API。如果 App 强依赖文件路径访问，`requestLegacyExternalStorage` 标志只在 Android 10 有效，11 开始彻底失效。
-
-**Android 11 — 一次性权限 + 权限自动重置**
-
-用户可选"仅本次允许"。应用进程被杀后权限自动撤销。这意味着每次冷启动都要重新检查权限状态，授权结果不能缓存。
-
-**Android 12 — 精确位置 vs 模糊位置**
-
-定位权限拆成 `ACCESS_FINE_LOCATION` 和 `ACCESS_COARSE_LOCATION`。用户在授权弹窗中选"精确"或"模糊"，两者互斥——选了模糊后想切精确，得去设置页改。
-
-```kotlin
-// 12+ 必须同时请求两个权限
-val permissions = arrayOf(
-    Manifest.permission.ACCESS_FINE_LOCATION,
-    Manifest.permission.ACCESS_COARSE_LOCATION
-)
-// 用户选择"模糊"时，FINE_LOCATION 不会授予
-```
-
-**Android 13 — 通知权限进入运行时申请**
-
-`POST_NOTIFICATIONS` 从默认授予变为运行时权限。targetSdk 升到 33 后，不请求通知权限连 NotificationChannel 都创建不了。
-
-**Android 14 — 照片/视频部分访问**
-
-用户可选"选择照片"或"选择视频"，App 只能访问选中的那部分媒体。`READ_MEDIA_IMAGES` 和 `READ_MEDIA_VIDEO` 需要分开请求。Android 14 还禁止安装 targetSdkVersion 低于 23 的应用，等于强行要求适配 Runtime Permission。
-
-## 工程适配建议
-
-**用 `PermissionChecker` 替代 `ContextCompat.checkSelfPermission`**。改一行 import，换来 AppOps 层检查能力，成本最低。
-
-**封装权限请求状态机**。别在每个 Activity 里散落 `requestPermissions` 调用。用单例管理请求队列，处理"弹窗过程中又发起新请求"的并发场景。我目前用 `MutableStateFlow<Map<String, PermissionState>>`，请求前先查状态避免重复弹窗。
-
-**测试覆盖不同授权组合**。Android 14 的精细化权限让组合数量暴涨——位置有精确/模糊/拒绝 3 种，照片有全部/部分/拒绝 3 种。手动点弹窗测不过来，用 `adb` 直接构造场景：
+以下 ADB 命令只应用于你可控制的测试设备。`dumpsys package` 能显示运行时授权标志，但不能单独证明每个受保护 API 的最终结果。下面序列可复现相机未授权状态：
 
 ```bash
-# 构造 AppOps 层拒绝但 PMS 层授权的场景
-adb shell pm grant com.example android.permission.CAMERA
-adb shell appops set com.example CAMERA deny
+PACKAGE=com.example.app
+PERMISSION=android.permission.CAMERA
+
+adb shell pm revoke "$PACKAGE" "$PERMISSION"
+adb shell pm clear-permission-flags "$PACKAGE" "$PERMISSION" user-set user-fixed
+adb shell dumpsys package "$PACKAGE"
 ```
 
-权限系统从 6.0 的一刀切到 14 的精细化管控，趋势是让用户掌握更细粒度的控制权。适配的核心不是追着新 API 改代码，而是理解三层检查的判断逻辑——别被 PMS 层的 `GRANTED` 骗了，AppOps 才是真正说了算的那个。
+结果解释：下一次应用内请求应有资格展示系统弹窗。若没有，检查 Manifest 是否声明、请求是否来自可见 Activity，以及 target SDK 规则。官方将 `USER_SET` 定义为曾被用户拒绝，`USER_FIXED` 用于调试重复拒绝的永久拒绝状态。不要用 `pm grant` 强行授予正常用户无法取得的权限，否则会掩盖真实流程。
 
-<!-- seo-internal-links -->
+支持的设备上，还可用 Android 的 AppOps 记录回调与工具审计数据访问，找出自己或 SDK 的意外访问后删除它，或向用户明确解释用途。
 
-## 延伸阅读
+## 官方资料与延伸阅读
 
-- [返回对应专题：Android Framework](/android-framework/)
-- [Android Binder 原理：从驱动通信到 AIDL 调用链路](/blog/binder-ipc-beyond-aidl/)/)
-- [Android Framework 系统服务：AMS、WMS 与应用进程交互模型](/blog/android-system-services-framework-interaction/)
-- [Android 进程与线程模型：Zygote、主线程、Binder 线程池解析](/blog/android-process-thread-model-deep-dive/)
-- [Android ContentProvider 原理：URI 路由、跨进程访问与权限控制](/blog/android-contentprovider-ipc/)
-<!-- /seo-internal-links -->
+- [请求运行时权限](https://developer.android.com/training/permissions/requesting?hl=zh-CN)：请求流程、一次性授权、撤销与自动重置。
+- [Android 11 权限更新](https://developer.android.com/about/versions/11/privacy/permissions?hl=zh-CN)：重复拒绝标志与 ADB 检查命令。
+- [Android 13 通知运行时权限](https://developer.android.com/develop/ui/compose/notifications/notification-permission?hl=zh-CN)：`POST_NOTIFICATIONS` 行为与测试状态。
+- [数据访问审计](https://developer.android.com/privacy-and-security/auditing-access)：面向应用开发者的 AppOps 审计能力。
+- [Android ContentProvider IPC 与权限控制](/blog/android-contentprovider-ipc/) 和 [Android Binder 原理](/blog/android-binder/)：受保护 IPC 调用的 Framework 背景。

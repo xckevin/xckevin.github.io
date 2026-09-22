@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import PostPreview from '../../../components/PostPreview.astro';
+import BlogLearningPaths from '../../../components/BlogLearningPaths.astro';
 import Subscribe from '../../../components/Subscribe.astro';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { sortItemsByDateDesc } from '../../../utils/data-utils';
@@ -19,7 +20,8 @@ const posts = (await getCollection('blogEn'))
     languageSwitchHref="/blog/"
     alternatePathnames={{ zh: '/blog/', en: '/en/blog/', 'x-default': '/blog/' }}
 >
-    <h1 class="mb-12 font-serif text-2xl leading-tight italic sm:mb-16 sm:text-4xl">Android Engineering Articles</h1>
+    <h1 class="mb-6 font-serif text-2xl leading-tight italic sm:mb-8 sm:text-4xl">Android Engineering Articles</h1>
+    <BlogLearningPaths locale={locale} />
     {
         posts.length > 0 ? (
             posts.map((post) => <PostPreview post={post} class="mb-10 sm:mb-12" locale={locale} />)

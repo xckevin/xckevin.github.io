@@ -1,147 +1,104 @@
 ---
 slug: jetpack-compose-phases-composition-layout-draw
 translationKey: jetpack-compose-phases-composition-layout-draw
-title: 深入 Jetpack Compose Phases 三阶段模型：从 Composition 到 Drawing 的声明式像素生产全链路
-excerpt: 深入解析 Jetpack Compose 三阶段（Composition、Layout、Drawing）管线的工作原理，从状态读取的边界效应到阶段跳过机制，帮助开发者写出高性能声明式 UI。
+title: Compose 三阶段：Composition、Layout、Drawing 与状态读取
+excerpt: 理解 Compose 的组合、布局、绘制三阶段，并将状态读取放到能使无效工作最少的位置。
 publishDate: '2026-01-15'
+updatedDate: '2026-09-22'
 tags:
 - Android
 - Jetpack Compose
 - 性能优化
 - 状态管理
-- Kotlin
 seo:
-  title: Jetpack Compose Phases：Composition 到 Drawing 三阶段模型
-  description: 深入解析 Jetpack Compose 的 Composition、Layout、Drawing 三阶段模型，理解状态读取如何决定重组边界，掌握阶段跳过机制与性能优化实战技巧。
+  title: "Compose 三阶段：Composition、Layout、Drawing 与状态读取"
+  description: "理解 Compose 状态读取如何影响重组、布局与绘制，并掌握正确的 lambda Modifier 写法。"
   pageType: article
 ---
 
-Compose 写久了，总会遇到一个让人愣住的 bug：明明改了 `mutableStateOf` 的值，UI 却纹丝不动。排查半天发现，**状态的读取位置**决定了哪一阶段会重新执行——读在 `Modifier` 里和读在 `Canvas` 里完全是两码事。
+**状态在哪个阶段被读取，决定 Compose 最早必须从哪里重新执行。** 文本和结构在 Composition 读取；位置在 Layout 读取；只影响像素的值在 Drawing 读取。这是测量后可用的优化工具，不是把所有状态都塞进绘制 lambda 的理由。
 
-要理解这个行为，得搞清楚 Compose 的三阶段管线。
+一帧通常沿单向流动：
 
-## 三阶段概览
-
-Compose 把"声明式组件"变成"屏幕像素"的过程拆成三个阶段：
-
-- **Composition（组合）**：确定屏幕上要显示什么 UI 树
-- **Layout（布局）**：测量每个节点的尺寸并确定位置
-- **Drawing（绘制）**：将节点画到 Canvas 上
-
-三个阶段按顺序执行，**每个阶段有独立的跳过（skip）判断**。你在哪个阶段读取状态，就决定了状态变化后哪段逻辑会被重新执行。
-
-```
-Composition  →  Layout  →  Drawing
-    ↓              ↓          ↓
- 创建 UI 树    测量+定位    实际绘制
-    ↓              ↓          ↓
- 状态读取决定是否需要重新组合
+```text
+Composition（显示什么）-> Layout（尺寸与位置）-> Drawing（像素）
 ```
 
-理解这套管线的最佳入口，是 `Modifier` 的执行时序。
+Compose 会按这些 restart scope 追踪状态读取，并在输入未变时复用工作。这是局部优化，不是魔法：`LazyColumn`、`LazyRow`、`BoxWithConstraints` 的子项组合依赖父级布局约束，是明显例外。Layout 还分 measurement 和 placement restart scope；placement 的状态读取可以只重启 placement，并不必然重新测量该节点。
 
-## Modifier 链：三阶段的隐式调度器
+## 让状态匹配它实际影响的阶段
 
-每个 `Modifier` 在三个阶段都有对应的回调接口。以最基础的 `Modifier.size()` 为例：
+下面的完整示例把三个独立值放到消费它们的阶段。一次点击会改动三者；分析性能时应分别观察它们。
 
 ```kotlin
-// 一个自定义 Modifier 的三阶段参与方式
-fun Modifier.trackedSize(size: Dp) = this.then(object : LayoutModifier {
-    // Composition 阶段：什么也不做，只记录参数
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.IntOffset
+import androidx.compose.ui.unit.dp
 
-    override fun MeasureScope.measure(
-        measurable: Measurable,
-        constraints: Constraints
-    ): MeasureResult {
-        // Layout 阶段：测量并确定尺寸
-        val placeable = measurable.measure(constraints.copy(
-            maxWidth = size.roundToPx()
-        ))
-        return layout(placeable.width, placeable.height) {
-            placeable.placeRelative(0, 0)
-        }
-    }
-}).then(object : DrawModifier {
-    override fun ContentDrawScope.draw() {
-        // Drawing 阶段：执行绘制
-        drawRect(Color.Red)
-        drawContent()
-    }
-})
-```
-
-Modifier 链是"声明"，三阶段才是"执行"。你在 `Modifier.size()` 里声明了尺寸约束，但实际测量和定位发生在 Layout 阶段——两者之间可能隔了好几层状态读取和重组判断。
-
-Modifier 从左到右链接，但在三个阶段的执行顺序不同：
-
-- **Composition 阶段**：Modifier 链基本不参与（用了 `composed()` 的除外）
-- **Layout 阶段**：外层先收到约束，再向内传递。`Modifier.size(100.dp).padding(16.dp)` 的链路是——size 把最大宽度卡在 100dp，padding 再扣除 32dp 边距，最终内容拿到 68dp
-- **Drawing 阶段**：外层先画，所有层在同一个 Canvas 上叠加
-
-我踩过一个坑：在 `Modifier.drawBehind` 里读取状态做动画，又在 `remember` 里读同一个状态。结果 Drawing 阶段跳过失败，每次重组都触发全量重绘，帧率从 60 掉到 30。单独看每段代码都没问题，放一起就是一个隐蔽的性能炸弹。
-
-## 状态读取的边界效应
-
-Compose 的状态追踪是分阶段隔离的：
-
-```kotlin
 @Composable
-fun ProfileCard() {
-    var name by remember { mutableStateOf("Alice") }
-    var badgeColor by remember { mutableStateOf(Color.Unspecified) }
+fun PhaseAwareBadge() {
+    var label by remember { mutableStateOf("Ready") }
+    var offsetPx by remember { mutableIntStateOf(0) }
+    var color by remember { mutableStateOf(Color.Magenta) }
 
-    Text(
-        text = name,           // 在 Composition 阶段读取
-        modifier = Modifier
-            .offset(x = badgeOffset)  // 在 Layout 阶段读取
-            .drawBehind {
-                drawCircle(badgeColor)  // 在 Drawing 阶段读取
-            }
-    )
-}
-```
+    Column(Modifier.padding(16.dp)) {
+        Button(onClick = {
+            label = "Updated"       // Text 在 Composition 中读取
+            offsetPx += 12           // offset lambda 在 placement 中读取
+            color = Color.Cyan       // drawBehind 在 Drawing 中读取
+        }) { Text("Update") }
 
-三个状态各自影响不同的阶段：
-
-- `name` 变化 → 触发 **Recomposition**（重组）
-- `badgeOffset` 变化 → 触发 **Relayout**（重新布局），不重组
-- `badgeColor` 变化 → 触发 **Redraw**（重新绘制），不重组也不重新布局
-
-这就是 Compose 的粒度优势——状态变化不会导致全链路重跑，而是精确到阶段级别。UI 框架里能做到这一点的其实不多。
-
-`Modifier.composed()` 是个特例。它把 Composition 阶段的逻辑塞进 Modifier 链，意味着每次重组都会重新执行 lambda。用它做动画状态管理很容易把 Drawing 级别的开销升级成 Composition 级别，用的时候掂量一下是否非它不可。
-
-## 阶段跳过：为什么会跳过，什么时候会失败
-
-`@Composable` 函数的参数在编译期被 Compose 编译器加上 `@Stable` 推断。推断为稳定类型的参数，如果值没有变化（`equals()` 返回 true），Composition 阶段直接跳过，连函数体都不进。
-
-```kotlin
-// Compose 编译器视角的等价变换
-@Composable
-fun Greeting(name: String) {  // String 推断为 @Stable
-    Text("Hello $name")
-}
-
-// 编译器注入的跳过逻辑（伪码）
-fun Greeting(name: String, %composer: Composer) {
-    if (!%composer.skipping || name != %composer.rememberedValue) {
-        Text("Hello $name")  // 只有值变了才执行
+        Text(
+            text = label,
+            modifier = Modifier
+                .offset { IntOffset(offsetPx, 0) }
+                .drawBehind { drawCircle(color = color, radius = 8.dp.toPx()) }
+                .background(Color.White)
+        )
     }
 }
 ```
 
-跳过失败的几个典型场景：
+直接写 `Modifier.offset(x = someDp, y = 0.dp)` 会在 Composition 读取 `someDp`；上例的 lambda 重载把读取延迟到 Layout placement。同理，`Modifier.graphicsLayer { alpha = alphaState }`、`drawBehind`、`Canvas` 在 Drawing 读取状态，只有像素变化时可以跳过之前两阶段。前提是这份状态没有在同一受影响路径更早被读取。
 
-1. **不稳定类型参数**：传了 `List<T>`，每次重组都 new 新实例，即使内容一致也无法跳过
-2. **`composed()` 内部读状态**：Modifier 身份不稳定，Layout 阶段的跳过判决直接报废
-3. **lambda 引用变化**：`Modifier.clickable { doSomething() }`，lambda 每帧都是新对象
+## 不要制造跨阶段反馈环
 
-我在实际项目中会开启 Compose 编译器的稳定性报告，CI 里加一步检查，确保核心 UI 组件的参数全部标记为 `@Stable` 或 `@Immutable`。这套机制属于"静默优化"——正常运行看不出差别，一旦退出，卡顿就肉眼可见。
+常见错误是：在 `onSizeChanged` 或 `onGloballyPositioned` 观察子项尺寸，写进 state，再把该 state 作为父级 `padding`/`height` 的输入。一次布局写状态，请求新的组合和布局；第一帧可能错位，变化持续时可能反复循环。
 
-## 实践建议
+应使用 `Column`、`Row`、`Box`、parent-data Modifier 或自定义 `Layout`，让最近的共同父级从同一来源测量、放置关联子项。也不要在一次 Composition 中写回已读取的状态（backwards write）；Compose 可能不断重组，直到触发限制。
 
-**用 `derivedStateOf` 降级状态读取阶段。** 能在 `derivedStateOf` 里完成纯计算推导，就别在 Composition 阶段用 `remember` 读原始状态再转换——后者会把简单计算升级为重组信号。
+## 跳过：有用、受版本影响，但不是目标
 
-**Modifier 顺序就是性能边界。** 把不频繁变化的 Modifier（如固定 size）放在链前端，变化频繁的（如 animatedOffset）放在末端。这样 Layout 阶段做跳过判断时，外层不会重新测量，裁剪掉大量无用功。
+符合条件的可重启 composable 在输入比较未变化时可以跳过。普通模式下，稳定输入按 `equals` 比较，不稳定输入可能让函数失去跳过资格。Kotlin 2.0.20 起 Strong Skipping 默认开启：带不稳定输入的可重启 composable 也可成为 skippable，不稳定输入按实例相等比较；编译器还会记忆化捕获 lambda。
 
-**不要过早优化阶段跳过。** Compose 的跳过机制是编译期自动注入的，绝大多数场景不需要手动干预。真有性能瓶颈，先用 Layout Inspector 确认哪一阶段耗时，再对症处理。多数情况下的罪魁祸首是不稳定类型的扩散，而不是某一行具体代码。
+Strong Skipping 不保证一定跳过。不可重启/不可跳过函数、新建的不稳定对象实例、该作用域读取状态的变化，或必要的布局/绘制更新，都仍可能执行工作。不要为了追报告而滥加 `@Stable`/`@Immutable`：它们承诺“可观察变化一定通知”的契约。尤其在 Kotlin 2.0.20 之前，应检查被分析模块的 compiler 配置和 report。
+
+## 有纪律的优化路径
+
+1. 在 release 模式记录真实交互，确认成本在组合、测量/放置、绘制、图片解码还是数据计算。
+2. 先保持状态归属正确、代码可读。
+3. 高频值只移动内容时，用 lambda Layout Modifier；只改变像素时，再考虑 draw lambda 或 `graphicsLayer`。
+4. 用相同路径重新测量；只有降低实际瓶颈才算优化成功。
+
+[LazyColumn 性能](/blog/jetpack-compose-lazycolumn-performance/) 把这套原则落实到列表状态、key 和测量；指针驱动的值可继续看 [Compose 手势](/blog/jetpack-compose-gestures/)。更多入口见 [Jetpack Compose](/jetpack-compose/) 与 [Android 性能](/android-performance/)。
+
+## 官方资料
+
+- [Jetpack Compose phases](https://developer.android.com/develop/ui/compose/phases)
+- [Modifier breakdown by phase](https://developer.android.com/develop/ui/compose/performance/modifier-phases)
+- [Strong skipping mode](https://developer.android.com/develop/ui/compose/performance/stability/strongskipping)
+- [Compose performance best practices](https://developer.android.com/develop/ui/compose/performance/bestpractices)

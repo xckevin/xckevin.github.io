@@ -9,6 +9,12 @@ seo:
 
 This is the topic entry point for the site. The content is reorganized around common engineering problems and learning paths, so you can move from one question into a group of deep articles instead of searching through the archive one post at a time.
 
+## Three paths for everyday Android problems
+
+- [Platform compatibility](/en/android-16-adaptation/): investigate 16 KB native libraries, permission changes, Wi-Fi failures and text rendering differences.
+- [Performance and stability](/en/android-performance/): define startup metrics, collect a Perfetto trace, then diagnose jank or a WebView renderer exit.
+- [Compose implementation and debugging](/en/jetpack-compose/): connect state reads and phases to LazyColumn performance and gesture conflicts.
+
 ## Topic List
 
 - [Android Framework Internals](/en/android-framework/): Binder, system services, processes and threads, permissions, and ContentProvider.

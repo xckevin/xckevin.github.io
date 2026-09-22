@@ -5,14 +5,22 @@ seo:
   description: "系统整理 Jetpack Compose 原理与性能优化文章，覆盖重组、Stability、Modifier、PointerInput、动画系统、Layout、Canvas、CompositionLocal、Glance 与 View 互操作。"
 ---
 
-这个专题面向已经使用 Compose 的 Android 开发者，重点解决“为什么会重组”“为什么会卡顿”“Modifier 到底做了什么”“如何和 View 体系共存”等问题。
+面向正在开发 Compose 界面的 Android 工程师。这条路线从状态读取和渲染阶段出发，连接列表性能、手势冲突与回归验证，帮助把“界面不对劲”收敛为可以检查的问题。
 
-## 学习路径
+## 按问题选择入口
 
-1. 先读重组和 Stability。
-2. 再看 Modifier、布局、绘制和事件管道。
-3. 接着补动画、手势和互操作。
-4. 最后看 Glance，把 Compose 思维迁移到 AppWidget。
+| 当前问题 | 先读这篇 | 检查重点 |
+| --- | --- | --- |
+| 不清楚状态变化会触发哪一阶段 | [Composition、Layout、Draw 三阶段](/blog/jetpack-compose-phases-composition-layout-draw/) | 状态在哪里读取，以及哪个作用域被重新执行 |
+| LazyColumn 卡顿，重组次数很多 | [LazyColumn 滑动性能排查](/blog/jetpack-compose-lazycolumn-performance/) | 帧耗时、构建模式、稳定 key、contentType 与工作量 |
+| 点击、拖拽或父子滚动冲突 | [手势分发与嵌套滚动](/blog/jetpack-compose-gestures/) | 输入抽象层、事件消费、协程 key 与剩余滚动量 |
+
+## 推荐阅读顺序
+
+1. 用 [三阶段模型](/blog/jetpack-compose-phases-composition-layout-draw/) 理解状态读取位置。不要仅凭重组计数判断性能。
+2. 在 [LazyColumn](/blog/jetpack-compose-lazycolumn-performance/) 中检查真实列表的身份、数据变更和帧时间；记录 Compose 与 Kotlin 编译器版本。
+3. 用 [手势排查流程](/blog/jetpack-compose-gestures/) 处理点击与拖拽竞争，再检查嵌套滚动的消费分配。
+4. 需要系统证据时转到 [Perfetto 入门](/blog/android-perfetto/)；需要防止视觉回归时看 [Compose 截图测试](/blog/android-compose-screenshot-testing-paparazzi/)。
 
 ## 核心文章
 

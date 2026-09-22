@@ -1,10 +1,11 @@
 ---
-title: "Android Permission System Evolution: From Framework Checks to Android 14 Granular Control"
+title: "Android Permissions: Runtime Grants, AppOps, and Testing"
 lang: en
 translationKey: android-permission-system-evolution
 slug: android-permission-system-evolution
-excerpt: "A deep dive into Android's three-layer permission interception model, the evolution from Android 10 to 14, and practical adaptation guidance."
+excerpt: "Understand Android permission decisions, recent platform changes, AppOps limits, and a testable feature-first request flow."
 publishDate: '2026-05-17'
+updatedDate: '2026-09-22'
 tags:
 - "Android"
 - "Permissions"
@@ -12,120 +13,86 @@ tags:
 - "Android 14"
 - "Architecture"
 seo:
-  title: "Android Permissions: Runtime Grants, AppOps, and Security Boundaries"
-  description: "Trace Android permission checks from Framework interception to runtime grants, AppOps, compatibility rules, and secure engineering practices."
+  title: "Android Permissions: Runtime Grants, AppOps, and Testing"
+  description: "Build robust Android permission flows with runtime grants, protected API enforcement, AppOps context, version boundaries, and ADB tests."
   pageType: article
 ---
 
-A real bug from one project: `ContextCompat.checkSelfPermission()` returned `GRANTED`, but the camera call still crashed with `SecurityException` in the log. Another app on the same device worked normally.
+`checkSelfPermission()` returning `GRANTED` is necessary, but it is not a universal promise that every later operation will work. Android makes decisions at the protected API, with a combination of manifest declaration, runtime grant, calling identity, device policy, role/privileged status, and—where that API uses it—AppOps. Code should ask for the smallest permission immediately before a user-visible feature, then handle `SecurityException`, cancellation, and revocation as normal outcomes.
 
-The reason was simple: permission checks do not flow through `checkSelfPermission` alone.
+This is more accurate than treating Android permissions as one fixed “three-layer” call chain. Different framework services enforce different permissions and AppOps; some APIs have no AppOps check, while a permission grant may be insufficient for a role-only or signature permission.
 
-## Three-layer interception: the gates behind one permission check
+## What each check actually tells you
 
-Android permission checking is a three-layer progressive interception system. If you only check the top layer, a lower layer can still block the operation.
+| Check or gate | What it answers | What it cannot prove |
+| --- | --- | --- |
+| Manifest `<uses-permission>` | Is the capability requested for installation/runtime? | That the user granted it |
+| `checkSelfPermission()` | Is this runtime permission granted to this app? | That a particular API/operation will be allowed |
+| Permission dialog / Activity Result | What did the user choose at that point? | That the grant will remain available |
+| Protected framework API | Can this concrete call proceed now? | That the feature's network/device work will succeed |
+| AppOps (when used) | Is this operation mode allowed for this UID/package? | A general replacement for all permission checks |
 
-**Layer 1: Context.checkSelfPermission**
+`AppOpsManager` is an operation-control and auditing layer used by many sensitive framework APIs. It is not an application policy API. Normal third-party apps should not try to change their own AppOps mode; production code should use the public feature API, catch its documented failures, and direct the user to Settings only when a recovery path exists.
 
-This is the most commonly used API. It is implemented in `ContextImpl` and directly checks the grant state recorded by `PackageManager`. This layer only asks whether a permission declared in AndroidManifest has been granted by the user. It does not care about AppOps.
+## Request by feature, not at first launch
 
-```java
-// ContextImpl.java
-public int checkPermission(String permission, int pid, int uid) {
-    return ActivityManager.getService().checkPermission(permission, pid, uid);
+The Activity Result API keeps the callback tied to the requested feature and makes denial easy to model:
+
+```kotlin
+private val requestCamera = registerForActivityResult(
+    ActivityResultContracts.RequestPermission()
+) { granted ->
+    if (granted) startCameraPreview()
+    else showCameraExplanationOrSettingsLink()
+}
+
+fun onScanReceiptClicked() {
+    if (checkSelfPermission(Manifest.permission.CAMERA) ==
+        PackageManager.PERMISSION_GRANTED) {
+        startCameraPreview()
+    } else {
+        requestCamera.launch(Manifest.permission.CAMERA)
+    }
 }
 ```
 
-**Layer 2: ActivityThread interception**
+Re-check after every resume and before the sensitive call. A user can revoke a grant in Settings, an unused app can lose sensitive runtime permissions through auto-reset, and an Android 11 one-time grant ends when the system revokes it. Do not persist “permission granted” as an application preference.
 
-When an app calls a permission-protected API, the Binder request eventually reaches the system process, and `ActivityManagerService` performs a permission check. This step queries PMS and also passes through the AppOps layer.
+If a documented API throws `SecurityException`, treat that as a controlled failure path. It can indicate a missing declaration/grant, an AppOps or policy restriction, or an API-specific precondition. Log the API, SDK level, and exception without recording private data; do not infer the exact lower-layer decision without device evidence.
 
-**Layer 3: AppOpsService**
+## Version boundaries worth encoding in tests
 
-AppOps is the permission-control extension layer introduced in Android 4.3. It does not change the grant state, but it can control in real time whether an app may perform a specific operation. A permission can appear "granted" at the PMS layer while AppOps says "deny."
+These changes affect normal app behavior; they are not a complete history of the permission system.
 
-That was the issue on my device. Another app had disabled the camera operation through an AppOps manager, while PMS still showed the permission as granted. So `checkSelfPermission` checked PMS and returned `GRANTED`, but the actual call was rejected by AppOps and threw `SecurityException`.
+- **Android 10 (API 29):** scoped-storage behavior and stricter location requirements affected many device and Wi-Fi APIs. File-path access assumptions need separate migration work.
+- **Android 11 (API 30):** location, camera, and microphone can receive a one-time grant. Unused apps targeting Android 11+ can have sensitive runtime grants auto-reset. Repeated denial can suppress later dialogs.
+- **Android 12 (API 31):** users may choose approximate location. Request `ACCESS_FINE_LOCATION` and `ACCESS_COARSE_LOCATION` together when the feature genuinely needs precise location; still work with approximate or explain why it is insufficient.
+- **Android 13 (API 33):** `POST_NOTIFICATIONS` is a runtime permission for non-exempt notifications. `NEARBY_WIFI_DEVICES` covers many nearby-Wi-Fi operations; scan results still have location rules. Media access is split by type.
+- **Android 14 (API 34):** when requesting image/video media permissions, apps targeting 34+ must support the selected-photos path (`READ_MEDIA_VISUAL_USER_SELECTED`) or use the system photo picker when it meets the product need.
 
-## The full Runtime Permission path
+Target SDK changes can alter the exact behavior, so test on the relevant OS and target-SDK combination rather than flattening these rules into one `if (SDK_INT >= …)` statement.
 
-The call chain from `requestPermissions()` to `onRequestPermissionsResult()` is longer than it looks:
+## Diagnose a device state without guessing
 
-`Activity.requestPermissions()` -> `ActivityThread.getPackageManager()` -> `PackageManagerService.grantRuntimePermission()` -> system permission dialog -> user action -> `ActivityThread.handleRequestPermissionsResult()`
-
-The critical point is the dialog phase. `GrantPermissionsActivity` displays the permission request UI. Only after the user taps "Allow" is the PMS database actually updated. One detail is easy to miss:
-
-```java
-// PermissionManagerService.java - simplified grantRuntimePermission logic
-if (AppOpsManager.noteOp(appOpCode, uid, packageName) != MODE_ALLOWED) {
-    // AppOps denies the operation, but PMS may still mark it as GRANTED
-    // This makes checkSelfPermission return GRANTED while the real call fails
-}
-```
-
-**Why `PermissionChecker` matters**: `androidx.core.content.PermissionChecker` does one extra thing compared with `ContextCompat.checkSelfPermission`: it checks AppOps as well. Replacing the call with `PermissionChecker.checkSelfPermission()` would have prevented the bug above.
-
-```kotlin
-// Checks both PMS and AppOps
-PermissionChecker.checkSelfPermission(context, Manifest.permission.CAMERA)
-
-// Checks only PMS, so it can miss AppOps denial
-ContextCompat.checkSelfPermission(context, Manifest.permission.CAMERA)
-```
-
-## Android 10 to 14: increasingly strict permission control
-
-**Android 10 - Scoped Storage**
-
-Media reads and writes no longer require `READ_EXTERNAL_STORAGE`; apps should use the `MediaStore` API instead. If an app strongly depends on file-path access, the `requestLegacyExternalStorage` flag only works on Android 10 and stops working completely on Android 11.
-
-**Android 11 - one-time permissions and permission auto-reset**
-
-Users can choose "Allow only this time." After the app process is killed, the permission is automatically revoked. This means permission state must be checked on every cold start, and grant results should not be cached.
-
-**Android 12 - precise location vs approximate location**
-
-Location permissions are split into `ACCESS_FINE_LOCATION` and `ACCESS_COARSE_LOCATION`. In the permission dialog, the user chooses "Precise" or "Approximate." The two modes are mutually exclusive in practice. If the user chooses approximate location and later wants precise location, they must change it from Settings.
-
-```kotlin
-// On Android 12+, request both permissions together
-val permissions = arrayOf(
-    Manifest.permission.ACCESS_FINE_LOCATION,
-    Manifest.permission.ACCESS_COARSE_LOCATION
-)
-// If the user chooses approximate location, FINE_LOCATION will not be granted
-```
-
-**Android 13 - notification permission becomes runtime-granted**
-
-`POST_NOTIFICATIONS` changed from granted by default to a runtime permission. Once targetSdk reaches 33, an app cannot even create useful notification behavior without requesting notification permission.
-
-**Android 14 - partial photo and video access**
-
-Users can choose selected photos or selected videos, and the app can only access that selected media subset. `READ_MEDIA_IMAGES` and `READ_MEDIA_VIDEO` must be requested separately. Android 14 also blocks installation of apps whose `targetSdkVersion` is below 23, effectively forcing Runtime Permission compatibility.
-
-## Engineering adaptation guidance
-
-**Use `PermissionChecker` instead of `ContextCompat.checkSelfPermission`.** It is often just a one-line import change, but it gives you AppOps coverage at very low cost.
-
-**Wrap permission requests in a state machine.** Do not scatter `requestPermissions` calls across every Activity. Use one manager for the request queue and handle concurrent cases such as a second request arriving while a dialog is already visible. I currently use `MutableStateFlow<Map<String, PermissionState>>`, checking state before each request to avoid repeated dialogs.
-
-**Test different authorization combinations.** Android 14's granular permissions make the combination count explode: location has precise, approximate, and denied; photos have all, partial, and denied. Manual dialog testing does not scale. Use `adb` to construct scenarios directly:
+Use ADB only on a device you control. `dumpsys package` shows runtime-grant flags; it cannot by itself prove the result of every protected API. The following sequence makes a camera grant/denial case reproducible:
 
 ```bash
-# Create a state where AppOps denies the operation while PMS grants the permission
-adb shell pm grant com.example android.permission.CAMERA
-adb shell appops set com.example CAMERA deny
+PACKAGE=com.example.app
+PERMISSION=android.permission.CAMERA
+
+adb shell pm revoke "$PACKAGE" "$PERMISSION"
+adb shell pm clear-permission-flags "$PACKAGE" "$PERMISSION" user-set user-fixed
+adb shell dumpsys package "$PACKAGE"
 ```
 
-The permission system has moved from Android 6.0's broad runtime permission model to Android 14's fine-grained controls. The core of adaptation is not chasing every new API. It is understanding the decision path across the three layers. Do not be fooled by PMS-level `GRANTED`; AppOps may be the layer that actually decides whether the operation can run.
+Interpretation: the next in-app request should be eligible to display its system prompt. If it does not, inspect whether the permission is declared, whether the request is issued from a visible activity, and the app's target-SDK behavior. Android documents `USER_SET` as a prior denial and `USER_FIXED` as a repeated-denial state used for debugging. Do not run `pm grant` for a permission your app cannot normally obtain; that hides the user journey you need to test.
 
-<!-- seo-internal-links -->
+For data-access auditing on supported devices, Android also provides AppOps noting callbacks and platform tooling. Use those to find unexpected accesses from your own SDKs, then remove the access or make its purpose visible to the user.
 
-## Further reading
+## Official references and related reading
 
-- [Back to topic: Android Framework](/en/android-framework/)
-- [Android Binder internals: from driver communication to the AIDL call chain](/en/blog/android-binder/)
-- [Android Framework system services: AMS, WMS, and the app-process interaction model](/blog/android-system-services-framework-interaction/)
-- [Android process and thread model: Zygote, main thread, and Binder thread pools](/blog/android-process-thread-model-deep-dive/)
-- [Android ContentProvider IPC: URI routing, cross-process access, and permission control](/en/blog/android-contentprovider-ipc/)
-<!-- /seo-internal-links -->
+- [Request runtime permissions](https://developer.android.com/training/permissions/requesting) covers the request flow, one-time permissions, revocation, and auto-reset.
+- [Android 11 permission updates](https://developer.android.com/about/versions/11/privacy/permissions) documents repeated-denial flags and the ADB inspection commands.
+- [Android 13 notification permission](https://developer.android.com/develop/ui/compose/notifications/notification-permission) explains `POST_NOTIFICATIONS` behavior and test states.
+- [Data access auditing](https://developer.android.com/privacy-and-security/auditing-access) explains how AppOps-based auditing is exposed to app developers.
+- [Android ContentProvider IPC and permission control](/en/blog/android-contentprovider-ipc/) and [Binder internals](/en/blog/android-binder/) provide the framework context behind protected IPC calls.

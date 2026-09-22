@@ -1,10 +1,11 @@
 ---
-title: "Android Wi-Fi Connection Management: From WifiManager to the Driver Layer"
+title: "Android Wi-Fi Connections: Use Modern APIs and Debug Layers"
 lang: en
 translationKey: android-wifi-connection-wifimanager-wpa-supplicant
 slug: android-wifi-connection-wifimanager-wpa-supplicant
-excerpt: "An end-to-end trace of Android Wi-Fi connection management, from WifiManager and WifiService state machines to wpa_supplicant, BSSID blacklists, nl80211, and layered debugging."
+excerpt: "Choose the correct Android Wi-Fi API, handle permissions and callbacks, and isolate failures from app policy through the Wi-Fi stack."
 publishDate: '2026-06-09'
+updatedDate: '2026-09-22'
 tags:
 - "Android"
 - "Wi-Fi"
@@ -12,145 +13,109 @@ tags:
 - "wpa_supplicant"
 - "Debugging"
 seo:
-  title: "Android Wi-Fi: WifiManager, wpa_supplicant, and Driver Layer"
-  description: "Trace Android Wi-Fi connection flow from WifiManager to wpa_supplicant and nl80211, with state-machine analysis and debugging tools."
+  title: "Android Wi-Fi Connections: Modern APIs and Debugging"
+  description: "Connect Android devices with WifiNetworkSpecifier or suggestions, handle Android 13 permissions, and debug Wi-Fi failures by layer."
   pageType: article
 ---
 
-In an IoT project, I once hit a strange issue: `WifiManager.connect()` reported success, but the device never connected to the target AP. Logcat showed Wi-Fi bouncing between CONNECTING and DISCONNECTED with no useful exception. The root cause turned out to be wpa_supplicant's BSSID blacklist behavior, which the upper API did not expose clearly.
+For ordinary apps on Android 10+ (API 29+), `WifiManager` is no longer a general-purpose saved-network controller. Use `WifiNetworkSpecifier` for a user-approved, local connection for the current app, and `WifiNetworkSuggestion` when the system may auto-connect later. `WifiManager.setWifiEnabled()` always returns `false` for apps targeting Android 10+, and direct configured-network management is restricted to privileged apps or device-policy controllers.
 
-The Wi-Fi connection chain is deeper than many app developers expect. This article walks from API to driver layer.
+That distinction fixes many misleading “Wi-Fi connected but my app has no network” reports: an accepted API request is not a completed association, an IP lease, internet validation, or the default network changing for the process.
 
-## App Layer: WifiManager Is Asynchronous
+## Pick the API by the user outcome
 
-The modern recommended entry on Android 10+ is a network request through ConnectivityManager:
+| Need | API | Important boundary |
+| --- | --- | --- |
+| Set up a camera or accessory on its local AP now | `WifiNetworkSpecifier` + `ConnectivityManager.requestNetwork()` | Android 10+; user approval is part of the flow; it is scoped to the request |
+| Offer credentials for future internet auto-connect | `WifiNetworkSuggestion` | Android 10+; the platform chooses whether to connect |
+| Let a user save a network | `Settings.ACTION_WIFI_ADD_NETWORKS` | Android 11+; system UI asks the user to approve |
+| Toggle Wi-Fi or edit arbitrary saved networks | Not available to a normal app | Android 10+ restriction |
 
-```java
-WifiNetworkSpecifier spec = new WifiNetworkSpecifier.Builder()
-    .setSsid("MyWiFi")
-    .setWpa2Passphrase("password")
-    .build();
+Do not use a `WifiNetworkSpecifier` for a background “connect whenever possible” feature. It is designed for a specific request, often an IoT onboarding flow. Suggestions are also not a success guarantee: the framework scores candidates and the user can revoke the app's suggestions.
 
-NetworkRequest request = new NetworkRequest.Builder()
-    .addTransportType(NetworkCapabilities.TRANSPORT_WIFI)
-    .setNetworkSpecifier(spec)
-    .build();
+## Permissions change with the API level
 
-connectivityManager.requestNetwork(request, callback);
+For an app targeting Android 13+ (API 33+), declare and request `NEARBY_WIFI_DEVICES` for connection-management APIs. It belongs to the Nearby devices runtime group. Scanning still has a location implication: `WifiManager.startScan()` and `getScanResults()` require `ACCESS_FINE_LOCATION`, even on Android 13+.
+
+```xml
+<!-- AndroidManifest.xml -->
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+<uses-permission android:name="android.permission.NEARBY_WIFI_DEVICES" />
+<!-- Retain location for pre-33 Wi-Fi behavior; omit maxSdkVersion if scanning needs it on 33+. -->
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"
+    android:maxSdkVersion="32" />
 ```
 
-The key detail is that this is asynchronous and not a hard guarantee. The request expresses preference and constraints; the system decides whether and when to connect. In dense AP environments, BSSID-level failure can prevent connection without producing a clean app-layer error.
+If the app scans on Android 13+, remove `maxSdkVersion` and request precise location at runtime for that feature. Calling a protected API without its required permission can throw `SecurityException`; test the denied path rather than assuming a null result means denial.
 
-Older `enableNetwork()` and `reconnect()` flows still exist in legacy code, but their behavior is harder to reason about under modern multi-network policy.
+## A complete request-scoped connection example
 
-## System Service: WifiService Scheduling
+The callback is the result contract. `onAvailable()` means Android made a matching network available; use the supplied `Network` for sockets, or explicitly bind the process for a short, user-visible flow. Always unregister the callback.
 
-App requests enter `system_server` through Binder and reach `WifiServiceImpl`. This layer performs permission checks, state coordination, and message dispatch:
+```kotlin
+class DeviceSetupController(private val connectivityManager: ConnectivityManager) {
+    private var activeCallback: ConnectivityManager.NetworkCallback? = null
 
-```java
-public void connect(String packageName, String featureId, WifiConfiguration config,
-        int netId, IActionListenerWrapper listener) {
-    mWifiPermissionsUtil.enforceCanAccessScanResults(packageName, ...);
-    mWifiThreadRunner.post(() -> {
-        mClientModeImpl.connectNetwork(config, netId);
-        listener.onSuccess();
-    });
+    fun connect(ssid: String, wpa2Passphrase: String) {
+        val isValidWpa2Passphrase = wpa2Passphrase.length in 8..63 &&
+            wpa2Passphrase.all { it.code in 0x20..0x7e }
+        require(isValidWpa2Passphrase) {
+            "WPA2 passphrase must be 8–63 printable ASCII characters"
+        }
+        disconnect() // Keep only one request for this setup screen.
+        val specifier = WifiNetworkSpecifier.Builder()
+            .setSsid(ssid).setWpa2Passphrase(wpa2Passphrase).build()
+        val request = NetworkRequest.Builder()
+            .addTransportType(NetworkCapabilities.TRANSPORT_WIFI)
+            .setNetworkSpecifier(specifier).build()
+        val callback = object : ConnectivityManager.NetworkCallback() {
+            override fun onAvailable(network: Network) {
+                // Use network.socketFactory / network.openConnection for this local session.
+            }
+            override fun onUnavailable() { /* Show a retry path. */ }
+            override fun onLost(network: Network) { /* Stop device work and update the UI. */ }
+        }
+        activeCallback = callback
+        connectivityManager.requestNetwork(request, callback)
+    }
+
+    fun disconnect() {
+        activeCallback?.let(connectivityManager::unregisterNetworkCallback)
+        activeCallback = null
+    }
 }
 ```
 
-Two details matter.
+Call `disconnect()` from the setup screen's `onStop()`, a ViewModel's `onCleared()`, or the explicit “leave setup” action. Do not unregister immediately after `requestNetwork()`, or the request can be cancelled before `onAvailable()`. `WifiManager.getConnectionInfo()` is deprecated from API 31; the precise replacement is to observe the requested `Network` and its capabilities, then validate the application's own protocol—for example, an HTTPS health request to the accessory—because Wi-Fi association alone says nothing about DHCP, captive portals, or the target service.
 
-First, Wi-Fi state changes are serialized on a Wi-Fi handler thread. This avoids lock-heavy concurrency, but if a HAL operation blocks, the entire module can appear stuck.
+## Debug from framework intent to radio state
 
-Second, `ClientModeImpl` is the heart of the Wi-Fi state machine. Important states include:
-
-- `DefaultState`
-- `SupplicantStartedState`
-- `ConnectModeState`
-- `L2ConnectedState`
-- `ObtainingIpState`
-
-When a connection gets stuck, the first question should be: which state is the machine in?
-
-## WifiNative and Supplicant HAL
-
-The Java-to-native boundary goes through `WifiNative` and HAL wrappers. Android's Wi-Fi HAL exposes chip, STA interface, and supplicant operations through separate layers.
-
-Conceptually:
-
-```text
-WifiManager
-  -> WifiServiceImpl
-  -> ClientModeImpl
-  -> WifiNative
-  -> SupplicantStaIfaceHal
-  -> wpa_supplicant
-```
-
-At this boundary, permission and policy decisions are already done. The remaining work is translating a connection request into supplicant configuration and native control commands.
-
-## wpa_supplicant: The Connection State Machine
-
-`wpa_supplicant` handles scan results, network selection, authentication, association, and WPA/WPA2 handshakes. It is the operational center of STA-mode Wi-Fi.
-
-The connection process includes:
-
-1. scan target SSIDs and BSSIDs.
-2. select a candidate AP.
-3. authenticate and associate.
-4. run the 4-way handshake.
-5. notify framework of link state.
-6. wait for DHCP and network validation.
-
-BSSID blacklist behavior is a common source of confusion. If a BSSID fails repeatedly, supplicant may temporarily avoid it. The framework might still think a connection attempt was submitted successfully, while the lower layer refuses the candidate.
-
-This is why a purely app-layer interpretation of "connect succeeded" is misleading. It often means "the request was accepted", not "the link is established".
-
-## Driver Layer: nl80211 and Kernel Interaction
-
-Below supplicant, Linux Wi-Fi operations go through `nl80211` and cfg80211/mac80211 abstractions. Supplicant sends netlink messages to the kernel:
-
-```c
-struct nl_msg *msg = nl80211_drv_msg(drv, 0, NL80211_CMD_TRIGGER_SCAN);
-nla_put(msg, NL80211_ATTR_IFINDEX, drv->ifindex);
-nl80211_send(drv, msg);
-```
-
-The kernel then calls wireless driver callbacks and eventually controls hardware operations. From app request to radio behavior, the request crosses multiple process and privilege boundaries.
-
-## Debugging Toolbox
-
-Start with the state machine:
+For a normal production app, start with your `NetworkCallback` timeline and exception logs. On a debuggable device or platform build, then move down the stack:
 
 ```bash
-adb shell dumpsys wifi | grep -A 10 "ClientModeImpl"
+# Framework state, recent events, configured interfaces and suggestions.
+adb shell dumpsys wifi
+
+# Connectivity's view of active and requested networks.
+adb shell dumpsys connectivity
+
+# Captured framework/service logs; use a narrow filter while reproducing.
+adb logcat -b all | grep -iE 'Wifi|wpa_supplicant|ConnectivityService'
 ```
 
-This shows current state, recent messages, and supplicant status. If the machine stays in `SupplicantStartedState`, focus on supplicant or native layers.
+Interpret the observations in order:
 
-Then talk directly to wpa_supplicant:
+1. `onUnavailable()` with no framework error usually points to request constraints, denied permission, user rejection, or no matching AP—not a driver conclusion.
+2. A network that becomes available but cannot reach the local service points to IP/DNS/routing or the device protocol. Test with `network.socketFactory`, so a different default network cannot hide the fault.
+3. Repeated association or authentication failures in `dumpsys wifi`/platform logs warrant OEM or system-image investigation. The framework, HAL, `wpa_supplicant`, kernel `cfg80211`/`nl80211`, and vendor driver participate, but their exact state-machine names and shell tools vary by Android release and OEM.
 
-```bash
-adb shell wpa_cli -i wlan0 status
-adb shell wpa_cli -i wlan0 list_networks
-adb shell wpa_cli -i wlan0 scan_results
-```
+Avoid instructing end users to run `wpa_cli`: it is generally unavailable or permission-restricted on production builds. It is a platform-engineering tool, not an app-level confirmation method. Likewise, a BSSID avoidance/blacklist decision is implementation and version dependent; capture system logs before assigning it as the cause.
 
-If `wpa_cli` can connect while app-level APIs cannot, the issue is likely above native. If `wpa_cli` also fails, look at supplicant, HAL, or driver behavior.
+## Official references and related reading
 
-Enable supplicant logs when needed:
-
-```bash
-adb shell wpa_cli -i wlan0 log_level DEBUG
-adb logcat -s wpa_supplicant
-```
-
-Four-way handshake failures usually include reason codes in these logs.
-
-## Practical Recommendations
-
-Do not debug Wi-Fi by randomly searching logcat. First locate the state-machine position, then isolate the layer with `wpa_cli`, and only then inspect driver or kernel logs.
-
-For SDK-level Wi-Fi features, prefer `ConnectivityManager.NetworkCallback` over polling `WifiManager.getConnectionInfo()`. The latter may return cached state and lag during roaming or rapid network switches.
-
-If you must preselect an AP, specifying BSSID through `WifiNetworkSpecifier` can be more stable than connecting broadly and then relying on roaming. Fewer reassociations means fewer opportunities to hit blacklist behavior.
+- [Request permission to access nearby Wi-Fi devices](https://developer.android.com/develop/connectivity/wifi/wifi-permissions) lists API 33 permission boundaries and scan exceptions.
+- [Wi-Fi suggestion API](https://developer.android.com/develop/connectivity/wifi/wifi-suggest) explains the system-selected, future-connect use case.
+- [Android 10 privacy changes](https://developer.android.com/about/versions/10/privacy/changes) documents the `setWifiEnabled()` and configured-network restrictions.
+- [Advanced Android network programming](/en/blog/android-advanced-network-programming-optimization-part3/) covers transport-level retries and observability once connectivity is established.
+- [Android BLE GATT scanning and long connections](/en/blog/android-ble-gatt-scanning-long-connection/) is useful when an accessory offers both Wi-Fi and Bluetooth setup paths.

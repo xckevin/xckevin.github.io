@@ -1,19 +1,28 @@
 ---
-title: "Android 性能优化专题"
+title: "Android 性能与稳定性专题"
 seo:
   title: "Android 性能优化：启动、渲染、内存、Perfetto 与 Macrobenchmark"
   description: "系统整理 Android 性能优化文章，覆盖冷启动、RecyclerView、Bitmap、RenderThread、HWUI、Perfetto、ART、Native 内存、Vulkan、AudioFlinger 与性能基准测试。"
 ---
 
-这个专题把性能优化从经验判断转成可验证流程：先定义指标，再用 trace 找瓶颈，最后通过基准测试和线上监控确认收益。
+从启动慢、滑动掉帧或 WebView 崩溃进入，先确定要测量的现象，再收集能解释它的证据。每条路线都连接到具体的工具操作与验证步骤。
 
-## 学习路径
+## 按症状开始排查
 
-1. 冷启动：从 Zygote fork 到首帧上屏。
-2. 渲染：View、RenderThread、HWUI 和 SurfaceFlinger。
-3. 内存：Bitmap、泄漏、Native 堆和 OOM。
-4. 工具：Perfetto、Systrace、Macrobenchmark。
-5. 专项：音频、列表、稳定性和线上治理。
+| 现象 | 第一篇 | 接着做什么 |
+| --- | --- | --- |
+| 冷启动慢，首帧与可用时间混在一起 | [启动指标：TTID、TTFD 与 Macrobenchmark](/blog/android-startup-metrics/) | 固定启动条件，再用 Perfetto 定位关键路径 |
+| 有卡顿但不知道 trace 怎么抓、怎么看 | [Perfetto 入门与抓取流程](/blog/android-perfetto/) | 复现一次问题，检查主线程、调度和帧时间 |
+| WebView 白屏或收到渲染进程退出回调 | [WebView 渲染进程崩溃与恢复](/blog/webview-render-process-crash-deep-dive/) | 区分退出信号与根因，验证销毁和重建流程 |
+| Compose 列表滑动不流畅 | [LazyColumn 性能排查](/blog/jetpack-compose-lazycolumn-performance/) | 使用 release 构建，检查列表身份、状态读取与帧耗时 |
+
+## 从测量到回归的阅读顺序
+
+1. [定义启动指标](/blog/android-startup-metrics/)：分开冷、温、热启动以及首帧与可用时间。
+2. [抓取并阅读 Perfetto trace](/blog/android-perfetto/)：把用户操作与线程工作、等待时间对应起来。
+3. 选择一个有证据支持的瓶颈进行修改，保留设备、数据集、构建类型和采样条件。
+4. 用 [Macrobenchmark](/blog/android-macrobenchmark-benchmarkrule/) 重复测量，比较分布并检查回归。
+5. 若问题表现为进程退出，沿 [WebView 稳定性排查](/blog/webview-render-process-crash-deep-dive/) 收集事件；性能 trace 不能单独证明崩溃根因。
 
 ## 核心文章
 

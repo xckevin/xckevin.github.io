@@ -1,45 +1,45 @@
 ---
-title: Android 16 Adaptation
+title: "Android 16 and Platform Compatibility"
 lang: en
 translationKey: android-16-adaptation
 seo:
-  title: Android 16 Adaptation Notes
-  description: Android 16 adaptation notes covering platform behavior changes, compatibility, permissions, edge-to-edge, 16 KB page size, and engineering rollout.
+  title: "Android 16 Compatibility: 16 KB Pages, Permissions and Wi-Fi"
+  description: "Diagnose Android compatibility issues with native libraries, permissions, Wi-Fi APIs, fonts, insets and back navigation. Follow a practical migration checklist."
 ---
 
-This topic collects Android 16 adaptation notes.
+Use this guide when upgrading your target SDK or investigating a failure that only occurs on certain Android devices. Record the OS version, target SDK, dependency versions and reproduction steps first; those details determine whether the fix belongs in application code, a dependency or the build configuration.
 
-Android 16 adaptation does not end with changing `targetSdkVersion`. For mature apps, the real risks are window insets, back navigation, native library page size, cross-app intelligent actions, permissions, and compatibility verification. This page organizes the key checks around Android 16, target SDK migration, and platform behavior changes.
+## Start with the symptom
 
-The focus is to turn platform migration into a controlled engineering process.
+| Symptom | Read first | Expected outcome |
+| --- | --- | --- |
+| A native library fails on a 16 KB device, or a release check flags incompatibility | [16 KB page size, ELF and NDK compatibility](/en/blog/android-16kb-page-size-elf-ndk/) | Separate ELF segment alignment from APK ZIP alignment and identify affected dependencies |
+| Access fails after permission approval or an OS upgrade | [Android permissions and version differences](/en/blog/android-permission-system-evolution/) | Distinguish runtime permissions, AppOps, special access and target SDK requirements |
+| Wi-Fi connection fails or a legacy WifiManager API stops working | [Wi-Fi API selection and connection debugging](/en/blog/android-wifi-connection-wifimanager-wpa-supplicant/) | Choose between local connections and network suggestions, then inspect permissions and callbacks |
+| Text has missing glyphs, different line heights or unexpected layout | [Typeface, font fallback and Skia rendering](/en/blog/android-font-rendering-typeface-skia/) | Separate font loading, glyph selection, shaping and rasterization |
+| Content sits behind system bars or the keyboard | [Edge-to-edge and WindowInsets](/en/blog/android-16-edge-to-edge-windowinsets/) | Identify inset ownership and the affected UI states |
+| Back gestures disagree with the screen back stack | [Predictive Back engineering](/en/blog/android-predictive-back/) | Review navigation components and custom back handling |
 
-## Highest-priority Adaptation Items
+## Follow a migration through to verification
 
-1. Edge-to-edge: verify status bars, navigation bars, IME behavior, bottom action areas, and immersive screens.
-2. Predictive Back: audit Activity, Fragment, Compose Navigation, and custom back-stack behavior.
-3. 16 KB page size: check native `.so` files, third-party SDKs, NDK build flags, startup behavior, and memory behavior.
-4. App Functions: create semantic entry points for high-value actions that the system can invoke intelligently.
-5. Regression gates: cover login, payment, camera, sharing, deep links, WebView, and background work with automated tests.
+1. Read [API compatibility and runtime fallbacks](/en/blog/android-api-compatibility-minsdk-runtime-fallback/). List OS versions, target SDK requirements, available APIs and fallback behavior.
+2. Audit [native dependencies for 16 KB support](/en/blog/android-16kb-page-size-elf-ndk/). Page-size compatibility depends on the device, system and native dependencies; an Android version number alone is insufficient evidence.
+3. Exercise [permission flows](/en/blog/android-permission-system-evolution/) and [Wi-Fi connections](/en/blog/android-wifi-connection-wifimanager-wpa-supplicant/), including first grants, denial, retries, revocation and reinstall.
+4. Check insets, back navigation and [text rendering](/en/blog/android-font-rendering-typeface-skia/). Keep reproducible before-and-after results.
+5. Use the [performance and stability workflow](/en/android-performance/) to check startup, jank and crashes after migration.
 
-## Core Reading
+## What to record in regression tests
 
-- [Android API compatibility engineering: from minSdk checks to runtime feature degradation](/blog/android-api-compatibility-minsdk-runtime-fallback/)
-- [Android 16 forced edge-to-edge: WindowInsets dispatch and adaptation](/blog/android-16-edge-to-edge-windowinsets/)
-- [Android 16 Predictive Back engineering practice](/blog/android-predictive-back/)
-- [Android 16 KB page alignment: ELF loading, NDK compilation, and performance validation](/blog/android-16kb-page-size-elf-ndk/)
-- [Android 16 App Functions: semantic indexing and cross-app intelligent actions](/blog/android-16-app-functions-semantic-index/)
-- [Android permission-system evolution: from ActivityThread interception to Android 16](/blog/android-permission-system-evolution/)
+- Versions: OS, target SDK, NDK, AGP and native SDKs. Separate an OS update from an app update.
+- Installation: clean install, in-place upgrade, restored data, granted permissions and revoked permissions.
+- UI: orientation, large fonts, split screen, keyboard transitions, gesture navigation and three-button navigation.
+- Network: denied access, connection failure and reconnects. Record callbacks and errors, not only the Wi-Fi icon.
+- Evidence: original logs, build artifacts, reproduction steps and regression results. A successful run on one device does not establish compatibility across the matrix.
 
-## Test Matrix
+## Optional capabilities and further reading
 
-- Platform versions: Android 14, Android 15, Android 16, and major OEM variants.
-- Form factors: phones, foldables, large screens, landscape, split screen, and freeform windows.
-- IME and navigation: keyboard transitions, gesture navigation, three-button navigation, and predictive-back animation.
-- Native dependencies: local `.so` files, third-party audio/video SDKs, hardening SDKs, and hot-fix SDKs.
-- AI entry points: App Functions, Shortcuts, on-device AI, semantic indexing, and privacy boundaries.
+[App Functions and semantic entry points](/en/blog/android-16-app-functions-semantic-index/) are a product capability to evaluate separately. They are not a required implementation task for every compatibility upgrade; check current platform availability before adopting them.
 
-## Related Topics
+Use the official [Android 16 changes for all apps](https://developer.android.com/about/versions/16/behavior-changes-all) and [changes for apps targeting Android 16](https://developer.android.com/about/versions/16/behavior-changes-16) as the platform reference. The permission, 16 KB and Wi-Fi articles link to their respective API documentation.
 
-- [Android Framework](/en/android-framework/): platform behavior changes are easier to reason about with window, Activity, Binder, and permission internals.
-- [Android Performance](/en/android-performance/): after adaptation, verify startup, rendering, memory, ANR, and crash-rate behavior.
-- [Gemini Nano on Android](/en/android-gemini-nano-ai/): after Android 16, intelligent system entry points and on-device AI features become more relevant to product design.
+Continue with [Android Framework internals](/en/android-framework/) or return to the [topic index](/en/topics/).

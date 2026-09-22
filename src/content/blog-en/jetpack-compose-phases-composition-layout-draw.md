@@ -1,149 +1,105 @@
 ---
-title: "Jetpack Compose Phases: From Composition to Layout and Drawing"
+title: "Compose Phases: Composition, Layout, Drawing, and State Reads"
 lang: en
 translationKey: jetpack-compose-phases-composition-layout-draw
 slug: jetpack-compose-phases-composition-layout-draw
-excerpt: "A deep dive into the three Jetpack Compose phases: Composition, Layout, and Drawing, with state reads, skip behavior, and performance guidance."
+excerpt: "Understand Compose's composition, layout, and drawing phases, then place state reads where they invalidate the least work."
 publishDate: '2026-01-15'
+updatedDate: '2026-09-22'
 tags:
 - "Android"
 - "Jetpack Compose"
 - "Performance"
 - "State Management"
-- "Kotlin"
 seo:
-  title: "Jetpack Compose Phases: Composition, Layout, Drawing, and State Reads"
-  description: "Understand the three Jetpack Compose phases, how state reads decide recomposition boundaries, and how phase skipping affects UI performance."
+  title: "Compose Phases: Composition, Layout, Drawing, and State Reads"
+  description: "Learn how Compose phase-local state reads affect recomposition, layout, and drawing, with correct lambda modifier examples."
   pageType: article
 ---
 
-After writing Compose for a while, you eventually run into a confusing bug: the value inside `mutableStateOf` clearly changes, but the UI does not move at all. After debugging, the cause is often the **location where state is read**. Reading state inside a `Modifier` and reading it inside `Canvas` are completely different things.
+**The place where state is read determines the earliest work Compose must invalidate.** Read text or structure in composition; read a position in layout; read pixels-only data while drawing. This is a performance tool after measurement, not a reason to force every value into a drawing lambda.
 
-To understand this behavior, you need to understand the three-phase Compose pipeline.
-
-## Three-phase overview
-
-Compose turns "declarative components" into "screen pixels" through three phases:
-
-- **Composition**: decide what UI tree should be shown on the screen
-- **Layout**: measure each node and determine its position
-- **Drawing**: draw the nodes onto the Canvas
-
-The three phases run in order, and **each phase has its own skip decision**. The phase in which you read state determines which logic will run again after that state changes.
+A frame generally proceeds in one direction:
 
 ```text
-Composition  ->  Layout  ->  Drawing
-    |              |          |
- Create UI tree   Measure +   Actual drawing
-                  position
-    |
- State reads decide whether recomposition is needed
+Composition (what exists) -> Layout (size and position) -> Drawing (pixels)
 ```
 
-The best way to enter this model is to look at when `Modifier` logic actually executes.
+Compose tracks state reads in these restart scopes and can reuse work when inputs are unchanged. The model is localized, not magical: `LazyColumn`, `LazyRow`, and `BoxWithConstraints` are notable cases where child composition depends on a parent's layout constraints. Layout also contains separate measurement and placement restart scopes, so a placement read can restart placement without necessarily remeasuring that node.
 
-## Modifier chains: the implicit scheduler for the three phases
+## Match the state to the phase
 
-Each `Modifier` has corresponding callback interfaces across the three phases. Take a basic `Modifier.size()`-style behavior as an example:
-
-```kotlin
-// How a custom Modifier participates in the three phases
-fun Modifier.trackedSize(size: Dp) = this.then(object : LayoutModifier {
-    // Composition phase: do nothing here, just capture parameters
-
-    override fun MeasureScope.measure(
-        measurable: Measurable,
-        constraints: Constraints
-    ): MeasureResult {
-        // Layout phase: measure and decide size
-        val placeable = measurable.measure(constraints.copy(
-            maxWidth = size.roundToPx()
-        ))
-        return layout(placeable.width, placeable.height) {
-            placeable.placeRelative(0, 0)
-        }
-    }
-}).then(object : DrawModifier {
-    override fun ContentDrawScope.draw() {
-        // Drawing phase: execute drawing
-        drawRect(Color.Red)
-        drawContent()
-    }
-})
-```
-
-A Modifier chain is the declaration. The three phases are the execution. When you declare a size constraint with `Modifier.size()`, the actual measuring and placement happen in the Layout phase. Several layers of state reads and recomposition checks may sit between those two moments.
-
-Modifier calls are linked from left to right, but the execution order differs by phase:
-
-- **Composition phase**: the Modifier chain mostly does not participate, except for `composed()`
-- **Layout phase**: the outer modifier receives constraints first, then passes them inward. With `Modifier.size(100.dp).padding(16.dp)`, `size` caps the max width at 100 dp, `padding` subtracts 32 dp of margins, and the content receives 68 dp
-- **Drawing phase**: the outer modifier draws first, and every layer is composited on the same Canvas
-
-I once hit a performance trap here. I read animation state inside `Modifier.drawBehind`, then read the same state inside `remember`. The Drawing phase could no longer skip cleanly, and every recomposition caused a full redraw. Frame rate dropped from 60 to 30 FPS. Each piece looked reasonable alone; together they became a hidden performance problem.
-
-## Boundary effects of state reads
-
-Compose tracks state separately by phase:
+This complete example puts three independent values in the phase that consumes them. Click once to change all three; examine each change independently when profiling.
 
 ```kotlin
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.drawBehind
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.IntOffset
+import androidx.compose.ui.unit.dp
+import androidx.compose.foundation.layout.offset
+
 @Composable
-fun ProfileCard() {
-    var name by remember { mutableStateOf("Alice") }
-    var badgeColor by remember { mutableStateOf(Color.Unspecified) }
+fun PhaseAwareBadge() {
+    var label by remember { mutableStateOf("Ready") }
+    var offsetPx by remember { mutableIntStateOf(0) }
+    var color by remember { mutableStateOf(Color.Magenta) }
 
-    Text(
-        text = name,           // Read in the Composition phase
-        modifier = Modifier
-            .offset(x = badgeOffset)  // Read in the Layout phase
-            .drawBehind {
-                drawCircle(badgeColor)  // Read in the Drawing phase
-            }
-    )
-}
-```
+    Column(Modifier.padding(16.dp)) {
+        Button(onClick = {
+            label = "Updated"       // read by Text during composition
+            offsetPx += 12           // read in the offset lambda during placement
+            color = Color.Cyan       // read in drawBehind during drawing
+        }) { Text("Update") }
 
-The three pieces of state affect different phases:
-
-- `name` changes -> triggers **Recomposition**
-- `badgeOffset` changes -> triggers **Relayout**, without recomposition
-- `badgeColor` changes -> triggers **Redraw**, without recomposition or relayout
-
-This is where Compose gets its granularity. A state change does not rerun the whole pipeline. It invalidates work at the phase where that state was read. Not many UI frameworks can do this well.
-
-`Modifier.composed()` is the exception. It injects Composition-phase logic into the Modifier chain, which means its lambda runs again on recomposition. Using it for animation state management can easily promote a Drawing-level cost into a Composition-level cost. Use it only when that tradeoff is necessary.
-
-## Phase skipping: why it works and when it fails
-
-For `@Composable` functions, the Compose compiler performs `@Stable` inference on parameters at compile time. If a parameter is inferred to be stable and its value has not changed, meaning `equals()` returns true, the Composition phase can skip the function body completely.
-
-```kotlin
-// Equivalent from the Compose compiler's perspective
-@Composable
-fun Greeting(name: String) {  // String is inferred as @Stable
-    Text("Hello $name")
-}
-
-// Pseudocode for compiler-injected skip logic
-fun Greeting(name: String, %composer: Composer) {
-    if (!%composer.skipping || name != %composer.rememberedValue) {
-        Text("Hello $name")  // Runs only when the value changes
+        Text(
+            text = label,
+            modifier = Modifier
+                .offset { IntOffset(offsetPx, 0) }
+                .drawBehind { drawCircle(color = color, radius = 8.dp.toPx()) }
+                .background(Color.White)
+        )
     }
 }
 ```
 
-Common cases where skipping fails:
+The direct overload `Modifier.offset(x = someDp, y = 0.dp)` reads `someDp` during composition. The lambda overload shown above defers its read to layout placement. Likewise, `Modifier.graphicsLayer { alpha = alphaState }`, `drawBehind`, and `Canvas` read state during drawing and can skip both earlier phases for a pixels-only change. This only applies if that state is not also read earlier in the same affected path.
 
-1. **Unstable parameter types**: passing `List<T>` and creating a new instance on every recomposition prevents skipping, even when the content is identical
-2. **State reads inside `composed()`**: the Modifier identity becomes unstable, invalidating Layout-phase skip decisions
-3. **Changing lambda references**: `Modifier.clickable { doSomething() }` can create a new lambda object on every frame
+## Do not manufacture a cross-phase feedback loop
 
-In real projects, I enable the Compose compiler stability report and add a CI check to ensure key UI component parameters are marked `@Stable` or `@Immutable`. This is a silent optimization. Everything looks normal when it works, but once it stops working, the jank becomes visible.
+The common failure is: observe a child's size in `onSizeChanged` or `onGloballyPositioned`, write it into state, then use that state as a parent `padding`/`height` input. A layout pass writes state that requests composition and layout again; the first frame can be visually wrong and repeated changes can loop.
 
-## Practical recommendations
+Use `Column`, `Row`, `Box`, a parent-data modifier, or a custom `Layout` so the nearest shared parent measures and places related children from one source of truth. Do not write state during composition after it has already been read there (“backwards write”); Compose may keep recomposing until it reaches a limit.
 
-**Use `derivedStateOf` to move state reads to a cheaper boundary.** If pure derived computation can be done in `derivedStateOf`, do that instead of reading raw state in the Composition phase with `remember` and transforming it there. The latter turns a simple calculation into a recomposition signal.
+## Skipping: useful, version-dependent, and not the goal
 
-**Modifier order is a performance boundary.** Put infrequently changing Modifiers, such as fixed `size`, near the front of the chain, and frequently changing ones, such as `animatedOffset`, near the end. This lets the Layout phase skip more outer work and cuts away a lot of unnecessary measurement.
+Skipping applies to eligible restartable composables when their inputs compare unchanged. In the normal model, stable inputs compare with `equals`; unstable inputs can prevent eligibility. Kotlin 2.0.20 enables strong skipping by default: restartable composables can be skippable even with unstable inputs, using instance equality for those inputs, and compiler-generated memoization covers captured lambdas.
 
-**Do not optimize phase skipping too early.** Compose injects skip logic automatically at compile time, and most code does not need manual intervention. When there is a real performance bottleneck, use Layout Inspector first to confirm which phase is expensive, then fix that specific phase. Most of the time, the culprit is unstable type propagation, not one isolated line of code.
+Strong skipping does not guarantee that a composable is skipped. A non-restartable/non-skippable composable, a new unstable object instance, changed state read by that scope, or a required layout/draw update can still run work. Do not add `@Stable`/`@Immutable` merely to chase a report: those annotations promise an observable-change contract. Check the compiler configuration and reports for the module actually being profiled, especially on Kotlin releases before 2.0.20.
+
+## A disciplined optimization path
+
+1. Record the real interaction in release mode and identify whether the cost is composition, measurement/placement, drawing, image decoding, or data work.
+2. Keep correctness and readable state ownership first.
+3. If a frequently changing value only moves content, use a lambda layout modifier; if it changes only pixels, consider a draw lambda or `graphicsLayer`.
+4. Re-measure the same path. A phase change is an improvement only if it reduces the measured bottleneck.
+
+The scrolling case study in [LazyColumn performance](/en/blog/jetpack-compose-lazycolumn-performance/) applies these rules to list state, keys, and measurement. For pointer-driven values, see [Compose gestures](/en/blog/jetpack-compose-gestures/). More related material is available in [Jetpack Compose](/en/jetpack-compose/) and [Android performance](/en/android-performance/).
+
+## Official references
+
+- [Jetpack Compose phases](https://developer.android.com/develop/ui/compose/phases)
+- [Modifier breakdown by phase](https://developer.android.com/develop/ui/compose/performance/modifier-phases)
+- [Strong skipping mode](https://developer.android.com/develop/ui/compose/performance/stability/strongskipping)
+- [Compose performance best practices](https://developer.android.com/develop/ui/compose/performance/bestpractices)

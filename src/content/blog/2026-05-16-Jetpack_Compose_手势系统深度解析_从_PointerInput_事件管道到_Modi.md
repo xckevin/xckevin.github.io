@@ -1,233 +1,126 @@
 ---
 slug: jetpack-compose-gestures
 translationKey: jetpack-compose-gestures
-title: Compose 手势系统：PointerInput 事件管道与嵌套滚动冲突解决
-excerpt: 深入解析Compose手势系统的三层事件管道架构与View体系的根本差异，结合PointerInputFilter源码，给出嵌套滚动冲突的方向锁定、事件消费时机等实用解决方案。
+title: Compose 手势：PointerInput、事件消费与嵌套滚动
+excerpt: 从正确选择 Compose 手势 API 开始，厘清 PointerInput 事件消费和 nestedScroll 的边界，解决复杂交互冲突。
 publishDate: '2026-05-16'
+updatedDate: '2026-09-22'
 tags:
 - Jetpack Compose
 - 手势处理
 - 嵌套滚动
 - PointerInput
-- 事件分发
 seo:
-  title: "Jetpack Compose 手势系统：PointerInput 事件管道与嵌套滚动"
-  description: "深入分析 Compose PointerInput、手势识别、事件分发、Modifier 处理链和复杂交互中的性能与冲突处理。"
+  title: "Compose 手势：PointerInput、事件消费与嵌套滚动"
+  description: "正确选择 Compose 手势 API，理解 PointerInput 事件消费，并用 nestedScroll 协调嵌套滚动。"
 ---
 
-把一个旧项目从 View 体系迁移到 Compose 时，第一个让我头疼的 Bug 是列表嵌套横向滑动条目——手指稍微倾斜，纵向列表和横向子项就开始粘连抖动。View 体系里 `requestDisallowInterceptTouchEvent` 一行搞定的事，到了 Compose 直接不认了。
+**先选 Compose 提供的最高层 API。** 能用 `clickable`、`scrollable`、`draggable` 或 `transformable` 就不要直接写 `pointerInput`。例如 `LazyColumn` 中的横向滑动条目，通常只需要条目处理横向拖拽、列表保留原生纵向滚动，而不是照搬 View 的拦截模型。
 
-Compose 的手势系统不是 View 触摸分发的语法糖包装，而是一套独立架构。花了两周把相关源码翻完，整理出这篇。
+这里有一个关键边界：`PointerInputChange.consume()` 是“标记这一部分指针变化已经被处理”，并不是“让父节点收不到事件”。命中测试选中的同一条处理链仍会经过各个 pass，处理器可以观察消费状态。`nestedScroll` 则是另一套机制，负责在可滚动父子组件之间协商**滚动距离和 fling 速度**。
 
-## 从 View 触摸分发到 Compose 事件管道
+## 先判断该用哪一层
 
-View 体系的手势处理依赖 `onInterceptTouchEvent` 和 `onTouchEvent` 的递归链。这套机制的死穴在于：**拦截决策和事件执行耦合在一个方法里**，父 View 必须在收到事件的那一刻同步拍板要不要拦截。结果就是嵌套滚动的逻辑散落到各个层级，改一处牵动全身。
+`Button`、`clickable` 自带语义、键盘/焦点支持和视觉反馈；自定义内容上的标准手势优先使用手势 Modifier；只有产品需要自定义事件序列时，才进入 `pointerInput` 与 `awaitPointerEventScope`。
 
-Compose 做了一个根本性的拆分：把**命中测试（Hit Testing）、事件消费、手势检测三层彻底解耦**。
-
-事件进入 Compose 后的流转路径：
-
-```
-原生 MotionEvent → PointerInteropFilter → LayoutNode 命中测试
-→ PointerInputFilter 管道 → 手势检测器（detectDragGestures 等）
-```
-
-第一层 `PointerInteropFilter` 把 Android 原生 `MotionEvent` 转成 Compose 内部的 `PointerEvent`。第二层命中测试根据触点坐标定位对应的 `LayoutNode` 树。第三层 `PointerInputFilter` 管道才是我们通过 `Modifier.pointerInput` 注册的逻辑队列。
-
-## PointerInputFilter：事件管线
-
-`pointerInput` 修饰符背后，Compose 会创建一个 `PointerInputFilter` 挂到 `LayoutNode` 上。核心实现：
+一个 `pointerInput` 块里不能顺序放两个顶层检测器：检测器会挂起等待手势，后一个通常不可达。确实需要点击和拖拽时，链式添加两个独立的 `pointerInput`。
 
 ```kotlin
-// androidx.compose.ui.input.pointer.PointerInteropFilter
-internal class PointerInputFilter(
-    private val layoutNode: LayoutNode,
-    private val pointerInputHandler: PointerInputEventHandler
-) {
-    fun onPointerEvent(
-        pointerEvent: PointerEvent,
-        pass: PointerEventPass,
-        bounds: IntSize
-    ) {
-        // 根据 pass 阶段分派事件
-        pointerInputHandler.invoke(pointerEvent, pass, bounds)
-    }
-}
-```
+import androidx.compose.foundation.background
+import androidx.compose.foundation.gestures.detectHorizontalDragGestures
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.pointer.pointerInput
+import androidx.compose.ui.unit.IntOffset
+import androidx.compose.ui.unit.dp
+import kotlin.math.roundToInt
 
-`PointerEventPass` 这个参数经常被忽略，但它是理解整个手势系统的关键。它定义了事件在 Modifier 链上传递的三个阶段：
+@Composable
+fun SwipeActionRow() {
+    var offsetPx by remember { mutableFloatStateOf(0f) }
+    val maxOffsetPx = 192f
 
-- **Initial**：自顶向下传递，父节点先于子节点收到，做拦截决策
-- **Main**：核心手势处理阶段，绝大多数检测在这里完成
-- **Final**：自底向上传递，子节点先于父节点收到，做收尾清理
-
-同一事件在同一帧内被不同 Modifier 按优先级依次处理，而不是 View 体系里"拦截 or 不拦截"的一锤子买卖。这个设计是嵌套滚动冲突解决方案的基石。
-
-## 声明式手势 API 的内部实现
-
-Compose 提供了三组手势检测 API：`detectTapGestures`、`detectDragGestures`、`detectTransformGestures`。它们都依赖 `AwaitPointerEventScope`，一个允许你在 `pointerInput` 块内挂起等待特定事件序列的协程作用域。
-
-### 点击检测：awaitFirstDown 的状态机
-
-`detectTapGestures` 内部是一个状态机，精简后的逻辑：
-
-```kotlin
-suspend fun PointerInputScope.detectTapGestures(
-    onTap: ((Offset) -> Unit)? = null,
-    onDoubleTap: ((Offset) -> Unit)? = null,
-    onLongPress: ((Offset) -> Unit)? = null,
-) {
-    awaitPointerEventScope {
-        while (true) {
-            val down = awaitFirstDown(requireUnconsumed = false)
-            val upOrDrag = withTimeoutOrNull(
-                viewConfiguration.longPressTimeoutMillis
-            ) {
-                waitForUpOrCancellation()
-            }
-            if (upOrDrag != null) {
-                // 在长按超时前抬手 → 判定为 tap
-                onTap?.invoke(upOrDrag.position)
-            } else {
-                // 超时仍未抬手 → 进入长按分支
-                onLongPress?.invoke(down.position)
-                waitForUpOrCancellation()
-            }
-        }
-    }
-}
-```
-
-这里踩过一个坑：`requireUnconsumed = false`。`awaitFirstDown` 默认只响应未被消费的事件，如果上游 Modifier 已经消费了 Down 事件，你的检测器直接拿不到事件。做全局埋点这种需要"穿透监听"的场景，必须显式传 `false`，否则事件链路在中间就断了。这个问题在官方文档里一笔带过，调试时花了不少时间。
-
-### 拖拽检测：事件消费与互斥
-
-`detectDragGestures` 启动后循环接收 Move 事件，把位移量传给 `onDrag`：
-
-```kotlin
-suspend fun PointerInputScope.detectDragGestures(
-    onDragStart: (Offset) -> Unit = {},
-    onDragEnd: () -> Unit = {},
-    onDragCancel: () -> Unit = {},
-    onDrag: (change: PointerInputChange, dragAmount: Offset) -> Unit
-) {
-    awaitPointerEventScope {
-        val down = awaitFirstDown()
-        onDragStart(down.position)
-        var currentPointer = down
-        while (true) {
-            val event = awaitPointerEvent()
-            val dragChange = event.changes.firstOrNull() ?: break
-            if (dragChange.pressed) {
-                dragChange.consume() // 关键：消费事件以阻止穿透
-                val dragAmount = dragChange.position - currentPointer.position
-                onDrag(dragChange, dragAmount)
-                currentPointer = dragChange
-            } else {
-                onDragEnd()
-                break
-            }
-        }
-    }
-}
-```
-
-`dragChange.consume()` 是解决嵌套冲突的核心操作：子组件消费事件后，父组件的 `pointerInput` 在同阶段 pass 中不会再收到该事件。
-
-但如果父组件在 Initial 阶段抢先消费了呢？
-
-## 嵌套滚动冲突的解法
-
-Compose 对嵌套滚动的处理比 View 体系清爽一个量级：用 `nestedScroll` 和 `pointerInput` 的 Pass 阶段组合来解决，而不是靠 `requestDisallowInterceptTouchEvent` 这种父子的反向通知。
-
-典型场景"横向滑动子项 + 纵向滚动列表"，标准方案是：
-
-1. 横向子项在 **Main pass** 注册 `detectHorizontalDragGestures`
-2. 纵向列表在 **Initial pass** 注册 `detectVerticalDragGestures`
-
-垂直滑动时，Initial pass 的纵向检测器先收到事件并消费，横向子项在 Main pass 无事件可收；横向滑动同理。
-
-但实际项目里纯 pass 分离不够。用户斜向滑动时，两个方向的位移都超过阈值，结果两边一起响应，画面抖动。我的解法是加了一层方向锁定：
-
-```kotlin
-Modifier.pointerInput(Unit) {
-    awaitPointerEventScope {
-        val down = awaitFirstDown()
-        var directionLocked = false
-        var lockedAxis: Axis? = null
-        while (true) {
-            val event = awaitPointerEvent()
-            val change = event.changes.firstOrNull() ?: break
-            val delta = change.position - down.position
-            if (!directionLocked && (abs(delta.x) > touchSlop || abs(delta.y) > touchSlop)) {
-                lockedAxis = if (abs(delta.x) > abs(delta.y)) Axis.Horizontal else Axis.Vertical
-                directionLocked = true
-            }
-            if (lockedAxis == Axis.Horizontal) {
-                // 处理横向拖拽
-                change.consume()
-            }
-        }
-    }
-}
-```
-
-思路很直白：**Initial pass 中判断滑动主方向并锁定轴向**，Main pass 按锁定方向分发事件。手指斜向移动也只响应主方向，彻底杜绝抖动。
-
-## Transform 检测的旋转缩放陷阱
-
-`detectTransformGestures` 能同时识别平移、旋转、缩放，方便，但容易踩坑。它通过计算两个触点的位置变化推算变换参数：
-
-```kotlin
-suspend fun PointerInputScope.detectTransformGestures(
-    panZoomLock: Boolean = false,
-    onGesture: (centroid: Offset, pan: Offset, zoom: Float, rotation: Float) -> Unit
-) {
-    awaitPointerEventScope {
-        while (true) {
-            val event = awaitFirstDown()
-            do {
-                val currentEvent = awaitPointerEvent()
-                val changes = currentEvent.changes
-                if (changes.size >= 2) {
-                    val centroid = changes.calculateCentroid()
-                    // 相对于上一帧计算平移、缩放、旋转增量
-                    onGesture(centroid, pan, zoom, rotation)
+    Box(
+        Modifier
+            .fillMaxWidth()
+            .height(64.dp)
+            .offset { IntOffset(offsetPx.roundToInt(), 0) }
+            .background(Color.LightGray)
+            .pointerInput(Unit) {
+                detectHorizontalDragGestures { change, dragAmount ->
+                    // 已越过 touch slop，声明横向 delta 的归属。
+                    change.consume()
+                    offsetPx = (offsetPx + dragAmount).coerceIn(-maxOffsetPx, maxOffsetPx)
                 }
-            } while (changes.any { it.pressed })
-        }
-    }
+            }
+    )
 }
 ```
 
-问题出在单指切换：用户双指缩放后抬起一根手指，剩余的单指被当成平移处理，画面突然跳动。修复方式是在 `onGesture` 回调中根据触点数量过滤：
+该例现在会在 `-192px..192px` 范围内移动条目；产品应按操作按钮宽度和布局密度定义边界，而不是把 192 当成通用值。状态应由滑动条目自身持有，向外只提交最终动作，不要每一帧都修改整个页面的状态。
+
+## Pointer pass 与消费到底做了什么
+
+按下时 Compose 做命中测试，并在本次手势剩余期间保留这条命中链（hover 是例外）。事件依次经历 `Initial`、`Main`、`Final`：`Initial` 中父级先访问，`Main` 中子级先访问，`Final` 让祖先在子级处理后作出反应。
+
+消费是协作信号。需要独占时，先检查别的处理器是否已消费；确认手势后再消费自己拥有的部分。抢先消费 Down 会破坏点击、长按、选择和无障碍协作。埋点一类旁观者可用 `awaitFirstDown(requireUnconsumed = false)` 观察已消费的 Down，但“看见”不等于“拥有”。
+
+因此，不要把“父级在 Initial 处理纵向、子级在 Main 处理横向”当作通用嵌套滚动方案。它会绕开内建的 fling、overscroll、touch slop 和无障碍行为。仅当交互确实自定义时再这样做，并测试斜向拖拽、取消、鼠标、手写笔和多指。
+
+## 嵌套滚动是 delta 协商
+
+`LazyColumn`、`verticalScroll`、`scrollable`、`draggable` 会在适用时参与嵌套滚动。确有父子滚动策略（例如折叠标题栏）时，把 `NestedScrollConnection` 挂在父级，并且只返回父级实际消费的距离；不要为了阻止子级而凭空返回一个值。
 
 ```kotlin
-onGesture = { centroid, pan, zoom, rotation ->
-    if (changes.size >= 2) {
-        // 双指：执行缩放旋转
-        scale *= zoom
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.input.nestedscroll.NestedScrollConnection
+import androidx.compose.ui.input.nestedscroll.NestedScrollSource
+import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.unit.Offset
+
+private object ObserveOnlyConnection : NestedScrollConnection {
+    override fun onPreScroll(available: Offset, source: NestedScrollSource): Offset = Offset.Zero
+}
+
+@Composable
+fun Feed(items: List<String>) {
+    Column(Modifier.fillMaxSize().nestedScroll(ObserveOnlyConnection)) {
+        LazyColumn { items(items, key = { it }) { SwipeActionRow() } }
     }
-    // 无论几指都执行平移
-    offset += pan
 }
 ```
 
-## 项目中的几点经验
+折叠标题栏应当夹住自己的 offset，在 `onPreScroll`/`onPostScroll` 中只返回夹住后真实占用的差值，并补齐对应 fling 回调。若列表纵向、条目横向，先依赖默认 slop 和消费行为；只在可复现的斜向拖拽缺陷上增加方向锁。
 
-三个项目迭代下来的感受：
+## 缩放旋转需要明确坐标规则
 
-- **事件消费时机要精确**。不消费→嵌套冲突；过早消费→父组件无法协同。在 `onDragStart` 回调中消费比 `awaitFirstDown` 阶段稳妥得多，因为此时方向已经确定。
-- **惯性动画用 `velocity` 参数，别自己算**。`detectDragGestures` 结束时的 `onDragEnd` 回调自带速度估算，配合 Compose 的 `animateDecay`，效果远好于手写的衰减曲线。我在一个图片浏览组件上把手动衰减换成 `animateDecay` 后，滑动跟手性提升明显。
-- **复杂手势优先组合而非叠加**。不要在一个 `pointerInput` 块里塞多个 `detectXxx`。用 `Modifier.pointerInput` 链式挂载多个独立的手势检测器，职责分离后调试和复用都轻松很多。修改某个手势行为时不会误伤其他逻辑，这是模块化原则在 Compose 手势层的直接应用。
+`detectTransformGestures` 给出 centroid、pan、zoom、rotation 的增量。缩放和旋转要围绕 centroid 应用，并限制 scale、translation 的范围。若“只允许双指缩放”是产品规则，不要假设回调具有稳定的指针数契约；改用 `awaitPointerEventScope` 检查活动触点。标准可变换表面优先用 `transformable`。
 
-<!-- seo-internal-links -->
+## 排查顺序
 
-## 延伸阅读
+1. 用 `performTouchInput` 复现，覆盖斜向移动和取消。
+2. 能替换成 `clickable`、`draggable`、`scrollable` 就替换。
+3. 在异常处理器处检查消费状态，不要根据回调是否执行来猜测。
+4. 只有两个滚动容器需分配 delta 或 fling 时才加 `nestedScroll`。
 
-- [返回对应专题：Jetpack Compose](/jetpack-compose/)
-- [Jetpack Compose 重组性能优化：Stability、derivedStateOf 与跳过重组](/blog/jetpack-compose-recomposition-performance/)
-- [Jetpack Compose 原理与高级应用：状态、布局、重组与性能实践](/blog/jetpack-compose-advanced-applications-internals/)
-- [Jetpack Compose Modifier 原理：链式节点、布局绘制与事件处理](/blog/jetpack-compose-modifier-node/)
-- [Jetpack Compose 动画系统：AnimationSpec、弹簧模型与 Transition](/blog/jetpack-compose-animation/)
-<!-- /seo-internal-links -->
+手势的高频状态该在哪一阶段读取，可参阅 [Compose 三阶段](/blog/jetpack-compose-phases-composition-layout-draw/)；信息流还应同时遵守 [LazyColumn 性能](/blog/jetpack-compose-lazycolumn-performance/) 的 item 身份与测量建议。更多入口见 [Jetpack Compose](/jetpack-compose/) 和 [Android 性能](/android-performance/)。
+
+## 官方资料
+
+- [Compose Pointer input](https://developer.android.com/develop/ui/compose/touch-input/pointer-input)
+- [理解手势与事件消费](https://developer.android.com/develop/ui/compose/touch-input/pointer-input/understand-gestures)
+- [Scroll modifiers](https://developer.android.com/develop/ui/compose/touch-input/scroll/scroll-modifiers)

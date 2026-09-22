@@ -1,9 +1,10 @@
 ---
-title: Android Wi-Fi 连接管理全链路深度解析：从 WifiManager 到驱动层
+title: Android Wi-Fi 连接：选择现代 API 与分层排查
 slug: android-wifi-connection-wifimanager-wpa-supplicant
 translationKey: android-wifi-connection-wifimanager-wpa-supplicant
-excerpt: 深入剖析 Android Wi-Fi 连接从应用层 WifiManager 到驱动层 nl80211 的完整链路，涵盖 WifiService 状态机、wpa_supplicant 四次握手、BSSID 黑名单机制及分层排查实践。
+excerpt: 选择正确的 Android Wi-Fi API，处理权限和回调，并从应用策略到系统 Wi-Fi 栈定位连接失败。
 publishDate: '2026-06-09'
+updatedDate: '2026-09-22'
 tags:
 - Android
 - Wi-Fi
@@ -11,183 +12,104 @@ tags:
 - wpa_supplicant
 - 调试
 seo:
-  title: Android Wi-Fi 连接管理全链路深度解析：从 WifiManager 到驱动层
-  description: 从 WifiManager API 到底层驱动，逐层拆解 Android Wi-Fi 连接全链路。深入 wpa_supplicant 状态机、BSSID 黑名单机制及 nl80211 通信原理，提供实用分层排查方法。
+  title: "Android Wi-Fi 连接：现代 API 与分层排查"
+  description: "使用 WifiNetworkSpecifier 或 Wi-Fi 建议 API 完成连接，处理 Android 13 权限，并按层定位 Wi-Fi 故障。"
+  pageType: article
 ---
 
-去年在一个 IoT 项目里，我遇到一个诡异问题：`WifiManager.connect()` 返回成功，但设备一直没连上目标 AP。logcat 里 Wi-Fi 状态在 CONNECTING 和 DISCONNECTED 之间反复横跳，没有任何异常堆栈。排查到一半才发现，问题出在 wpa_supplicant 的 BSSID 黑名单逻辑——上层 API 完全感知不到这个行为。
+对 Android 10+（API 29+）的普通应用，`WifiManager` 已不是任意保存网络的管理器。当前应用需要用户确认、立即连入本地设备热点时，用 `WifiNetworkSpecifier`；希望系统今后自动连接互联网热点时，用 `WifiNetworkSuggestion`。面向 Android 10+ 的应用调用 `WifiManager.setWifiEnabled()` 恒返回 `false`，直接编辑已配置网络也仅限特权应用或设备策略控制器。
 
-这条链路比大多数人想象的深。下面从 API 到驱动，串一遍 Android Wi-Fi 连接管理的全链路。
+这一区分解释了很多“请求成功但应用不能联网”的问题：请求被系统接受，不等于已完成关联、DHCP、网络验证，更不等于默认网络已经切换给当前进程。
 
-## 应用层入口：WifiManager 的异步本质
+## 按用户目标选 API
 
-开发者最熟悉的入口是 `WifiManager`：
+| 目标 | API | 关键边界 |
+| --- | --- | --- |
+| 现在配置摄像头/配件的本地热点 | `WifiNetworkSpecifier` + `ConnectivityManager.requestNetwork()` | Android 10+；用户确认是流程的一部分；请求有作用域 |
+| 提供凭据供未来自动联网 | `WifiNetworkSuggestion` | Android 10+；是否连接由平台选择 |
+| 让用户保存一个网络 | `Settings.ACTION_WIFI_ADD_NETWORKS` | Android 11+；系统界面让用户确认 |
+| 开关 Wi-Fi 或编辑任意已保存网络 | 普通应用不可用 | Android 10+ 的限制 |
 
-```java
-WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
-WifiNetworkSpecifier spec = new WifiNetworkSpecifier.Builder()
-    .setSsid("MyWiFi")
-    .setWpa2Passphrase("password")
-    .build();
-NetworkRequest request = new NetworkRequest.Builder()
-    .addTransportType(NetworkCapabilities.TRANSPORT_WIFI)
-    .setNetworkSpecifier(spec)
-    .build();
-connectivityManager.requestNetwork(request, callback);
+不要拿 `WifiNetworkSpecifier` 实现后台“随时自动连接”。它是一次具体请求，常用于 IoT 配网；Suggestion 同样不保证成功，系统会对候选网络评分，用户也能撤销该应用的建议。
+
+## 权限取决于 API 与系统版本
+
+target Android 13+（API 33+）并管理 Wi-Fi 连接时，应声明并动态申请 `NEARBY_WIFI_DEVICES`，它属于“附近设备”运行时权限组。扫描仍与位置有关：即使在 Android 13+，`WifiManager.startScan()`、`getScanResults()` 仍需要 `ACCESS_FINE_LOCATION`。
+
+```xml
+<!-- AndroidManifest.xml -->
+<uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+<uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+<uses-permission android:name="android.permission.NEARBY_WIFI_DEVICES" />
+<!-- 仅为向后兼容且 Android 13+ 不扫描时使用 maxSdkVersion。 -->
+<uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"
+    android:maxSdkVersion="32" />
 ```
 
-这是 Android 10 引入的推荐方式，通过 `ConnectivityManager` 发起连接请求。老 API `wifiManager.enableNetwork()` + `reconnect()` 虽然还能用，但在多网络场景下行为不可预测——系统可能同时维持蜂窝网络，而不是切换到 Wi-Fi。
+若 Android 13+ 也需要扫描，移除 `maxSdkVersion` 并在使用该功能时申请精确位置。缺少受保护 API 所需权限可能抛出 `SecurityException`；要覆盖拒绝分支，不能把 `null` 当作唯一的拒绝信号。
 
-这个 API 有个容易被忽略的特性：**它是异步的，且不保证结果**。`requestNetwork()` 只是向系统提交了一个"网络偏好"，Wi-Fi 模块是否采纳、何时采纳，上层无法控制。我踩过的坑是：在高密度 AP 环境下，设备可能因为 BSSID 层面的原因拒绝连接，但 `onAvailable()` 回调永远不会触发，也不会报错。
+## 一段完整的请求作用域连接代码
 
-## 系统服务层：WifiService 的调度模型
+`NetworkCallback` 才是结果契约。`onAvailable()` 表示系统提供了满足请求的网络；应使用回调给出的 `Network` 建立 socket，或仅在短暂且用户可见的流程中显式绑定进程。结束时必须注销回调。
 
-应用层的请求经过 Binder IPC 进入 `system_server` 进程中的 `WifiService`。核心实现类 `WifiServiceImpl` 承担了权限校验、状态管理和并发控制：
+```kotlin
+class DeviceSetupController(private val connectivityManager: ConnectivityManager) {
+    private var activeCallback: ConnectivityManager.NetworkCallback? = null
 
-```java
-// frameworks/opt/net/wifi/service/java/com/android/server/wifi/WifiServiceImpl.java
-@Override
-public void connect(String packageName, String featureId, WifiConfiguration config,
-        int netId, IActionListenerWrapper listener) {
-    mWifiPermissionsUtil.enforceCanAccessScanResults(packageName, ...);
-    mWifiThreadRunner.post(() -> {
-        mClientModeImpl.connectNetwork(config, netId);
-        listener.onSuccess();
-    });
+    fun connect(ssid: String, wpa2Passphrase: String) {
+        val isValidWpa2Passphrase = wpa2Passphrase.length in 8..63 &&
+            wpa2Passphrase.all { it.code in 0x20..0x7e }
+        require(isValidWpa2Passphrase) {
+            "WPA2 passphrase must be 8–63 printable ASCII characters"
+        }
+        disconnect() // 一个设置页只保留一个 request。
+        val specifier = WifiNetworkSpecifier.Builder()
+            .setSsid(ssid).setWpa2Passphrase(wpa2Passphrase).build()
+        val request = NetworkRequest.Builder()
+            .addTransportType(NetworkCapabilities.TRANSPORT_WIFI)
+            .setNetworkSpecifier(specifier).build()
+        val callback = object : ConnectivityManager.NetworkCallback() {
+            override fun onAvailable(network: Network) {
+                // 使用 network.socketFactory / network.openConnection 建立本次本地连接。
+            }
+            override fun onUnavailable() { /* 展示重试路径。 */ }
+            override fun onLost(network: Network) { /* 停止设备操作并更新 UI。 */ }
+        }
+        activeCallback = callback
+        connectivityManager.requestNetwork(request, callback)
+    }
+
+    fun disconnect() {
+        activeCallback?.let(connectivityManager::unregisterNetworkCallback)
+        activeCallback = null
+    }
 }
 ```
 
-两个设计要点：
+把 `disconnect()` 放在设置页的 `onStop()`、ViewModel 的 `onCleared()` 或用户明确离开流程的位置；不要紧跟 `requestNetwork()` 立即注销，否则请求会在 `onAvailable()` 前被取消。`WifiManager.getConnectionInfo()` 自 API 31 起已废弃，准确的替代是观察请求回调给出的 `Network`/capabilities，并验证应用自身协议，例如向配件发起 HTTPS 健康检查；Wi-Fi 关联本身无法说明 DHCP、门户认证或目标服务可用。
 
-**一是 `WifiThreadRunner`（即 `WifiHandlerThread`）**。Wi-Fi 相关的所有状态变更都在这个单线程上串行执行，避免了锁竞争。代价是——如果某个操作在 HAL 层阻塞（比如驱动无响应），整个 Wi-Fi 模块都会卡住。我在系统稳定性专项里见过这类问题，表现为 Wi-Fi 开关按钮点击后无任何反应，最终靠 `WifiWatchdog` 超时重启机制恢复。
+## 从应用意图排查到无线栈
 
-**二是 `ClientModeImpl`（旧称 `WifiStateMachine`）**。这是整个 Wi-Fi 模块的心脏，一个标准的层次状态机（Hierarchical State Machine）。关键状态包括：
-
-- `DefaultState`：处理全局消息，如驱动加载、接口销毁
-- `SupplicantStartedState`：wpa_supplicant 进程已启动，等待连接指令
-- `ConnectModeState`：扫描和连接的主状态
-- `L2ConnectedState`：二层链路已建立，等待 DHCP
-- `ObtainingIpState`：正在获取 IP
-
-状态机用 `StateMachine` 框架实现，消息传递依赖 `sendMessage()`。每个状态只处理自己关心的 `what`，其他消息交给父状态，靠父子继承关系自然形成职责链。
-
-## WifiNative 与 SupplicantStaIfaceHal：HIDL 边界
-
-从 Java 层到 native 层的跨越由 `WifiNative` 完成。通过 JNI 调用 `com_android_server_wifi_WifiNative.cpp`，进入 HIDL（Hardware Interface Definition Language）定义的 HAL 接口。
-
-Android 10 之后，Wi-Fi HAL 拆分为多个独立接口：
-
-```
-IWifiChip.hal      → 芯片管理（模式切换、能力查询）
-IWifiStaIface.hal  → STA 模式接口（扫描、连接、漫游）
-ISupplicant.hal    → wpa_supplicant 代理接口
-ISupplicantStaIface.hal → supplicant STA 操作
-```
-
-`SupplicantStaIfaceHal` 封装了与 `ISupplicantStaIface.hal` 的通信。以发起连接为例：
-
-```cpp
-// frameworks/opt/net/wifi/libwifi_system/supplicant_sta_iface_hal.cpp
-SupplicantStatus SupplicantStaIfaceHal::connectToNetwork(
-    const NetworkConfig& config) {
-    sp<ISupplicantStaNetwork> network;
-    // 在 wpa_supplicant 中创建或更新网络配置
-    auto status = addNetwork(config, &network);
-    if (!status.isOk()) return status;
-    // 发起连接
-    return network->select();
-}
-```
-
-HIDL 调用最终通过 `hwservicemanager` 路由到 vendor 分区的 HAL 实现。这条路径上有一个常见的稳定性问题：**HAL 服务进程崩溃会导致上层抛出 `TransactionFailed` 异常**。Google 的做法是引入 `ISupplicantCallback`——当 HAL 异常退出时，通过回调通知上层状态机触发恢复流程。
-
-## wpa_supplicant：连接状态机的灵魂
-
-wpa_supplicant 是 Wi-Fi 连接的核心守护进程，实现了 IEEE 802.11 的 supplicant 协议栈。它通过 **control interface**（Unix domain socket，默认路径 `/data/vendor/misc/wifi/sockets/wpa_ctrl_*`）接收上层指令。
-
-wpa_supplicant 内部维护了一个分层状态机：
-
-```
-DISCONNECTED → SCANNING → ASSOCIATING → ASSOCIATED
-                                  ↓
-                          4-WAY HANDSHAKE
-                                  ↓
-                            COMPLETED
-```
-
-每个状态转换都对应一组 802.11 管理帧的交互。以 WPA2 连接为例，完整流程是：
-
-1. **扫描**：probe request → probe response（或被动接收 beacon）
-2. **认证**：auth request → auth response（802.11 开放系统认证）
-3. **关联**：association request → association response
-4. **四次握手**：ANonce/SNonce 交换，推导 PTK（Pairwise Transient Key）
-5. **组密钥握手**：GTK 分发
-
-BSSID 黑名单机制是这里最容易踩的坑。如果驱动层连续多次关联失败（`max_assoc_failures`，默认值通常是 3），wpa_supplicant 会将该 BSSID 加入黑名单，在一定时间内（`bssid_ignore_timeout`，默认 60 秒）跳过这个 AP。这就是我开头遇到问题的根因——上层 API 只知道"没连上"，看不到黑名单逻辑。
-
-查看黑名单状态：
+线上应用先记录 `NetworkCallback` 时间线和异常。可调试设备或平台构建环境中，再逐层向下查看：
 
 ```bash
-adb shell wpa_cli -i wlan0 blacklist
+adb shell dumpsys wifi
+adb shell dumpsys connectivity
+adb logcat -b all | grep -iE 'Wifi|wpa_supplicant|ConnectivityService'
 ```
 
-清空黑名单：
+结果可这样解释：
 
-```bash
-adb shell wpa_cli -i wlan0 blacklist clear
-```
+1. `onUnavailable()` 通常先指向请求约束、权限拒绝、用户拒绝或找不到匹配 AP，不能直接归因于驱动。
+2. 网络已 `onAvailable()` 但连不上本地服务，优先查 IP/DNS/路由或设备协议；用 `network.socketFactory` 测试，避免默认网络掩盖问题。
+3. `dumpsys wifi`/平台日志反复出现关联或认证失败，再交给 OEM 或系统镜像侧检查。Framework、HAL、`wpa_supplicant`、`cfg80211`/`nl80211` 与厂商驱动都参与其中，但具体状态机和 shell 工具会随版本、OEM 而变。
 
-## 驱动层：nl80211 与内核交互
+不要让终端用户运行 `wpa_cli`：它在量产设备上通常不可用或受权限限制，是平台工程工具而非应用层成功判据。同样，BSSID 避让/黑名单是实现与版本相关的行为，必须先留存系统日志再判断原因。
 
-wpa_supplicant 通过 **nl80211**（Netlink 协议族）与内核中的 cfg80211/mac80211 框架通信。这是一条基于 Netlink socket 的消息通道，每条 nl80211 命令对应一个 802.11 操作：
+## 官方资料与延伸阅读
 
-```c
-// 发起扫描：wpa_supplicant 构造 NL80211_CMD_TRIGGER_SCAN
-struct nl_msg *msg = nl80211_drv_msg(drv, 0, NL80211_CMD_TRIGGER_SCAN);
-nla_put(msg, NL80211_ATTR_IFINDEX, drv->ifindex);
-// ... 填充扫描参数
-nl80211_send(drv, msg);  // 通过 netlink socket 发送到内核
-```
-
-内核收到命令后，调用无线网卡驱动的 `ieee80211_ops` 回调，最终操作硬件寄存器完成射频操作。从应用层 `requestNetwork()` 到驱动层寄存器写入，这条链路经过了 **7 个进程边界**（App → system_server → HAL daemon → wpa_supplicant → Kernel → Driver），任何一个环节的异常都会导致连接失败。
-
-## 排查工具箱
-
-在实际问题排查中，我通常会按以下层次定位：
-
-**第一层：确认状态机卡在哪里**
-
-```bash
-adb shell dumpsys wifi | grep -A 10 "ClientModeImpl"
-```
-
-这条命令输出当前状态、最近的消息历史和 supplicant 连接状态。如果发现状态机长期停在 `SupplicantStartedState` 不往下走，大概率是 wpa_supplicant 本身有问题。
-
-**第二层：直接跟 wpa_supplicant 对话**
-
-```bash
-adb shell wpa_cli -i wlan0 status       # 查看当前连接状态
-adb shell wpa_cli -i wlan0 list_networks # 查看已保存网络
-adb shell wpa_cli -i wlan0 scan_results  # 查看扫描结果
-```
-
-`wpa_cli` 绕过 Java 层和 HAL 层，直接操作 wpa_supplicant。如果 `wpa_cli` 能正常发起连接而应用层不行，问题锁定在上层；反之则是 native 层或驱动的问题。
-
-**第三层：抓取 supplicant 日志**
-
-开启调试日志后，wpa_supplicant 会输出每次状态转换、每帧的交互细节和控制命令的响应：
-
-```bash
-adb shell wpa_cli -i wlan0 log_level DEBUG
-adb logcat -s wpa_supplicant
-```
-
-四次握手过程中任何一个步骤失败，日志里都会有明确的 `WPA: 4-Way Handshake failed` 和对应的 reason code。
-
-## 实践建议
-
-Wi-Fi 连接问题排查，不要从 logcat 乱翻。先确认状态机位置，再用 `wpa_cli` 排除 native 层问题，最后才看驱动日志。这条分层排查路径帮我节省了大量时间。
-
-做 Wi-Fi 相关的 SDK 开发时，用 `ConnectivityManager` 的 `NetworkCallback` 而不是轮询 `WifiManager.getConnectionInfo()`。后者返回的是缓存状态，在快速漫游或多网络切换场景下会滞后 500ms 以上，不够可靠。
-
-如果需要在连接前预筛选 AP，直接在 `WifiNetworkSpecifier` 里指定 BSSID 比连接后再做漫游调整更稳定——少一次重关联，就少一次被黑名单机制拦截的风险。
+- [申请访问附近 Wi-Fi 设备的权限](https://developer.android.com/develop/connectivity/wifi/wifi-permissions?hl=zh-CN)：API 33 权限边界与扫描例外。
+- [Wi-Fi Suggestion API](https://developer.android.com/develop/connectivity/wifi/wifi-suggest)：系统选择、未来连接的使用场景。
+- [Android 10 隐私权变更](https://developer.android.com/about/versions/10/privacy/changes?hl=zh-CN)：`setWifiEnabled()` 与已配置网络限制。
+- [Android 高级网络编程与优化](/blog/android-advanced-network-programming-optimization-part3/)：建立连接后的重试与可观测性。
+- [Android BLE GATT 扫描与长连接](/blog/android-ble-gatt-scanning-long-connection/)：配件同时提供 Wi-Fi/Bluetooth 配网时的相关方案。

@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # local agent/session state
 .omc/
+
+# Python audit and notification caches
+__pycache__/

@@ -5,6 +5,7 @@ translationKey: android-startup-metrics
 slug: android-startup-metrics
 excerpt: A practical guide to Android startup metrics, phase breakdowns, Perfetto trace signals, and production governance priorities.
 publishDate: '2026-06-01'
+updatedDate: '2026-09-22'
 tags:
 - Android
 - Startup Optimization
@@ -15,6 +16,8 @@ seo:
   pageType: article
 ---
 
+The essential distinction is that TTID and TTFD are different metrics, and neither is the same as a product-specific “first useful content” event. TTID is the framework's automatically reported time to the first displayed frame. TTFD is available only when the app calls `reportFullyDrawn()` after the screen is truly ready for interaction. Keep both separate from custom product milestones before deciding that an optimization helped.
+
 Do not start startup optimization by changing code. Start by defining the metrics. Otherwise it is easy to move time from one phase to another, make the report look faster, and still leave the user's first screen unchanged.
 
 I prefer to think of Android startup as a chain: process creation, application initialization, first Activity creation, first-frame rendering, and first useful content becoming interactive. Each phase has its own observation points. You cannot understand startup by looking only at `Application.onCreate()`.
@@ -23,14 +26,46 @@ I prefer to think of Android startup as a chain: process creation, application i
 
 A cold start begins when the process does not exist and runs from Launcher click to first-screen display. It includes Zygote fork, app process initialization, class loading, resource loading, main Activity creation, and first-frame rendering. A warm start usually reuses an existing process. A hot start may only bring an existing Activity back to the foreground. If you mix all three in one metric, your optimization conclusions will be distorted.
 
-At minimum, production metrics should split startup into four categories:
+At minimum, production metrics should separate these concepts:
 
 - **Process start**: From click to the app process becoming runnable. This is affected by system load, fork cost, package size, and cold-page loading.
 - **Application init**: Total time spent in `attachBaseContext`, `ContentProvider` initialization, and `Application.onCreate()`.
-- **First frame**: The first `Choreographer#doFrame` after Activity creation completes and submits to the rendering pipeline.
-- **First useful content**: The time when the user can actually see the core content. For many products, this matters more than the platform first-frame metric.
+- **TTID (time to initial display)**: startup through the first displayed UI frame. For a cold start it includes process initialization; for cold and warm starts it includes Activity creation and first draw. The framework reports it automatically, including through Logcat's `Displayed` value.
+- **TTFD (time to full display)**: startup through the point at which the app declares its full interactive content ready. It depends on `reportFullyDrawn()`; without that call, there is no comparable TTFD signal.
+- **Product first-useful-content**: for example, primary data and imagery being usable. This is custom instrumentation and must not be used to infer TTID or TTFD.
 
 Google Play Console, Firebase Performance, and custom instrumentation do not define startup time in exactly the same way. Before starting a focused effort, write down the measurement definition. All later optimizations and retrospectives should use the same definition.
+
+### When to call `reportFullyDrawn()`
+
+Call it once when the primary content is visible, the screen is interactive, and no asynchronous result that determines the initial experience remains pending. Do not put it in `onCreate()`, in the first-frame callback, or behind unrelated work that might never finish. The first two make TTFD look like TTID; the last includes work that is not startup.
+
+```kotlin
+import android.os.Bundle
+import androidx.activity.ComponentActivity
+
+class HomeActivity : ComponentActivity() {
+    private var firstContentReported = false
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val reporter = fullyDrawnReporter
+        reporter.addReporter()
+        setContentView(R.layout.activity_home)
+
+        viewModel.homeUiState.observe(this) { state ->
+            render(state)
+            if (state.hasPrimaryContent && !state.isLoading && !firstContentReported) {
+                firstContentReported = true
+                // ComponentActivity schedules reporting through its draw executor.
+                reporter.removeReporter()
+            }
+        }
+    }
+}
+```
+
+`render()` only changes the view tree; it does not prove pixels have been drawn. `FullyDrawnReporter` calls `Activity.reportFullyDrawn()` once all reporter locks are released, through ComponentActivity’s draw-aware reporting executor. The boolean prevents repeated scheduling from later emissions. Define primary content before adding the lock, and ensure every valid terminal state eventually releases it; otherwise TTFD becomes missing rather than accurate.
 
 ## What to inspect first in Perfetto
 
@@ -45,6 +80,29 @@ On the main thread, focus on these signals:
 - Whether the path from `Choreographer#doFrame` to `DrawFrame` is blocked by layout, image decoding, or synchronous Binder calls.
 
 If the main thread is waiting, keep following the reason. Is a Binder transaction stuck in a system service? Is it blocked by `monitor contention`? Is CPU saturated by background threads? The biggest startup-analysis mistake is seeing that the main thread is "slow" and not tracing the underlying cause.
+
+## Verify with Macrobenchmark, not a timed debug launch
+
+Run Macrobenchmark against a release-like target variant: it must be **non-debuggable**, `profileable`, and preferably minified. The benchmark test module may be debuggable; the app being measured must not be. Do not treat a one-off debug launch while attached to an IDE as a release conclusion. Keep startup mode, device state, and data fixed, and distinguish cold from warm startup. This is a minimal cold-start benchmark skeleton:
+
+```kotlin
+@RunWith(AndroidJUnit4::class)
+class StartupBenchmark {
+    @get:Rule val benchmarkRule = MacrobenchmarkRule()
+
+    @Test fun startup() = benchmarkRule.measureRepeated(
+        packageName = "com.example.app",
+        metrics = listOf(StartupTimingMetric()),
+        iterations = 10,
+        startupMode = StartupMode.COLD
+    ) {
+        pressHome()
+        startActivityAndWait()
+    }
+}
+```
+
+This code was not run for this article and no timing improvement is claimed. Interpret results alongside device thermal state, install state, and build type; do not compare values collected under different conditions.
 
 ## Four common startup bottlenecks
 
@@ -67,7 +125,13 @@ A practical release gate is to record startup p95, first-frame p95, `Application
 ## Further reading
 
 - [Back to topic: Android Performance Optimization](/en/android-performance/)
-- [Android startup optimization: from Zygote fork to first frame with Perfetto](/blog/android-cold-start-zygote-systrace/)
-- [Android app startup optimization program: metrics, flow, tools, and governance](/blog/app-startup-optimization/)
+- [Android startup optimization: from Zygote fork to first frame with Perfetto](/en/blog/android-cold-start-zygote-systrace/)
+- [Android app startup optimization program: metrics, flow, tools, and governance](/en/blog/app-startup-optimization/)
 - [Android Perfetto: trace capture, track analysis, and performance debugging](/en/blog/android-perfetto/)
 <!-- /seo-internal-links -->
+
+## Official references
+
+- [App startup time and `reportFullyDrawn`](https://developer.android.com/topic/performance/vitals/launch-time)
+- [`FullyDrawnReporter`](https://developer.android.com/reference/androidx/activity/FullyDrawnReporter)
+- [Write a Macrobenchmark](https://developer.android.com/topic/performance/benchmarking/macrobenchmark-overview)

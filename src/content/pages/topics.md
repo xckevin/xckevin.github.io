@@ -7,6 +7,12 @@ seo:
 
 这里是本站的技术专题入口。内容按照常见工程问题和学习路径重新组织，方便从一个问题进入一组深度文章，而不是在归档里逐篇查找。
 
+## 从正在解决的问题开始
+
+- [系统兼容与适配](/android-16-adaptation/)：检查 16 KB 原生库、权限变更、Wi-Fi 连接与字体显示差异。
+- [性能与稳定性](/android-performance/)：定义启动指标、抓取 Perfetto trace，再定位卡顿或 WebView 渲染进程退出。
+- [Compose 实现与排查](/jetpack-compose/)：从状态读取与渲染阶段，进入 LazyColumn 性能和手势冲突。
+
 ## 专题列表
 
 - [Android Framework 原理](/android-framework/)：Binder、系统服务、进程线程、权限、ContentProvider。

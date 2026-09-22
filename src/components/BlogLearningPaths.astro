@@ -1,0 +1,33 @@
+---
+type Props = { locale: 'zh' | 'en' };
+const { locale } = Astro.props;
+const english = locale === 'en';
+const prefix = english ? '/en' : '';
+const paths = english ? [
+    ['android-16-adaptation', 'Platform compatibility', '16 KB libraries, permissions, Wi-Fi and text rendering.'],
+    ['android-performance', 'Performance and stability', 'Startup metrics, Perfetto traces and WebView recovery.'],
+    ['jetpack-compose', 'Compose debugging', 'Rendering phases, LazyColumn performance and gestures.']
+] : [
+    ['android-16-adaptation', '系统兼容与适配', '16 KB 原生库、权限、Wi-Fi 与字体显示。'],
+    ['android-performance', '性能与稳定性', '启动指标、Perfetto 排查与 WebView 恢复。'],
+    ['jetpack-compose', 'Compose 实现与排查', '渲染阶段、LazyColumn 性能与手势冲突。']
+];
+---
+
+<section aria-labelledby="learning-paths-title" class="border-main mb-12 border-b border-dashed pb-8 sm:mb-16">
+    <p class="mb-5 text-sm leading-relaxed">
+        {english
+            ? 'Practical Android guides with version boundaries, debugging steps and links to platform documentation. Start with a problem below, or browse the latest articles.'
+            : '围绕 Android 开发中的具体问题，整理版本边界、排查步骤与官方资料。先选择一条阅读路线，或继续浏览最新文章。'}
+    </p>
+    <h2 id="learning-paths-title" class="mb-4 text-lg font-medium">{english ? 'Choose a reading path' : '选择阅读路线'}</h2>
+    <ul class="space-y-4">
+        {paths.map(([slug, title, description]) => (
+            <li>
+                <a class="font-medium underline underline-offset-4" href={`${prefix}/${slug}/`}>{title}</a>
+                <p class="mt-1 text-sm leading-relaxed">{description}</p>
+            </li>
+        ))}
+    </ul>
+    <p class="mt-5 text-sm"><a class="underline underline-offset-4" href={`${prefix}/topics/`}>{english ? 'Browse all topics' : '查看全部专题'}</a></p>
+</section>

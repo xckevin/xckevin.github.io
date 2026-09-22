@@ -24,6 +24,7 @@ Android Gradle 的常见问题通常不是“看一篇概念介绍”，而是�
 
 ## 核心阅读
 
+- [AGP 9 R8 规则变化导致 WorkManager 日志上报失败](/blog/agp-9-r8-workmanager-inputmerger-constructor/)
 - [移动端工程化专题](/android-engineering/)
 - [Android Gradle 构建慢怎么分析？从配置阶段到任务执行](/blog/android-gradle-build-slow/)
 - [Android Gradle 构建提速：Configuration Cache、KSP 与任务治理](/blog/android-gradle-build-speed-configuration-cache-ksp/)

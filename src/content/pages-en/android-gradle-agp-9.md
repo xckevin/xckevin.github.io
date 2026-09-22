@@ -30,6 +30,7 @@ The goal is to make build speed and build reliability measurable engineering con
 
 ## Core Reading
 
+- [AGP 9 R8 keep rules: fixing a WorkManager InputMerger upload failure](/en/blog/agp-9-r8-workmanager-inputmerger-constructor/)
 - [Mobile Engineering](/en/android-engineering/)
 - [How to analyze slow Android Gradle builds: from configuration time to task execution](/blog/android-gradle-build-slow/)
 - [Android Gradle build optimization: Configuration Cache, KSP, and task governance](/blog/android-gradle-build-speed-configuration-cache-ksp/)

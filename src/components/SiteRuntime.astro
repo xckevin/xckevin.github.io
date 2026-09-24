@@ -1,0 +1,44 @@
+---
+interface Props {
+    canonicalOrigin: string;
+}
+
+const { canonicalOrigin } = Astro.props;
+---
+
+<script is:inline id="site-runtime" define:vars={{ canonicalOrigin }}>
+    (() => {
+        const currentURL = new URL(window.location.href);
+        const canonicalURL = new URL(canonicalOrigin);
+
+        if (currentURL.origin !== canonicalOrigin) {
+            // Redirect public aliases, but leave local and deployment previews untracked.
+            const publicHostnames = [canonicalURL.hostname, `www.${canonicalURL.hostname}`, 'xckevin.github.io'];
+            if (publicHostnames.includes(currentURL.hostname)) {
+                currentURL.protocol = canonicalURL.protocol;
+                currentURL.hostname = canonicalURL.hostname;
+                currentURL.port = canonicalURL.port;
+                window.location.replace(currentURL.toString());
+            }
+            return;
+        }
+
+        // ClientRouter can revisit inline scripts; initialize Google tag only once.
+        if (window.__siteAnalyticsInitialized) return;
+        window.__siteAnalyticsInitialized = true;
+        window.dataLayer = window.dataLayer || [];
+        window.gtag =
+            window.gtag ||
+            function () {
+                window.dataLayer.push(arguments);
+            };
+        window.gtag('js', new Date());
+        window.gtag('config', 'G-VFX5Y8E9RR');
+
+        // Load the tag only after the origin check. Enhanced measurement handles history changes.
+        const tag = document.createElement('script');
+        tag.async = true;
+        tag.src = 'https://www.googletagmanager.com/gtag/js?id=G-VFX5Y8E9RR';
+        document.head.appendChild(tag);
+    })();
+</script>

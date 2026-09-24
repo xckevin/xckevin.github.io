@@ -85,6 +85,9 @@ jobs:
             - name: Validate rendered SEO and internal links
               run: python3 scripts/audit-seo.py dist --strict
               working-directory: ${{ env.BUILD_PATH }}
+            - name: Validate analytics and canonical redirects
+              run: node --test scripts/test-site-analytics.mjs
+              working-directory: ${{ env.BUILD_PATH }}
             - name: Upload artifact
               uses: actions/upload-pages-artifact@v3
               with:

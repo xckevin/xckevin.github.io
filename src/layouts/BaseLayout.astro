@@ -4,6 +4,7 @@ import BaseHead, { type Props as HeadProps } from '../components/BaseHead.astro'
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import Nav from '../components/Nav.astro';
+import SiteRuntime from '../components/SiteRuntime.astro';
 import siteConfig from '../data/site-config';
 import type { Locale } from '../types';
 import { getAlternateLocale, getLocaleFromPathname, getLocaleHome, localeConfigs } from '../utils/i18n';
@@ -12,7 +13,7 @@ export type Props = HeadProps & { showHeader?: boolean; locale?: Locale; languag
 
 const detectedLocale = getLocaleFromPathname(Astro.url.pathname);
 const { showHeader = true, locale = detectedLocale, languageSwitchHref, ...head } = Astro.props;
-const canonicalHostname = new URL(siteConfig.website).hostname;
+const canonicalOrigin = new URL(siteConfig.website).origin;
 const alternateLocale = getAlternateLocale(locale);
 const switchHref = languageSwitchHref ?? getLocaleHome(alternateLocale);
 const switchLabel = localeConfigs[alternateLocale].label;
@@ -21,33 +22,7 @@ const switchLabel = localeConfigs[alternateLocale].label;
 <!doctype html>
 <html lang={localeConfigs[locale].code} class="wrap-break-words antialiased">
     <head>
-        {
-            import.meta.env.PROD && (
-                <script is:inline define:vars={{ canonicalHostname }}>
-                    {`
-                        const currentURL = new URL(window.location.href);
-                        const localHostnames = ['localhost', '127.0.0.1', '::1'];
-                        const isLocalPreview = localHostnames.includes(currentURL.hostname);
-                        if (!isLocalPreview && (currentURL.hostname !== canonicalHostname || currentURL.protocol !== 'https:')) {
-                            currentURL.protocol = 'https:';
-                            currentURL.hostname = canonicalHostname;
-                            currentURL.port = '';
-                            window.location.replace(currentURL.toString());
-                        }
-                    `}
-                </script>
-            )
-        }
-        <!-- Google tag (gtag.js) -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-VFX5Y8E9RR"></script>
-        <script is:inline>
-            window.dataLayer = window.dataLayer || [];
-            function gtag() {
-                dataLayer.push(arguments);
-            }
-            gtag('js', new Date());
-            gtag('config', 'G-VFX5Y8E9RR');
-        </script>
+        {import.meta.env.PROD && <SiteRuntime canonicalOrigin={canonicalOrigin} />}
         <link rel="sitemap" href="/sitemap-index.xml" />
         <BaseHead {...head} locale={locale} />
         <script>
@@ -59,7 +34,6 @@ const switchLabel = localeConfigs[alternateLocale].label;
         <script is:inline src="/theme-toggle.js"></script>
     </head>
     <body class="bg-main text-main">
-        {import.meta.env.PROD && <script is:inline src="/canonical-redirect.js" />}
         <div class="flex min-h-screen flex-col px-4 md:px-8">
             <Nav locale={locale} languageSwitchHref={switchHref} languageSwitchLabel={switchLabel} />
             {showHeader && <Header locale={locale} />}

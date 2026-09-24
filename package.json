@@ -8,6 +8,7 @@
         "start": "astro dev",
         "build": "astro build",
         "seo:check": "python3 scripts/audit-seo.py dist --strict",
+        "analytics:check": "node --test scripts/test-site-analytics.mjs",
         "preview": "astro preview",
         "astro": "astro"
     },

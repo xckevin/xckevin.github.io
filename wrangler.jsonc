@@ -1,0 +1,11 @@
+{
+    // Deploy the static build as-is. Auto-config would install an Astro adapter
+    // and rebuild with a different redirect/output layout.
+    "name": "xckevin-homepage",
+    "compatibility_date": "2026-09-24",
+    "assets": {
+        "directory": "./dist",
+        "not_found_handling": "404-page"
+    }
+    // Custom domains remain managed in the Cloudflare dashboard.
+}
